@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>RunLoop on liupengkun</title>
-    <link>http://liupengkun1993.github.io/tags/runloop/</link>
+    <link>https://liupengkun1993.github.io/tags/runloop/</link>
     <description>Recent content in RunLoop on liupengkun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>liupengkun</copyright>
-    <lastBuildDate>Sat, 22 Oct 2016 15:43:48 +0800</lastBuildDate><atom:link href="http://liupengkun1993.github.io/tags/runloop/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Oct 2016 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/runloop/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>iOS开发之 - RunLoop</title>
-      <link>http://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-runloop/</link>
+      <link>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-runloop/</link>
       <pubDate>Sat, 22 Oct 2016 15:43:48 +0800</pubDate>
       
-      <guid>http://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-runloop/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-runloop/</guid>
       <description>以下是 RunLoop 相关的内容，前半部分是理论知识，后半部分是代码。。。 一、RunLoop 基础知识 1.1 RunLoop 简介 一般来说，一个线程只能执行一个任务，执行完就会</description>
     </item>
     

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Swift on liupengkun</title>
-    <link>http://liupengkun1993.github.io/tags/swift/</link>
+    <link>https://liupengkun1993.github.io/tags/swift/</link>
     <description>Recent content in Swift on liupengkun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>liupengkun</copyright>
-    <lastBuildDate>Tue, 22 Aug 2017 15:43:48 +0800</lastBuildDate><atom:link href="http://liupengkun1993.github.io/tags/swift/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Aug 2017 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/swift/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>iOS 开发 - Swift 全面系统的学习</title>
-      <link>http://liupengkun1993.github.io/post/ios/ios-%E5%BC%80%E5%8F%91-swift-%E5%85%A8%E9%9D%A2%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://liupengkun1993.github.io/post/ios/ios-%E5%BC%80%E5%8F%91-swift-%E5%85%A8%E9%9D%A2%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Tue, 22 Aug 2017 15:43:48 +0800</pubDate>
       
-      <guid>http://liupengkun1993.github.io/post/ios/ios-%E5%BC%80%E5%8F%91-swift-%E5%85%A8%E9%9D%A2%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/ios-%E5%BC%80%E5%8F%91-swift-%E5%85%A8%E9%9D%A2%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AD%A6%E4%B9%A0/</guid>
       <description>最近项目不算紧，于是就学了学 Swift ，看了一大神写的项目https://github.com/hrscy/DanTang，很受益，感谢开源！另外自</description>
     </item>
     

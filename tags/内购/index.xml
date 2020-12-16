@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>内购 on liupengkun</title>
-    <link>http://liupengkun1993.github.io/tags/%E5%86%85%E8%B4%AD/</link>
+    <link>https://liupengkun1993.github.io/tags/%E5%86%85%E8%B4%AD/</link>
     <description>Recent content in 内购 on liupengkun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>liupengkun</copyright>
-    <lastBuildDate>Mon, 24 Oct 2016 15:43:48 +0800</lastBuildDate><atom:link href="http://liupengkun1993.github.io/tags/%E5%86%85%E8%B4%AD/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Oct 2016 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/%E5%86%85%E8%B4%AD/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>iOS开发之 - 内购</title>
-      <link>http://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%86%85%E8%B4%AD/</link>
+      <link>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%86%85%E8%B4%AD/</link>
       <pubDate>Mon, 24 Oct 2016 15:43:48 +0800</pubDate>
       
-      <guid>http://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%86%85%E8%B4%AD/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%86%85%E8%B4%AD/</guid>
       <description>电商之类的 app 大多用的都是第三方支付（支付宝微信等支付），但是在某种特殊情况之下，我们却不得不使用内购。比如商品是在本 app 中使用和消耗的（游戏币</description>
     </item>
     

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>liupengkun</title>
-    <link>http://liupengkun1993.github.io/</link>
+    <link>https://liupengkun1993.github.io/</link>
     <description>Recent content on liupengkun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>liupengkun</copyright>
     <lastBuildDate>Tue, 07 May 2019 15:43:48 +0800</lastBuildDate>
     
-        <atom:link href="http://liupengkun1993.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://liupengkun1993.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>关于</title>
-      <link>http://liupengkun1993.github.io/about/</link>
+      <link>https://liupengkun1993.github.io/about/</link>
       <pubDate>Sun, 20 Aug 2017 21:38:52 +0800</pubDate>
       
-      <guid>http://liupengkun1993.github.io/about/</guid>
+      <guid>https://liupengkun1993.github.io/about/</guid>
       
         <description>&lt;h1 id=&#34;关于我&#34;&gt;关于我&lt;/h1&gt;
 &lt;h3 id=&#34;刘朋坤&#34;&gt;刘朋坤&lt;/h3&gt;
@@ -40,10 +40,10 @@
     
     <item>
       <title>iOS 奇技淫巧总结</title>
-      <link>http://liupengkun1993.github.io/post/ios/ios-%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7%E6%80%BB%E7%BB%93/</link>
+      <link>https://liupengkun1993.github.io/post/ios/ios-%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7%E6%80%BB%E7%BB%93/</link>
       <pubDate>Tue, 07 May 2019 15:43:48 +0800</pubDate>
       
-      <guid>http://liupengkun1993.github.io/post/ios/ios-%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7%E6%80%BB%E7%BB%93/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/ios-%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7%E6%80%BB%E7%BB%93/</guid>
       
         <description>&lt;ul&gt;
 &lt;li&gt;数组去重&lt;/li&gt;
@@ -590,10 +590,10 @@
     
     <item>
       <title>iOS 动画 - UIView Animation</title>
-      <link>http://liupengkun1993.github.io/post/ios/ios-%E5%8A%A8%E7%94%BB-uiview-animation/</link>
+      <link>https://liupengkun1993.github.io/post/ios/ios-%E5%8A%A8%E7%94%BB-uiview-animation/</link>
       <pubDate>Sat, 11 Aug 2018 15:43:48 +0800</pubDate>
       
-      <guid>http://liupengkun1993.github.io/post/ios/ios-%E5%8A%A8%E7%94%BB-uiview-animation/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/ios-%E5%8A%A8%E7%94%BB-uiview-animation/</guid>
       
         <description>&lt;blockquote&gt;
 &lt;p&gt;优美的动画效果能够很大程度上提高 App 的用户体验。这两天玩了不少 App，基本上都是 AppStore 排名 top200 的（免费榜），发现这些 App 的体验都相当好&amp;hellip;&amp;hellip;每一款优秀 App 的背后，都有一个优秀的团队。&lt;/p&gt;
@@ -604,7 +604,7 @@
 &lt;ul&gt;
 &lt;li&gt;以下是改变 Frame Bounds Center 的效果图，只用了一个方法 &lt;code&gt;+ (void)animateWithDuration:(NSTimeInterval)duration animations:(void (^)(void))animations completion:(void (^ __nullable)(BOOL finished))completion&lt;/code&gt;, 在 &lt;code&gt;animations&lt;/code&gt; 及 &lt;code&gt;completion&lt;/code&gt; 的回调里，改变相关属性即可。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/iOS/iOS_Animation/Animation01.gif&#34; alt=&#34;Frame Bounds Center&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_Animation/Animation01.gif&#34; alt=&#34;Frame Bounds Center&#34;&gt;&lt;/p&gt;
 &lt;h4 id=&#34;11-改变-frame-属性-demo&#34;&gt;1.1 改变 frame 属性 demo&lt;/h4&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -692,7 +692,7 @@
 &lt;ul&gt;
 &lt;li&gt;先看效果图：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/iOS/iOS_Animation/Animation02.gif&#34; alt=&#34;Transform&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_Animation/Animation02.gif&#34; alt=&#34;Transform&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Transform 用的也是这个方法 &lt;code&gt;+ (void)animateWithDuration:(NSTimeInterval)duration animations:(void (^)(void))animations completion:(void (^ __nullable)(BOOL finished))completion&lt;/code&gt;， 不同的是在 &lt;code&gt;animations&lt;/code&gt; 及 &lt;code&gt;completion&lt;/code&gt; 的回调里，更改了控件的 &lt;code&gt;transform&lt;/code&gt; 属性，demo 如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -760,7 +760,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;3-transition&#34;&gt;3. Transition&lt;/h3&gt;
 &lt;p&gt;转场动画用的是这个方法，&lt;code&gt;+ (void)transitionWithView:(UIView *)view duration:(NSTimeInterval)duration options:(UIViewAnimationOptions)options animations:(void (^ __nullable)(void))animations completion:(void (^ __nullable)(BOOL finished))completion&lt;/code&gt;，效果图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/iOS/iOS_Animation/Animation03.gif&#34; alt=&#34;Transition&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_Animation/Animation03.gif&#34; alt=&#34;Transition&#34;&gt;&lt;/p&gt;
 &lt;h4 id=&#34;31-left-right-top-bottom-curlup-curldown-转场动画只是-uiviewanimationoptions这个枚举值不同具体代码如下&#34;&gt;3.1 Left, Right, Top, Bottom, CurlUp, CurlDown 转场动画，只是 &lt;code&gt;UIViewAnimationOptions&lt;/code&gt;这个枚举值不同，具体代码如下：&lt;/h4&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -902,7 +902,7 @@
 &lt;ul&gt;
 &lt;li&gt;弹簧效果动画调用的是这个方法，&lt;code&gt;+ (void)animateWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay usingSpringWithDamping:(CGFloat)dampingRatio initialSpringVelocity:(CGFloat)velocity options:(UIViewAnimationOptions)options animations:(void (^)(void))animations completion:(void (^ __nullable)(BOOL finished))completion&lt;/code&gt; 其中 &lt;code&gt;dampingRatio &lt;/code&gt; （阻尼系数）的范围为 0.0f 到 1.0f，数值越小弹簧的振动效果越明显; &lt;code&gt; velocity&lt;/code&gt; （弹性速率） 是形变的速度，velocity 越大，形变越快。效果图：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/iOS/iOS_Animation/Animation04.gif&#34; alt=&#34;Spring&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_Animation/Animation04.gif&#34; alt=&#34;Spring&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;demo&lt;/li&gt;
 &lt;/ul&gt;
@@ -960,7 +960,7 @@
 &lt;ul&gt;
 &lt;li&gt;和改变frame，bounds用的方法一样，在回调里改变 &lt;code&gt;alpha&lt;/code&gt; 属性。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/iOS/iOS_Animation/Animation05.gif&#34; alt=&#34;Alpha&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_Animation/Animation05.gif&#34; alt=&#34;Alpha&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;demo&lt;/li&gt;
 &lt;/ul&gt;
@@ -1001,7 +1001,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;第二个方法有两个参数，&lt;code&gt;frameStartTime &lt;/code&gt; 和 &lt;code&gt;frameDuration &lt;/code&gt;，分别代表 “动画在什么时候开始” 以及 “动画所持续的时间”。效果图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/iOS/iOS_Animation/Animation05.gif&#34; alt=&#34;background&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_Animation/Animation05.gif&#34; alt=&#34;background&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;demo&lt;/li&gt;
 &lt;/ul&gt;
@@ -1072,10 +1072,10 @@
     
     <item>
       <title>刷算法 - 算法练习</title>
-      <link>http://liupengkun1993.github.io/post/%E7%AE%97%E6%B3%95/%E5%88%B7%E7%AE%97%E6%B3%95-%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/</link>
+      <link>https://liupengkun1993.github.io/post/%E7%AE%97%E6%B3%95/%E5%88%B7%E7%AE%97%E6%B3%95-%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/</link>
       <pubDate>Wed, 25 Jul 2018 15:43:48 +0800</pubDate>
       
-      <guid>http://liupengkun1993.github.io/post/%E7%AE%97%E6%B3%95/%E5%88%B7%E7%AE%97%E6%B3%95-%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/</guid>
+      <guid>https://liupengkun1993.github.io/post/%E7%AE%97%E6%B3%95/%E5%88%B7%E7%AE%97%E6%B3%95-%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/</guid>
       
         <description>&lt;blockquote&gt;
 &lt;p&gt;最近断断续续的刷了一些基础算法题. 我们做移动端开发的, 刷算法题有意义吗? 如果对这个问题有疑问, 可以在读这篇文章之前先读下巧神的文章: &lt;a href=&#34;http://blog.devtang.com/2016/12/17/flying-big-phenomenon/&#34;&gt;搞 iOS 的学算法有意义吗？&lt;/a&gt;&lt;/p&gt;
@@ -1299,10 +1299,10 @@
     
     <item>
       <title>iOS 开发中 Runtime 常用的几种方法</title>
-      <link>http://liupengkun1993.github.io/post/ios/ios-%E5%BC%80%E5%8F%91%E4%B8%AD-runtime-%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</link>
+      <link>https://liupengkun1993.github.io/post/ios/ios-%E5%BC%80%E5%8F%91%E4%B8%AD-runtime-%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</link>
       <pubDate>Sun, 15 Jul 2018 15:43:48 +0800</pubDate>
       
-      <guid>http://liupengkun1993.github.io/post/ios/ios-%E5%BC%80%E5%8F%91%E4%B8%AD-runtime-%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/ios-%E5%BC%80%E5%8F%91%E4%B8%AD-runtime-%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</guid>
       
         <description>&lt;blockquote&gt;
 &lt;p&gt;公司项目中用了一些 runtime 相关的知识, 初看时有些蒙, 虽然用的并不多, 但还是想着系统的把 runtime 相关的常用方法整理一下, 自己以后用着方便, 也希望对看到的朋友有所帮助.&lt;/p&gt;
@@ -1390,7 +1390,7 @@
 &lt;li&gt;字典转模型&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;以上八种用法用代码都实现了，文末会贴出代码地址。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/iOS/iOS_Runtime/Runtime01.jpg&#34; alt=&#34;runtime&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_Runtime/Runtime01.jpg&#34; alt=&#34;runtime&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;四代码实现&#34;&gt;四、代码实现&lt;/h2&gt;
 &lt;p&gt;要使用runtime，要先引入头文件&lt;code&gt;#import &amp;lt;objc/runtime.h&amp;gt;&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id=&#34;41-更改属性值&#34;&gt;4.1 更改属性值&lt;/h3&gt;
@@ -1526,7 +1526,7 @@
     &lt;span class=&#34;n&#34;&gt;method_exchangeImplementations&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;oriMethod&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;curMethod&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/iOS/iOS_Runtime/Runtime02.gif&#34; alt=&#34;交换方法的实现&#34;&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_Runtime/Runtime02.gif&#34; alt=&#34;交换方法的实现&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;45-拦截并替换方法&#34;&gt;4.5 拦截并替换方法&lt;/h3&gt;
 &lt;p&gt;这个功能和上面的其实有些类似, 拦截并替换方法可以拦截并替换同一个类的, 也可以在两个类之间进行, 我这里用了两个不同的类, 下面是简单的代码实现.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -1587,7 +1587,7 @@
 &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/iOS/iOS_Runtime/Runtime03.gif&#34; alt=&#34;在方法上增加额外功能&#34;&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_Runtime/Runtime03.gif&#34; alt=&#34;在方法上增加额外功能&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;47-归档解档&#34;&gt;4.7 归档解档&lt;/h3&gt;
 &lt;p&gt;当我们使用 NSCoding 进行归档及解档时, 如果不用 runtime, 那么不管模型里面有多少属性, 我们都需要对其实现一遍 &lt;code&gt;encodeObject&lt;/code&gt; 和 &lt;code&gt;decodeObjectForKey&lt;/code&gt; 方法, 如果模型里面有 10000 个属性, 那么我们就需要写 10000 句&lt;code&gt;encodeObject&lt;/code&gt; 和 &lt;code&gt;decodeObjectForKey&lt;/code&gt; 方法, 这个时候用 runtime, 便可以充分体验其好处(以下只是核心代码, 具体代码请见 demo).&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -1798,10 +1798,10 @@
     
     <item>
       <title>CALayer 及 CALayer 的 contents 系列属性</title>
-      <link>http://liupengkun1993.github.io/post/ios/calayer-%E5%8F%8A-calayer-%E7%9A%84-contents-%E7%B3%BB%E5%88%97%E5%B1%9E%E6%80%A7/</link>
+      <link>https://liupengkun1993.github.io/post/ios/calayer-%E5%8F%8A-calayer-%E7%9A%84-contents-%E7%B3%BB%E5%88%97%E5%B1%9E%E6%80%A7/</link>
       <pubDate>Thu, 28 Jun 2018 15:43:48 +0800</pubDate>
       
-      <guid>http://liupengkun1993.github.io/post/ios/calayer-%E5%8F%8A-calayer-%E7%9A%84-contents-%E7%B3%BB%E5%88%97%E5%B1%9E%E6%80%A7/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/calayer-%E5%8F%8A-calayer-%E7%9A%84-contents-%E7%B3%BB%E5%88%97%E5%B1%9E%E6%80%A7/</guid>
       
         <description>&lt;blockquote&gt;
 &lt;p&gt;对性能比较挑剔的 APP, 我们一般会用轻量级的控件代替重量级的控件, 比如在代码中, 对于一些没有交互事件的 UIView 或者 UIImageView, 我们经常会用 CALayer 来替代两者.&lt;/p&gt;
@@ -1844,7 +1844,7 @@
 &lt;/div&gt;&lt;p&gt;这样我们就在视图上添加了一个红色的 CALayer 了. 上边的代码有一点还需要说下: &lt;strong&gt;与 UIView 不同, CALayer 的 backgroundColor 属性是 CGColorRef 类型, CGColorRef 指向 CGColor, 另外 CGColorRef 不属于 Cocoa 对象, 它是 Core Foundation 类型; 而在 UIColor 里有一个 CGColor 属性, 它返回一个 CGColorRef, 因此我们可以把这个属性直接赋给 CALayer 的 backgroundColor, 即 &lt;code&gt;_redLayer.backgroundColor = [UIColor redColor].CGColor&lt;/code&gt;.&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;contents-属性&#34;&gt;contents 属性&lt;/h3&gt;
 &lt;p&gt;CALayer 有一个 contents 属性，这个属性是 id 类型的。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/iOS/iOS_CALayer/CALayer01.jpeg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_CALayer/CALayer01.jpeg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;理论上来讲, 既然是 id 类型, 那么应该可以接收任何类型的对象, 但实际上并不是如此, 实际上是, 如果我们给 contents 赋的不是 CGImage, 那么图层将会是空白的(我这里试了给 contents 赋 UILabel, 编译并运行成功, 但是并未显示), 我们先用 contents 属性添加图片(CGImage), 代码如下:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -1902,7 +1902,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;与上面说过的 CGColorRef 相似, &lt;strong&gt;我们在这句代码里&lt;code&gt;_imageLayer.contents = CFBridgingRelease(tempImage.CGImage)&lt;/code&gt;, 也要用 UIImage 的 CGImage 赋值, 因为 CGImageRef 是一个指向 CGImage 结构的指针. 另外关于 CFBridgingRelease(), 这里还需要说一下, 由于 ARC 只支持管理 OC 对象, 不支持 Core Foundation 类型, 为了避免内存泄漏以及 double free 引起的程序崩溃, 这里我们用 CFBridgingRelease() 将非 OC 对象转换为 OC 对象, 给予 ARC 管理权(实际上写&lt;code&gt;tempImage.CGImage&lt;/code&gt;的话, Xcode 会直接报错, 我们还可以这样写&lt;code&gt;_imageLayer.contents = (__bridge id _Nullable)(tempImage.CGImage)&lt;/code&gt;).&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;这是运行效果图:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/iOS/iOS_CALayer/CALayer02.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_CALayer/CALayer02.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;这里需要说明, 我们并没有直接用 UIImageView 控件展示图片, 而是通过 CALayer 相关的一些代码, 让图片显示在视图上.&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;contentsgravity-属性&#34;&gt;contentsGravity 属性&lt;/h3&gt;
 &lt;p&gt;不过图片本来是正方形的, 这里明显被拉伸了, 当 UIImageView 被拉伸时, 我们会设置它的 contentMode 属性, 而当 CALayer 展示的图片被拉伸时, 我们可以使用它的 contentsGravity 属性, contentsGravity 是 NSString 类型的, 它有以下一些常量值:&lt;/p&gt;
@@ -1921,18 +1921,18 @@
 &lt;li&gt;kCAGravityResizeAspectFill : 调整内容图像的大小, 使其显示为填充层边界, 同时保持其自然的外观, 这可能导致内容扩展到层边界之外&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;我们使用 kCAGravityResizeAspect, 它的效果等同于枚举 contentMode 里面的 UIViewContentModeScaleAspectFit, 给工程加上这行代码&lt;code&gt;_imageLayer.contentsGravity = kCAGravityResizeAspect&lt;/code&gt;, 为了看的更清晰, 我们另外再加一行代码, 给 _imageLayer 添加一下背景色, &lt;code&gt;_imageLayer.backgroundColor = [UIColor blueColor].CGColor&lt;/code&gt;, 运行看看效果:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/iOS/iOS_CALayer/CALayer03.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_CALayer/CALayer03.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;这样图片就居中显示了,  contentsGravity 的其它属性也可以一一尝试.&lt;/p&gt;
 &lt;h3 id=&#34;contentsrect-属性&#34;&gt;contentsRect 属性&lt;/h3&gt;
 &lt;p&gt;contentsRect 属性也是一个比较好玩的属性, contentsRect 属性默认的大小是 {0, 0, 1, 1}, 我们可以根据需求, 给它设置不同的大小进行图片裁剪或多张图片拼合, 我们在工程里写下这行代码&lt;code&gt;_imageLayer.contentsRect = CGRectMake(0, 0, 0.5, 0.5)&lt;/code&gt;, 图片就被裁剪了, 只显示左上方的四分之一部分, 如下图:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/iOS/iOS_CALayer/CALayer04.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_CALayer/CALayer04.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;我们还可以进行多张图片合成:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/iOS/iOS_CALayer/CALayer05.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_CALayer/CALayer05.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;contentscenter-属性&#34;&gt;contentsCenter 属性&lt;/h3&gt;
 &lt;p&gt;contentsCenter 也是一个 CGRect, 但它和图片显示的位置无关, contentsCenter 默认情况下也是 {0, 0, 1, 1}, 它定义了图层的可拉伸的区域, 比如我们设置 contentsCenter 为 {0.2, 0.2, 0.6, 0.6}, 那么它的效果图大概如下:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/iOS/iOS_CALayer/CALayer06.jpg&#34; alt=&#34;区域 1 垂直水平拉伸; 区域 2 只能水平拉伸; 区域 3 只能垂直拉伸; 区域 4 不拉伸.&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_CALayer/CALayer06.jpg&#34; alt=&#34;区域 1 垂直水平拉伸; 区域 2 只能水平拉伸; 区域 3 只能垂直拉伸; 区域 4 不拉伸.&#34;&gt;&lt;/p&gt;
 &lt;p&gt;简单的演示效果图如下:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/iOS/iOS_CALayer/CALayer07.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_CALayer/CALayer07.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;CALayer 也可以注册代理, CALayerDelegate, 我们也可以在它的代理方法里做一些操作, 我这里简单试用了一下: &lt;a href=&#34;https://github.com/LiuPengKun1993/NNLearn&#34;&gt;一个小 demo: NNLayerTest&lt;/a&gt; .&lt;/p&gt;
 &lt;hr&gt;
 &lt;ul&gt;
@@ -1950,10 +1950,10 @@
     
     <item>
       <title>iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(3)</title>
-      <link>http://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/</link>
+      <link>https://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/</link>
       <pubDate>Wed, 31 Jan 2018 15:43:48 +0800</pubDate>
       
-      <guid>http://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/</guid>
       
         <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;ul&gt;
@@ -2115,7 +2115,7 @@
 &lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;代码截图：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/iOS/iOS_Effective/iOS_Effective03.png&#34; alt=&#34;block 循环引用&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_Effective/iOS_Effective03.png&#34; alt=&#34;block 循环引用&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;解决方法：&lt;/li&gt;
 &lt;/ul&gt;
@@ -2779,10 +2779,10 @@
     
     <item>
       <title>iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)</title>
-      <link>http://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/</link>
+      <link>https://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/</link>
       <pubDate>Wed, 24 Jan 2018 10:43:48 +0800</pubDate>
       
-      <guid>http://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/</guid>
       
         <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;ul&gt;
@@ -2923,7 +2923,7 @@
 &lt;/div&gt;&lt;p&gt;给分类加上前缀，易于区分，并且能避免不必要的错误。&lt;/p&gt;
 &lt;h3 id=&#34;第-24-条勿在分类中声明属性&#34;&gt;第 24 条：勿在分类中声明属性&lt;/h3&gt;
 &lt;p&gt;除了 &lt;code&gt;Class-continuation&lt;/code&gt;分类，其他分类无法向类中新增实例变量，这样就无法把实现属性所需要的实例变量合成出来，即无法生成实例变量，如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/iOS/iOS_Effective/iOS_Effective04.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_Effective/iOS_Effective04.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;第-25-条使用-class-continuation分类-隐藏实现细节&#34;&gt;第 25 条：使用 “Class-continuation分类” 隐藏实现细节&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;Class-continuation&lt;/code&gt;分类和普通的分类不同，它必须定义在其所接续的那个类的实现文件里。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -3069,7 +3069,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;这样临时对象就可以及时回收了，有一点需要注意：&lt;strong&gt;不要把&lt;code&gt;for&lt;/code&gt;循环放到释放池里面，特别是循环长度特别长的时候。&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;第-33-条用僵尸对象调试内存管理问题&#34;&gt;第 33 条：用“僵尸对象”调试内存管理问题&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/iOS/iOS_Effective/iOS_Effective05.png&#34; alt=&#34;僵尸对象&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_Effective/iOS_Effective05.png&#34; alt=&#34;僵尸对象&#34;&gt;&lt;/p&gt;
 &lt;p&gt;如上图，启动这项调试功能之后，运行期系统在回收对象时，会把它的&lt;code&gt;isa&lt;/code&gt;指针指向特殊的僵尸类，而不是真正的回收他们。系统会修改对象的&lt;code&gt;isa&lt;/code&gt;指针，令其指向特殊的僵尸类，从而使该对象变为僵尸对象。僵尸类能够响应所有的选择子，响应方式为：打印一条包含消息内容以及其接收者的消息，然后终止应用程序。&lt;/p&gt;
 &lt;h3 id=&#34;第-34-条不要使用-retaincount&#34;&gt;第 34 条：不要使用 retainCount&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;retainCount&lt;/code&gt;，对象的保留计数，&lt;code&gt;ARC&lt;/code&gt;环境下已经正式废弃，在&lt;code&gt;MRC&lt;/code&gt;下还可以正常使用。&lt;/p&gt;
@@ -3082,10 +3082,10 @@
     
     <item>
       <title>iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1)</title>
-      <link>http://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/</link>
+      <link>https://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/</link>
       <pubDate>Tue, 16 Jan 2018 15:43:48 +0800</pubDate>
       
-      <guid>http://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/</guid>
       
         <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;《Effective Objective-C 2.0: 编写高质量 iOS 与 OS X 代码的 52 个有效方法》是一本非常经典的 OC 书籍。这本书从语法、接口与 API 设计、内存管理、框架等 7 大方面总结和探讨了 OC 编程中的 52 个特性与陷阱，很值得读。&lt;/strong&gt;&lt;/p&gt;
@@ -3824,7 +3824,7 @@
 &lt;p&gt;消息转发全流程：&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/iOS/iOS_Effective/iOS_Effective01.jpeg&#34; alt=&#34;消息转发全流程&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_Effective/iOS_Effective01.jpeg&#34; alt=&#34;消息转发全流程&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;第-11-条用方法调配技术调试黑盒方法&#34;&gt;第 11 条：用“方法调配技术”调试“黑盒方法”&lt;/h3&gt;
 &lt;p&gt;这条讲的主要内容就是方法调配&lt;code&gt;( Method Swizzling)&lt;/code&gt;，通过运行时用另外一种方法实现来替换掉原有的方法实现，往往被应用在向原有实现中添加新功能，打印信息等。&lt;/p&gt;
 &lt;ul&gt;
@@ -3904,7 +3904,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;打印效果图如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/iOS/iOS_Effective/iOS_Effective02.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_Effective/iOS_Effective02.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;通过此方案，开发者可以为那些“完全不知道其具体实现的”&lt;code&gt;（completely opaque，“完全不透明的”）&lt;/code&gt;黑盒方法增加日志记录功能，这非常有助于程序调试。然而，此做法只在调试程序时有用。很少有人在调试程序之外的场合用上述“方法调配技术”来永久改动某个类的功能。不能仅仅因为&lt;code&gt;OC&lt;/code&gt;语言里有这个特性就一定要用它。若是滥用，反而会令代码变得不易读懂且难于维护。&lt;/p&gt;
 &lt;h3 id=&#34;第-12-条理解类对象的用意&#34;&gt;第 12 条：理解“类对象”的用意&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;类是一个对象，是&lt;code&gt; Class&lt;/code&gt; 类型的对象，简称“类对象”。&lt;/strong&gt;&lt;/p&gt;
@@ -3955,10 +3955,10 @@
     
     <item>
       <title>设计模式-《重构》读书笔记及 APP 重构心得</title>
-      <link>http://liupengkun1993.github.io/post/ios/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%87%8D%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%8F%8A-app-%E9%87%8D%E6%9E%84%E5%BF%83%E5%BE%97/</link>
+      <link>https://liupengkun1993.github.io/post/ios/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%87%8D%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%8F%8A-app-%E9%87%8D%E6%9E%84%E5%BF%83%E5%BE%97/</link>
       <pubDate>Wed, 10 Jan 2018 15:43:48 +0800</pubDate>
       
-      <guid>http://liupengkun1993.github.io/post/ios/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%87%8D%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%8F%8A-app-%E9%87%8D%E6%9E%84%E5%BF%83%E5%BE%97/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%87%8D%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%8F%8A-app-%E9%87%8D%E6%9E%84%E5%BF%83%E5%BE%97/</guid>
       
         <description>&lt;blockquote&gt;
 &lt;p&gt;前段时间和一同事一起重构了两个 APP，正好想写一些重构心得，前天又在知乎上看到一前辈推荐《重构》这本书，据说是程序员的必读书籍，于是就粗略的读了一遍，对重构有了更深层次的认识了。这里结合 iOS 项目的重构，谈谈与重构相关的问题，做一下记录及分享。&lt;/p&gt;
@@ -4079,10 +4079,10 @@ iOS 命名主要注意两个方面，第一是可读性高，别人一看这个�
     
     <item>
       <title>数据结构 -《大话数据结构》读书笔记(3)</title>
-      <link>http://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/</link>
+      <link>https://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/</link>
       <pubDate>Mon, 08 Jan 2018 18:43:48 +0800</pubDate>
       
-      <guid>http://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/</guid>
+      <guid>https://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/</guid>
       
         <description>&lt;h5 id=&#34;文章共分为三篇&#34;&gt;文章共分为三篇&lt;/h5&gt;
 &lt;h5 id=&#34;第一篇数据结构--大话数据结构读书笔记1httpsgithubcomliuzhongningarticlesblobmastercontentspreviouscontents数据结构20-大话数据结构读书笔记1md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/previousContents/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%20-%E3%80%8A%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0(1).md&#34;&gt;第一篇：数据结构 -《大话数据结构》读书笔记(1)&lt;/a&gt;&lt;/h5&gt;
@@ -4260,10 +4260,10 @@ iOS 命名主要注意两个方面，第一是可读性高，别人一看这个�
     
     <item>
       <title>数据结构 -《大话数据结构》读书笔记(2)</title>
-      <link>http://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/</link>
+      <link>https://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/</link>
       <pubDate>Mon, 08 Jan 2018 15:43:48 +0800</pubDate>
       
-      <guid>http://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/</guid>
+      <guid>https://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/</guid>
       
         <description>&lt;h5 id=&#34;文章共分为三篇&#34;&gt;文章共分为三篇&lt;/h5&gt;
 &lt;h5 id=&#34;第一篇数据结构--大话数据结构读书笔记1httpsgithubcomliuzhongningarticlesblobmastercontentspreviouscontents数据结构20-大话数据结构读书笔记1md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/previousContents/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%20-%E3%80%8A%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0(1).md&#34;&gt;第一篇：数据结构 -《大话数据结构》读书笔记(1)&lt;/a&gt;&lt;/h5&gt;
@@ -4479,10 +4479,10 @@ iOS 命名主要注意两个方面，第一是可读性高，别人一看这个�
     
     <item>
       <title>iOS开发之 - WKWebView VS UIWebView</title>
-      <link>http://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-wkwebview-vs-uiwebview/</link>
+      <link>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-wkwebview-vs-uiwebview/</link>
       <pubDate>Tue, 02 Jan 2018 15:43:48 +0800</pubDate>
       
-      <guid>http://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-wkwebview-vs-uiwebview/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-wkwebview-vs-uiwebview/</guid>
       
         <description>&lt;blockquote&gt;
 &lt;p&gt;WKWebView是苹果在 iOS 8 中推出的新框架，相比UIWebView来说，WKWebView 性能好，速度快，内存小，功能多，且支持了更多的 HTML5 特性&amp;hellip;&amp;hellip;因此本小白禁不住“诱惑”利用了一晚上的时间，整理了一些关于 WKWebView 的资料，与大家分享下！在说 WKWebView 之前，我们先说说他的老大哥 UIWebView ！！！&lt;/p&gt;
@@ -4846,10 +4846,10 @@ iOS 命名主要注意两个方面，第一是可读性高，别人一看这个�
     
     <item>
       <title>数据结构 -《大话数据结构》读书笔记(1)</title>
-      <link>http://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/</link>
+      <link>https://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/</link>
       <pubDate>Tue, 02 Jan 2018 15:43:48 +0800</pubDate>
       
-      <guid>http://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/</guid>
+      <guid>https://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/</guid>
       
         <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;公司的经理大哥建议过我，说趁年轻要深入学习算法与数据结构，设计模式， APP 架构，当然也包括 iOS 底层的一些知识&amp;hellip;&amp;hellip;半年多过去了，算法数据结构方面的书多少算是看过一些，但都是走马观花似的一掠而过，根本没留下什么印象&amp;hellip;&amp;hellip;2018 突然就到了&amp;hellip;&amp;hellip;接下来会多读书，并记录下来，算是对自己的督促，更希望对看到的朋友有所帮助。&lt;/strong&gt;&lt;/p&gt;
@@ -4915,19 +4915,19 @@ iOS 命名主要注意两个方面，第一是可读性高，别人一看这个�
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;集合结构：&lt;code&gt;集合结构&lt;/code&gt;中的数据元素除了&lt;code&gt;同属于一个集合&lt;/code&gt;外，它们之间&lt;code&gt;没有其他关系&lt;/code&gt;。各个数据元素是“平等”的，它们的共同属性是&lt;code&gt;同属于一个集合&lt;/code&gt;。
-&lt;img src=&#34;http://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure01.png&#34; alt=&#34;集合结构&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure01.png&#34; alt=&#34;集合结构&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;线性结构：&lt;code&gt;线性结构&lt;/code&gt;中的数据元素是&lt;code&gt;一对一&lt;/code&gt;的关系。
-&lt;img src=&#34;http://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure02.png&#34; alt=&#34;线性结构&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure02.png&#34; alt=&#34;线性结构&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;树形结构：&lt;code&gt;树形结构&lt;/code&gt;中的元素之间存在一种&lt;code&gt;一对多&lt;/code&gt;的层次关系。
-&lt;img src=&#34;http://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure03.png&#34; alt=&#34;树形结构&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure03.png&#34; alt=&#34;树形结构&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;图形结构：&lt;code&gt;图形结构&lt;/code&gt;的数据元素是&lt;code&gt;多对多&lt;/code&gt;的关系。
-&lt;img src=&#34;http://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure04.png&#34; alt=&#34;图形结构&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure04.png&#34; alt=&#34;图形结构&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -4942,13 +4942,13 @@ iOS 命名主要注意两个方面，第一是可读性高，别人一看这个�
 &lt;li&gt;顺序存储结构
 &lt;strong&gt;顺序存储结构：是把数据元素存放在&lt;code&gt;地址连续的存储单元&lt;/code&gt;里，其数据间的&lt;code&gt;逻辑关系和物理关系是一致的&lt;/code&gt;。&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure05.png&#34; alt=&#34;顺序存储结构&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure05.png&#34; alt=&#34;顺序存储结构&#34;&gt;&lt;/p&gt;
 &lt;p&gt;顺序存储结构说白了就是排队占位，大家都按顺序排好，每个人占一小段控件，大家谁也别插谁的队。数组就是这样的顺序存储结构。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;链式存储结构
 &lt;strong&gt;链式存储结构：是把数据元素存放在&lt;code&gt;任意的存储单元&lt;/code&gt;里，这组存储单元&lt;code&gt;可以是连续的，也可以是不连续的&lt;/code&gt;。&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure06.png&#34; alt=&#34;链式存储结构&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure06.png&#34; alt=&#34;链式存储结构&#34;&gt;&lt;/p&gt;
 &lt;p&gt;数据元素的存储关系并不能反应其逻辑关系，因此需要用一个指针存放数据元素的地址，这样通过地址就可以找到相关联数据元素的位置。&lt;strong&gt;链式存储结构比较灵活，数据存在哪里不重要，只要有一个指针存放了相应的地址就能找到它了&lt;/strong&gt;。比如现在去银行医院等地方，去了先领一个号，等着叫号，在等待的时候你可以做任何事情，只要及时回来就行。&lt;/p&gt;
 &lt;h4 id=&#34;14-抽象数据类型&#34;&gt;1.4 抽象数据类型：&lt;/h4&gt;
 &lt;ul&gt;
@@ -5034,11 +5034,11 @@ iOS 命名主要注意两个方面，第一是可读性高，别人一看这个�
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;例子 1：&lt;/strong&gt;
 A 算法与 B 算法，A 算法要做 2n+3 次操作；B 算法要做 3n+1 次操作。问哪个执行的更快？
-&lt;img src=&#34;http://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure07.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure07.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;由上图可知，当 n = 1，算法 A 效率不如算法 B；当 n = 2 时，两者效率相同；当 n &amp;gt; 2 时，算法A开始优于算法 B了。得出结论，&lt;strong&gt;加法常数可以忽略&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;例子 2：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;C 算法与 D 算法，C 算法要做 4n+8 次操作；D 算法要做 2 n*n +1 次操作。问哪个执行的更快？&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure08.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure08.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;由上图可知，当 n &amp;lt;= 3 时，算法 C 差于算法 D；当 n &amp;gt; 3 时，算法 C 的优势开始越来越优于算法 D 了。得出结论：&lt;strong&gt;与最高次项相乘的常数并不重要&lt;/strong&gt;。&lt;/p&gt;
 &lt;h4 id=&#34;25-算法时间复杂度&#34;&gt;2.5 算法时间复杂度&lt;/h4&gt;
 &lt;ul&gt;
@@ -5050,7 +5050,7 @@ A 算法与 B 算法，A 算法要做 2n+3 次操作；B 算法要做 3n+1 次�
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;常用的算法时间复杂度
-&lt;img src=&#34;http://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure09.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure09.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;推导大 O 阶方法&lt;/p&gt;
@@ -5118,7 +5118,7 @@ A 算法与 B 算法，A 算法要做 2n+3 次操作；B 算法要做 3n+1 次�
 &lt;strong&gt;线性表的顺序存储结构，指的是用一段&lt;code&gt;地址连续&lt;/code&gt;的存储单元依次存储线性表的数据元素。&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;线性表的顺序存储示意图如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure10.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure10.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h6 id=&#34;332-顺序存储方式&#34;&gt;3.3.2 顺序存储方式&lt;/h6&gt;
 &lt;p&gt;线性表的&lt;code&gt;顺序存储结构&lt;/code&gt;，就是在内存中找了块地儿，通过占位的形式，把一定内存空间给占了，然后把相同数据类型的数据元素依次存放在这块空地中。既然线性表的每个数据元素的类型都相同，所以可以用 C 语言（其它语言也相同）的&lt;strong&gt;一维数组来实现顺序存储结构&lt;/strong&gt;，即&lt;strong&gt;把第一个数据元素存到数组下标为 0 的位置中，接着把线性表相邻的元素存储在数组中相邻的位置。&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -5175,7 +5175,7 @@ A 算法与 B 算法，A 算法要做 2n+3 次操作；B 算法要做 3n+1 次�
 &lt;p&gt;&lt;strong&gt;在任何时刻，线性表的长度都应该小于等于数组的长度。&lt;/strong&gt;&lt;/p&gt;
 &lt;h6 id=&#34;334-地址计算方法&#34;&gt;3.3.4 地址计算方法&lt;/h6&gt;
 &lt;p&gt;C 语言中的数组是从 0 开始第一个下标的，&lt;strong&gt;线性表的第 i 个元素是要存储在数组下标为&lt;code&gt;i - 1&lt;/code&gt;的位置&lt;/strong&gt;，即数据元素的序号和存放它的数组下标之间存在对应关系（如下图）。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure11.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure11.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;用数组存储顺序表意味着要分配固定长度的数组空间，由于线性表中可以进行插入和删除操作，因此&lt;strong&gt;分配的数组空间要大于等于当前线性表的长度&lt;/strong&gt;。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;地址
@@ -5233,11 +5233,11 @@ A 算法与 B 算法，A 算法要做 2n+3 次操作；B 算法要做 3n+1 次�
 &lt;p&gt;在顺序结构中，每个数据元素只需要存&lt;code&gt;数据元素信息&lt;/code&gt;就可以了，但在链式结构中，&lt;strong&gt;除了要存&lt;code&gt;数据元素信息&lt;/code&gt;外，还要存储它的&lt;code&gt;后继元素的存储地址&lt;/code&gt;&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;为了表示每个数据元素 &lt;code&gt;a(i)&lt;/code&gt; 与其直接后继数据元素 &lt;code&gt;a(i+1)&lt;/code&gt; 之间的逻辑关系，对数据元素&lt;code&gt;a(i)&lt;/code&gt;来说，除了存储其本身的信息之外，还需存储一个指示其直接后继的信息(即直接后继的存储位置)。我们把存储数据元素信息的域称为数据域，把存储直接后继位置的域称为指针域。指针域中存储的信息称作指针或链。这两部分信息组成数据元素&lt;code&gt;a(i)&lt;/code&gt;的存储映像，称为&lt;code&gt;结点(Node)&lt;/code&gt;。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;N 个结点链接成一个链表，即为&lt;code&gt;线性表（a1，a2，…，a（n））&lt;/code&gt;的链式存储结构，因为此链表的每个结点中只包含一个指针域，所以叫做&lt;code&gt;单链表&lt;/code&gt;。&lt;/strong&gt; 单链表正是通过每个结点的指针域将线性表的数据元素按其逻辑次序链接在一起。如下图所示：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure12.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure12.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;对于线性表来说，总得有个头有个尾，链表也不例外。我们把&lt;strong&gt;链表中第一个结点的存储位置叫做&lt;code&gt;头指针&lt;/code&gt;&lt;/strong&gt;，那么整个链表的存取就必须是从头指针开始进行了。之后的每一个结点，其实就是上一个的后继指针指向的位置。最后一个结点指针为“空”，如下图所示：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure13.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure13.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;有时，我们为了更加方便地对链表进行操作，会在单链表的第一个结点前附设一个结点，称为&lt;code&gt;头结点&lt;/code&gt;。&lt;strong&gt;头结点的数据域可以不存储任何信息，也可以存储诸如线性表的长度等附加信息，头结点的指针域存储指向第一个结点的指针&lt;/strong&gt;。如下图所示：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure14.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure14.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h6 id=&#34;353-头指针与头结点的异同&#34;&gt;3.5.3 头指针与头结点的异同&lt;/h6&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -5349,7 +5349,7 @@ A 算法与 B 算法，A 算法要做 2n+3 次操作；B 算法要做 3n+1 次�
 &lt;ul&gt;
 &lt;li&gt;链表结构和顺序存储结构对比图：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;http://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure15.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/DataStructure/DataStructureOne/DataStructure15.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;由上图可知，线性表的顺序存储结构和单链表结构各有其优缺点，不能简单的说哪个好哪个不好，需要根据实际情况，来&lt;strong&gt;综合平衡采用哪种数据结构更能满足和达到需求和性能。&lt;/strong&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h5 id=&#34;下一篇数据结构--大话数据结构读书笔记2httpsgithubcomliuzhongningarticlesblobmastercontentspreviouscontents数据结构20-大话数据结构读书笔记2md&#34;&gt;下一篇：&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/previousContents/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%20-%E3%80%8A%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0(2).md&#34;&gt;数据结构 -《大话数据结构》读书笔记(2)&lt;/a&gt;&lt;/h5&gt;
@@ -5359,10 +5359,10 @@ A 算法与 B 算法，A 算法要做 2n+3 次操作；B 算法要做 3n+1 次�
     
     <item>
       <title>iOS 开发 - Swift 全面系统的学习</title>
-      <link>http://liupengkun1993.github.io/post/ios/ios-%E5%BC%80%E5%8F%91-swift-%E5%85%A8%E9%9D%A2%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://liupengkun1993.github.io/post/ios/ios-%E5%BC%80%E5%8F%91-swift-%E5%85%A8%E9%9D%A2%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Tue, 22 Aug 2017 15:43:48 +0800</pubDate>
       
-      <guid>http://liupengkun1993.github.io/post/ios/ios-%E5%BC%80%E5%8F%91-swift-%E5%85%A8%E9%9D%A2%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/ios-%E5%BC%80%E5%8F%91-swift-%E5%85%A8%E9%9D%A2%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AD%A6%E4%B9%A0/</guid>
       
         <description>&lt;blockquote&gt;
 &lt;p&gt;最近项目不算紧，于是就学了学 Swift ，看了一大神写的项目https://github.com/hrscy/DanTang，很受益，感谢开源！另外自己也写了一些基础代码，分享出来，第一是希望得到同行前辈的指导，第二是希望对需要的朋友有所帮助。&lt;/p&gt;
@@ -6623,10 +6623,10 @@ extension NNScanCodeController : UIImagePickerControllerDelegate , UINavigationC
     
     <item>
       <title>iOS开发 - 仿简书个人主页多页面滑动视图</title>
-      <link>http://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E4%BB%BF%E7%AE%80%E4%B9%A6%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E5%A4%9A%E9%A1%B5%E9%9D%A2%E6%BB%91%E5%8A%A8%E8%A7%86%E5%9B%BE/</link>
+      <link>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E4%BB%BF%E7%AE%80%E4%B9%A6%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E5%A4%9A%E9%A1%B5%E9%9D%A2%E6%BB%91%E5%8A%A8%E8%A7%86%E5%9B%BE/</link>
       <pubDate>Sat, 05 Aug 2017 15:43:48 +0800</pubDate>
       
-      <guid>http://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E4%BB%BF%E7%AE%80%E4%B9%A6%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E5%A4%9A%E9%A1%B5%E9%9D%A2%E6%BB%91%E5%8A%A8%E8%A7%86%E5%9B%BE/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E4%BB%BF%E7%AE%80%E4%B9%A6%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E5%A4%9A%E9%A1%B5%E9%9D%A2%E6%BB%91%E5%8A%A8%E8%A7%86%E5%9B%BE/</guid>
       
         <description>&lt;blockquote&gt;
 &lt;p&gt;之前项目中很多地方用到了滑动视图，三个界面五个界面或界面个数不定的情况都有，这里以简书 APP 的个人主页为例，总结一下，一则对自己也有好处，二则希望对看到的朋友有所帮助。&lt;/p&gt;
@@ -6961,10 +6961,10 @@ extension NNScanCodeController : UIImagePickerControllerDelegate , UINavigationC
     
     <item>
       <title>iOS开发 - 随机图片验证码封装</title>
-      <link>http://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E9%9A%8F%E6%9C%BA%E5%9B%BE%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81%E5%B0%81%E8%A3%85/</link>
+      <link>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E9%9A%8F%E6%9C%BA%E5%9B%BE%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81%E5%B0%81%E8%A3%85/</link>
       <pubDate>Mon, 31 Jul 2017 15:43:48 +0800</pubDate>
       
-      <guid>http://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E9%9A%8F%E6%9C%BA%E5%9B%BE%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81%E5%B0%81%E8%A3%85/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E9%9A%8F%E6%9C%BA%E5%9B%BE%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81%E5%B0%81%E8%A3%85/</guid>
       
         <description>&lt;blockquote&gt;
 &lt;p&gt;在 iOS 开发中，为了防止短信验证码的恶意获取，注册时需要图片验证，比如某共享单车 APP 在注册时就用了图片验证码，如下图：&lt;/p&gt;
@@ -7126,10 +7126,10 @@ extension NNScanCodeController : UIImagePickerControllerDelegate , UINavigationC
     
     <item>
       <title>iOS开发 - 极光推送中生产证书和开发证书的生成</title>
-      <link>http://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E6%9E%81%E5%85%89%E6%8E%A8%E9%80%81%E4%B8%AD%E7%94%9F%E4%BA%A7%E8%AF%81%E4%B9%A6%E5%92%8C%E5%BC%80%E5%8F%91%E8%AF%81%E4%B9%A6%E7%9A%84%E7%94%9F%E6%88%90/</link>
+      <link>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E6%9E%81%E5%85%89%E6%8E%A8%E9%80%81%E4%B8%AD%E7%94%9F%E4%BA%A7%E8%AF%81%E4%B9%A6%E5%92%8C%E5%BC%80%E5%8F%91%E8%AF%81%E4%B9%A6%E7%9A%84%E7%94%9F%E6%88%90/</link>
       <pubDate>Tue, 18 Jul 2017 15:43:48 +0800</pubDate>
       
-      <guid>http://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E6%9E%81%E5%85%89%E6%8E%A8%E9%80%81%E4%B8%AD%E7%94%9F%E4%BA%A7%E8%AF%81%E4%B9%A6%E5%92%8C%E5%BC%80%E5%8F%91%E8%AF%81%E4%B9%A6%E7%9A%84%E7%94%9F%E6%88%90/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E6%9E%81%E5%85%89%E6%8E%A8%E9%80%81%E4%B8%AD%E7%94%9F%E4%BA%A7%E8%AF%81%E4%B9%A6%E5%92%8C%E5%BC%80%E5%8F%91%E8%AF%81%E4%B9%A6%E7%9A%84%E7%94%9F%E6%88%90/</guid>
       
         <description>&lt;blockquote&gt;
 &lt;p&gt;项目中用到了 &lt;a href=&#34;https://www.jiguang.cn/push?source=bdjj#B_vid=1350498826687775136&#34;&gt;极光推送&lt;/a&gt;，这里记录下极光推送中生产证书和开发证书的生成过程。&lt;/p&gt;
@@ -7208,10 +7208,10 @@ extension NNScanCodeController : UIImagePickerControllerDelegate , UINavigationC
     
     <item>
       <title>iOS开发 - 圆形验证码(或密码)输入框的封装</title>
-      <link>http://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E5%9C%86%E5%BD%A2%E9%AA%8C%E8%AF%81%E7%A0%81%E6%88%96%E5%AF%86%E7%A0%81%E8%BE%93%E5%85%A5%E6%A1%86%E7%9A%84%E5%B0%81%E8%A3%85/</link>
+      <link>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E5%9C%86%E5%BD%A2%E9%AA%8C%E8%AF%81%E7%A0%81%E6%88%96%E5%AF%86%E7%A0%81%E8%BE%93%E5%85%A5%E6%A1%86%E7%9A%84%E5%B0%81%E8%A3%85/</link>
       <pubDate>Mon, 17 Jul 2017 15:43:48 +0800</pubDate>
       
-      <guid>http://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E5%9C%86%E5%BD%A2%E9%AA%8C%E8%AF%81%E7%A0%81%E6%88%96%E5%AF%86%E7%A0%81%E8%BE%93%E5%85%A5%E6%A1%86%E7%9A%84%E5%B0%81%E8%A3%85/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E5%9C%86%E5%BD%A2%E9%AA%8C%E8%AF%81%E7%A0%81%E6%88%96%E5%AF%86%E7%A0%81%E8%BE%93%E5%85%A5%E6%A1%86%E7%9A%84%E5%B0%81%E8%A3%85/</guid>
       
         <description>&lt;blockquote&gt;
 &lt;p&gt;项目中用到了圆形验证码输入框，输入框之间要求有一定的距离，UI图如下：&lt;/p&gt;
@@ -7259,10 +7259,10 @@ extension NNScanCodeController : UIImagePickerControllerDelegate , UINavigationC
     
     <item>
       <title>iOS 获取设备的各种信息</title>
-      <link>http://liupengkun1993.github.io/post/ios/ios-%E8%8E%B7%E5%8F%96%E8%AE%BE%E5%A4%87%E7%9A%84%E5%90%84%E7%A7%8D%E4%BF%A1%E6%81%AF/</link>
+      <link>https://liupengkun1993.github.io/post/ios/ios-%E8%8E%B7%E5%8F%96%E8%AE%BE%E5%A4%87%E7%9A%84%E5%90%84%E7%A7%8D%E4%BF%A1%E6%81%AF/</link>
       <pubDate>Fri, 07 Apr 2017 15:43:48 +0800</pubDate>
       
-      <guid>http://liupengkun1993.github.io/post/ios/ios-%E8%8E%B7%E5%8F%96%E8%AE%BE%E5%A4%87%E7%9A%84%E5%90%84%E7%A7%8D%E4%BF%A1%E6%81%AF/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/ios-%E8%8E%B7%E5%8F%96%E8%AE%BE%E5%A4%87%E7%9A%84%E5%90%84%E7%A7%8D%E4%BF%A1%E6%81%AF/</guid>
       
         <description>&lt;h5 id=&#34;ios-获取设备的各种信息httpsgithubcomliuzhongningnndeviceinformation&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/NNDeviceInformation&#34;&gt;iOS 获取设备的各种信息&lt;/a&gt;&lt;/h5&gt;
 &lt;h3 id=&#34;一目录结构&#34;&gt;一、目录结构:&lt;/h3&gt;
