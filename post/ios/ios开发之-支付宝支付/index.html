@@ -338,11 +338,11 @@
     
     <div class="post-content">
       <blockquote>
-<p>在开发中，很多时候我们都会用到支付宝支付和微信支付，前段时间已经总结过<a href="http://www.jianshu.com/p/a17b37cb8fe3">微信支付流程</a>，这里再说下支付宝支付（相对来说觉得支付宝有点坑），先说下支付宝支付的流程，如下图：</p>
+<p>在开发中，很多时候我们都会用到支付宝支付和微信支付，前段时间已经总结过<a href="https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/">微信支付流程</a>，这里再说下支付宝支付（相对来说觉得支付宝有点坑），先说下支付宝支付的流程，如下图：</p>
 </blockquote>
 <h3 id="一支付流程理解">一、支付流程理解</h3>
 <p>先看个图
-<img src="http://upload-images.jianshu.io/upload_images/2665449-111551cb2f5ba892.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="支付流程"></p>
+<img src="/image/iOS/iOS_Pay/ALiPay/ALiPay01.png" alt="支付流程"></p>
 <p>流程和咱们平时在手机上买东西是一样的：
 1.用户选好商品后，点击提交订单（一般是这样），选择使用支付宝付款。
 2.手机客户端（你做的APP）把用户选择的商品的信息传给你们后台服务器。
@@ -370,12 +370,12 @@
 </li>
 </ol>
 <p>4.1 导入文件（如下图）</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-79cac6572336637c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="导入相应的文件">
+<p><img src="/image/iOS/iOS_Pay/ALiPay/ALiPay02.png" alt="导入相应的文件">
 这里有一个注意点：如果不在客户端上签名，只需要发送订单和处理支付返回结果，只需要添加AlipaySDK.bundle和AlipaySDK.framework就行了。</p>
 <p>4.2 导入相关的依赖库</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-df522e1f9642c24e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="导入相关的依赖库"></p>
+<p><img src="/image/iOS/iOS_Pay/ALiPay/ALiPay03.png" alt="导入相关的依赖库"></p>
 <p>4.3 为URL Types 添加支付宝回调scheme</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-39aa192999a9d489.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="设置回调scheme"></p>
+<p><img src="/image/iOS/iOS_Pay/ALiPay/ALiPay04.png" alt="设置回调scheme"></p>
 <p>identifier必须为 alipayShare
 URL Schemes 命名规则：ap+AppID，需要和代码中的一致</p>
 <p>4.4  代码部分</p>
@@ -389,9 +389,9 @@ URL Schemes 命名规则：ap+AppID，需要和代码中的一致</p>
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">- (void)payOrder:(NSString *)orderStr
-      fromScheme:(NSString *)schemeStr
-        callback:(CompletionBlock)completionBlock;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">payOrder:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">orderStr</span>
+      <span class="nf">fromScheme:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">schemeStr</span>
+        <span class="nf">callback:</span><span class="p">(</span><span class="n">CompletionBlock</span><span class="p">)</span><span class="nv">completionBlock</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -403,8 +403,8 @@ URL Schemes 命名规则：ap+AppID，需要和代码中的一致</p>
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#import &lt;AlipaySDK/AlipaySDK.h&gt;
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#import &lt;AlipaySDK/AlipaySDK.h&gt;
+</span></code></pre></td></tr></table>
 </div>
 </div><p>在@implementation AppDelegate中增加如下代码：</p>
 <div class="highlight"><div class="chroma">
@@ -431,26 +431,26 @@ URL Schemes 命名规则：ap+AppID，需要和代码中的一致</p>
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#pragma mark - 处理返回结果
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#pragma mark - 处理返回结果
+</span><span class="cp"></span><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">application:</span><span class="p">(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">openURL:</span><span class="p">(</span><span class="n">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="nv">url</span> <span class="nf">sourceApplication:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">sourceApplication</span> <span class="nf">annotation:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">annotation</span>
+<span class="p">{</span>
     
-    //如果极简开发包不可用，会跳转支付宝钱包进行支付，需要将支付宝钱包的支付结果回传给开发包
-    if ([url.host isEqualToString:@&#34;safepay&#34;]) {
-        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-            //【由于在跳转支付宝客户端支付的过程中，商户app在后台很可能被系统kill了，所以pay接口的callback就会失效，请商户对standbyCallback返回的回调结果进行处理,就是在这个方法里面处理跟callback一样的逻辑】
-            NSLog(@&#34;result = %@&#34;,resultDic);
-        }];
-    }
-    if ([url.host isEqualToString:@&#34;platformapi&#34;]){//支付宝钱包快登授权返回authCode
-        
-        [[AlipaySDK defaultService] processAuthResult:url standbyCallback:^(NSDictionary *resultDic) {
-            //【由于在跳转支付宝客户端支付的过程中，商户app在后台很可能被系统kill了，所以pay接口的callback就会失效，请商户对standbyCallback返回的回调结果进行处理,就是在这个方法里面处理跟callback一样的逻辑】
-            NSLog(@&#34;result = %@&#34;,resultDic);
-        }];
-    }
-    return YES;
-}
+    <span class="c1">//如果极简开发包不可用，会跳转支付宝钱包进行支付，需要将支付宝钱包的支付结果回传给开发包
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">([</span><span class="n">url</span><span class="p">.</span><span class="n">host</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;safepay&#34;</span><span class="p">])</span> <span class="p">{</span>
+        <span class="p">[[</span><span class="n">AlipaySDK</span> <span class="n">defaultService</span><span class="p">]</span> <span class="nl">processOrderWithPaymentResult</span><span class="p">:</span><span class="n">url</span> <span class="nl">standbyCallback</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="n">resultDic</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">//【由于在跳转支付宝客户端支付的过程中，商户app在后台很可能被系统kill了，所以pay接口的callback就会失效，请商户对standbyCallback返回的回调结果进行处理,就是在这个方法里面处理跟callback一样的逻辑】
+</span><span class="c1"></span>            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;result = %@&#34;</span><span class="p">,</span><span class="n">resultDic</span><span class="p">);</span>
+        <span class="p">}];</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">url</span><span class="p">.</span><span class="n">host</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;platformapi&#34;</span><span class="p">]){</span><span class="c1">//支付宝钱包快登授权返回authCode
+</span><span class="c1"></span>        
+        <span class="p">[[</span><span class="n">AlipaySDK</span> <span class="n">defaultService</span><span class="p">]</span> <span class="nl">processAuthResult</span><span class="p">:</span><span class="n">url</span> <span class="nl">standbyCallback</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="n">resultDic</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">//【由于在跳转支付宝客户端支付的过程中，商户app在后台很可能被系统kill了，所以pay接口的callback就会失效，请商户对standbyCallback返回的回调结果进行处理,就是在这个方法里面处理跟callback一样的逻辑】
+</span><span class="c1"></span>            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;result = %@&#34;</span><span class="p">,</span><span class="n">resultDic</span><span class="p">);</span>
+        <span class="p">}];</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><hr>

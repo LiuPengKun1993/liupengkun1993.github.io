@@ -23,7 +23,7 @@
       <pubDate>Wed, 04 Jan 2017 15:43:48 +0800</pubDate>
       
       <guid>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-cadisplaylink-%E5%AE%9E%E7%8E%B0%E9%85%B7%E7%82%AB%E5%8A%A8%E7%94%BB/</guid>
-      <description>偶然发现了一个好玩的类， CADisplayLink，出于好奇所以就尝试了一下，用 CADisplayLink 做了个类似云飘的效果。由于对 CADisplayLink 的认识还比较浅，如果哪里写的</description>
+      <description>偶然发现了一个好玩的类， CADisplayLink，出于好奇所以就尝试了一下，用 CADisplayLink 做了个类似云飘的效果。看效果图先—— 核心代码如下： 一、创建</description>
     </item>
     
   </channel>

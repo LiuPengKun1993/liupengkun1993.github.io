@@ -69,7 +69,7 @@
 <meta itemprop="description" content="最近项目不算紧，于是就学了学 Swift ，看了一大神写的项目https://github.com/hrscy/DanTang，很受益，感谢开源！另外自">
 <meta itemprop="datePublished" content="2017-08-22T15:43:48+08:00" />
 <meta itemprop="dateModified" content="2017-12-22T15:43:48+08:00" />
-<meta itemprop="wordCount" content="3533">
+<meta itemprop="wordCount" content="3457">
 
 
 
@@ -306,8 +306,8 @@
             <a href="https://liupengkun1993.github.io/categories/ios/"> iOS </a>
             
           </div>
-        <span class="more-meta"> 3533 words </span>
-          <span class="more-meta"> 8 min read </span>
+        <span class="more-meta"> 3457 words </span>
+          <span class="more-meta"> 7 min read </span>
 
         
         
@@ -326,7 +326,17 @@
   <ul>
     <li>
       <ul>
-        <li></li>
+        <li><a href="#先分享一些学习资料">先分享一些学习资料：</a></li>
+        <li><a href="#一多页面滑动视图分页控制器">一、多页面滑动视图（分页控制器）</a></li>
+        <li><a href="#二图片轮播">二、图片轮播</a></li>
+        <li><a href="#三导航栏渐变">三、导航栏渐变</a></li>
+        <li><a href="#四瀑布流练习">四、瀑布流练习</a></li>
+        <li><a href="#五uiscrollview-练习">五、UIScrollView 练习</a></li>
+        <li><a href="#六照相功能更换头像建议用真机">六、照相功能，更换头像（建议用真机）</a></li>
+        <li><a href="#七二维码扫描及识别建议用真机">七、二维码扫描及识别（建议用真机）</a></li>
+        <li><a href="#八随机图片验证码封装">八、随机图片验证码封装</a></li>
+        <li><a href="#九圆形输入框封装">九、圆形输入框封装</a></li>
+        <li><a href="#十第三方库-snapkit-用法">十、第三方库 SnapKit 用法</a></li>
       </ul>
     </li>
   </ul>
@@ -339,7 +349,7 @@
       <blockquote>
 <p>最近项目不算紧，于是就学了学 Swift ，看了一大神写的项目https://github.com/hrscy/DanTang，很受益，感谢开源！另外自己也写了一些基础代码，分享出来，第一是希望得到同行前辈的指导，第二是希望对需要的朋友有所帮助。</p>
 </blockquote>
-<h5 id="先分享一些学习资料">先分享一些学习资料：</h5>
+<h3 id="先分享一些学习资料">先分享一些学习资料：</h3>
 <ul>
 <li>
 <p>学习网站：</p>
@@ -374,7 +384,7 @@
 <!-- raw HTML omitted -->
 <hr>
 <!-- raw HTML omitted -->
-<p><strong>练习的 demo 地址：</strong> <a href="https://github.com/liuzhongning/NNMintFurniture">https://github.com/liuzhongning/NNMintFurniture</a></p>
+<p><strong>练习的 demo 地址：</strong> <a href="https://github.com/liupengkun1993/NNMintFurniture">https://github.com/liupengkun1993/NNMintFurniture</a></p>
 <ul>
 <li>主要包括以下功能：
 <ul>
@@ -398,8 +408,8 @@
 <blockquote>
 <p>练习 demo 的简单介绍，前方高能预警，大量图片请注意手机流量！</p>
 </blockquote>
-<h4 id="一多页面滑动视图分页控制器">一、多页面滑动视图（分页控制器）</h4>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-32882dd38dd1bc87.gif?imageMogr2/auto-orient/strip" alt="多页面滑动视图"></p>
+<h3 id="一多页面滑动视图分页控制器">一、多页面滑动视图（分页控制器）</h3>
+<p><img src="/image/iOS/iOS_Swift_Learn/Swift_Learn01.gif" alt="多页面滑动视图"></p>
 <ul>
 <li>核心代码</li>
 </ul>
@@ -454,57 +464,57 @@
 </span><span class="lnt">47
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    // MARK: 点击了标签栏
-    func titlesClick(button: UIButton) {
-        selectedButton!.isEnabled = true
-        selectedButton!.setTitleColor(UIColor.gray, for: .normal)
-        button.isEnabled = false
-        selectedButton = button
-        selectedButton?.setTitleColor(UIColor.red, for: .normal)
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="c1">// MARK: 点击了标签栏
+</span><span class="c1"></span>    <span class="n">func</span> <span class="nf">titlesClick</span><span class="p">(</span><span class="nl">button</span><span class="p">:</span> <span class="n">UIButton</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">selectedButton</span><span class="o">!</span><span class="p">.</span><span class="n">isEnabled</span> <span class="o">=</span> <span class="nb">true</span>
+        <span class="n">selectedButton</span><span class="o">!</span><span class="p">.</span><span class="n">setTitleColor</span><span class="p">(</span><span class="n">UIColor</span><span class="p">.</span><span class="n">gray</span><span class="p">,</span> <span class="k">for</span><span class="o">:</span> <span class="p">.</span><span class="n">normal</span><span class="p">)</span>
+        <span class="n">button</span><span class="p">.</span><span class="n">isEnabled</span> <span class="o">=</span> <span class="nb">false</span>
+        <span class="n">selectedButton</span> <span class="o">=</span> <span class="n">button</span>
+        <span class="n">selectedButton</span><span class="o">?</span><span class="p">.</span><span class="n">setTitleColor</span><span class="p">(</span><span class="n">UIColor</span><span class="p">.</span><span class="n">red</span><span class="p">,</span> <span class="k">for</span><span class="o">:</span> <span class="p">.</span><span class="n">normal</span><span class="p">)</span>
         
-        var offset = contentView!.contentOffset
-        offset.x = CGFloat(button.tag) * (contentView?.frame.size.width)!
-        contentView!.setContentOffset(offset, animated: true)
-    }
+        <span class="n">var</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">contentView</span><span class="o">!</span><span class="p">.</span><span class="n">contentOffset</span>
+        <span class="n">offset</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">CGFloat</span><span class="p">(</span><span class="n">button</span><span class="p">.</span><span class="n">tag</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">contentView</span><span class="o">?</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">)</span><span class="o">!</span>
+        <span class="n">contentView</span><span class="o">!</span><span class="p">.</span><span class="n">setContentOffset</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="nl">animated</span><span class="p">:</span> <span class="nb">true</span><span class="p">)</span>
+    <span class="p">}</span>
     
-    // MARK: 点击了右边搜索框
-    func rightBarButtonClick() {
-        navigationController?.pushViewController(NNSearchController(), animated: true)
-    }
+    <span class="c1">// MARK: 点击了右边搜索框
+</span><span class="c1"></span>    <span class="n">func</span> <span class="nf">rightBarButtonClick</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">navigationController</span><span class="o">?</span><span class="p">.</span><span class="n">pushViewController</span><span class="p">(</span><span class="n">NNSearchController</span><span class="p">(),</span> <span class="nl">animated</span><span class="p">:</span> <span class="nb">true</span><span class="p">)</span>
+    <span class="p">}</span>
     
-    // MARK: 点击了箭头
-    func arrowButtonClick(button: UIButton) {
-        UIView.animate(withDuration: 0.25) {
-            button.imageView?.transform = button.imageView!.transform.rotated(by: CGFloat(Double.pi))
-        }
-    }
+    <span class="c1">// MARK: 点击了箭头
+</span><span class="c1"></span>    <span class="n">func</span> <span class="nf">arrowButtonClick</span><span class="p">(</span><span class="nl">button</span><span class="p">:</span> <span class="n">UIButton</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">UIView</span><span class="p">.</span><span class="n">animate</span><span class="p">(</span><span class="nl">withDuration</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">button</span><span class="p">.</span><span class="n">imageView</span><span class="o">?</span><span class="p">.</span><span class="n">transform</span> <span class="o">=</span> <span class="n">button</span><span class="p">.</span><span class="n">imageView</span><span class="o">!</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">rotated</span><span class="p">(</span><span class="nl">by</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">(</span><span class="n">Double</span><span class="p">.</span><span class="n">pi</span><span class="p">))</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
     
-    // MARK: - UIScrollViewDelegate 代理
-    // MARK: scrollViewDidEndScrollingAnimation
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        let index = Int(scrollView.contentOffset.x / scrollView.frame.size.width)
-        // 取出子控制器
-        let vc = childViewControllers[index]
-        vc.view.frame.origin.x = scrollView.contentOffset.x
-        vc.view.frame.origin.y = 0
-        // 设置控制器的 view 的 height 值为整个屏幕的高度
-        vc.view.frame.size.height = scrollView.frame.size.height
-        scrollView.addSubview(vc.view)
-    }
+    <span class="c1">// MARK: - UIScrollViewDelegate 代理
+</span><span class="c1"></span>    <span class="c1">// MARK: scrollViewDidEndScrollingAnimation
+</span><span class="c1"></span>    <span class="n">func</span> <span class="nf">scrollViewDidEndScrollingAnimation</span><span class="p">(</span><span class="n">_</span> <span class="nl">scrollView</span><span class="p">:</span> <span class="n">UIScrollView</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">let</span> <span class="n">index</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="n">scrollView</span><span class="p">.</span><span class="n">contentOffset</span><span class="p">.</span><span class="n">x</span> <span class="o">/</span> <span class="n">scrollView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">)</span>
+        <span class="c1">// 取出子控制器
+</span><span class="c1"></span>        <span class="n">let</span> <span class="n">vc</span> <span class="o">=</span> <span class="n">childViewControllers</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="n">vc</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">origin</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">scrollView</span><span class="p">.</span><span class="n">contentOffset</span><span class="p">.</span><span class="n">x</span>
+        <span class="n">vc</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">origin</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1">// 设置控制器的 view 的 height 值为整个屏幕的高度
+</span><span class="c1"></span>        <span class="n">vc</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">scrollView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span>
+        <span class="n">scrollView</span><span class="p">.</span><span class="n">addSubview</span><span class="p">(</span><span class="n">vc</span><span class="p">.</span><span class="n">view</span><span class="p">)</span>
+    <span class="p">}</span>
     
-    // MARK: scrollViewDidEndDecelerating
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        scrollViewDidEndScrollingAnimation(scrollView)
-        // 当前索引
-        let index = Int(scrollView.contentOffset.x / scrollView.frame.size.width)
-        // 点击 Button
-        let button = titlesView.subviews[index] as! UIButton
-        titlesClick(button: button)
-    }
+    <span class="c1">// MARK: scrollViewDidEndDecelerating
+</span><span class="c1"></span>    <span class="n">func</span> <span class="nf">scrollViewDidEndDecelerating</span><span class="p">(</span><span class="n">_</span> <span class="nl">scrollView</span><span class="p">:</span> <span class="n">UIScrollView</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">scrollViewDidEndScrollingAnimation</span><span class="p">(</span><span class="n">scrollView</span><span class="p">)</span>
+        <span class="c1">// 当前索引
+</span><span class="c1"></span>        <span class="n">let</span> <span class="n">index</span> <span class="o">=</span> <span class="n">Int</span><span class="p">(</span><span class="n">scrollView</span><span class="p">.</span><span class="n">contentOffset</span><span class="p">.</span><span class="n">x</span> <span class="o">/</span> <span class="n">scrollView</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">)</span>
+        <span class="c1">// 点击 Button
+</span><span class="c1"></span>        <span class="n">let</span> <span class="n">button</span> <span class="o">=</span> <span class="n">titlesView</span><span class="p">.</span><span class="n">subviews</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="n">as</span><span class="o">!</span> <span class="n">UIButton</span>
+        <span class="n">titlesClick</span><span class="p">(</span><span class="nl">button</span><span class="p">:</span> <span class="n">button</span><span class="p">)</span>
+    <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="二图片轮播">二、图片轮播</h4>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-0e923b9e52af87c1.gif?imageMogr2/auto-orient/strip" alt="图片轮播"></p>
+</div><h3 id="二图片轮播">二、图片轮播</h3>
+<p><img src="/image/iOS/iOS_Swift_Learn/Swift_Learn02.gif" alt="图片轮播"></p>
 <ul>
 <li>核心代码：</li>
 </ul>
@@ -521,14 +531,14 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    // MARK: - 懒加载轮播视图
-    private lazy var shufflingFigureView : NNShufflingFigureView = {
-        let frame = CGRect(x: 0, y: 0, width: NNScreenWidth, height: 180)
-        let imageView = [&#34;shuffling1&#34;, &#34;shuffling2&#34;, &#34;shuffling3&#34;, &#34;shuffling4&#34;]
-        let shufflingFigureView = NNShufflingFigureView(frame: frame, images: imageView as NSArray, autoPlay: true, delay: 3, isFromNet: false)
-        shufflingFigureView.delegate = self
-        return shufflingFigureView
-    }()
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="c1">// MARK: - 懒加载轮播视图
+</span><span class="c1"></span>    <span class="n">private</span> <span class="n">lazy</span> <span class="n">var</span> <span class="nl">shufflingFigureView</span> <span class="p">:</span> <span class="n">NNShufflingFigureView</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">let</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">CGRect</span><span class="p">(</span><span class="nl">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nl">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nl">width</span><span class="p">:</span> <span class="n">NNScreenWidth</span><span class="p">,</span> <span class="nl">height</span><span class="p">:</span> <span class="mi">180</span><span class="p">)</span>
+        <span class="n">let</span> <span class="n">imageView</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#34;shuffling1&#34;</span><span class="p">,</span> <span class="s">&#34;shuffling2&#34;</span><span class="p">,</span> <span class="s">&#34;shuffling3&#34;</span><span class="p">,</span> <span class="s">&#34;shuffling4&#34;</span><span class="p">]</span>
+        <span class="n">let</span> <span class="n">shufflingFigureView</span> <span class="o">=</span> <span class="n">NNShufflingFigureView</span><span class="p">(</span><span class="nl">frame</span><span class="p">:</span> <span class="n">frame</span><span class="p">,</span> <span class="nl">images</span><span class="p">:</span> <span class="n">imageView</span> <span class="n">as</span> <span class="n">NSArray</span><span class="p">,</span> <span class="nl">autoPlay</span><span class="p">:</span> <span class="nb">true</span><span class="p">,</span> <span class="nl">delay</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nl">isFromNet</span><span class="p">:</span> <span class="nb">false</span><span class="p">)</span>
+        <span class="n">shufflingFigureView</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span>
+        <span class="k">return</span> <span class="n">shufflingFigureView</span>
+    <span class="p">}()</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>通过代理处理图片的点击事件</strong></p>
@@ -550,8 +560,8 @@ extension NNItemTableViewController: NNShufflingFigureViewDelegate {
 }
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="三导航栏渐变">三、导航栏渐变</h4>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-b6506cb5fab324c0.gif?imageMogr2/auto-orient/strip" alt="导航栏渐变"></p>
+</div><h3 id="三导航栏渐变">三、导航栏渐变</h3>
+<p><img src="/image/iOS/iOS_Swift_Learn/Swift_Learn03.gif" alt="导航栏渐变"></p>
 <ul>
 <li>核心代码</li>
 </ul>
@@ -588,38 +598,38 @@ extension NNItemTableViewController: NNShufflingFigureViewDelegate {
 </span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// MARK: - UIScrollViewDelegate 滚动页面时调用
-extension NNItemTableViewController {
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if type == tableViewType.haveHeader {
-            return
-        }
-        currentPostion = scrollView.contentOffset.y
-        if currentPostion &gt; 0 {
-            if currentPostion - lastPosition &gt;= 0 {
-                if topBool {
-                    topBool = false
-                    bottomBool = true
-                    stopPosition = currentPostion + 64
-                }
-                lastPosition = currentPostion
-                navigationController?.navigationBar.alpha = 1 - currentPostion / 500
-            } else {
-                if bottomBool {
-                    bottomBool = false
-                    topBool = true
-                    stopPosition = currentPostion + 64
-                }
-                lastPosition = currentPostion
-                navigationController?.navigationBar.alpha = (stopPosition - currentPostion) / 200
-            }
-        }
-    }
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// MARK: - UIScrollViewDelegate 滚动页面时调用
+</span><span class="c1"></span><span class="n">extension</span> <span class="n">NNItemTableViewController</span> <span class="p">{</span>
+    <span class="n">override</span> <span class="n">func</span> <span class="n">scrollViewDidScroll</span><span class="p">(</span><span class="n">_</span> <span class="nl">scrollView</span><span class="p">:</span> <span class="n">UIScrollView</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">type</span> <span class="o">==</span> <span class="n">tableViewType</span><span class="p">.</span><span class="n">haveHeader</span> <span class="p">{</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+        <span class="n">currentPostion</span> <span class="o">=</span> <span class="n">scrollView</span><span class="p">.</span><span class="n">contentOffset</span><span class="p">.</span><span class="n">y</span>
+        <span class="k">if</span> <span class="n">currentPostion</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="n">currentPostion</span> <span class="o">-</span> <span class="n">lastPosition</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="n">topBool</span> <span class="p">{</span>
+                    <span class="n">topBool</span> <span class="o">=</span> <span class="nb">false</span>
+                    <span class="n">bottomBool</span> <span class="o">=</span> <span class="nb">true</span>
+                    <span class="n">stopPosition</span> <span class="o">=</span> <span class="n">currentPostion</span> <span class="o">+</span> <span class="mi">64</span>
+                <span class="p">}</span>
+                <span class="n">lastPosition</span> <span class="o">=</span> <span class="n">currentPostion</span>
+                <span class="n">navigationController</span><span class="o">?</span><span class="p">.</span><span class="n">navigationBar</span><span class="p">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">currentPostion</span> <span class="o">/</span> <span class="mi">500</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="n">bottomBool</span> <span class="p">{</span>
+                    <span class="n">bottomBool</span> <span class="o">=</span> <span class="nb">false</span>
+                    <span class="n">topBool</span> <span class="o">=</span> <span class="nb">true</span>
+                    <span class="n">stopPosition</span> <span class="o">=</span> <span class="n">currentPostion</span> <span class="o">+</span> <span class="mi">64</span>
+                <span class="p">}</span>
+                <span class="n">lastPosition</span> <span class="o">=</span> <span class="n">currentPostion</span>
+                <span class="n">navigationController</span><span class="o">?</span><span class="p">.</span><span class="n">navigationBar</span><span class="p">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="p">(</span><span class="n">stopPosition</span> <span class="o">-</span> <span class="n">currentPostion</span><span class="p">)</span> <span class="o">/</span> <span class="mi">200</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="四瀑布流练习">四、瀑布流练习</h4>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-c47f2e1053e05065.gif?imageMogr2/auto-orient/strip" alt="瀑布流练习"></p>
+</div><h3 id="四瀑布流练习">四、瀑布流练习</h3>
+<p><img src="/image/iOS/iOS_Swift_Learn/Swift_Learn04.gif" alt="瀑布流练习"></p>
 <ul>
 <li>核心代码</li>
 </ul>
@@ -637,15 +647,15 @@ extension NNItemTableViewController {
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">        // 布局
-        let layout = NNItemCollectionViewFlowLayout()
-        // 创建collectionView
-        let collectionView = UICollectionView.init(frame: view.bounds, collectionViewLayout: layout)
-        view.addSubview(collectionView)
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.backgroundColor = UIColor.white
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: NNItemCollectionViewControllerID)
+<pre class="chroma"><code class="language-objc" data-lang="objc">        <span class="c1">// 布局
+</span><span class="c1"></span>        <span class="n">let</span> <span class="n">layout</span> <span class="o">=</span> <span class="n">NNItemCollectionViewFlowLayout</span><span class="p">()</span>
+        <span class="c1">// 创建collectionView
+</span><span class="c1"></span>        <span class="n">let</span> <span class="n">collectionView</span> <span class="o">=</span> <span class="n">UICollectionView</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="nl">frame</span><span class="p">:</span> <span class="n">view</span><span class="p">.</span><span class="n">bounds</span><span class="p">,</span> <span class="nl">collectionViewLayout</span><span class="p">:</span> <span class="n">layout</span><span class="p">)</span>
+        <span class="n">view</span><span class="p">.</span><span class="n">addSubview</span><span class="p">(</span><span class="n">collectionView</span><span class="p">)</span>
+        <span class="n">collectionView</span><span class="p">.</span><span class="n">dataSource</span> <span class="o">=</span> <span class="nb">self</span>
+        <span class="n">collectionView</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span>
+        <span class="n">collectionView</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="n">UIColor</span><span class="p">.</span><span class="n">white</span>
+        <span class="n">collectionView</span><span class="p">.</span><span class="k">register</span><span class="p">(</span><span class="n">UICollectionViewCell</span><span class="p">.</span><span class="nb">self</span><span class="p">,</span> <span class="nl">forCellWithReuseIdentifier</span><span class="p">:</span> <span class="n">NNItemCollectionViewControllerID</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>自定义 UICollectionViewFlowLayout</strong></p>
@@ -707,64 +717,64 @@ extension NNItemTableViewController {
 </span><span class="lnt">54
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    // MARK: - 更新布局
-    override func prepare() {
-        super.prepare()
-        // 清除所有的布局属性
-        attrsArray.removeAll()
-        columnHeightsAry.removeAll()
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="c1">// MARK: - 更新布局
+</span><span class="c1"></span>    <span class="n">override</span> <span class="n">func</span> <span class="nf">prepare</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nb">super</span><span class="p">.</span><span class="n">prepare</span><span class="p">()</span>
+        <span class="c1">// 清除所有的布局属性
+</span><span class="c1"></span>        <span class="n">attrsArray</span><span class="p">.</span><span class="n">removeAll</span><span class="p">()</span>
+        <span class="n">columnHeightsAry</span><span class="p">.</span><span class="n">removeAll</span><span class="p">()</span>
         
-        for _ in 0 ..&lt; columnCountDefault {
-            columnHeightsAry.append(edgeInsetsDefault.top)
-        }
+        <span class="k">for</span> <span class="n">_</span> <span class="k">in</span> <span class="mi">0</span> <span class="p">..</span><span class="o">&lt;</span> <span class="n">columnCountDefault</span> <span class="p">{</span>
+            <span class="n">columnHeightsAry</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">edgeInsetsDefault</span><span class="p">.</span><span class="n">top</span><span class="p">)</span>
+        <span class="p">}</span>
         
-        let sections : Int = (collectionView?.numberOfSections)!
-        for num in 0 ..&lt; sections {
-            let count : Int = (collectionView?.numberOfItems(inSection: num))!
-            for i in 0 ..&lt; count {
-                let indexpath : NSIndexPath = NSIndexPath.init(item: i, section: num)
-                let attrs = layoutAttributesForItem(at: indexpath as IndexPath)!
-                attrsArray.append(attrs)
-            }
-        }
-    }
+        <span class="n">let</span> <span class="nl">sections</span> <span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="p">(</span><span class="n">collectionView</span><span class="o">?</span><span class="p">.</span><span class="n">numberOfSections</span><span class="p">)</span><span class="o">!</span>
+        <span class="k">for</span> <span class="n">num</span> <span class="k">in</span> <span class="mi">0</span> <span class="p">..</span><span class="o">&lt;</span> <span class="n">sections</span> <span class="p">{</span>
+            <span class="n">let</span> <span class="nl">count</span> <span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="p">(</span><span class="n">collectionView</span><span class="o">?</span><span class="p">.</span><span class="n">numberOfItems</span><span class="p">(</span><span class="nl">inSection</span><span class="p">:</span> <span class="n">num</span><span class="p">))</span><span class="o">!</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span> <span class="p">..</span><span class="o">&lt;</span> <span class="n">count</span> <span class="p">{</span>
+                <span class="n">let</span> <span class="nl">indexpath</span> <span class="p">:</span> <span class="n">NSIndexPath</span> <span class="o">=</span> <span class="n">NSIndexPath</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="nl">item</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span> <span class="nl">section</span><span class="p">:</span> <span class="n">num</span><span class="p">)</span>
+                <span class="n">let</span> <span class="n">attrs</span> <span class="o">=</span> <span class="n">layoutAttributesForItem</span><span class="p">(</span><span class="nl">at</span><span class="p">:</span> <span class="n">indexpath</span> <span class="n">as</span> <span class="n">IndexPath</span><span class="p">)</span><span class="o">!</span>
+                <span class="n">attrsArray</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">attrs</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-    // MARK: - cell 对应的布局属性
-    override func layoutAttributesForItem(at indexPath: IndexPath) -&gt; UICollectionViewLayoutAttributes? {
+    <span class="c1">// MARK: - cell 对应的布局属性
+</span><span class="c1"></span>    <span class="n">override</span> <span class="n">func</span> <span class="nf">layoutAttributesForItem</span><span class="p">(</span><span class="n">at</span> <span class="nl">indexPath</span><span class="p">:</span> <span class="n">IndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">UICollectionViewLayoutAttributes</span><span class="o">?</span> <span class="p">{</span>
         
-        let attrs = UICollectionViewLayoutAttributes.init(forCellWith: indexPath)
-        let collectionWidth = collectionView?.frame.size.width
-        // 获得所有 item 的宽度
-        let itemW = (collectionWidth! - edgeInsetsDefault.left - edgeInsetsDefault.right - CGFloat(columnCountDefault-1) * columnMargin) / CGFloat(columnCountDefault)
-        let itemH = 50 + arc4random_uniform(100)
+        <span class="n">let</span> <span class="n">attrs</span> <span class="o">=</span> <span class="n">UICollectionViewLayoutAttributes</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="nl">forCellWith</span><span class="p">:</span> <span class="n">indexPath</span><span class="p">)</span>
+        <span class="n">let</span> <span class="n">collectionWidth</span> <span class="o">=</span> <span class="n">collectionView</span><span class="o">?</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span>
+        <span class="c1">// 获得所有 item 的宽度
+</span><span class="c1"></span>        <span class="n">let</span> <span class="n">itemW</span> <span class="o">=</span> <span class="p">(</span><span class="n">collectionWidth</span><span class="o">!</span> <span class="o">-</span> <span class="n">edgeInsetsDefault</span><span class="p">.</span><span class="n">left</span> <span class="o">-</span> <span class="n">edgeInsetsDefault</span><span class="p">.</span><span class="n">right</span> <span class="o">-</span> <span class="n">CGFloat</span><span class="p">(</span><span class="n">columnCountDefault</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">columnMargin</span><span class="p">)</span> <span class="o">/</span> <span class="n">CGFloat</span><span class="p">(</span><span class="n">columnCountDefault</span><span class="p">)</span>
+        <span class="n">let</span> <span class="n">itemH</span> <span class="o">=</span> <span class="mi">50</span> <span class="o">+</span> <span class="n">arc4random_uniform</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
         
-        // 找出高度最短那一列
-        var dextColum : Int = 0
-        var minH = columnHeightsAry[0]
-        for i in 1 ..&lt; columnCountDefault{
-            // 取出第 i 列的高度
-            let columnH = columnHeightsAry[i]
+        <span class="c1">// 找出高度最短那一列
+</span><span class="c1"></span>        <span class="n">var</span> <span class="nl">dextColum</span> <span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">var</span> <span class="n">minH</span> <span class="o">=</span> <span class="n">columnHeightsAry</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span> <span class="p">..</span><span class="o">&lt;</span> <span class="n">columnCountDefault</span><span class="p">{</span>
+            <span class="c1">// 取出第 i 列的高度
+</span><span class="c1"></span>            <span class="n">let</span> <span class="n">columnH</span> <span class="o">=</span> <span class="n">columnHeightsAry</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
             
-            if minH &gt; columnH {
-                minH = columnH
-                dextColum = i
-            }
-        }
+            <span class="k">if</span> <span class="n">minH</span> <span class="o">&gt;</span> <span class="n">columnH</span> <span class="p">{</span>
+                <span class="n">minH</span> <span class="o">=</span> <span class="n">columnH</span>
+                <span class="n">dextColum</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
         
-        let x = edgeInsetsDefault.left + CGFloat(dextColum) * (itemW + columnMargin)
-        var y = minH
-        if y != edgeInsetsDefault.top{
-            y = y + itemMargin
-        }
-        attrs.frame = CGRect(x: x, y: y, width: itemW, height: CGFloat(itemH))
-        // 更新最短那列高度
-        columnHeightsAry[dextColum] = attrs.frame.maxY
-        return attrs
-    }
+        <span class="n">let</span> <span class="n">x</span> <span class="o">=</span> <span class="n">edgeInsetsDefault</span><span class="p">.</span><span class="n">left</span> <span class="o">+</span> <span class="n">CGFloat</span><span class="p">(</span><span class="n">dextColum</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">itemW</span> <span class="o">+</span> <span class="n">columnMargin</span><span class="p">)</span>
+        <span class="n">var</span> <span class="n">y</span> <span class="o">=</span> <span class="n">minH</span>
+        <span class="k">if</span> <span class="n">y</span> <span class="o">!=</span> <span class="n">edgeInsetsDefault</span><span class="p">.</span><span class="n">top</span><span class="p">{</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">itemMargin</span>
+        <span class="p">}</span>
+        <span class="n">attrs</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">CGRect</span><span class="p">(</span><span class="nl">x</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="nl">y</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="nl">width</span><span class="p">:</span> <span class="n">itemW</span><span class="p">,</span> <span class="nl">height</span><span class="p">:</span> <span class="n">CGFloat</span><span class="p">(</span><span class="n">itemH</span><span class="p">))</span>
+        <span class="c1">// 更新最短那列高度
+</span><span class="c1"></span>        <span class="n">columnHeightsAry</span><span class="p">[</span><span class="n">dextColum</span><span class="p">]</span> <span class="o">=</span> <span class="n">attrs</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">maxY</span>
+        <span class="k">return</span> <span class="n">attrs</span>
+    <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="五uiscrollview-练习">五、UIScrollView 练习</h4>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-f96ca085518cc164.gif?imageMogr2/auto-orient/strip" alt="UIScrollView 练习"></p>
+</div><h3 id="五uiscrollview-练习">五、UIScrollView 练习</h3>
+<p><img src="/image/iOS/iOS_Swift_Learn/Swift_Learn05.gif" alt="UIScrollView 练习"></p>
 <ul>
 <li>核心代码</li>
 </ul>
@@ -827,65 +837,65 @@ extension NNItemTableViewController {
 </span><span class="lnt">55
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    // MARK: - 放大缩小
-    // MARK: 放大
-    func amplificationBtnClick() {
-        var zoomScale = scrollView.zoomScale // 当前缩放
-        zoomScale += 0.1
-        if zoomScale &gt;= scrollView.maximumZoomScale {
-            return
-        }
-        self.scrollView.setZoomScale(zoomScale, animated: true)
-    }
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="c1">// MARK: - 放大缩小
+</span><span class="c1"></span>    <span class="c1">// MARK: 放大
+</span><span class="c1"></span>    <span class="n">func</span> <span class="nf">amplificationBtnClick</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">var</span> <span class="n">zoomScale</span> <span class="o">=</span> <span class="n">scrollView</span><span class="p">.</span><span class="n">zoomScale</span> <span class="c1">// 当前缩放
+</span><span class="c1"></span>        <span class="n">zoomScale</span> <span class="o">+=</span> <span class="mf">0.1</span>
+        <span class="k">if</span> <span class="n">zoomScale</span> <span class="o">&gt;=</span> <span class="n">scrollView</span><span class="p">.</span><span class="n">maximumZoomScale</span> <span class="p">{</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">scrollView</span><span class="p">.</span><span class="n">setZoomScale</span><span class="p">(</span><span class="n">zoomScale</span><span class="p">,</span> <span class="nl">animated</span><span class="p">:</span> <span class="nb">true</span><span class="p">)</span>
+    <span class="p">}</span>
     
-    // MARK: 缩小
-    func narrowDownBtnClick() {
-        var zoomScale = scrollView.zoomScale // 当前缩放
-        zoomScale -= 0.1
-        if zoomScale &lt;= scrollView.minimumZoomScale {
-            return
-        }
-        self.scrollView.setZoomScale(zoomScale, animated: true)
-    }
+    <span class="c1">// MARK: 缩小
+</span><span class="c1"></span>    <span class="n">func</span> <span class="nf">narrowDownBtnClick</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">var</span> <span class="n">zoomScale</span> <span class="o">=</span> <span class="n">scrollView</span><span class="p">.</span><span class="n">zoomScale</span> <span class="c1">// 当前缩放
+</span><span class="c1"></span>        <span class="n">zoomScale</span> <span class="o">-=</span> <span class="mf">0.1</span>
+        <span class="k">if</span> <span class="n">zoomScale</span> <span class="o">&lt;=</span> <span class="n">scrollView</span><span class="p">.</span><span class="n">minimumZoomScale</span> <span class="p">{</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">scrollView</span><span class="p">.</span><span class="n">setZoomScale</span><span class="p">(</span><span class="n">zoomScale</span><span class="p">,</span> <span class="nl">animated</span><span class="p">:</span> <span class="nb">true</span><span class="p">)</span>
+    <span class="p">}</span>
 
-// MARK: - NNItemBtnViewDelegate 上下左右点击代理
-extension NNItemScrollView {
-    // MARK: 向左
-    func leftBtnClickDelegate() {
-        var point = self.scrollView.contentOffset
-        point.x += 100
-        point.x = point.x &gt;= self.scrollView.contentSize.width ? 0 : point.x
-        scrollView.setContentOffset(point, animated: true)
-    }
+<span class="c1">// MARK: - NNItemBtnViewDelegate 上下左右点击代理
+</span><span class="c1"></span><span class="n">extension</span> <span class="n">NNItemScrollView</span> <span class="p">{</span>
+    <span class="c1">// MARK: 向左
+</span><span class="c1"></span>    <span class="n">func</span> <span class="n">leftBtnClickDelegate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">var</span> <span class="n">point</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">scrollView</span><span class="p">.</span><span class="n">contentOffset</span>
+        <span class="n">point</span><span class="p">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mi">100</span>
+        <span class="n">point</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">point</span><span class="p">.</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="nb">self</span><span class="p">.</span><span class="n">scrollView</span><span class="p">.</span><span class="n">contentSize</span><span class="p">.</span><span class="n">width</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">point</span><span class="p">.</span><span class="n">x</span>
+        <span class="n">scrollView</span><span class="p">.</span><span class="n">setContentOffset</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="nl">animated</span><span class="p">:</span> <span class="nb">true</span><span class="p">)</span>
+    <span class="p">}</span>
     
-    // MARK: 向右
-    func rightBtnClickDelegate() {
-        var point = self.scrollView.contentOffset
-        point.x -= 100
-        point.x = point.x &lt;= -NNScreenWidth ? 0 : point.x
-        scrollView.setContentOffset(point, animated: true)
-    }
+    <span class="c1">// MARK: 向右
+</span><span class="c1"></span>    <span class="n">func</span> <span class="n">rightBtnClickDelegate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">var</span> <span class="n">point</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">scrollView</span><span class="p">.</span><span class="n">contentOffset</span>
+        <span class="n">point</span><span class="p">.</span><span class="n">x</span> <span class="o">-=</span> <span class="mi">100</span>
+        <span class="n">point</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">point</span><span class="p">.</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="o">-</span><span class="n">NNScreenWidth</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">point</span><span class="p">.</span><span class="n">x</span>
+        <span class="n">scrollView</span><span class="p">.</span><span class="n">setContentOffset</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="nl">animated</span><span class="p">:</span> <span class="nb">true</span><span class="p">)</span>
+    <span class="p">}</span>
     
-    // MARK: 向上
-    func topBtnClickDelegate() {
-        var point = self.scrollView.contentOffset
-        point.y += 50
-        point.y = point.y &gt;= self.scrollView.contentSize.height ? 0 : point.y
-        scrollView.setContentOffset(point, animated: true)
-    }
+    <span class="c1">// MARK: 向上
+</span><span class="c1"></span>    <span class="n">func</span> <span class="n">topBtnClickDelegate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">var</span> <span class="n">point</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">scrollView</span><span class="p">.</span><span class="n">contentOffset</span>
+        <span class="n">point</span><span class="p">.</span><span class="n">y</span> <span class="o">+=</span> <span class="mi">50</span>
+        <span class="n">point</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">point</span><span class="p">.</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="nb">self</span><span class="p">.</span><span class="n">scrollView</span><span class="p">.</span><span class="n">contentSize</span><span class="p">.</span><span class="n">height</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">point</span><span class="p">.</span><span class="n">y</span>
+        <span class="n">scrollView</span><span class="p">.</span><span class="n">setContentOffset</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="nl">animated</span><span class="p">:</span> <span class="nb">true</span><span class="p">)</span>
+    <span class="p">}</span>
     
-    // MARK: 向下
-    func bottomBtnClickDelegate() {
-        var point = self.scrollView.contentOffset
-        point.y -= 50
-        point.y = point.y &lt;= -NNScreenHeight ? 0 : point.y
-        scrollView.setContentOffset(point, animated: true)
-    }
-}
+    <span class="c1">// MARK: 向下
+</span><span class="c1"></span>    <span class="n">func</span> <span class="n">bottomBtnClickDelegate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">var</span> <span class="n">point</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">scrollView</span><span class="p">.</span><span class="n">contentOffset</span>
+        <span class="n">point</span><span class="p">.</span><span class="n">y</span> <span class="o">-=</span> <span class="mi">50</span>
+        <span class="n">point</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">point</span><span class="p">.</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="o">-</span><span class="n">NNScreenHeight</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">point</span><span class="p">.</span><span class="n">y</span>
+        <span class="n">scrollView</span><span class="p">.</span><span class="n">setContentOffset</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="nl">animated</span><span class="p">:</span> <span class="nb">true</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="六照相功能更换头像建议用真机">六、照相功能，更换头像（建议用真机）</h4>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-eedef65d59cce265.gif?imageMogr2/auto-orient/strip" alt="照相功能，更换头像"></p>
+</div><h3 id="六照相功能更换头像建议用真机">六、照相功能，更换头像（建议用真机）</h3>
+<p><img src="/image/iOS/iOS_Swift_Learn/Swift_Learn06.gif" alt="照相功能，更换头像"></p>
 <ul>
 <li>核心代码</li>
 </ul>
@@ -932,49 +942,49 @@ extension NNItemScrollView {
 </span><span class="lnt">39
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// MARK: - 点击头像按钮，更换头像
-    func changePicture() {
-        let alertcontroller = UIAlertController(title: &#34;请选择相片&#34;, message: nil, preferredStyle: .actionSheet)
-        let alertaction = UIAlertAction(title: &#34;从相册选取&#34;, style: .destructive) { (action) in
-            let imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
-            imagePicker.sourceType = .photoLibrary
-            imagePicker.allowsEditing = true
-            self.present(imagePicker, animated: true, completion: nil)
-        }
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// MARK: - 点击头像按钮，更换头像
+</span><span class="c1"></span>    <span class="n">func</span> <span class="nf">changePicture</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">let</span> <span class="n">alertcontroller</span> <span class="o">=</span> <span class="n">UIAlertController</span><span class="p">(</span><span class="nl">title</span><span class="p">:</span> <span class="s">&#34;请选择相片&#34;</span><span class="p">,</span> <span class="nl">message</span><span class="p">:</span> <span class="nb">nil</span><span class="p">,</span> <span class="nl">preferredStyle</span><span class="p">:</span> <span class="p">.</span><span class="n">actionSheet</span><span class="p">)</span>
+        <span class="n">let</span> <span class="n">alertaction</span> <span class="o">=</span> <span class="n">UIAlertAction</span><span class="p">(</span><span class="nl">title</span><span class="p">:</span> <span class="s">&#34;从相册选取&#34;</span><span class="p">,</span> <span class="nl">style</span><span class="p">:</span> <span class="p">.</span><span class="n">destructive</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">action</span><span class="p">)</span> <span class="k">in</span>
+            <span class="n">let</span> <span class="n">imagePicker</span> <span class="o">=</span> <span class="n">UIImagePickerController</span><span class="p">()</span>
+            <span class="n">imagePicker</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span>
+            <span class="n">imagePicker</span><span class="p">.</span><span class="n">sourceType</span> <span class="o">=</span> <span class="p">.</span><span class="n">photoLibrary</span>
+            <span class="n">imagePicker</span><span class="p">.</span><span class="n">allowsEditing</span> <span class="o">=</span> <span class="nb">true</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">present</span><span class="p">(</span><span class="n">imagePicker</span><span class="p">,</span> <span class="nl">animated</span><span class="p">:</span> <span class="nb">true</span><span class="p">,</span> <span class="nl">completion</span><span class="p">:</span> <span class="nb">nil</span><span class="p">)</span>
+        <span class="p">}</span>
         
-        let alertaction2 = UIAlertAction(title: &#34;拍照&#34;, style: .destructive) { (action) in
-            if (!UIImagePickerController.isSourceTypeAvailable(.camera)) {
-                print(&#34;设备不支持相机&#34;)
-                return
-            }
-            let imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
-            imagePicker.sourceType = .camera
-            imagePicker.allowsEditing = true
-            self.present(imagePicker, animated: true, completion: nil)
-        }
+        <span class="n">let</span> <span class="n">alertaction2</span> <span class="o">=</span> <span class="n">UIAlertAction</span><span class="p">(</span><span class="nl">title</span><span class="p">:</span> <span class="s">&#34;拍照&#34;</span><span class="p">,</span> <span class="nl">style</span><span class="p">:</span> <span class="p">.</span><span class="n">destructive</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">action</span><span class="p">)</span> <span class="k">in</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">UIImagePickerController</span><span class="p">.</span><span class="n">isSourceTypeAvailable</span><span class="p">(.</span><span class="n">camera</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">print</span><span class="p">(</span><span class="s">&#34;设备不支持相机&#34;</span><span class="p">)</span>
+                <span class="k">return</span>
+            <span class="p">}</span>
+            <span class="n">let</span> <span class="n">imagePicker</span> <span class="o">=</span> <span class="n">UIImagePickerController</span><span class="p">()</span>
+            <span class="n">imagePicker</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span>
+            <span class="n">imagePicker</span><span class="p">.</span><span class="n">sourceType</span> <span class="o">=</span> <span class="p">.</span><span class="n">camera</span>
+            <span class="n">imagePicker</span><span class="p">.</span><span class="n">allowsEditing</span> <span class="o">=</span> <span class="nb">true</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">present</span><span class="p">(</span><span class="n">imagePicker</span><span class="p">,</span> <span class="nl">animated</span><span class="p">:</span> <span class="nb">true</span><span class="p">,</span> <span class="nl">completion</span><span class="p">:</span> <span class="nb">nil</span><span class="p">)</span>
+        <span class="p">}</span>
         
-        let alertAction3 = UIAlertAction(title: &#34;取消&#34;, style: .cancel) { (action) in
-            print(&#34;取消&#34;)
-        }
+        <span class="n">let</span> <span class="n">alertAction3</span> <span class="o">=</span> <span class="n">UIAlertAction</span><span class="p">(</span><span class="nl">title</span><span class="p">:</span> <span class="s">&#34;取消&#34;</span><span class="p">,</span> <span class="nl">style</span><span class="p">:</span> <span class="p">.</span><span class="n">cancel</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">action</span><span class="p">)</span> <span class="k">in</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&#34;取消&#34;</span><span class="p">)</span>
+        <span class="p">}</span>
         
-        alertcontroller.addAction(alertaction)
-        alertcontroller.addAction(alertaction2)
-        alertcontroller.addAction(alertAction3)
-        present(alertcontroller, animated: true, completion: nil)
-    }
+        <span class="n">alertcontroller</span><span class="p">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">alertaction</span><span class="p">)</span>
+        <span class="n">alertcontroller</span><span class="p">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">alertaction2</span><span class="p">)</span>
+        <span class="n">alertcontroller</span><span class="p">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">alertAction3</span><span class="p">)</span>
+        <span class="n">present</span><span class="p">(</span><span class="n">alertcontroller</span><span class="p">,</span> <span class="nl">animated</span><span class="p">:</span> <span class="nb">true</span><span class="p">,</span> <span class="nl">completion</span><span class="p">:</span> <span class="nb">nil</span><span class="p">)</span>
+    <span class="p">}</span>
     
-    // MARK: - UIImagePickerControllerDelegate
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        imageView.image = image
-        self.dismiss(animated: true, completion: nil)
-    }
+    <span class="c1">// MARK: - UIImagePickerControllerDelegate
+</span><span class="c1"></span>    <span class="n">func</span> <span class="nf">imagePickerController</span><span class="p">(</span><span class="n">_</span> <span class="nl">picker</span><span class="p">:</span> <span class="n">UIImagePickerController</span><span class="p">,</span> <span class="n">didFinishPickingMediaWithInfo</span> <span class="nl">info</span><span class="p">:</span> <span class="p">[</span><span class="nl">String</span> <span class="p">:</span> <span class="n">Any</span><span class="p">])</span> <span class="p">{</span>
+        <span class="n">let</span> <span class="n">image</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="n">UIImagePickerControllerOriginalImage</span><span class="p">]</span> <span class="n">as</span><span class="o">!</span> <span class="n">UIImage</span>
+        <span class="n">imageView</span><span class="p">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">image</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">dismiss</span><span class="p">(</span><span class="nl">animated</span><span class="p">:</span> <span class="nb">true</span><span class="p">,</span> <span class="nl">completion</span><span class="p">:</span> <span class="nb">nil</span><span class="p">)</span>
+    <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="七二维码扫描及识别建议用真机">七、二维码扫描及识别（建议用真机）</h4>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-2bdb11d7ef7db000.gif?imageMogr2/auto-orient/strip" alt="二维码扫描及识别"></p>
+</div><h3 id="七二维码扫描及识别建议用真机">七、二维码扫描及识别（建议用真机）</h3>
+<p><img src="/image/iOS/iOS_Swift_Learn/Swift_Learn07.gif" alt="二维码扫描及识别"></p>
 <ul>
 <li>核心代码</li>
 </ul>
@@ -1033,57 +1043,57 @@ extension NNItemScrollView {
 </span><span class="lnt">51
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// MARK: - 扫描设备设置
-    func setupScanSession() {
-        do {
-            // 设置捕捉设备
-            let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
-            // 设置设备输入输出
-            let input = try AVCaptureDeviceInput(device: device)
-            let output = AVCaptureMetadataOutput()
-            output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// MARK: - 扫描设备设置
+</span><span class="c1"></span>    <span class="n">func</span> <span class="nf">setupScanSession</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">do</span> <span class="p">{</span>
+            <span class="c1">// 设置捕捉设备
+</span><span class="c1"></span>            <span class="n">let</span> <span class="n">device</span> <span class="o">=</span> <span class="n">AVCaptureDevice</span><span class="p">.</span><span class="n">defaultDevice</span><span class="p">(</span><span class="nl">withMediaType</span><span class="p">:</span> <span class="n">AVMediaTypeVideo</span><span class="p">)</span>
+            <span class="c1">// 设置设备输入输出
+</span><span class="c1"></span>            <span class="n">let</span> <span class="n">input</span> <span class="o">=</span> <span class="n">try</span> <span class="n">AVCaptureDeviceInput</span><span class="p">(</span><span class="nl">device</span><span class="p">:</span> <span class="n">device</span><span class="p">)</span>
+            <span class="n">let</span> <span class="n">output</span> <span class="o">=</span> <span class="n">AVCaptureMetadataOutput</span><span class="p">()</span>
+            <span class="n">output</span><span class="p">.</span><span class="n">setMetadataObjectsDelegate</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span> <span class="nl">queue</span><span class="p">:</span> <span class="n">DispatchQueue</span><span class="p">.</span><span class="n">main</span><span class="p">)</span>
             
-            // 设置会话
-            let  scanSession = AVCaptureSession()
-            scanSession.canSetSessionPreset(AVCaptureSessionPresetHigh)
+            <span class="c1">// 设置会话
+</span><span class="c1"></span>            <span class="n">let</span>  <span class="n">scanSession</span> <span class="o">=</span> <span class="n">AVCaptureSession</span><span class="p">()</span>
+            <span class="n">scanSession</span><span class="p">.</span><span class="n">canSetSessionPreset</span><span class="p">(</span><span class="n">AVCaptureSessionPresetHigh</span><span class="p">)</span>
             
-            if scanSession.canAddInput(input) {
-                scanSession.addInput(input)
-            }
+            <span class="k">if</span> <span class="n">scanSession</span><span class="p">.</span><span class="n">canAddInput</span><span class="p">(</span><span class="n">input</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">scanSession</span><span class="p">.</span><span class="n">addInput</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
+            <span class="p">}</span>
             
-            if scanSession.canAddOutput(output) {
-                scanSession.addOutput(output)
-            }
+            <span class="k">if</span> <span class="n">scanSession</span><span class="p">.</span><span class="n">canAddOutput</span><span class="p">(</span><span class="n">output</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">scanSession</span><span class="p">.</span><span class="n">addOutput</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+            <span class="p">}</span>
             
-            // 设置扫描类型(二维码和条形码)
-            output.metadataObjectTypes = [
-                AVMetadataObjectTypeQRCode,
-                AVMetadataObjectTypeCode39Code,
-                AVMetadataObjectTypeCode128Code,
-                AVMetadataObjectTypeCode39Mod43Code,
-                AVMetadataObjectTypeEAN13Code,
-                AVMetadataObjectTypeEAN8Code,
-                AVMetadataObjectTypeCode93Code]
+            <span class="c1">// 设置扫描类型(二维码和条形码)
+</span><span class="c1"></span>            <span class="n">output</span><span class="p">.</span><span class="n">metadataObjectTypes</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">AVMetadataObjectTypeQRCode</span><span class="p">,</span>
+                <span class="n">AVMetadataObjectTypeCode39Code</span><span class="p">,</span>
+                <span class="n">AVMetadataObjectTypeCode128Code</span><span class="p">,</span>
+                <span class="n">AVMetadataObjectTypeCode39Mod43Code</span><span class="p">,</span>
+                <span class="n">AVMetadataObjectTypeEAN13Code</span><span class="p">,</span>
+                <span class="n">AVMetadataObjectTypeEAN8Code</span><span class="p">,</span>
+                <span class="n">AVMetadataObjectTypeCode93Code</span><span class="p">]</span>
             
-            // 预览图层
-            let scanPreviewLayer = AVCaptureVideoPreviewLayer(session:scanSession)
-            scanPreviewLayer!.videoGravity = AVLayerVideoGravityResizeAspectFill
-            scanPreviewLayer!.frame = view.layer.bounds
+            <span class="c1">// 预览图层
+</span><span class="c1"></span>            <span class="n">let</span> <span class="n">scanPreviewLayer</span> <span class="o">=</span> <span class="n">AVCaptureVideoPreviewLayer</span><span class="p">(</span><span class="nl">session</span><span class="p">:</span><span class="n">scanSession</span><span class="p">)</span>
+            <span class="n">scanPreviewLayer</span><span class="o">!</span><span class="p">.</span><span class="n">videoGravity</span> <span class="o">=</span> <span class="n">AVLayerVideoGravityResizeAspectFill</span>
+            <span class="n">scanPreviewLayer</span><span class="o">!</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">view</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">bounds</span>
             
-            view.layer.insertSublayer(scanPreviewLayer!, at: 0)
+            <span class="n">view</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">insertSublayer</span><span class="p">(</span><span class="n">scanPreviewLayer</span><span class="o">!</span><span class="p">,</span> <span class="nl">at</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
             
-            // 设置扫描区域
-            NotificationCenter.default.addObserver(forName: NSNotification.Name.AVCaptureInputPortFormatDescriptionDidChange, object: nil, queue: nil, using: { (noti) in
-                output.rectOfInterest = (scanPreviewLayer?.metadataOutputRectOfInterest(for:self.scanImageView.frame))!
-            })
-            // 保存会话
-            self.scanSession = scanSession
+            <span class="c1">// 设置扫描区域
+</span><span class="c1"></span>            <span class="n">NotificationCenter</span><span class="p">.</span><span class="k">default</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="nl">forName</span><span class="p">:</span> <span class="n">NSNotification</span><span class="p">.</span><span class="n">Name</span><span class="p">.</span><span class="n">AVCaptureInputPortFormatDescriptionDidChange</span><span class="p">,</span> <span class="nl">object</span><span class="p">:</span> <span class="nb">nil</span><span class="p">,</span> <span class="nl">queue</span><span class="p">:</span> <span class="nb">nil</span><span class="p">,</span> <span class="nl">using</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="n">noti</span><span class="p">)</span> <span class="k">in</span>
+                <span class="n">output</span><span class="p">.</span><span class="n">rectOfInterest</span> <span class="o">=</span> <span class="p">(</span><span class="n">scanPreviewLayer</span><span class="o">?</span><span class="p">.</span><span class="n">metadataOutputRectOfInterest</span><span class="p">(</span><span class="k">for</span><span class="o">:</span><span class="nb">self</span><span class="p">.</span><span class="n">scanImageView</span><span class="p">.</span><span class="n">frame</span><span class="p">))</span><span class="o">!</span>
+            <span class="p">})</span>
+            <span class="c1">// 保存会话
+</span><span class="c1"></span>            <span class="nb">self</span><span class="p">.</span><span class="n">scanSession</span> <span class="o">=</span> <span class="n">scanSession</span>
             
-        } catch {
-            // 摄像头不可用
-            return
-        }
-    }
+        <span class="p">}</span> <span class="n">catch</span> <span class="p">{</span>
+            <span class="c1">// 摄像头不可用
+</span><span class="c1"></span>            <span class="k">return</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>扫描完成后调用</strong></p>
@@ -1107,22 +1117,22 @@ extension NNItemScrollView {
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// MARK: - AVCaptureMetadataOutputObjectsDelegate 扫描捕捉完成
-extension NNScanCodeController : AVCaptureMetadataOutputObjectsDelegate {
-    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
-        // 停止扫描
-        scanLine.layer.removeAllAnimations()
-        scanSession!.stopRunning()
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// MARK: - AVCaptureMetadataOutputObjectsDelegate 扫描捕捉完成
+</span><span class="c1"></span><span class="n">extension</span> <span class="nl">NNScanCodeController</span> <span class="p">:</span> <span class="n">AVCaptureMetadataOutputObjectsDelegate</span> <span class="p">{</span>
+    <span class="n">func</span> <span class="n">captureOutput</span><span class="p">(</span><span class="n">_</span> <span class="nl">captureOutput</span><span class="p">:</span> <span class="n">AVCaptureOutput</span><span class="o">!</span><span class="p">,</span> <span class="n">didOutputMetadataObjects</span> <span class="nl">metadataObjects</span><span class="p">:</span> <span class="p">[</span><span class="n">Any</span><span class="p">]</span><span class="o">!</span><span class="p">,</span> <span class="n">from</span> <span class="nl">connection</span><span class="p">:</span> <span class="n">AVCaptureConnection</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 停止扫描
+</span><span class="c1"></span>        <span class="n">scanLine</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">removeAllAnimations</span><span class="p">()</span>
+        <span class="n">scanSession</span><span class="o">!</span><span class="p">.</span><span class="n">stopRunning</span><span class="p">()</span>
         
-        // 扫完完成
-        if metadataObjects.count &gt; 0 {
-            if let resultObj = metadataObjects.first as? AVMetadataMachineReadableCodeObject {
-                print(resultObj.stringValue)
-                scanResult.text = &#34;扫描结果:&#34; + resultObj.stringValue
-            }
-        }
-    }
-}
+        <span class="c1">// 扫完完成
+</span><span class="c1"></span>        <span class="k">if</span> <span class="n">metadataObjects</span><span class="p">.</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="n">let</span> <span class="n">resultObj</span> <span class="o">=</span> <span class="n">metadataObjects</span><span class="p">.</span><span class="n">first</span> <span class="n">as</span><span class="o">?</span> <span class="n">AVMetadataMachineReadableCodeObject</span> <span class="p">{</span>
+                <span class="n">print</span><span class="p">(</span><span class="n">resultObj</span><span class="p">.</span><span class="n">stringValue</span><span class="p">)</span>
+                <span class="n">scanResult</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="s">&#34;扫描结果:&#34;</span> <span class="o">+</span> <span class="n">resultObj</span><span class="p">.</span><span class="n">stringValue</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>识别验证码，从相册中选择</strong></p>
@@ -1157,37 +1167,37 @@ extension NNScanCodeController : AVCaptureMetadataOutputObjectsDelegate {
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
-extension NNScanCodeController : UIImagePickerControllerDelegate , UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
+</span><span class="c1"></span><span class="n">extension</span> <span class="nl">NNScanCodeController</span> <span class="p">:</span> <span class="n">UIImagePickerControllerDelegate</span> <span class="p">,</span> <span class="n">UINavigationControllerDelegate</span> <span class="p">{</span>
+    <span class="n">func</span> <span class="n">imagePickerController</span><span class="p">(</span><span class="n">_</span> <span class="nl">picker</span><span class="p">:</span> <span class="n">UIImagePickerController</span><span class="p">,</span> <span class="n">didFinishPickingMediaWithInfo</span> <span class="nl">info</span><span class="p">:</span> <span class="p">[</span><span class="nl">String</span> <span class="p">:</span> <span class="n">Any</span><span class="p">])</span> <span class="p">{</span>
         
-        // 判断是否能取到图片
-        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {
-            return
-        }
-        // 转成ciimage
-        guard let ciimage = CIImage(image: image) else {
-            return
-        }
-        // 从选中的图片中读取二维码
-        // 创建探测器
-        let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy : CIDetectorAccuracyLow])
-        let resoult = (detector?.features(in: ciimage))!
-        scanResult.text = &#34;无法识别&#34;
-        for result in resoult {
-            guard (result as! CIQRCodeFeature).messageString != nil else {
-                return
-            }
+        <span class="c1">// 判断是否能取到图片
+</span><span class="c1"></span>        <span class="n">guard</span> <span class="n">let</span> <span class="n">image</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="n">UIImagePickerControllerOriginalImage</span><span class="p">]</span> <span class="n">as</span><span class="o">?</span> <span class="n">UIImage</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+        <span class="c1">// 转成ciimage
+</span><span class="c1"></span>        <span class="n">guard</span> <span class="n">let</span> <span class="n">ciimage</span> <span class="o">=</span> <span class="n">CIImage</span><span class="p">(</span><span class="nl">image</span><span class="p">:</span> <span class="n">image</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+        <span class="c1">// 从选中的图片中读取二维码
+</span><span class="c1"></span>        <span class="c1">// 创建探测器
+</span><span class="c1"></span>        <span class="n">let</span> <span class="n">detector</span> <span class="o">=</span> <span class="n">CIDetector</span><span class="p">(</span><span class="nl">ofType</span><span class="p">:</span> <span class="n">CIDetectorTypeQRCode</span><span class="p">,</span> <span class="nl">context</span><span class="p">:</span> <span class="nb">nil</span><span class="p">,</span> <span class="nl">options</span><span class="p">:</span> <span class="p">[</span><span class="nl">CIDetectorAccuracy</span> <span class="p">:</span> <span class="n">CIDetectorAccuracyLow</span><span class="p">])</span>
+        <span class="n">let</span> <span class="n">resoult</span> <span class="o">=</span> <span class="p">(</span><span class="n">detector</span><span class="o">?</span><span class="p">.</span><span class="n">features</span><span class="p">(</span><span class="k">in</span><span class="o">:</span> <span class="n">ciimage</span><span class="p">))</span><span class="o">!</span>
+        <span class="n">scanResult</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="s">&#34;无法识别&#34;</span>
+        <span class="k">for</span> <span class="n">result</span> <span class="k">in</span> <span class="n">resoult</span> <span class="p">{</span>
+            <span class="n">guard</span> <span class="p">(</span><span class="n">result</span> <span class="n">as</span><span class="o">!</span> <span class="n">CIQRCodeFeature</span><span class="p">).</span><span class="n">messageString</span> <span class="o">!=</span> <span class="nb">nil</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="k">return</span>
+            <span class="p">}</span>
             
-            scanResult.text = &#34;扫描结果:&#34; + (result as! CIQRCodeFeature).messageString!
-        }
-        picker.dismiss(animated: true, completion: nil)
-    }
-}
+            <span class="n">scanResult</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="s">&#34;扫描结果:&#34;</span> <span class="o">+</span> <span class="p">(</span><span class="n">result</span> <span class="n">as</span><span class="o">!</span> <span class="n">CIQRCodeFeature</span><span class="p">).</span><span class="n">messageString</span><span class="o">!</span>
+        <span class="p">}</span>
+        <span class="n">picker</span><span class="p">.</span><span class="n">dismiss</span><span class="p">(</span><span class="nl">animated</span><span class="p">:</span> <span class="nb">true</span><span class="p">,</span> <span class="nl">completion</span><span class="p">:</span> <span class="nb">nil</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="八随机图片验证码封装">八、随机图片验证码封装</h4>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-7660d135f12c9d38.gif?imageMogr2/auto-orient/strip" alt="随机图片验证码封装"></p>
+</div><h3 id="八随机图片验证码封装">八、随机图片验证码封装</h3>
+<p><img src="/image/iOS/iOS_Swift_Learn/Swift_Learn08.gif" alt="随机图片验证码封装"></p>
 <ul>
 <li>核心代码</li>
 </ul>
@@ -1238,54 +1248,54 @@ extension NNScanCodeController : UIImagePickerControllerDelegate , UINavigationC
 </span><span class="lnt">43
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    // MARK: - 绘制图形验证码
-    override func draw(_ rect: CGRect) {
-        if charString.isEmpty {
-            return;
-        }
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="c1">// MARK: - 绘制图形验证码
+</span><span class="c1"></span>    <span class="n">override</span> <span class="n">func</span> <span class="nf">draw</span><span class="p">(</span><span class="n">_</span> <span class="nl">rect</span><span class="p">:</span> <span class="n">CGRect</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">charString</span><span class="p">.</span><span class="n">isEmpty</span> <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
         
-        let textString:String = charString
-        let charSize = textString.substring(to: textString.startIndex).size(attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14)])
-        let width = rect.size.width / CGFloat(charCount) - charSize.width - 15;
-        let hight = rect.size.height - charSize.height;
-        var point: CGPoint
+        <span class="n">let</span> <span class="nl">textString</span><span class="p">:</span><span class="n">String</span> <span class="o">=</span> <span class="n">charString</span>
+        <span class="n">let</span> <span class="n">charSize</span> <span class="o">=</span> <span class="n">textString</span><span class="p">.</span><span class="n">substring</span><span class="p">(</span><span class="nl">to</span><span class="p">:</span> <span class="n">textString</span><span class="p">.</span><span class="n">startIndex</span><span class="p">).</span><span class="n">size</span><span class="p">(</span><span class="nl">attributes</span><span class="p">:</span> <span class="p">[</span><span class="nl">NSFontAttributeName</span> <span class="p">:</span> <span class="n">UIFont</span><span class="p">.</span><span class="n">systemFont</span><span class="p">(</span><span class="nl">ofSize</span><span class="p">:</span> <span class="mi">14</span><span class="p">)])</span>
+        <span class="n">let</span> <span class="n">width</span> <span class="o">=</span> <span class="n">rect</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span> <span class="o">/</span> <span class="n">CGFloat</span><span class="p">(</span><span class="n">charCount</span><span class="p">)</span> <span class="o">-</span> <span class="n">charSize</span><span class="p">.</span><span class="n">width</span> <span class="o">-</span> <span class="mi">15</span><span class="p">;</span>
+        <span class="n">let</span> <span class="n">hight</span> <span class="o">=</span> <span class="n">rect</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span> <span class="o">-</span> <span class="n">charSize</span><span class="p">.</span><span class="n">height</span><span class="p">;</span>
+        <span class="n">var</span> <span class="nl">point</span><span class="p">:</span> <span class="n">CGPoint</span>
         
-        var pointX: CGFloat
-        var pointY: CGFloat
-        for i in 0..&lt;textString.characters.count {
-            let char = CGFloat(i)
-            pointX = (CGFloat)(arc4random() % UInt32(Float(width))) + rect.size.width / (CGFloat)(textString.characters.count) * char
-            pointY = (CGFloat)(arc4random() % UInt32(Float(hight)))
-            point = CGPoint(x: pointX, y: pointY)
-            let charStr = textString[textString.index(textString.startIndex, offsetBy:i)]
-            let string = String(charStr)
-            string.draw(at: point,withAttributes:([NSFontAttributeName : UIFont.systemFont(ofSize: 14)]))
-        }
-        drawLine(rect)
-    }
+        <span class="n">var</span> <span class="nl">pointX</span><span class="p">:</span> <span class="n">CGFloat</span>
+        <span class="n">var</span> <span class="nl">pointY</span><span class="p">:</span> <span class="n">CGFloat</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.</span><span class="o">&lt;</span><span class="n">textString</span><span class="p">.</span><span class="n">characters</span><span class="p">.</span><span class="n">count</span> <span class="p">{</span>
+            <span class="n">let</span> <span class="kt">char</span> <span class="o">=</span> <span class="n">CGFloat</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">pointX</span> <span class="o">=</span> <span class="p">(</span><span class="n">CGFloat</span><span class="p">)(</span><span class="n">arc4random</span><span class="p">()</span> <span class="o">%</span> <span class="kt">UInt32</span><span class="p">(</span><span class="n">Float</span><span class="p">(</span><span class="n">width</span><span class="p">)))</span> <span class="o">+</span> <span class="n">rect</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span> <span class="o">/</span> <span class="p">(</span><span class="n">CGFloat</span><span class="p">)(</span><span class="n">textString</span><span class="p">.</span><span class="n">characters</span><span class="p">.</span><span class="n">count</span><span class="p">)</span> <span class="o">*</span> <span class="kt">char</span>
+            <span class="n">pointY</span> <span class="o">=</span> <span class="p">(</span><span class="n">CGFloat</span><span class="p">)(</span><span class="n">arc4random</span><span class="p">()</span> <span class="o">%</span> <span class="kt">UInt32</span><span class="p">(</span><span class="n">Float</span><span class="p">(</span><span class="n">hight</span><span class="p">)))</span>
+            <span class="n">point</span> <span class="o">=</span> <span class="n">CGPoint</span><span class="p">(</span><span class="nl">x</span><span class="p">:</span> <span class="n">pointX</span><span class="p">,</span> <span class="nl">y</span><span class="p">:</span> <span class="n">pointY</span><span class="p">)</span>
+            <span class="n">let</span> <span class="n">charStr</span> <span class="o">=</span> <span class="n">textString</span><span class="p">[</span><span class="n">textString</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">textString</span><span class="p">.</span><span class="n">startIndex</span><span class="p">,</span> <span class="nl">offsetBy</span><span class="p">:</span><span class="n">i</span><span class="p">)]</span>
+            <span class="n">let</span> <span class="n">string</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">charStr</span><span class="p">)</span>
+            <span class="n">string</span><span class="p">.</span><span class="n">draw</span><span class="p">(</span><span class="nl">at</span><span class="p">:</span> <span class="n">point</span><span class="p">,</span><span class="nl">withAttributes</span><span class="p">:([</span><span class="nl">NSFontAttributeName</span> <span class="p">:</span> <span class="n">UIFont</span><span class="p">.</span><span class="n">systemFont</span><span class="p">(</span><span class="nl">ofSize</span><span class="p">:</span> <span class="mi">14</span><span class="p">)]))</span>
+        <span class="p">}</span>
+        <span class="n">drawLine</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
+    <span class="p">}</span>
     
-    // MARK: - 绘制干扰线
-    func drawLine(_ rect: CGRect) {
-        let context = UIGraphicsGetCurrentContext()
-        context!.setLineWidth(1.0)
-        var pointX = 0.0
-        var pointY = 0.0
-        for _ in 0..&lt;lineCount {
-            context!.setStrokeColor(randomColor().cgColor)
-            pointX = Double(arc4random() % UInt32(Float(rect.size.width)))
-            pointY = Double(arc4random() % UInt32(Float(rect.size.height)))
-            context?.move(to: CGPoint(x: pointX, y: pointY))
-            pointX = Double(CGFloat(arc4random() % UInt32(Float(rect.size.width))))
-            pointY = Double(CGFloat(arc4random() % UInt32(Float(rect.size.height))))
-            context?.addLine(to: CGPoint(x: pointX, y: pointY))
-            context!.strokePath()
-        }
-    }
+    <span class="c1">// MARK: - 绘制干扰线
+</span><span class="c1"></span>    <span class="n">func</span> <span class="nf">drawLine</span><span class="p">(</span><span class="n">_</span> <span class="nl">rect</span><span class="p">:</span> <span class="n">CGRect</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">let</span> <span class="n">context</span> <span class="o">=</span> <span class="n">UIGraphicsGetCurrentContext</span><span class="p">()</span>
+        <span class="n">context</span><span class="o">!</span><span class="p">.</span><span class="n">setLineWidth</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+        <span class="n">var</span> <span class="n">pointX</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">var</span> <span class="n">pointY</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.</span><span class="o">&lt;</span><span class="n">lineCount</span> <span class="p">{</span>
+            <span class="n">context</span><span class="o">!</span><span class="p">.</span><span class="n">setStrokeColor</span><span class="p">(</span><span class="n">randomColor</span><span class="p">().</span><span class="n">cgColor</span><span class="p">)</span>
+            <span class="n">pointX</span> <span class="o">=</span> <span class="n">Double</span><span class="p">(</span><span class="n">arc4random</span><span class="p">()</span> <span class="o">%</span> <span class="kt">UInt32</span><span class="p">(</span><span class="n">Float</span><span class="p">(</span><span class="n">rect</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">)))</span>
+            <span class="n">pointY</span> <span class="o">=</span> <span class="n">Double</span><span class="p">(</span><span class="n">arc4random</span><span class="p">()</span> <span class="o">%</span> <span class="kt">UInt32</span><span class="p">(</span><span class="n">Float</span><span class="p">(</span><span class="n">rect</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">)))</span>
+            <span class="n">context</span><span class="o">?</span><span class="p">.</span><span class="n">move</span><span class="p">(</span><span class="nl">to</span><span class="p">:</span> <span class="n">CGPoint</span><span class="p">(</span><span class="nl">x</span><span class="p">:</span> <span class="n">pointX</span><span class="p">,</span> <span class="nl">y</span><span class="p">:</span> <span class="n">pointY</span><span class="p">))</span>
+            <span class="n">pointX</span> <span class="o">=</span> <span class="n">Double</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">(</span><span class="n">arc4random</span><span class="p">()</span> <span class="o">%</span> <span class="kt">UInt32</span><span class="p">(</span><span class="n">Float</span><span class="p">(</span><span class="n">rect</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">))))</span>
+            <span class="n">pointY</span> <span class="o">=</span> <span class="n">Double</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">(</span><span class="n">arc4random</span><span class="p">()</span> <span class="o">%</span> <span class="kt">UInt32</span><span class="p">(</span><span class="n">Float</span><span class="p">(</span><span class="n">rect</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">))))</span>
+            <span class="n">context</span><span class="o">?</span><span class="p">.</span><span class="n">addLine</span><span class="p">(</span><span class="nl">to</span><span class="p">:</span> <span class="n">CGPoint</span><span class="p">(</span><span class="nl">x</span><span class="p">:</span> <span class="n">pointX</span><span class="p">,</span> <span class="nl">y</span><span class="p">:</span> <span class="n">pointY</span><span class="p">))</span>
+            <span class="n">context</span><span class="o">!</span><span class="p">.</span><span class="n">strokePath</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><strong>OC版本：iOS开发 - 随机图片验证码封装-http://www.jianshu.com/p/936d2e06fd26</strong></p>
-<h4 id="九圆形输入框封装">九、圆形输入框封装</h4>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-47ebc91140d2ea1c.gif?imageMogr2/auto-orient/strip" alt="圆形输入框封装"></p>
+</div><p><strong>OC版本：<a href="https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E9%9A%8F%E6%9C%BA%E5%9B%BE%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81%E5%B0%81%E8%A3%85/">iOS开发 - 随机图片验证码封装</a></strong></p>
+<h3 id="九圆形输入框封装">九、圆形输入框封装</h3>
+<p><img src="/image/iOS/iOS_Swift_Learn/Swift_Learn09.gif" alt="圆形输入框封装"></p>
 <ul>
 <li>核心代码</li>
 </ul>
@@ -1354,72 +1364,72 @@ extension NNScanCodeController : UIImagePickerControllerDelegate , UINavigationC
 </span><span class="lnt">61
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    // MARK: - 监听文本输入 核心操作
-    func textFieldDidChange(_ textField: UITextField) {
-        let i = textField.text?.characters.count
-        if i! &gt; labelCount {
-            return
-        }
-        if i == 0 {
-            ((labelArr.object(at: 0)) as! UILabel).text = &#34;&#34;
-            ((labelArr.object(at: 0)) as! UILabel).layer.borderColor = defaultColor.cgColor
-        } else {
-            ((labelArr.object(at: (i! - 1))) as! UILabel).text = (textField.text! as NSString).substring(with: NSMakeRange(i! - 1, 1))
-            ((labelArr.object(at: (i! - 1))) as! UILabel).layer.borderColor = changedColor.cgColor
-            ((labelArr.object(at: (i! - 1))) as! UILabel).textColor = changedColor
-            if labelCount &gt; i! {
-                ((labelArr.object(at: (i!))) as! UILabel).text = &#34;&#34;
-                ((labelArr.object(at: (i!))) as! UILabel).layer.borderColor = defaultColor.cgColor
-            }
-        }
-    }
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="c1">// MARK: - 监听文本输入 核心操作
+</span><span class="c1"></span>    <span class="n">func</span> <span class="nf">textFieldDidChange</span><span class="p">(</span><span class="n">_</span> <span class="nl">textField</span><span class="p">:</span> <span class="n">UITextField</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">let</span> <span class="n">i</span> <span class="o">=</span> <span class="n">textField</span><span class="p">.</span><span class="n">text</span><span class="o">?</span><span class="p">.</span><span class="n">characters</span><span class="p">.</span><span class="n">count</span>
+        <span class="k">if</span> <span class="n">i</span><span class="o">!</span> <span class="o">&gt;</span> <span class="n">labelCount</span> <span class="p">{</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+            <span class="p">((</span><span class="n">labelArr</span><span class="p">.</span><span class="n">object</span><span class="p">(</span><span class="nl">at</span><span class="p">:</span> <span class="mi">0</span><span class="p">))</span> <span class="n">as</span><span class="o">!</span> <span class="n">UILabel</span><span class="p">).</span><span class="n">text</span> <span class="o">=</span> <span class="s">&#34;&#34;</span>
+            <span class="p">((</span><span class="n">labelArr</span><span class="p">.</span><span class="n">object</span><span class="p">(</span><span class="nl">at</span><span class="p">:</span> <span class="mi">0</span><span class="p">))</span> <span class="n">as</span><span class="o">!</span> <span class="n">UILabel</span><span class="p">).</span><span class="n">layer</span><span class="p">.</span><span class="n">borderColor</span> <span class="o">=</span> <span class="n">defaultColor</span><span class="p">.</span><span class="n">cgColor</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="p">((</span><span class="n">labelArr</span><span class="p">.</span><span class="n">object</span><span class="p">(</span><span class="nl">at</span><span class="p">:</span> <span class="p">(</span><span class="n">i</span><span class="o">!</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)))</span> <span class="n">as</span><span class="o">!</span> <span class="n">UILabel</span><span class="p">).</span><span class="n">text</span> <span class="o">=</span> <span class="p">(</span><span class="n">textField</span><span class="p">.</span><span class="n">text</span><span class="o">!</span> <span class="n">as</span> <span class="n">NSString</span><span class="p">).</span><span class="n">substring</span><span class="p">(</span><span class="nl">with</span><span class="p">:</span> <span class="n">NSMakeRange</span><span class="p">(</span><span class="n">i</span><span class="o">!</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+            <span class="p">((</span><span class="n">labelArr</span><span class="p">.</span><span class="n">object</span><span class="p">(</span><span class="nl">at</span><span class="p">:</span> <span class="p">(</span><span class="n">i</span><span class="o">!</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)))</span> <span class="n">as</span><span class="o">!</span> <span class="n">UILabel</span><span class="p">).</span><span class="n">layer</span><span class="p">.</span><span class="n">borderColor</span> <span class="o">=</span> <span class="n">changedColor</span><span class="p">.</span><span class="n">cgColor</span>
+            <span class="p">((</span><span class="n">labelArr</span><span class="p">.</span><span class="n">object</span><span class="p">(</span><span class="nl">at</span><span class="p">:</span> <span class="p">(</span><span class="n">i</span><span class="o">!</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)))</span> <span class="n">as</span><span class="o">!</span> <span class="n">UILabel</span><span class="p">).</span><span class="n">textColor</span> <span class="o">=</span> <span class="n">changedColor</span>
+            <span class="k">if</span> <span class="n">labelCount</span> <span class="o">&gt;</span> <span class="n">i</span><span class="o">!</span> <span class="p">{</span>
+                <span class="p">((</span><span class="n">labelArr</span><span class="p">.</span><span class="n">object</span><span class="p">(</span><span class="nl">at</span><span class="p">:</span> <span class="p">(</span><span class="n">i</span><span class="o">!</span><span class="p">)))</span> <span class="n">as</span><span class="o">!</span> <span class="n">UILabel</span><span class="p">).</span><span class="n">text</span> <span class="o">=</span> <span class="s">&#34;&#34;</span>
+                <span class="p">((</span><span class="n">labelArr</span><span class="p">.</span><span class="n">object</span><span class="p">(</span><span class="nl">at</span><span class="p">:</span> <span class="p">(</span><span class="n">i</span><span class="o">!</span><span class="p">)))</span> <span class="n">as</span><span class="o">!</span> <span class="n">UILabel</span><span class="p">).</span><span class="n">layer</span><span class="p">.</span><span class="n">borderColor</span> <span class="o">=</span> <span class="n">defaultColor</span><span class="p">.</span><span class="n">cgColor</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-    // MARK: - setupUI
-    func setupUI() {
-        setupTextField()
-        var labelX = CGFloat()
-        let labelY : CGFloat = 0.0
-        let labelWidth = self.width / CGFloat(labelCount)
-        let sideLength = labelWidth &lt; self.height ? labelWidth : self.height
+    <span class="c1">// MARK: - setupUI
+</span><span class="c1"></span>    <span class="n">func</span> <span class="nf">setupUI</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">setupTextField</span><span class="p">()</span>
+        <span class="n">var</span> <span class="n">labelX</span> <span class="o">=</span> <span class="n">CGFloat</span><span class="p">()</span>
+        <span class="n">let</span> <span class="nl">labelY</span> <span class="p">:</span> <span class="n">CGFloat</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">let</span> <span class="n">labelWidth</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">width</span> <span class="o">/</span> <span class="n">CGFloat</span><span class="p">(</span><span class="n">labelCount</span><span class="p">)</span>
+        <span class="n">let</span> <span class="n">sideLength</span> <span class="o">=</span> <span class="n">labelWidth</span> <span class="o">&lt;</span> <span class="nb">self</span><span class="p">.</span><span class="n">height</span> <span class="o">?</span> <span class="nl">labelWidth</span> <span class="p">:</span> <span class="nb">self</span><span class="p">.</span><span class="n">height</span>
         
-        for i in 0..&lt;labelCount {
-            if i == 0 {
-                labelX = 0
-            } else {
-                labelX = CGFloat(i) * (sideLength + labelDistance)
-            }
-            let label = UILabel(frame: CGRect(x: labelX, y: labelY, width: sideLength, height: sideLength))
-            self.addSubview(label)
-            label.textAlignment = NSTextAlignment.center
-            label.layer.borderColor = UIColor.black.cgColor
-            label.layer.borderWidth = 1.0
-            label.layer.cornerRadius = sideLength / 2.0
-            labelArr.add(label)
-        }
-    }
+        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.</span><span class="o">&lt;</span><span class="n">labelCount</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+                <span class="n">labelX</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">labelX</span> <span class="o">=</span> <span class="n">CGFloat</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">sideLength</span> <span class="o">+</span> <span class="n">labelDistance</span><span class="p">)</span>
+            <span class="p">}</span>
+            <span class="n">let</span> <span class="n">label</span> <span class="o">=</span> <span class="n">UILabel</span><span class="p">(</span><span class="nl">frame</span><span class="p">:</span> <span class="n">CGRect</span><span class="p">(</span><span class="nl">x</span><span class="p">:</span> <span class="n">labelX</span><span class="p">,</span> <span class="nl">y</span><span class="p">:</span> <span class="n">labelY</span><span class="p">,</span> <span class="nl">width</span><span class="p">:</span> <span class="n">sideLength</span><span class="p">,</span> <span class="nl">height</span><span class="p">:</span> <span class="n">sideLength</span><span class="p">))</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">addSubview</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+            <span class="n">label</span><span class="p">.</span><span class="n">textAlignment</span> <span class="o">=</span> <span class="n">NSTextAlignment</span><span class="p">.</span><span class="n">center</span>
+            <span class="n">label</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">borderColor</span> <span class="o">=</span> <span class="n">UIColor</span><span class="p">.</span><span class="n">black</span><span class="p">.</span><span class="n">cgColor</span>
+            <span class="n">label</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">borderWidth</span> <span class="o">=</span> <span class="mf">1.0</span>
+            <span class="n">label</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">cornerRadius</span> <span class="o">=</span> <span class="n">sideLength</span> <span class="o">/</span> <span class="mf">2.0</span>
+            <span class="n">labelArr</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-    // MARK: - UITextFieldDelegate
-    // MARK: 监听输入框
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -&gt; Bool {
-        // 允许删除
-        if (string.characters.count == 0) {
-            return true
-        } else if (textField.text?.characters.count)! &gt;= labelCount {
-            return false
-        } else {
-            return true
-        }
-    }
-    // MARK: 回车收起键盘
-    func textFieldShouldReturn(_ textField: UITextField) -&gt; Bool {
-        textField.resignFirstResponder()
-        return false
-    }
+    <span class="c1">// MARK: - UITextFieldDelegate
+</span><span class="c1"></span>    <span class="c1">// MARK: 监听输入框
+</span><span class="c1"></span>    <span class="n">func</span> <span class="nf">textField</span><span class="p">(</span><span class="n">_</span> <span class="nl">textField</span><span class="p">:</span> <span class="n">UITextField</span><span class="p">,</span> <span class="n">shouldChangeCharactersIn</span> <span class="nl">range</span><span class="p">:</span> <span class="n">NSRange</span><span class="p">,</span> <span class="n">replacementString</span> <span class="nl">string</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="p">{</span>
+        <span class="c1">// 允许删除
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">string</span><span class="p">.</span><span class="n">characters</span><span class="p">.</span><span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nb">true</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">textField</span><span class="p">.</span><span class="n">text</span><span class="o">?</span><span class="p">.</span><span class="n">characters</span><span class="p">.</span><span class="n">count</span><span class="p">)</span><span class="o">!</span> <span class="o">&gt;=</span> <span class="n">labelCount</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nb">false</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nb">true</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="c1">// MARK: 回车收起键盘
+</span><span class="c1"></span>    <span class="n">func</span> <span class="nf">textFieldShouldReturn</span><span class="p">(</span><span class="n">_</span> <span class="nl">textField</span><span class="p">:</span> <span class="n">UITextField</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="p">{</span>
+        <span class="n">textField</span><span class="p">.</span><span class="n">resignFirstResponder</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">false</span>
+    <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><strong>OC版本：iOS开发 - 圆形验证码(或密码)输入框的封装-http://www.jianshu.com/p/fce6bd4038eb</strong></p>
-<h4 id="十第三方库-snapkit-用法">十、第三方库 SnapKit 用法</h4>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-5e2952f51add8ded.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="第三方库 SnapKit 用法"></p>
+</div><p><strong>OC版本：<a href="https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E5%9C%86%E5%BD%A2%E9%AA%8C%E8%AF%81%E7%A0%81%E6%88%96%E5%AF%86%E7%A0%81%E8%BE%93%E5%85%A5%E6%A1%86%E7%9A%84%E5%B0%81%E8%A3%85/">iOS开发 - 圆形验证码(或密码)输入框的封装</a></strong></p>
+<h3 id="十第三方库-snapkit-用法">十、第三方库 SnapKit 用法</h3>
+<p><img src="/image/iOS/iOS_Swift_Learn/Swift_Learn10.png" alt="第三方库 SnapKit 用法"></p>
 <ul>
 <li>示例代码</li>
 </ul>
@@ -1505,90 +1515,90 @@ extension NNScanCodeController : UIImagePickerControllerDelegate , UINavigationC
 </span><span class="lnt">78
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    func addRedView() {
-        redView.backgroundColor = UIColor.red
-        view.addSubview(redView)
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="n">func</span> <span class="nf">addRedView</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">redView</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="n">UIColor</span><span class="p">.</span><span class="n">red</span>
+        <span class="n">view</span><span class="p">.</span><span class="n">addSubview</span><span class="p">(</span><span class="n">redView</span><span class="p">)</span>
         
-        // redView 距离父视图四条边的距离都是 50
-        redView.snp.makeConstraints { (make) in
-            make.edges.equalTo(view).inset(50)
-        }
-    }
+        <span class="c1">// redView 距离父视图四条边的距离都是 50
+</span><span class="c1"></span>        <span class="n">redView</span><span class="p">.</span><span class="n">snp</span><span class="p">.</span><span class="n">makeConstraints</span> <span class="p">{</span> <span class="p">(</span><span class="n">make</span><span class="p">)</span> <span class="k">in</span>
+            <span class="n">make</span><span class="p">.</span><span class="n">edges</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="n">view</span><span class="p">).</span><span class="n">inset</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
     
-    func addBlueView() {
-        blueView.backgroundColor = UIColor.blue
-        view.addSubview(blueView)
+    <span class="n">func</span> <span class="nf">addBlueView</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">blueView</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="n">UIColor</span><span class="p">.</span><span class="n">blue</span>
+        <span class="n">view</span><span class="p">.</span><span class="n">addSubview</span><span class="p">(</span><span class="n">blueView</span><span class="p">)</span>
         
-        // blueView 左边距离父视图为 0；上边距离父视图为 0；size 是(50，50)
-        blueView.snp.makeConstraints { (make) in
-            make.left.equalTo(0)
-            make.top.equalTo(0)
-            make.size.equalTo(CGSize(width: 50, height: 50))
-        }
-    }
+        <span class="c1">// blueView 左边距离父视图为 0；上边距离父视图为 0；size 是(50，50)
+</span><span class="c1"></span>        <span class="n">blueView</span><span class="p">.</span><span class="n">snp</span><span class="p">.</span><span class="n">makeConstraints</span> <span class="p">{</span> <span class="p">(</span><span class="n">make</span><span class="p">)</span> <span class="k">in</span>
+            <span class="n">make</span><span class="p">.</span><span class="n">left</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">make</span><span class="p">.</span><span class="n">top</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">make</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="n">CGSize</span><span class="p">(</span><span class="nl">width</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="nl">height</span><span class="p">:</span> <span class="mi">50</span><span class="p">))</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
     
-    func addBlackView() {
-        blackView.backgroundColor = UIColor.black
-        view.addSubview(blackView)
+    <span class="n">func</span> <span class="nf">addBlackView</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">blackView</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="n">UIColor</span><span class="p">.</span><span class="n">black</span>
+        <span class="n">view</span><span class="p">.</span><span class="n">addSubview</span><span class="p">(</span><span class="n">blackView</span><span class="p">)</span>
         
-        // blackView 左边和 redView 的右边距离为 0；大小与 blueView 相同；且与 blueView 上对齐
-        blackView.snp.makeConstraints { (make) in
-            make.left.equalTo(redView.snp.right)
-            make.size.equalTo(blueView)
-            make.top.equalTo(blueView)
-        }
-    }
+        <span class="c1">// blackView 左边和 redView 的右边距离为 0；大小与 blueView 相同；且与 blueView 上对齐
+</span><span class="c1"></span>        <span class="n">blackView</span><span class="p">.</span><span class="n">snp</span><span class="p">.</span><span class="n">makeConstraints</span> <span class="p">{</span> <span class="p">(</span><span class="n">make</span><span class="p">)</span> <span class="k">in</span>
+            <span class="n">make</span><span class="p">.</span><span class="n">left</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="n">redView</span><span class="p">.</span><span class="n">snp</span><span class="p">.</span><span class="n">right</span><span class="p">)</span>
+            <span class="n">make</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="n">blueView</span><span class="p">)</span>
+            <span class="n">make</span><span class="p">.</span><span class="n">top</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="n">blueView</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
     
-    func addCyanView() {
-        cyanView.backgroundColor = UIColor.cyan
-        view.addSubview(cyanView)
+    <span class="n">func</span> <span class="nf">addCyanView</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">cyanView</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="n">UIColor</span><span class="p">.</span><span class="n">cyan</span>
+        <span class="n">view</span><span class="p">.</span><span class="n">addSubview</span><span class="p">(</span><span class="n">cyanView</span><span class="p">)</span>
         
-        // cyanView 与 blueView 左对齐；cyanView 的顶部距离 redView 的底部 10；cyanView 的高是40；cyanView 与 blueView 等宽
-        cyanView.snp.makeConstraints { (make) in
-            make.trailing.equalTo(blueView)
-            make.top.equalTo(redView.snp.bottom).offset(10)
-            make.height.equalTo(40)
-            make.width.equalTo(blueView)
-        }
-    }
+        <span class="c1">// cyanView 与 blueView 左对齐；cyanView 的顶部距离 redView 的底部 10；cyanView 的高是40；cyanView 与 blueView 等宽
+</span><span class="c1"></span>        <span class="n">cyanView</span><span class="p">.</span><span class="n">snp</span><span class="p">.</span><span class="n">makeConstraints</span> <span class="p">{</span> <span class="p">(</span><span class="n">make</span><span class="p">)</span> <span class="k">in</span>
+            <span class="n">make</span><span class="p">.</span><span class="n">trailing</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="n">blueView</span><span class="p">)</span>
+            <span class="n">make</span><span class="p">.</span><span class="n">top</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="n">redView</span><span class="p">.</span><span class="n">snp</span><span class="p">.</span><span class="n">bottom</span><span class="p">).</span><span class="n">offset</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+            <span class="n">make</span><span class="p">.</span><span class="n">height</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+            <span class="n">make</span><span class="p">.</span><span class="n">width</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="n">blueView</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
     
-    func addYellowView() {
-        yellowView.backgroundColor = UIColor.yellow
-        view.addSubview(yellowView)
+    <span class="n">func</span> <span class="nf">addYellowView</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">yellowView</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="n">UIColor</span><span class="p">.</span><span class="n">yellow</span>
+        <span class="n">view</span><span class="p">.</span><span class="n">addSubview</span><span class="p">(</span><span class="n">yellowView</span><span class="p">)</span>
         
-        // yellowView 顶部与 redView 的底部对齐；yellowView 与 blackView 左对齐；yellowView 与 blueView 相同大小
-        yellowView.snp.makeConstraints { (make) in
-            make.top.equalTo(redView.snp.bottom)
-            make.trailing.equalTo(blackView)
-            make.size.equalTo(blueView)
-        }
-    }
+        <span class="c1">// yellowView 顶部与 redView 的底部对齐；yellowView 与 blackView 左对齐；yellowView 与 blueView 相同大小
+</span><span class="c1"></span>        <span class="n">yellowView</span><span class="p">.</span><span class="n">snp</span><span class="p">.</span><span class="n">makeConstraints</span> <span class="p">{</span> <span class="p">(</span><span class="n">make</span><span class="p">)</span> <span class="k">in</span>
+            <span class="n">make</span><span class="p">.</span><span class="n">top</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="n">redView</span><span class="p">.</span><span class="n">snp</span><span class="p">.</span><span class="n">bottom</span><span class="p">)</span>
+            <span class="n">make</span><span class="p">.</span><span class="n">trailing</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="n">blackView</span><span class="p">)</span>
+            <span class="n">make</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="n">blueView</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
     
-    func addWhiteView() {
-        whiteView.backgroundColor = UIColor.white
-        redView.addSubview(whiteView)
+    <span class="n">func</span> <span class="nf">addWhiteView</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">whiteView</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="n">UIColor</span><span class="p">.</span><span class="n">white</span>
+        <span class="n">redView</span><span class="p">.</span><span class="n">addSubview</span><span class="p">(</span><span class="n">whiteView</span><span class="p">)</span>
         
-        // whiteView 的父视图是 redView，距离父视图四条边的距离分别是（30，10，30，10）
-        
-        whiteView.snp.makeConstraints { (make) in
-            // 第一种方式
-            make.edges.equalTo(redView).inset(UIEdgeInsets(top: 30, left: 10, bottom: 30, right: 10))
-            // 第二种方式
-//            make.top.equalTo(redView).offset(30)
-//            make.left.equalTo(redView).offset(10)
-//            make.bottom.equalTo(redView).offset(-30)
-//            make.right.equalTo(redView).offset(-10)
-            // 第三种方式
-//            make.top.left.bottom.right.equalTo(redView).inset(UIEdgeInsets(top: 30, left: 10, bottom: 30, right: 10))
-        }
-    }
+        <span class="c1">// whiteView 的父视图是 redView，距离父视图四条边的距离分别是（30，10，30，10）
+</span><span class="c1"></span>        
+        <span class="n">whiteView</span><span class="p">.</span><span class="n">snp</span><span class="p">.</span><span class="n">makeConstraints</span> <span class="p">{</span> <span class="p">(</span><span class="n">make</span><span class="p">)</span> <span class="k">in</span>
+            <span class="c1">// 第一种方式
+</span><span class="c1"></span>            <span class="n">make</span><span class="p">.</span><span class="n">edges</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="n">redView</span><span class="p">).</span><span class="n">inset</span><span class="p">(</span><span class="n">UIEdgeInsets</span><span class="p">(</span><span class="nl">top</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="nl">left</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nl">bottom</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="nl">right</span><span class="p">:</span> <span class="mi">10</span><span class="p">))</span>
+            <span class="c1">// 第二种方式
+</span><span class="c1">//            make.top.equalTo(redView).offset(30)
+</span><span class="c1">//            make.left.equalTo(redView).offset(10)
+</span><span class="c1">//            make.bottom.equalTo(redView).offset(-30)
+</span><span class="c1">//            make.right.equalTo(redView).offset(-10)
+</span><span class="c1"></span>            <span class="c1">// 第三种方式
+</span><span class="c1">//            make.top.left.bottom.right.equalTo(redView).inset(UIEdgeInsets(top: 30, left: 10, bottom: 30, right: 10))
+</span><span class="c1"></span>        <span class="p">}</span>
+    <span class="p">}</span>
 
 </code></pre></td></tr></table>
 </div>
 </div><!-- raw HTML omitted -->
 <hr>
 <!-- raw HTML omitted -->
-<h5 id="详情代码请移步到-httpsgithubcomliuzhongningnnmintfurniture-中查看如有疑问或有建议的地方欢迎讨论另外代码中有一个名为-guideswift-的类简单标出了代码的结构更方便阅读">详情代码，请移步到 <a href="https://github.com/liuzhongning/NNMintFurniture">https://github.com/liuzhongning/NNMintFurniture</a> 中查看，如有疑问或有建议的地方，欢迎讨论。另外代码中有一个名为 <code>guide.swift</code> 的类，简单标出了代码的结构，更方便阅读。</h5>
+<h5 id="详情代码请移步到-httpsgithubcomliupengkun1993nnmintfurniture-中查看如有疑问或有建议的地方欢迎讨论另外代码中有一个名为-guideswift-的类简单标出了代码的结构更方便阅读">详情代码，请移步到 <a href="https://github.com/liupengkun1993/NNMintFurniture">https://github.com/liupengkun1993/NNMintFurniture</a> 中查看，如有疑问或有建议的地方，欢迎讨论。另外代码中有一个名为 <code>guide.swift</code> 的类，简单标出了代码的结构，更方便阅读。</h5>
 
     </div>
 

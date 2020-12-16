@@ -69,7 +69,7 @@
 <meta itemprop="description" content="最近利用晚上的空闲时间，整理了一下多线程相关的知识，几经更改，就变成你现在看到的模样了（如有失误之处，还请不吝赐教）。把多线程相关的知识总结">
 <meta itemprop="datePublished" content="2016-10-19T15:43:48+08:00" />
 <meta itemprop="dateModified" content="2018-01-02T15:43:48+08:00" />
-<meta itemprop="wordCount" content="7361">
+<meta itemprop="wordCount" content="7357">
 
 
 
@@ -306,7 +306,7 @@
             <a href="https://liupengkun1993.github.io/categories/ios/"> iOS </a>
             
           </div>
-        <span class="more-meta"> 7361 words </span>
+        <span class="more-meta"> 7357 words </span>
           <span class="more-meta"> 15 min read </span>
 
         
@@ -350,12 +350,10 @@
         <li><a href="#三一些简单方法-1">三、一些简单方法</a></li>
       </ul>
     </li>
-    <li><a href="#四ios开发之多线程-gcd">（四）iOS开发之多线程 GCD</a></li>
-    <li><a href="#一gcd-术语">一、GCD 术语</a>
+    <li><a href="#四ios开发之多线程-gcd">（四）iOS开发之多线程 GCD</a>
       <ul>
-        <li></li>
+        <li><a href="#一gcd-术语">一、GCD 术语</a></li>
         <li><a href="#二代码演示">二、代码演示</a></li>
-        <li><a href="#1dispatch_async异步函数">1、dispatch_async(异步函数)</a></li>
         <li><a href="#三gcd与非gcd实现单粒设计模式">三、GCD与非GCD实现单粒设计模式</a></li>
         <li><a href="#四gcd定时器">四、GCD定时器</a></li>
       </ul>
@@ -846,9 +844,9 @@ NSOperation是个抽象类，使用它必须用它的子类，可以实现它或
 </code></pre></td></tr></table>
 </div>
 </div><hr>
-<p>*NSOperation 常用的基本上也就上面那些了。。。GCD 就不用多说了，老东家苹果推荐的，不过我却觉得名字太长~~~，一开始总是记不住，多敲就好了！所有编程语言大概都有这么一个绝招O(∩_∩)O！*</p>
+<p><em>NSOperation 常用的基本上也就上面那些了。。。GCD 就不用多说了，老东家苹果推荐的，不过我却觉得名字太长，一开始总是记不住，多敲就好了！所有编程语言大概都有这么一个绝招O(∩_∩)O！</em></p>
 <h2 id="四ios开发之多线程-gcd">（四）iOS开发之多线程 GCD</h2>
-<h2 id="一gcd-术语">一、GCD 术语</h2>
+<h3 id="一gcd-术语">一、GCD 术语</h3>
 <p>要理解GCD ，我们先来熟悉与线程和并发相关的几个概念。</p>
 <h4 id="1serial-vs-concurrent-串行-vs-并发">1.Serial vs. Concurrent 串行 vs. 并发</h4>
 <p>任务串行执行就是每次只有一个任务被执行，任务并发执行就是在同一时间可以有多个任务被执行。</p>
@@ -864,7 +862,7 @@ NSOperation是个抽象类，使用它必须用它的子类，可以实现它或
 <h4 id="6queues-队列">6.Queues 队列</h4>
 <p>GCD 提供有 dispatch queues 来处理代码块，这些队列管理你提供给 GCD 的任务并用 FIFO 顺序执行这些任务。</p>
 <h3 id="二代码演示">二、代码演示</h3>
-<h3 id="1dispatch_async异步函数">1、dispatch_async(异步函数)</h3>
+<h4 id="1dispatch_async异步函数">1、dispatch_async(异步函数)</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1

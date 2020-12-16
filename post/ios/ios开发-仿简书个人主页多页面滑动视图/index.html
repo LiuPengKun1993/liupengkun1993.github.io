@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="liupengkun" />
-  <meta name="description" content="之前项目中很多地方用到了滑动视图，三个界面五个界面或界面个数不定的情况都有，这里以简书 APP 的个人主页为例，总结一下，一则对自己也有好处，二则希" />
+  <meta name="description" content="前言 之前项目中很多地方用到了滑动视图，三个界面五个界面或界面个数不定的情况都有，这里以简书 APP 的个人主页为例，总结一下，一则对自己也有好处，二" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -60,23 +60,23 @@
 
 
 <meta property="og:title" content="iOS开发 - 仿简书个人主页多页面滑动视图" />
-<meta property="og:description" content="之前项目中很多地方用到了滑动视图，三个界面五个界面或界面个数不定的情况都有，这里以简书 APP 的个人主页为例，总结一下，一则对自己也有好处，二则希" />
+<meta property="og:description" content="前言 之前项目中很多地方用到了滑动视图，三个界面五个界面或界面个数不定的情况都有，这里以简书 APP 的个人主页为例，总结一下，一则对自己也有好处，二" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E4%BB%BF%E7%AE%80%E4%B9%A6%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E5%A4%9A%E9%A1%B5%E9%9D%A2%E6%BB%91%E5%8A%A8%E8%A7%86%E5%9B%BE/" />
 <meta property="article:published_time" content="2017-08-05T15:43:48+08:00" />
 <meta property="article:modified_time" content="2017-12-22T15:43:48+08:00" />
 <meta itemprop="name" content="iOS开发 - 仿简书个人主页多页面滑动视图">
-<meta itemprop="description" content="之前项目中很多地方用到了滑动视图，三个界面五个界面或界面个数不定的情况都有，这里以简书 APP 的个人主页为例，总结一下，一则对自己也有好处，二则希">
+<meta itemprop="description" content="前言 之前项目中很多地方用到了滑动视图，三个界面五个界面或界面个数不定的情况都有，这里以简书 APP 的个人主页为例，总结一下，一则对自己也有好处，二">
 <meta itemprop="datePublished" content="2017-08-05T15:43:48+08:00" />
 <meta itemprop="dateModified" content="2017-12-22T15:43:48+08:00" />
-<meta itemprop="wordCount" content="1450">
+<meta itemprop="wordCount" content="1449">
 
 
 
 <meta itemprop="keywords" content="iOS," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="iOS开发 - 仿简书个人主页多页面滑动视图"/>
-<meta name="twitter:description" content="之前项目中很多地方用到了滑动视图，三个界面五个界面或界面个数不定的情况都有，这里以简书 APP 的个人主页为例，总结一下，一则对自己也有好处，二则希"/>
+<meta name="twitter:description" content="前言 之前项目中很多地方用到了滑动视图，三个界面五个界面或界面个数不定的情况都有，这里以简书 APP 的个人主页为例，总结一下，一则对自己也有好处，二"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -306,7 +306,7 @@
             <a href="https://liupengkun1993.github.io/categories/ios/"> iOS </a>
             
           </div>
-        <span class="more-meta"> 1450 words </span>
+        <span class="more-meta"> 1449 words </span>
           <span class="more-meta"> 3 min read </span>
 
         
@@ -326,7 +326,8 @@
   <ul>
     <li>
       <ul>
-        <li></li>
+        <li><a href="#前言">前言</a></li>
+        <li><a href="#思路及核心代码">思路及核心代码</a></li>
       </ul>
     </li>
   </ul>
@@ -336,30 +337,29 @@
 
     
     <div class="post-content">
-      <blockquote>
+      <h3 id="前言">前言</h3>
+<blockquote>
 <p>之前项目中很多地方用到了滑动视图，三个界面五个界面或界面个数不定的情况都有，这里以简书 APP 的个人主页为例，总结一下，一则对自己也有好处，二则希望对看到的朋友有所帮助。</p>
 </blockquote>
 <ul>
-<li>
-<p>简书APP个人主页：
-<img src="http://upload-images.jianshu.io/upload_images/2665449-5b13d9033bba3752.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="简书APP个人主页"></p>
-</li>
-<li>
-<p>demo 效果图：</p>
-</li>
+<li>简书APP个人主页：</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-64f7bc0e3b50267d.gif?imageMogr2/auto-orient/strip" alt="demo 效果图"></p>
+<p><img src="/image/iOS/iOS_JianBook/JianBook01.jpeg" alt="简书APP个人主页"></p>
 <ul>
-<li>demo 地址：https://github.com/liuzhongning/NNJaneBookView</li>
+<li>demo 效果图：</li>
 </ul>
-<h4 id="简单说下思路及核心代码">简单说下思路及核心代码：</h4>
-<h5 id="思路">思路：</h5>
+<p><img src="/image/iOS/iOS_JianBook/JianBook02.gif" alt="demo 效果图"></p>
+<ul>
+<li>demo 地址：<a href="https://github.com/liupengkun1993/NNJaneBookView">https://github.com/liupengkun1993/NNJaneBookView</a></li>
+</ul>
+<h3 id="思路及核心代码">思路及核心代码</h3>
+<h4 id="思路">思路：</h4>
 <ul>
 <li>导航栏上面的头像会随着视图的上下滑动而变大变小，这里注册了一个通知，用来监听视图的上下滑动，可以根据偏移量的值来改变头像的大小。</li>
 <li>此 UI 页面分为三部分，第一部分是信息展示，用来显示昵称签名等；第二部分是标签栏，即“动态”，“文章”，“更多”这三个标签；第三部分是主要显示内容；</li>
 <li>我这里用了这样的思路：页面底部是一个 UIScrollView; 接着 UIScrollView 上面 add 了三个 UITableView ；信息展示以及标签栏放在 UITableView 的 tableHeaderView 中；接着挨个实现其功能即可。</li>
 </ul>
-<h5 id="核心代码">核心代码：</h5>
+<h4 id="核心代码">核心代码：</h4>
 <ul>
 <li>头像跟随页面上下滑动而变大变小
 <ul>
@@ -377,12 +377,12 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    self.headerImageView          = [[NNPersonalHomePageHeaderImageView alloc] initWithImage:[UIImage imageNamed:@&#34;header&#34;]];
-    [self.headerImageView reloadSizeWithScrollView:self.dynamicTableView];
-    self.navigationItem.titleView = self.headerImageView;
-    [self.headerImageView handleClickActionWithBlock:^{
-        NSLog(@&#34;你点击了头像按钮&#34;);
-    }];
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="nb">self</span><span class="p">.</span><span class="n">headerImageView</span>          <span class="o">=</span> <span class="p">[[</span><span class="n">NNPersonalHomePageHeaderImageView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithImage</span><span class="p">:[</span><span class="n">UIImage</span> <span class="nl">imageNamed</span><span class="p">:</span><span class="s">@&#34;header&#34;</span><span class="p">]];</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">headerImageView</span> <span class="nl">reloadSizeWithScrollView</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">dynamicTableView</span><span class="p">];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">navigationItem</span><span class="p">.</span><span class="n">titleView</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">headerImageView</span><span class="p">;</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">headerImageView</span> <span class="nl">handleClickActionWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;你点击了头像按钮&#34;</span><span class="p">);</span>
+    <span class="p">}];</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -422,32 +422,32 @@
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">- (void)setupHeaderView {
-    UIView *headerView                     = [[NNPersonalHomePageHeaderView alloc] init];
-    headerView.frame                       = CGRectMake(0, 0, NNScreenWidth, NNHeadViewHeight + NNTitleHeight);
-    [self.view addSubview:headerView];
-    self.headerView                        = headerView;
-    NNPersonalHomePageTitleView *titleView = [[NNPersonalHomePageTitleView alloc] init];
-    [headerView addSubview:titleView];
-    self.titleView                         = titleView;
-    titleView.backgroundColor              = [UIColor whiteColor];
-    [titleView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.mas_equalTo(headerView);
-        make.bottom.equalTo(headerView.mas_bottom);
-        make.height.mas_equalTo(NNTitleHeight);
-    }];
-    [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(self.view);
-        make.top.mas_equalTo(headerView.top);
-    }];
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setupHeaderView</span> <span class="p">{</span>
+    <span class="n">UIView</span> <span class="o">*</span><span class="n">headerView</span>                     <span class="o">=</span> <span class="p">[[</span><span class="n">NNPersonalHomePageHeaderView</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">headerView</span><span class="p">.</span><span class="n">frame</span>                       <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">NNScreenWidth</span><span class="p">,</span> <span class="n">NNHeadViewHeight</span> <span class="o">+</span> <span class="n">NNTitleHeight</span><span class="p">);</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview</span><span class="p">:</span><span class="n">headerView</span><span class="p">];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">headerView</span>                        <span class="o">=</span> <span class="n">headerView</span><span class="p">;</span>
+    <span class="n">NNPersonalHomePageTitleView</span> <span class="o">*</span><span class="n">titleView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NNPersonalHomePageTitleView</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">headerView</span> <span class="nl">addSubview</span><span class="p">:</span><span class="n">titleView</span><span class="p">];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">titleView</span>                         <span class="o">=</span> <span class="n">titleView</span><span class="p">;</span>
+    <span class="n">titleView</span><span class="p">.</span><span class="n">backgroundColor</span>              <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">whiteColor</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">titleView</span> <span class="nl">mas_makeConstraints</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">MASConstraintMaker</span> <span class="o">*</span><span class="n">make</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">make</span><span class="p">.</span><span class="n">left</span><span class="p">.</span><span class="n">right</span><span class="p">.</span><span class="n">mas_equalTo</span><span class="p">(</span><span class="n">headerView</span><span class="p">);</span>
+        <span class="n">make</span><span class="p">.</span><span class="n">bottom</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="n">headerView</span><span class="p">.</span><span class="n">mas_bottom</span><span class="p">);</span>
+        <span class="n">make</span><span class="p">.</span><span class="n">height</span><span class="p">.</span><span class="n">mas_equalTo</span><span class="p">(</span><span class="n">NNTitleHeight</span><span class="p">);</span>
+    <span class="p">}];</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">scrollView</span> <span class="nl">mas_makeConstraints</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">MASConstraintMaker</span> <span class="o">*</span><span class="n">make</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">make</span><span class="p">.</span><span class="n">left</span><span class="p">.</span><span class="n">right</span><span class="p">.</span><span class="n">bottom</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">);</span>
+        <span class="n">make</span><span class="p">.</span><span class="n">top</span><span class="p">.</span><span class="n">mas_equalTo</span><span class="p">(</span><span class="n">headerView</span><span class="p">.</span><span class="n">top</span><span class="p">);</span>
+    <span class="p">}];</span>
     
-    __weak typeof(self) weakSelf = self;
-    titleView.titles             = @[@&#34;动态&#34;, @&#34;文章&#34;, @&#34;更多&#34;];
-    titleView.selectedIndex      = 0;
-    titleView.buttonSelected     = ^(NSInteger index){
-        [weakSelf.scrollView setContentOffset:CGPointMake(NNScreenWidth * index, 0) animated:YES];
-    };
-}
+    <span class="k">__weak</span> <span class="k">typeof</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span> <span class="n">weakSelf</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="n">titleView</span><span class="p">.</span><span class="n">titles</span>             <span class="o">=</span> <span class="l">@[</span><span class="s">@&#34;动态&#34;</span><span class="p">,</span> <span class="s">@&#34;文章&#34;</span><span class="p">,</span> <span class="s">@&#34;更多&#34;</span><span class="l">]</span><span class="p">;</span>
+    <span class="n">titleView</span><span class="p">.</span><span class="n">selectedIndex</span>      <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">titleView</span><span class="p">.</span><span class="n">buttonSelected</span>     <span class="o">=</span> <span class="o">^</span><span class="p">(</span><span class="n">NSInteger</span> <span class="n">index</span><span class="p">){</span>
+        <span class="p">[</span><span class="n">weakSelf</span><span class="p">.</span><span class="n">scrollView</span> <span class="nl">setContentOffset</span><span class="p">:</span><span class="n">CGPointMake</span><span class="p">(</span><span class="n">NNScreenWidth</span> <span class="o">*</span> <span class="n">index</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="nl">animated</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
+    <span class="p">};</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -513,58 +513,58 @@
 </span><span class="lnt">52
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">/// 主要内容
-- (void)setupContentView {
-    NNContentScrollView *scrollView           = [[NNContentScrollView alloc] init];
-    scrollView.delaysContentTouches           = NO;
-    [self.view addSubview:scrollView];
-    self.scrollView                           = scrollView;
-    scrollView.pagingEnabled                  = YES;
-    scrollView.showsVerticalScrollIndicator   = NO;
-    scrollView.showsHorizontalScrollIndicator = NO;
-    scrollView.delegate                       = self;
-    scrollView.contentSize                    = CGSizeMake(NNScreenWidth * 3, 0);
-    UIView *headView                          = [[UIView alloc] init];
-    headView.frame                            = CGRectMake(0, 0, 0, NNHeadViewHeight + NNTitleHeight);
-    self.tableViewHeadView = headView;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">/// 主要内容
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setupContentView</span> <span class="p">{</span>
+    <span class="n">NNContentScrollView</span> <span class="o">*</span><span class="n">scrollView</span>           <span class="o">=</span> <span class="p">[[</span><span class="n">NNContentScrollView</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">scrollView</span><span class="p">.</span><span class="n">delaysContentTouches</span>           <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview</span><span class="p">:</span><span class="n">scrollView</span><span class="p">];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">scrollView</span>                           <span class="o">=</span> <span class="n">scrollView</span><span class="p">;</span>
+    <span class="n">scrollView</span><span class="p">.</span><span class="n">pagingEnabled</span>                  <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+    <span class="n">scrollView</span><span class="p">.</span><span class="n">showsVerticalScrollIndicator</span>   <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+    <span class="n">scrollView</span><span class="p">.</span><span class="n">showsHorizontalScrollIndicator</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+    <span class="n">scrollView</span><span class="p">.</span><span class="n">delegate</span>                       <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="n">scrollView</span><span class="p">.</span><span class="n">contentSize</span>                    <span class="o">=</span> <span class="n">CGSizeMake</span><span class="p">(</span><span class="n">NNScreenWidth</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">UIView</span> <span class="o">*</span><span class="n">headView</span>                          <span class="o">=</span> <span class="p">[[</span><span class="n">UIView</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">headView</span><span class="p">.</span><span class="n">frame</span>                            <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">NNHeadViewHeight</span> <span class="o">+</span> <span class="n">NNTitleHeight</span><span class="p">);</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">tableViewHeadView</span> <span class="o">=</span> <span class="n">headView</span><span class="p">;</span>
     
-    NNContentTableView *dynamicTableView = [[NNContentTableView alloc] init];
-    dynamicTableView.delegate            = self;
-    dynamicTableView.separatorStyle      = UITableViewCellSeparatorStyleNone;
-    self.dynamicTableView                = dynamicTableView;
-    dynamicTableView.tableHeaderView     = headView;
-    [scrollView addSubview:dynamicTableView];
-    [dynamicTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(scrollView);
-        make.width.mas_equalTo(NNScreenWidth);
-        make.top.equalTo(self.view);
-        make.bottom.equalTo(self.view);
-    }];
+    <span class="n">NNContentTableView</span> <span class="o">*</span><span class="n">dynamicTableView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NNContentTableView</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">dynamicTableView</span><span class="p">.</span><span class="n">delegate</span>            <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="n">dynamicTableView</span><span class="p">.</span><span class="n">separatorStyle</span>      <span class="o">=</span> <span class="n">UITableViewCellSeparatorStyleNone</span><span class="p">;</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">dynamicTableView</span>                <span class="o">=</span> <span class="n">dynamicTableView</span><span class="p">;</span>
+    <span class="n">dynamicTableView</span><span class="p">.</span><span class="n">tableHeaderView</span>     <span class="o">=</span> <span class="n">headView</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">scrollView</span> <span class="nl">addSubview</span><span class="p">:</span><span class="n">dynamicTableView</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">dynamicTableView</span> <span class="nl">mas_makeConstraints</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">MASConstraintMaker</span> <span class="o">*</span><span class="n">make</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">make</span><span class="p">.</span><span class="n">left</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="n">scrollView</span><span class="p">);</span>
+        <span class="n">make</span><span class="p">.</span><span class="n">width</span><span class="p">.</span><span class="n">mas_equalTo</span><span class="p">(</span><span class="n">NNScreenWidth</span><span class="p">);</span>
+        <span class="n">make</span><span class="p">.</span><span class="n">top</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">);</span>
+        <span class="n">make</span><span class="p">.</span><span class="n">bottom</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">);</span>
+    <span class="p">}];</span>
     
-    NNContentTableView *articleTableView = [[NNContentTableView alloc] init];
-    articleTableView.delegate            = self;
-    articleTableView.separatorStyle      = UITableViewCellSeparatorStyleNone;
-    self.articleTableView                = articleTableView;
-    articleTableView.tableHeaderView     = headView;
-    [scrollView addSubview:articleTableView];
-    [articleTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(scrollView).offset(NNScreenWidth);
-        make.width.equalTo(dynamicTableView);
-        make.top.bottom.equalTo(dynamicTableView);
-    }];
+    <span class="n">NNContentTableView</span> <span class="o">*</span><span class="n">articleTableView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NNContentTableView</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">articleTableView</span><span class="p">.</span><span class="n">delegate</span>            <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="n">articleTableView</span><span class="p">.</span><span class="n">separatorStyle</span>      <span class="o">=</span> <span class="n">UITableViewCellSeparatorStyleNone</span><span class="p">;</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">articleTableView</span>                <span class="o">=</span> <span class="n">articleTableView</span><span class="p">;</span>
+    <span class="n">articleTableView</span><span class="p">.</span><span class="n">tableHeaderView</span>     <span class="o">=</span> <span class="n">headView</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">scrollView</span> <span class="nl">addSubview</span><span class="p">:</span><span class="n">articleTableView</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">articleTableView</span> <span class="nl">mas_makeConstraints</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">MASConstraintMaker</span> <span class="o">*</span><span class="n">make</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">make</span><span class="p">.</span><span class="n">left</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="n">scrollView</span><span class="p">).</span><span class="n">offset</span><span class="p">(</span><span class="n">NNScreenWidth</span><span class="p">);</span>
+        <span class="n">make</span><span class="p">.</span><span class="n">width</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="n">dynamicTableView</span><span class="p">);</span>
+        <span class="n">make</span><span class="p">.</span><span class="n">top</span><span class="p">.</span><span class="n">bottom</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="n">dynamicTableView</span><span class="p">);</span>
+    <span class="p">}];</span>
     
-    NNContentTableView *moreTableView = [[NNContentTableView alloc] init];
-    moreTableView.delegate            = self;
-    moreTableView.separatorStyle      = UITableViewCellSeparatorStyleNone;
-    self.moreTableView                = moreTableView;
-    moreTableView.tableHeaderView     = headView;
-    [scrollView addSubview:moreTableView];
-    [moreTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(scrollView).offset(NNScreenWidth * 2);
-        make.width.equalTo(dynamicTableView);
-        make.top.bottom.equalTo(dynamicTableView);
-    }];
-}
+    <span class="n">NNContentTableView</span> <span class="o">*</span><span class="n">moreTableView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NNContentTableView</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">moreTableView</span><span class="p">.</span><span class="n">delegate</span>            <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="n">moreTableView</span><span class="p">.</span><span class="n">separatorStyle</span>      <span class="o">=</span> <span class="n">UITableViewCellSeparatorStyleNone</span><span class="p">;</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">moreTableView</span>                <span class="o">=</span> <span class="n">moreTableView</span><span class="p">;</span>
+    <span class="n">moreTableView</span><span class="p">.</span><span class="n">tableHeaderView</span>     <span class="o">=</span> <span class="n">headView</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">scrollView</span> <span class="nl">addSubview</span><span class="p">:</span><span class="n">moreTableView</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">moreTableView</span> <span class="nl">mas_makeConstraints</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">MASConstraintMaker</span> <span class="o">*</span><span class="n">make</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">make</span><span class="p">.</span><span class="n">left</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="n">scrollView</span><span class="p">).</span><span class="n">offset</span><span class="p">(</span><span class="n">NNScreenWidth</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
+        <span class="n">make</span><span class="p">.</span><span class="n">width</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="n">dynamicTableView</span><span class="p">);</span>
+        <span class="n">make</span><span class="p">.</span><span class="n">top</span><span class="p">.</span><span class="n">bottom</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="n">dynamicTableView</span><span class="p">);</span>
+    <span class="p">}];</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -619,50 +619,50 @@
 </span><span class="lnt">41
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#pragma mark - UIScrollViewDelegate
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    if (scrollView == self.scrollView) {
-        CGFloat contentOffsetX       = scrollView.contentOffset.x;
-        NSInteger pageNum            = contentOffsetX / NNScreenWidth + 0.5;
-        self.titleView.selectedIndex = pageNum;
-    }
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#pragma mark - UIScrollViewDelegate
+</span><span class="cp"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">scrollViewDidEndDecelerating:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">scrollView</span> <span class="o">==</span> <span class="nb">self</span><span class="p">.</span><span class="n">scrollView</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">CGFloat</span> <span class="n">contentOffsetX</span>       <span class="o">=</span> <span class="n">scrollView</span><span class="p">.</span><span class="n">contentOffset</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+        <span class="n">NSInteger</span> <span class="n">pageNum</span>            <span class="o">=</span> <span class="n">contentOffsetX</span> <span class="o">/</span> <span class="n">NNScreenWidth</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">;</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">titleView</span><span class="p">.</span><span class="n">selectedIndex</span> <span class="o">=</span> <span class="n">pageNum</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView == self.scrollView || !scrollView.window) {
-        return;
-    }
-        CGFloat offsetY      = scrollView.contentOffset.y;
-        CGFloat originY      = 0;
-        CGFloat otherOffsetY = 0;
-    if (offsetY &lt;= NNHeadViewHeight) {
-        originY              = -offsetY;
-        if (offsetY &lt; 0) {
-        otherOffsetY         = 0;
-        } else {
-        otherOffsetY         = offsetY;
-        }
-    } else {
-        originY              = -NNHeadViewHeight;
-        otherOffsetY         = NNHeadViewHeight;
-    }
-    self.headerView.frame = CGRectMake(0, originY, NNScreenWidth, NNHeadViewHeight + NNTitleHeight);
-    for ( int i = 0; i &lt; self.titleView.titles.count; i++ ) {
-        if (i != self.titleView.selectedIndex) {
-            UITableView *contentView = self.scrollView.subviews[i];
-            CGPoint offset = CGPointMake(0, otherOffsetY);
-            if ([contentView isKindOfClass:[UITableView class]]) {
-                if (contentView.contentOffset.y &lt; NNHeadViewHeight || offset.y &lt; NNHeadViewHeight) {
-                    [contentView setContentOffset:offset animated:NO];
-                    self.scrollView.offset = offset;
-                }
-            }
-        }
-    }
-}
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">scrollViewDidScroll:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">scrollView</span> <span class="o">==</span> <span class="nb">self</span><span class="p">.</span><span class="n">scrollView</span> <span class="o">||</span> <span class="o">!</span><span class="n">scrollView</span><span class="p">.</span><span class="n">window</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+        <span class="n">CGFloat</span> <span class="n">offsetY</span>      <span class="o">=</span> <span class="n">scrollView</span><span class="p">.</span><span class="n">contentOffset</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+        <span class="n">CGFloat</span> <span class="n">originY</span>      <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">CGFloat</span> <span class="n">otherOffsetY</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">offsetY</span> <span class="o">&lt;=</span> <span class="n">NNHeadViewHeight</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">originY</span>              <span class="o">=</span> <span class="o">-</span><span class="n">offsetY</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">offsetY</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">otherOffsetY</span>         <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">otherOffsetY</span>         <span class="o">=</span> <span class="n">offsetY</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">originY</span>              <span class="o">=</span> <span class="o">-</span><span class="n">NNHeadViewHeight</span><span class="p">;</span>
+        <span class="n">otherOffsetY</span>         <span class="o">=</span> <span class="n">NNHeadViewHeight</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">headerView</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">originY</span><span class="p">,</span> <span class="n">NNScreenWidth</span><span class="p">,</span> <span class="n">NNHeadViewHeight</span> <span class="o">+</span> <span class="n">NNTitleHeight</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">self</span><span class="p">.</span><span class="n">titleView</span><span class="p">.</span><span class="n">titles</span><span class="p">.</span><span class="n">count</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">!=</span> <span class="nb">self</span><span class="p">.</span><span class="n">titleView</span><span class="p">.</span><span class="n">selectedIndex</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">UITableView</span> <span class="o">*</span><span class="n">contentView</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">scrollView</span><span class="p">.</span><span class="n">subviews</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+            <span class="n">CGPoint</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">CGPointMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">otherOffsetY</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">([</span><span class="n">contentView</span> <span class="nl">isKindOfClass</span><span class="p">:[</span><span class="n">UITableView</span> <span class="k">class</span><span class="p">]])</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">contentView</span><span class="p">.</span><span class="n">contentOffset</span><span class="p">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">NNHeadViewHeight</span> <span class="o">||</span> <span class="n">offset</span><span class="p">.</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">NNHeadViewHeight</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="p">[</span><span class="n">contentView</span> <span class="nl">setContentOffset</span><span class="p">:</span><span class="n">offset</span> <span class="nl">animated</span><span class="p">:</span><span class="nb">NO</span><span class="p">];</span>
+                    <span class="nb">self</span><span class="p">.</span><span class="n">scrollView</span><span class="p">.</span><span class="n">offset</span> <span class="o">=</span> <span class="n">offset</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>上面只是简单的介绍下，具体的代码还请到 <a href="https://github.com/liuzhongning/NNJaneBookView">demo 中</a> 查看，如有疑问或有建议的地方，欢迎讨论。</p>
+</div><p>上面只是简单的介绍下，具体的代码还请到 <a href="https://github.com/liupengkun1993/NNJaneBookView">demo</a> 中查看，如有疑问或有建议的地方，欢迎讨论。</p>
 
     </div>
 

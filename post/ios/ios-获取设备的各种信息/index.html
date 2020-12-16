@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="liupengkun" />
-  <meta name="description" content="iOS 获取设备的各种信息 一、目录结构: 获取屏幕宽度与高度 获取设备版本号 获取iPhone名称 获取app版本号 获取电池电量 获取当前系统名称 获取当前系" />
+  <meta name="description" content="一、目录结构 获取屏幕宽度与高度 获取设备版本号 获取iPhone名称 获取app版本号 获取电池电量 获取当前系统名称 获取当前系统版本号 获取通用的唯一" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -60,23 +60,23 @@
 
 
 <meta property="og:title" content="iOS 获取设备的各种信息" />
-<meta property="og:description" content="iOS 获取设备的各种信息 一、目录结构: 获取屏幕宽度与高度 获取设备版本号 获取iPhone名称 获取app版本号 获取电池电量 获取当前系统名称 获取当前系" />
+<meta property="og:description" content="一、目录结构 获取屏幕宽度与高度 获取设备版本号 获取iPhone名称 获取app版本号 获取电池电量 获取当前系统名称 获取当前系统版本号 获取通用的唯一" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://liupengkun1993.github.io/post/ios/ios-%E8%8E%B7%E5%8F%96%E8%AE%BE%E5%A4%87%E7%9A%84%E5%90%84%E7%A7%8D%E4%BF%A1%E6%81%AF/" />
 <meta property="article:published_time" content="2017-04-07T15:43:48+08:00" />
 <meta property="article:modified_time" content="2017-12-22T15:43:48+08:00" />
 <meta itemprop="name" content="iOS 获取设备的各种信息">
-<meta itemprop="description" content="iOS 获取设备的各种信息 一、目录结构: 获取屏幕宽度与高度 获取设备版本号 获取iPhone名称 获取app版本号 获取电池电量 获取当前系统名称 获取当前系">
+<meta itemprop="description" content="一、目录结构 获取屏幕宽度与高度 获取设备版本号 获取iPhone名称 获取app版本号 获取电池电量 获取当前系统名称 获取当前系统版本号 获取通用的唯一">
 <meta itemprop="datePublished" content="2017-04-07T15:43:48+08:00" />
 <meta itemprop="dateModified" content="2017-12-22T15:43:48+08:00" />
-<meta itemprop="wordCount" content="1529">
+<meta itemprop="wordCount" content="1518">
 
 
 
 <meta itemprop="keywords" content="Tips,iOS," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="iOS 获取设备的各种信息"/>
-<meta name="twitter:description" content="iOS 获取设备的各种信息 一、目录结构: 获取屏幕宽度与高度 获取设备版本号 获取iPhone名称 获取app版本号 获取电池电量 获取当前系统名称 获取当前系"/>
+<meta name="twitter:description" content="一、目录结构 获取屏幕宽度与高度 获取设备版本号 获取iPhone名称 获取app版本号 获取电池电量 获取当前系统名称 获取当前系统版本号 获取通用的唯一"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -306,7 +306,7 @@
             <a href="https://liupengkun1993.github.io/categories/ios/"> iOS </a>
             
           </div>
-        <span class="more-meta"> 1529 words </span>
+        <span class="more-meta"> 1518 words </span>
           <span class="more-meta"> 4 min read </span>
 
         
@@ -324,11 +324,23 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#一目录结构">一、目录结构</a></li>
+    <li><a href="#二具体内容">二、具体内容</a>
       <ul>
-        <li></li>
-        <li><a href="#一目录结构">一、目录结构:</a></li>
-        <li><a href="#二具体内容">二、具体内容</a></li>
+        <li><a href="#1-获取屏幕宽度与高度">1. 获取屏幕宽度与高度</a></li>
+        <li><a href="#2-获取设备版本号">2. 获取设备版本号</a></li>
+        <li><a href="#3-获取iphone名称">3. 获取iPhone名称</a></li>
+        <li><a href="#4-获取app版本号">4. 获取app版本号</a></li>
+        <li><a href="#5-获取电池电量">5. 获取电池电量</a></li>
+        <li><a href="#6-获取当前系统名称">6. 获取当前系统名称</a></li>
+        <li><a href="#7-获取当前系统版本号">7. 获取当前系统版本号</a></li>
+        <li><a href="#8-获取通用的唯一识别码uuid">8. 获取通用的唯一识别码UUID</a></li>
+        <li><a href="#9-获取当前设备ip">9. 获取当前设备IP</a></li>
+        <li><a href="#10-获取总内存大小">10. 获取总内存大小</a></li>
+        <li><a href="#11-获取当前可用内存">11. 获取当前可用内存</a></li>
+        <li><a href="#12-获取精准电池电量">12. 获取精准电池电量</a></li>
+        <li><a href="#13-获取电池当前的状态共有4种状态">13. 获取电池当前的状态（共有4种状态）</a></li>
+        <li><a href="#14-获取设备当前的语言">14. 获取设备当前的语言</a></li>
       </ul>
     </li>
   </ul>
@@ -338,8 +350,7 @@
 
     
     <div class="post-content">
-      <h5 id="ios-获取设备的各种信息httpsgithubcomliuzhongningnndeviceinformation"><a href="https://github.com/liuzhongning/NNDeviceInformation">iOS 获取设备的各种信息</a></h5>
-<h3 id="一目录结构">一、目录结构:</h3>
+      <h2 id="一目录结构">一、目录结构</h2>
 <ol>
 <li>获取屏幕宽度与高度</li>
 <li>获取设备版本号</li>
@@ -356,8 +367,8 @@
 <li>获取电池当前的状态（共有4种状态）</li>
 <li>获取设备当前的语言</li>
 </ol>
-<h3 id="二具体内容">二、具体内容</h3>
-<h5 id="1-获取屏幕宽度与高度">1. 获取屏幕宽度与高度</h5>
+<h2 id="二具体内容">二、具体内容</h2>
+<h3 id="1-获取屏幕宽度与高度">1. 获取屏幕宽度与高度</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -371,19 +382,19 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">/// 屏幕宽度
-+ (CGFloat)getDeviceScreenWidth {
-    return [UIScreen mainScreen].bounds.size.width;
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">/// 屏幕宽度
+</span><span class="c1"></span><span class="p">+</span> <span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nf">getDeviceScreenWidth</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">UIScreen</span> <span class="n">mainScreen</span><span class="p">].</span><span class="n">bounds</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">;</span>
+<span class="p">}</span>
 
-/// 屏幕高度
-+ (CGFloat)getDeviceScreenHeight {
-    return [UIScreen mainScreen].bounds.size.height;
-}
+<span class="c1">/// 屏幕高度
+</span><span class="c1"></span><span class="p">+</span> <span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nf">getDeviceScreenHeight</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">UIScreen</span> <span class="n">mainScreen</span><span class="p">].</span><span class="n">bounds</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><code> [UIScreen mainScreen].bounds.size.width</code>用的很普遍，一般来说定义成宏更好，然后根据屏幕宽高进行尺寸的适配。</p>
-<h5 id="2-获取设备版本号">2. 获取设备版本号</h5>
+<h3 id="2-获取设备版本号">2. 获取设备版本号</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -454,75 +465,75 @@
 </span><span class="lnt">66
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">+ (NSString *)getDeviceName {
-    // 需要#import &#34;sys/utsname.h&#34;
-    struct utsname systemInfo;
-    uname(&amp;systemInfo);
-    NSString *deviceString = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">getDeviceName</span> <span class="p">{</span>
+    <span class="c1">// 需要#import &#34;sys/utsname.h&#34;
+</span><span class="c1"></span>    <span class="k">struct</span> <span class="n">utsname</span> <span class="n">systemInfo</span><span class="p">;</span>
+    <span class="n">uname</span><span class="p">(</span><span class="o">&amp;</span><span class="n">systemInfo</span><span class="p">);</span>
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">deviceString</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithCString</span><span class="p">:</span><span class="n">systemInfo</span><span class="p">.</span><span class="n">machine</span> <span class="nl">encoding</span><span class="p">:</span><span class="n">NSUTF8StringEncoding</span><span class="p">];</span>
     
-    if ([deviceString isEqualToString:@&#34;iPhone3,1&#34;])    return @&#34;iPhone 4&#34;;
-    if ([deviceString isEqualToString:@&#34;iPhone3,2&#34;])    return @&#34;iPhone 4&#34;;
-    if ([deviceString isEqualToString:@&#34;iPhone3,3&#34;])    return @&#34;iPhone 4&#34;;
-    if ([deviceString isEqualToString:@&#34;iPhone4,1&#34;])    return @&#34;iPhone 4S&#34;;
-    if ([deviceString isEqualToString:@&#34;iPhone5,1&#34;])    return @&#34;iPhone 5&#34;;
-    if ([deviceString isEqualToString:@&#34;iPhone5,2&#34;])    return @&#34;iPhone 5 (GSM+CDMA)&#34;;
-    if ([deviceString isEqualToString:@&#34;iPhone5,3&#34;])    return @&#34;iPhone 5c (GSM)&#34;;
-    if ([deviceString isEqualToString:@&#34;iPhone5,4&#34;])    return @&#34;iPhone 5c (GSM+CDMA)&#34;;
-    if ([deviceString isEqualToString:@&#34;iPhone6,1&#34;])    return @&#34;iPhone 5s (GSM)&#34;;
-    if ([deviceString isEqualToString:@&#34;iPhone6,2&#34;])    return @&#34;iPhone 5s (GSM+CDMA)&#34;;
-    if ([deviceString isEqualToString:@&#34;iPhone7,1&#34;])    return @&#34;iPhone 6 Plus&#34;;
-    if ([deviceString isEqualToString:@&#34;iPhone7,2&#34;])    return @&#34;iPhone 6&#34;;
-    if ([deviceString isEqualToString:@&#34;iPhone8,1&#34;])    return @&#34;iPhone 6s&#34;;
-    if ([deviceString isEqualToString:@&#34;iPhone8,2&#34;])    return @&#34;iPhone 6s Plus&#34;;
-    if ([deviceString isEqualToString:@&#34;iPhone8,4&#34;])    return @&#34;iPhone SE&#34;;
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPhone3,1&#34;</span><span class="p">])</span>    <span class="k">return</span> <span class="s">@&#34;iPhone 4&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPhone3,2&#34;</span><span class="p">])</span>    <span class="k">return</span> <span class="s">@&#34;iPhone 4&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPhone3,3&#34;</span><span class="p">])</span>    <span class="k">return</span> <span class="s">@&#34;iPhone 4&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPhone4,1&#34;</span><span class="p">])</span>    <span class="k">return</span> <span class="s">@&#34;iPhone 4S&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPhone5,1&#34;</span><span class="p">])</span>    <span class="k">return</span> <span class="s">@&#34;iPhone 5&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPhone5,2&#34;</span><span class="p">])</span>    <span class="k">return</span> <span class="s">@&#34;iPhone 5 (GSM+CDMA)&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPhone5,3&#34;</span><span class="p">])</span>    <span class="k">return</span> <span class="s">@&#34;iPhone 5c (GSM)&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPhone5,4&#34;</span><span class="p">])</span>    <span class="k">return</span> <span class="s">@&#34;iPhone 5c (GSM+CDMA)&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPhone6,1&#34;</span><span class="p">])</span>    <span class="k">return</span> <span class="s">@&#34;iPhone 5s (GSM)&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPhone6,2&#34;</span><span class="p">])</span>    <span class="k">return</span> <span class="s">@&#34;iPhone 5s (GSM+CDMA)&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPhone7,1&#34;</span><span class="p">])</span>    <span class="k">return</span> <span class="s">@&#34;iPhone 6 Plus&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPhone7,2&#34;</span><span class="p">])</span>    <span class="k">return</span> <span class="s">@&#34;iPhone 6&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPhone8,1&#34;</span><span class="p">])</span>    <span class="k">return</span> <span class="s">@&#34;iPhone 6s&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPhone8,2&#34;</span><span class="p">])</span>    <span class="k">return</span> <span class="s">@&#34;iPhone 6s Plus&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPhone8,4&#34;</span><span class="p">])</span>    <span class="k">return</span> <span class="s">@&#34;iPhone SE&#34;</span><span class="p">;</span>
     
-    if ([deviceString isEqualToString:@&#34;iPod1,1&#34;])      return @&#34;iPod Touch 1G&#34;;
-    if ([deviceString isEqualToString:@&#34;iPod2,1&#34;])      return @&#34;iPod Touch 2G&#34;;
-    if ([deviceString isEqualToString:@&#34;iPod3,1&#34;])      return @&#34;iPod Touch 3G&#34;;
-    if ([deviceString isEqualToString:@&#34;iPod4,1&#34;])      return @&#34;iPod Touch 4G&#34;;
-    if ([deviceString isEqualToString:@&#34;iPod5,1&#34;])      return @&#34;iPod Touch (5 Gen)&#34;;
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPod1,1&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPod Touch 1G&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPod2,1&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPod Touch 2G&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPod3,1&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPod Touch 3G&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPod4,1&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPod Touch 4G&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPod5,1&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPod Touch (5 Gen)&#34;</span><span class="p">;</span>
     
-    if ([deviceString isEqualToString:@&#34;iPad1,1&#34;])      return @&#34;iPad&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad1,2&#34;])      return @&#34;iPad 3G&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad2,1&#34;])      return @&#34;iPad 2 (WiFi)&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad2,2&#34;])      return @&#34;iPad 2&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad2,3&#34;])      return @&#34;iPad 2 (CDMA)&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad2,4&#34;])      return @&#34;iPad 2&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad2,5&#34;])      return @&#34;iPad Mini (WiFi)&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad2,6&#34;])      return @&#34;iPad Mini&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad2,7&#34;])      return @&#34;iPad Mini (GSM+CDMA)&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad3,1&#34;])      return @&#34;iPad 3 (WiFi)&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad3,2&#34;])      return @&#34;iPad 3 (GSM+CDMA)&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad3,3&#34;])      return @&#34;iPad 3&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad3,4&#34;])      return @&#34;iPad 4 (WiFi)&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad3,5&#34;])      return @&#34;iPad 4&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad3,6&#34;])      return @&#34;iPad 4 (GSM+CDMA)&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad4,1&#34;])      return @&#34;iPad Air (WiFi)&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad4,2&#34;])      return @&#34;iPad Air (Cellular)&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad4,4&#34;])      return @&#34;iPad Mini 2 (WiFi)&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad4,5&#34;])      return @&#34;iPad Mini 2 (Cellular)&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad4,6&#34;])      return @&#34;iPad Mini 2&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad4,7&#34;])      return @&#34;iPad Mini 3&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad4,8&#34;])      return @&#34;iPad Mini 3&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad4,9&#34;])      return @&#34;iPad Mini 3&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad5,1&#34;])      return @&#34;iPad Mini 4 (WiFi)&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad5,2&#34;])      return @&#34;iPad Mini 4 (LTE)&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad5,3&#34;])      return @&#34;iPad Air 2&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad5,4&#34;])      return @&#34;iPad Air 2&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad6,3&#34;])      return @&#34;iPad Pro 9.7&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad6,4&#34;])      return @&#34;iPad Pro 9.7&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad6,7&#34;])      return @&#34;iPad Pro 12.9&#34;;
-    if ([deviceString isEqualToString:@&#34;iPad6,8&#34;])      return @&#34;iPad Pro 12.9&#34;;
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad1,1&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad1,2&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad 3G&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad2,1&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad 2 (WiFi)&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad2,2&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad 2&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad2,3&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad 2 (CDMA)&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad2,4&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad 2&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad2,5&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad Mini (WiFi)&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad2,6&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad Mini&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad2,7&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad Mini (GSM+CDMA)&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad3,1&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad 3 (WiFi)&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad3,2&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad 3 (GSM+CDMA)&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad3,3&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad 3&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad3,4&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad 4 (WiFi)&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad3,5&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad 4&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad3,6&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad 4 (GSM+CDMA)&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad4,1&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad Air (WiFi)&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad4,2&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad Air (Cellular)&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad4,4&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad Mini 2 (WiFi)&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad4,5&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad Mini 2 (Cellular)&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad4,6&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad Mini 2&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad4,7&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad Mini 3&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad4,8&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad Mini 3&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad4,9&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad Mini 3&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad5,1&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad Mini 4 (WiFi)&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad5,2&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad Mini 4 (LTE)&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad5,3&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad Air 2&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad5,4&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad Air 2&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad6,3&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad Pro 9.7&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad6,4&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad Pro 9.7&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad6,7&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad Pro 12.9&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;iPad6,8&#34;</span><span class="p">])</span>      <span class="k">return</span> <span class="s">@&#34;iPad Pro 12.9&#34;</span><span class="p">;</span>
     
-    if ([deviceString isEqualToString:@&#34;i386&#34;])         return @&#34;Simulator&#34;;
-    if ([deviceString isEqualToString:@&#34;x86_64&#34;])       return @&#34;Simulator&#34;;
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;i386&#34;</span><span class="p">])</span>         <span class="k">return</span> <span class="s">@&#34;Simulator&#34;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">deviceString</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;x86_64&#34;</span><span class="p">])</span>       <span class="k">return</span> <span class="s">@&#34;Simulator&#34;</span><span class="p">;</span>
     
-    return deviceString;
-}
+    <span class="k">return</span> <span class="n">deviceString</span><span class="p">;</span>
+<span class="p">}</span>
 
 </code></pre></td></tr></table>
 </div>
-</div><h5 id="3-获取iphone名称">3. 获取iPhone名称</h5>
+</div><h3 id="3-获取iphone名称">3. 获取iPhone名称</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -538,7 +549,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>获取的是你 iPhone 的名字。</p>
-<h5 id="4-获取app版本号">4. 获取app版本号</h5>
+<h3 id="4-获取app版本号">4. 获取app版本号</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -547,13 +558,13 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">/// 获取app版本号
-+ (NSString *)getAPPVerion {
-    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@&#34;CFBundleShortVersionString&#34;];
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">/// 获取app版本号
+</span><span class="c1"></span><span class="p">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">getAPPVerion</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">[[[</span><span class="n">NSBundle</span> <span class="n">mainBundle</span><span class="p">]</span> <span class="n">infoDictionary</span><span class="p">]</span> <span class="nl">objectForKey</span><span class="p">:</span><span class="s">@&#34;CFBundleShortVersionString&#34;</span><span class="p">];</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h5 id="5-获取电池电量">5. 获取电池电量</h5>
+</div><h3 id="5-获取电池电量">5. 获取电池电量</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -562,14 +573,14 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">/// 获取电池电量
-+ (CGFloat)getBatteryLevel {
-    return [UIDevice currentDevice].batteryLevel;
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">/// 获取电池电量
+</span><span class="c1"></span><span class="p">+</span> <span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nf">getBatteryLevel</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">UIDevice</span> <span class="n">currentDevice</span><span class="p">].</span><span class="n">batteryLevel</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>这个方法获取电池电量不是很精确，下边会介绍一个获取精确电池电量的。</p>
-<h5 id="6-获取当前系统名称">6. 获取当前系统名称</h5>
+<h3 id="6-获取当前系统名称">6. 获取当前系统名称</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -578,13 +589,13 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">/// 当前系统名称
-+ (NSString *)getSystemName {
-    return [UIDevice currentDevice].systemName;
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">/// 当前系统名称
+</span><span class="c1"></span><span class="p">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">getSystemName</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">UIDevice</span> <span class="n">currentDevice</span><span class="p">].</span><span class="n">systemName</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h5 id="7-获取当前系统版本号">7. 获取当前系统版本号</h5>
+</div><h3 id="7-获取当前系统版本号">7. 获取当前系统版本号</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -593,13 +604,13 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">/// 当前系统版本号
-+ (NSString *)getSystemVersion {
-    return [UIDevice currentDevice].systemVersion;
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">/// 当前系统版本号
+</span><span class="c1"></span><span class="p">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">getSystemVersion</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">UIDevice</span> <span class="n">currentDevice</span><span class="p">].</span><span class="n">systemVersion</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h5 id="8-获取通用的唯一识别码uuid">8. 获取通用的唯一识别码UUID</h5>
+</div><h3 id="8-获取通用的唯一识别码uuid">8. 获取通用的唯一识别码UUID</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -608,13 +619,13 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">/// 通用唯一识别码UUID
-+ (NSString *)getUUID {
-    return [[UIDevice currentDevice] identifierForVendor].UUIDString;
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">/// 通用唯一识别码UUID
+</span><span class="c1"></span><span class="p">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">getUUID</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">[[</span><span class="n">UIDevice</span> <span class="n">currentDevice</span><span class="p">]</span> <span class="n">identifierForVendor</span><span class="p">].</span><span class="n">UUIDString</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h5 id="9-获取当前设备ip">9. 获取当前设备IP</h5>
+</div><h3 id="9-获取当前设备ip">9. 获取当前设备IP</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -647,37 +658,37 @@
 </span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 获取当前设备IP
-+ (NSString *)getDeviceIPAdress {
-    NSString *address = @&#34;an error occurred when obtaining ip address&#34;;
-    struct ifaddrs *interfaces = NULL;
-    struct ifaddrs *temp_addr = NULL;
-    int success = 0;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 获取当前设备IP
+</span><span class="c1"></span><span class="p">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">getDeviceIPAdress</span> <span class="p">{</span>
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">address</span> <span class="o">=</span> <span class="s">@&#34;an error occurred when obtaining ip address&#34;</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">ifaddrs</span> <span class="o">*</span><span class="n">interfaces</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">ifaddrs</span> <span class="o">*</span><span class="n">temp_addr</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">success</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     
-    success = getifaddrs(&amp;interfaces);
+    <span class="n">success</span> <span class="o">=</span> <span class="n">getifaddrs</span><span class="p">(</span><span class="o">&amp;</span><span class="n">interfaces</span><span class="p">);</span>
     
-    if (success == 0) { // 0 表示获取成功
-        
-        temp_addr = interfaces;
-        while (temp_addr != NULL) {
-            if( temp_addr-&gt;ifa_addr-&gt;sa_family == AF_INET) {
-                // Check if interface is en0 which is the wifi connection on the iPhone
-                if ([[NSString stringWithUTF8String:temp_addr-&gt;ifa_name] isEqualToString:@&#34;en0&#34;]) {
-                    // Get NSString from C String
-                    address = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)temp_addr-&gt;ifa_addr)-&gt;sin_addr)];
-                }
-            }
-            temp_addr = temp_addr-&gt;ifa_next;
-        }
-    }
+    <span class="k">if</span> <span class="p">(</span><span class="n">success</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 0 表示获取成功
+</span><span class="c1"></span>        
+        <span class="n">temp_addr</span> <span class="o">=</span> <span class="n">interfaces</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">temp_addr</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span> <span class="n">temp_addr</span><span class="o">-&gt;</span><span class="n">ifa_addr</span><span class="o">-&gt;</span><span class="n">sa_family</span> <span class="o">==</span> <span class="n">AF_INET</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// Check if interface is en0 which is the wifi connection on the iPhone
+</span><span class="c1"></span>                <span class="k">if</span> <span class="p">([[</span><span class="n">NSString</span> <span class="nl">stringWithUTF8String</span><span class="p">:</span><span class="n">temp_addr</span><span class="o">-&gt;</span><span class="n">ifa_name</span><span class="p">]</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;en0&#34;</span><span class="p">])</span> <span class="p">{</span>
+                    <span class="c1">// Get NSString from C String
+</span><span class="c1"></span>                    <span class="n">address</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithUTF8String</span><span class="p">:</span><span class="n">inet_ntoa</span><span class="p">(((</span><span class="k">struct</span> <span class="n">sockaddr_in</span> <span class="o">*</span><span class="p">)</span><span class="n">temp_addr</span><span class="o">-&gt;</span><span class="n">ifa_addr</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">sin_addr</span><span class="p">)];</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="n">temp_addr</span> <span class="o">=</span> <span class="n">temp_addr</span><span class="o">-&gt;</span><span class="n">ifa_next</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
     
-    freeifaddrs(interfaces);
-    return address;
-}
+    <span class="n">freeifaddrs</span><span class="p">(</span><span class="n">interfaces</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">address</span><span class="p">;</span>
+<span class="p">}</span>
 
 </code></pre></td></tr></table>
 </div>
-</div><h5 id="10-获取总内存大小">10. 获取总内存大小</h5>
+</div><h3 id="10-获取总内存大小">10. 获取总内存大小</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -686,13 +697,13 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">/// 获取总内存大小
-+ (long long)getTotalMemorySize {
-    return [NSProcessInfo processInfo].physicalMemory;
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">/// 获取总内存大小
+</span><span class="c1"></span><span class="p">+</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">)</span><span class="nf">getTotalMemorySize</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">NSProcessInfo</span> <span class="n">processInfo</span><span class="p">].</span><span class="n">physicalMemory</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h5 id="11-获取当前可用内存">11. 获取当前可用内存</h5>
+</div><h3 id="11-获取当前可用内存">11. 获取当前可用内存</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -709,21 +720,21 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">/// 获取当前可用内存
-+ (long long)getAvailableMemorySize {
-    vm_statistics_data_t vmStats;
-    mach_msg_type_number_t infoCount = HOST_VM_INFO_COUNT;
-    kern_return_t kernReturn = host_statistics(mach_host_self(), HOST_VM_INFO, (host_info_t)&amp;vmStats, &amp;infoCount);
-    if (kernReturn != KERN_SUCCESS)
-    {
-        return NSNotFound;
-    }
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">/// 获取当前可用内存
+</span><span class="c1"></span><span class="p">+</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">)</span><span class="nf">getAvailableMemorySize</span> <span class="p">{</span>
+    <span class="n">vm_statistics_data_t</span> <span class="n">vmStats</span><span class="p">;</span>
+    <span class="n">mach_msg_type_number_t</span> <span class="n">infoCount</span> <span class="o">=</span> <span class="n">HOST_VM_INFO_COUNT</span><span class="p">;</span>
+    <span class="n">kern_return_t</span> <span class="n">kernReturn</span> <span class="o">=</span> <span class="n">host_statistics</span><span class="p">(</span><span class="n">mach_host_self</span><span class="p">(),</span> <span class="n">HOST_VM_INFO</span><span class="p">,</span> <span class="p">(</span><span class="n">host_info_t</span><span class="p">)</span><span class="o">&amp;</span><span class="n">vmStats</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">infoCount</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">kernReturn</span> <span class="o">!=</span> <span class="n">KERN_SUCCESS</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">NSNotFound</span><span class="p">;</span>
+    <span class="p">}</span>
     
-    return ((vm_page_size * vmStats.free_count + vm_page_size * vmStats.inactive_count));
-}
+    <span class="k">return</span> <span class="p">((</span><span class="n">vm_page_size</span> <span class="o">*</span> <span class="n">vmStats</span><span class="p">.</span><span class="n">free_count</span> <span class="o">+</span> <span class="n">vm_page_size</span> <span class="o">*</span> <span class="n">vmStats</span><span class="p">.</span><span class="n">inactive_count</span><span class="p">));</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h5 id="12-获取精准电池电量">12. 获取精准电池电量</h5>
+</div><h3 id="12-获取精准电池电量">12. 获取精准电池电量</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -756,38 +767,38 @@
 </span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">/// 获取精准电池电量
-+ (CGFloat)getCurrentBatteryLevel {
-    UIApplication *app = [UIApplication sharedApplication];
-    if (app.applicationState == UIApplicationStateActive||app.applicationState==UIApplicationStateInactive) {
-        Ivar ivar=  class_getInstanceVariable([app class],&#34;_statusBar&#34;);
-        id status  = object_getIvar(app, ivar);
-        for (id aview in [status subviews]) {
-            int batteryLevel = 0;
-            for (id bview in [aview subviews]) {
-                if ([NSStringFromClass([bview class]) caseInsensitiveCompare:@&#34;UIStatusBarBatteryItemView&#34;] == NSOrderedSame&amp;&amp;[[[UIDevice currentDevice] systemVersion] floatValue] &gt;=6.0) {
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">/// 获取精准电池电量
+</span><span class="c1"></span><span class="p">+</span> <span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nf">getCurrentBatteryLevel</span> <span class="p">{</span>
+    <span class="n">UIApplication</span> <span class="o">*</span><span class="n">app</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIApplication</span> <span class="n">sharedApplication</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">app</span><span class="p">.</span><span class="n">applicationState</span> <span class="o">==</span> <span class="n">UIApplicationStateActive</span><span class="o">||</span><span class="n">app</span><span class="p">.</span><span class="n">applicationState</span><span class="o">==</span><span class="n">UIApplicationStateInactive</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Ivar</span> <span class="n">ivar</span><span class="o">=</span>  <span class="n">class_getInstanceVariable</span><span class="p">([</span><span class="n">app</span> <span class="k">class</span><span class="p">],</span><span class="s">&#34;_statusBar&#34;</span><span class="p">);</span>
+        <span class="kt">id</span> <span class="n">status</span>  <span class="o">=</span> <span class="n">object_getIvar</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">ivar</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">id</span> <span class="n">aview</span> <span class="k">in</span> <span class="p">[</span><span class="n">status</span> <span class="n">subviews</span><span class="p">])</span> <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">batteryLevel</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">id</span> <span class="n">bview</span> <span class="k">in</span> <span class="p">[</span><span class="n">aview</span> <span class="n">subviews</span><span class="p">])</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">([</span><span class="n">NSStringFromClass</span><span class="p">([</span><span class="n">bview</span> <span class="k">class</span><span class="p">])</span> <span class="nl">caseInsensitiveCompare</span><span class="p">:</span><span class="s">@&#34;UIStatusBarBatteryItemView&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="n">NSOrderedSame</span><span class="o">&amp;&amp;</span><span class="p">[[[</span><span class="n">UIDevice</span> <span class="n">currentDevice</span><span class="p">]</span> <span class="n">systemVersion</span><span class="p">]</span> <span class="n">floatValue</span><span class="p">]</span> <span class="o">&gt;=</span><span class="mf">6.0</span><span class="p">)</span> <span class="p">{</span>
                     
-                    Ivar ivar=  class_getInstanceVariable([bview class],&#34;_capacity&#34;);
-                    if(ivar) {
-                        batteryLevel = ((int (*)(id, Ivar))object_getIvar)(bview, ivar);
-                        if (batteryLevel &gt; 0 &amp;&amp; batteryLevel &lt;= 100) {
-                            return batteryLevel;
+                    <span class="n">Ivar</span> <span class="n">ivar</span><span class="o">=</span>  <span class="n">class_getInstanceVariable</span><span class="p">([</span><span class="n">bview</span> <span class="k">class</span><span class="p">],</span><span class="s">&#34;_capacity&#34;</span><span class="p">);</span>
+                    <span class="k">if</span><span class="p">(</span><span class="n">ivar</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">batteryLevel</span> <span class="o">=</span> <span class="p">((</span><span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">id</span><span class="p">,</span> <span class="n">Ivar</span><span class="p">))</span><span class="n">object_getIvar</span><span class="p">)(</span><span class="n">bview</span><span class="p">,</span> <span class="n">ivar</span><span class="p">);</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="n">batteryLevel</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">batteryLevel</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="k">return</span> <span class="n">batteryLevel</span><span class="p">;</span>
                             
-                        } else {
-                            return 0;
-                        }
-                    }
-                }
-            }
-        }
-    }
+                        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
     
-    return 0;
-}
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>上面这个方法是通过 runtime 获取电池电量控件类私有变量的值，较为精确。</p>
-<h5 id="13-获取电池当前的状态共有4种状态">13. 获取电池当前的状态（共有4种状态）</h5>
+<h3 id="13-获取电池当前的状态共有4种状态">13. 获取电池当前的状态（共有4种状态）</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -806,23 +817,23 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">/// 获取电池当前的状态，共有4种状态
-+ (NSString *) getBatteryState {
-    UIDevice *device = [UIDevice currentDevice];
-    if (device.batteryState == UIDeviceBatteryStateUnknown) {
-        return @&#34;UnKnow&#34;;
-    } else if (device.batteryState == UIDeviceBatteryStateUnplugged){
-        return @&#34;Unplugged&#34;;
-    } else if (device.batteryState == UIDeviceBatteryStateCharging){
-        return @&#34;Charging&#34;;
-    } else if (device.batteryState == UIDeviceBatteryStateFull){
-        return @&#34;Full&#34;;
-    }
-    return nil;
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">/// 获取电池当前的状态，共有4种状态
+</span><span class="c1"></span><span class="p">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nf">getBatteryState</span> <span class="p">{</span>
+    <span class="n">UIDevice</span> <span class="o">*</span><span class="n">device</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIDevice</span> <span class="n">currentDevice</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">device</span><span class="p">.</span><span class="n">batteryState</span> <span class="o">==</span> <span class="n">UIDeviceBatteryStateUnknown</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s">@&#34;UnKnow&#34;</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">device</span><span class="p">.</span><span class="n">batteryState</span> <span class="o">==</span> <span class="n">UIDeviceBatteryStateUnplugged</span><span class="p">){</span>
+        <span class="k">return</span> <span class="s">@&#34;Unplugged&#34;</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">device</span><span class="p">.</span><span class="n">batteryState</span> <span class="o">==</span> <span class="n">UIDeviceBatteryStateCharging</span><span class="p">){</span>
+        <span class="k">return</span> <span class="s">@&#34;Charging&#34;</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">device</span><span class="p">.</span><span class="n">batteryState</span> <span class="o">==</span> <span class="n">UIDeviceBatteryStateFull</span><span class="p">){</span>
+        <span class="k">return</span> <span class="s">@&#34;Full&#34;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h5 id="14-获取设备当前的语言">14. 获取设备当前的语言</h5>
+</div><h3 id="14-获取设备当前的语言">14. 获取设备当前的语言</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -832,14 +843,14 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">/// 获取当前语言
-+ (NSString *)getDeviceLanguage {
-    NSArray *languageArray = [NSLocale preferredLanguages];
-    return [languageArray objectAtIndex:0];
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">/// 获取当前语言
+</span><span class="c1"></span><span class="p">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">getDeviceLanguage</span> <span class="p">{</span>
+    <span class="n">NSArray</span> <span class="o">*</span><span class="n">languageArray</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSLocale</span> <span class="n">preferredLanguages</span><span class="p">];</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">languageArray</span> <span class="nl">objectAtIndex</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="提示上面代码如果直接复制的话有些会报错这是因为需要导入头文件详细代码请点击-ios-获取设备的各种信息httpsgithubcomliuzhongningnndeviceinformation">提示：上面代码如果直接复制的话有些会报错，这是因为需要导入头文件，详细代码请点击 <a href="https://github.com/liuzhongning/NNDeviceInformation">iOS 获取设备的各种信息</a>。</h4>
+</div><h4 id="提示上面代码如果直接复制的话有些会报错这是因为需要导入头文件详细代码请点击-ios-获取设备的各种信息httpsgithubcomliupengkun1993nndeviceinformation">提示：上面代码如果直接复制的话有些会报错，这是因为需要导入头文件，详细代码请点击 <a href="https://github.com/liupengkun1993/NNDeviceInformation">iOS 获取设备的各种信息</a>。</h4>
 
     </div>
 

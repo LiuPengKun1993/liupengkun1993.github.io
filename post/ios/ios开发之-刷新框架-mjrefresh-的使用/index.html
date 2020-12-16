@@ -69,7 +69,7 @@
 <meta itemprop="description" content="下拉刷新控件目前比较火的有好几种，此前用过MJRefresh 和SVPullToRefresh，相对而言，还是觉得 MJRefresh 更好用！因此抽了些时间整理">
 <meta itemprop="datePublished" content="2016-10-15T15:43:48+08:00" />
 <meta itemprop="dateModified" content="2018-01-02T15:43:48+08:00" />
-<meta itemprop="wordCount" content="2346">
+<meta itemprop="wordCount" content="2344">
 
 
 
@@ -306,7 +306,7 @@
             <a href="https://liupengkun1993.github.io/categories/ios/"> iOS </a>
             
           </div>
-        <span class="more-meta"> 2346 words </span>
+        <span class="more-meta"> 2344 words </span>
           <span class="more-meta"> 5 min read </span>
 
         
@@ -421,20 +421,20 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">/** 刷新控件的基类 */
-@interface MJRefreshComponent : UIView
-#pragma mark - 刷新状态控制
-/** 进入刷新状态 */
-- (void)beginRefreshing;
-/** 结束刷新状态 */
-- (void)endRefreshing;
-/** 是否正在刷新 */
-- (BOOL)isRefreshing;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cm">/** 刷新控件的基类 */</span>
+<span class="k">@interface</span> <span class="nc">MJRefreshComponent</span> : <span class="nc">UIView</span>
+<span class="cp">#pragma mark - 刷新状态控制
+</span><span class="cp"></span><span class="cm">/** 进入刷新状态 */</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">beginRefreshing</span><span class="p">;</span>
+<span class="cm">/** 结束刷新状态 */</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">endRefreshing</span><span class="p">;</span>
+<span class="cm">/** 是否正在刷新 */</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">isRefreshing</span><span class="p">;</span>
 
-#pragma mark - 其它
-/** 根据拖拽比例自动切换透明度 */
-@property (assign, nonatomic, getter=isAutomaticallyChangeAlpha) BOOL automaticallyChangeAlpha;
-@end
+<span class="cp">#pragma mark - 其它
+</span><span class="cp"></span><span class="cm">/** 根据拖拽比例自动切换透明度 */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">assign</span><span class="p">,</span> <span class="k">nonatomic</span><span class="p">,</span> <span class="k">getter</span><span class="o">=</span><span class="n">isAutomaticallyChangeAlpha</span><span class="p">)</span> <span class="kt">BOOL</span> <span class="n">automaticallyChangeAlpha</span><span class="p">;</span>
+<span class="k">@end</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="mjrefreshheaderh">MJRefreshHeader.h</h3>
@@ -456,20 +456,20 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">@interface MJRefreshHeader : MJRefreshComponent
-/** 创建 header */
-+ (instancetype)headerWithRefreshingBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock;
-/** 创建 header */
-+ (instancetype)headerWithRefreshingTarget:(id)target refreshingAction:(SEL)action;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">MJRefreshHeader</span> : <span class="nc">MJRefreshComponent</span>
+<span class="cm">/** 创建 header */</span>
+<span class="p">+</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">headerWithRefreshingBlock:</span><span class="p">(</span><span class="n">MJRefreshComponentRefreshingBlock</span><span class="p">)</span><span class="nv">refreshingBlock</span><span class="p">;</span>
+<span class="cm">/** 创建 header */</span>
+<span class="p">+</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">headerWithRefreshingTarget:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">target</span> <span class="nf">refreshingAction:</span><span class="p">(</span><span class="kt">SEL</span><span class="p">)</span><span class="nv">action</span><span class="p">;</span>
 
-/** 这个 key 用来存储上一次下拉刷新成功的时间 */
-@property (copy, nonatomic) NSString *lastUpdatedTimeKey;
-/** 上一次下拉刷新成功的时间 */
-@property (strong, nonatomic, readonly) NSDate *lastUpdatedTime;
+<span class="cm">/** 这个 key 用来存储上一次下拉刷新成功的时间 */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">copy</span><span class="p">,</span> <span class="k">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">lastUpdatedTimeKey</span><span class="p">;</span>
+<span class="cm">/** 上一次下拉刷新成功的时间 */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">strong</span><span class="p">,</span> <span class="k">nonatomic</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">lastUpdatedTime</span><span class="p">;</span>
 
-/** 忽略多少 scrollView 的 contentInset 的顶部 */
-@property (assign, nonatomic) CGFloat ignoredScrollViewContentInsetTop;
-@end
+<span class="cm">/** 忽略多少 scrollView 的 contentInset 的顶部 */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">assign</span><span class="p">,</span> <span class="k">nonatomic</span><span class="p">)</span> <span class="n">CGFloat</span> <span class="n">ignoredScrollViewContentInsetTop</span><span class="p">;</span>
+<span class="k">@end</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="mjrefreshfooterh">MJRefreshFooter.h</h3>
@@ -494,23 +494,23 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">@interface MJRefreshFooter : MJRefreshComponent
-/** 创建 footer */
-+ (instancetype)footerWithRefreshingBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock;
-/** 创建 footer */
-+ (instancetype)footerWithRefreshingTarget:(id)target refreshingAction:(SEL)action;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">MJRefreshFooter</span> : <span class="nc">MJRefreshComponent</span>
+<span class="cm">/** 创建 footer */</span>
+<span class="p">+</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">footerWithRefreshingBlock:</span><span class="p">(</span><span class="n">MJRefreshComponentRefreshingBlock</span><span class="p">)</span><span class="nv">refreshingBlock</span><span class="p">;</span>
+<span class="cm">/** 创建 footer */</span>
+<span class="p">+</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">footerWithRefreshingTarget:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">target</span> <span class="nf">refreshingAction:</span><span class="p">(</span><span class="kt">SEL</span><span class="p">)</span><span class="nv">action</span><span class="p">;</span>
 
-/** 提示没有更多的数据 */
-- (void)noticeNoMoreData;
-/** 重置没有更多的数据（消除没有更多数据的状态） */
-- (void)resetNoMoreData;
+<span class="cm">/** 提示没有更多的数据 */</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">noticeNoMoreData</span><span class="p">;</span>
+<span class="cm">/** 重置没有更多的数据（消除没有更多数据的状态） */</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">resetNoMoreData</span><span class="p">;</span>
 
-/** 忽略多少 scrollView 的 contentInset 的底部*/
-@property (assign, nonatomic) CGFloat ignoredScrollViewContentInsetBottom;
+<span class="cm">/** 忽略多少 scrollView 的 contentInset 的底部*/</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">assign</span><span class="p">,</span> <span class="k">nonatomic</span><span class="p">)</span> <span class="n">CGFloat</span> <span class="n">ignoredScrollViewContentInsetBottom</span><span class="p">;</span>
 
-/** 自动根据有无数据来显示和隐藏 */
-@property (assign, nonatomic) BOOL automaticallyHidden;
-@end
+<span class="cm">/** 自动根据有无数据来显示和隐藏 */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">assign</span><span class="p">,</span> <span class="k">nonatomic</span><span class="p">)</span> <span class="kt">BOOL</span> <span class="n">automaticallyHidden</span><span class="p">;</span>
+<span class="k">@end</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="mjrefreshautofooterh">MJRefreshAutoFooter.h</h3>
@@ -525,13 +525,13 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">@interface MJRefreshAutoFooter : MJRefreshFooter
-/** 是否自动刷新(默认为 YES) */
-@property (assign, nonatomic, getter=isAutomaticallyRefresh) BOOL automaticallyRefresh;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">MJRefreshAutoFooter</span> : <span class="nc">MJRefreshFooter</span>
+<span class="cm">/** 是否自动刷新(默认为 YES) */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">assign</span><span class="p">,</span> <span class="k">nonatomic</span><span class="p">,</span> <span class="k">getter</span><span class="o">=</span><span class="n">isAutomaticallyRefresh</span><span class="p">)</span> <span class="kt">BOOL</span> <span class="n">automaticallyRefresh</span><span class="p">;</span>
 
-/** 当底部控件出现多少时就自动刷新(默认为1.0，也就是底部控件完全出现时，才会自动刷新) */
-@property (assign, nonatomic) CGFloat appearencePercentTriggerAutoRefresh;
-@end
+<span class="cm">/** 当底部控件出现多少时就自动刷新(默认为1.0，也就是底部控件完全出现时，才会自动刷新) */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">assign</span><span class="p">,</span> <span class="k">nonatomic</span><span class="p">)</span> <span class="n">CGFloat</span> <span class="n">appearencePercentTriggerAutoRefresh</span><span class="p">;</span>
+<span class="k">@end</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="2参考例子">2.参考例子</h2>
@@ -550,14 +550,14 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        // 进入刷新状态后会自动调用这个block
-    }];
-    // 或
-    // 设置回调（一旦进入刷新状态，就调用 target 的 action，也就是调用 self 的 loadNewData 方法）
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
-    // 马上进入刷新状态
-    [self.tableView.mj_header beginRefreshing];
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="nb">self</span><span class="p">.</span><span class="n">tableView</span><span class="p">.</span><span class="n">mj_header</span> <span class="o">=</span> <span class="p">[</span><span class="n">MJRefreshNormalHeader</span> <span class="nl">headerWithRefreshingBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+        <span class="c1">// 进入刷新状态后会自动调用这个block
+</span><span class="c1"></span>    <span class="p">}];</span>
+    <span class="c1">// 或
+</span><span class="c1"></span>    <span class="c1">// 设置回调（一旦进入刷新状态，就调用 target 的 action，也就是调用 self 的 loadNewData 方法）
+</span><span class="c1"></span>    <span class="nb">self</span><span class="p">.</span><span class="n">tableView</span><span class="p">.</span><span class="n">mj_header</span> <span class="o">=</span> <span class="p">[</span><span class="n">MJRefreshNormalHeader</span> <span class="nl">headerWithRefreshingTarget</span><span class="p">:</span><span class="nb">self</span> <span class="nl">refreshingAction</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">loadNewData</span><span class="p">)];</span>
+    <span class="c1">// 马上进入刷新状态
+</span><span class="c1"></span>    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">tableView</span><span class="p">.</span><span class="n">mj_header</span> <span class="n">beginRefreshing</span><span class="p">];</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-a3bfaa0e6bfbc461.gif?imageMogr2/auto-orient/strip" alt="下拉刷新01-默认"></p>
@@ -582,22 +582,22 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    // 设置回调（一旦进入刷新状态，就调用 targett 的 action，即调用 self 的 loadNewData 方法）
-    MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="c1">// 设置回调（一旦进入刷新状态，就调用 targett 的 action，即调用 self 的 loadNewData 方法）
+</span><span class="c1"></span>    <span class="n">MJRefreshGifHeader</span> <span class="o">*</span><span class="n">header</span> <span class="o">=</span> <span class="p">[</span><span class="n">MJRefreshGifHeader</span> <span class="nl">headerWithRefreshingTarget</span><span class="p">:</span><span class="nb">self</span> <span class="nl">refreshingAction</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">loadNewData</span><span class="p">)];</span>
     
-    // 设置普通状态的动画图片
-    NSArray *idleImages = @[@&#34;图片1&#34;, @&#34;图片2&#34;, @&#34;图片3&#34;];
-    [header setImages:idleImages forState:MJRefreshStateIdle];
+    <span class="c1">// 设置普通状态的动画图片
+</span><span class="c1"></span>    <span class="n">NSArray</span> <span class="o">*</span><span class="n">idleImages</span> <span class="o">=</span> <span class="l">@[</span><span class="s">@&#34;图片1&#34;</span><span class="p">,</span> <span class="s">@&#34;图片2&#34;</span><span class="p">,</span> <span class="s">@&#34;图片3&#34;</span><span class="l">]</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">header</span> <span class="nl">setImages</span><span class="p">:</span><span class="n">idleImages</span> <span class="nl">forState</span><span class="p">:</span><span class="n">MJRefreshStateIdle</span><span class="p">];</span>
     
-    // 设置即将刷新状态的动画图片（一松开就会刷新的状态）
-    NSArray *pullingImages = @[@&#34;图片1&#34;, @&#34;图片2&#34;, @&#34;图片3&#34;];
-    [header setImages:pullingImages forState:MJRefreshStatePulling];
+    <span class="c1">// 设置即将刷新状态的动画图片（一松开就会刷新的状态）
+</span><span class="c1"></span>    <span class="n">NSArray</span> <span class="o">*</span><span class="n">pullingImages</span> <span class="o">=</span> <span class="l">@[</span><span class="s">@&#34;图片1&#34;</span><span class="p">,</span> <span class="s">@&#34;图片2&#34;</span><span class="p">,</span> <span class="s">@&#34;图片3&#34;</span><span class="l">]</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">header</span> <span class="nl">setImages</span><span class="p">:</span><span class="n">pullingImages</span> <span class="nl">forState</span><span class="p">:</span><span class="n">MJRefreshStatePulling</span><span class="p">];</span>
     
-    // 设置正在刷新状态的动画图片
-    NSArray *refreshingImages = @[@&#34;图片1&#34;, @&#34;图片2&#34;, @&#34;图片3&#34;];
-    [header setImages:refreshingImages forState:MJRefreshStateRefreshing];
-    // 设置 header
-    self.tableView.mj_header = header;
+    <span class="c1">// 设置正在刷新状态的动画图片
+</span><span class="c1"></span>    <span class="n">NSArray</span> <span class="o">*</span><span class="n">refreshingImages</span> <span class="o">=</span> <span class="l">@[</span><span class="s">@&#34;图片1&#34;</span><span class="p">,</span> <span class="s">@&#34;图片2&#34;</span><span class="p">,</span> <span class="s">@&#34;图片3&#34;</span><span class="l">]</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">header</span> <span class="nl">setImages</span><span class="p">:</span><span class="n">refreshingImages</span> <span class="nl">forState</span><span class="p">:</span><span class="n">MJRefreshStateRefreshing</span><span class="p">];</span>
+    <span class="c1">// 设置 header
+</span><span class="c1"></span>    <span class="nb">self</span><span class="p">.</span><span class="n">tableView</span><span class="p">.</span><span class="n">mj_header</span> <span class="o">=</span> <span class="n">header</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-392f24b00061ea83.gif?imageMogr2/auto-orient/strip" alt="下拉刷新02-动画图片"></p>
@@ -608,8 +608,8 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 隐藏时间
-header.lastUpdatedTimeLabel.hidden = YES;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 隐藏时间
+</span><span class="c1"></span><span class="n">header</span><span class="p">.</span><span class="n">lastUpdatedTimeLabel</span><span class="p">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-a3c38c436477cacc.gif?imageMogr2/auto-orient/strip" alt="下拉刷新03-隐藏时间"></p>
@@ -623,11 +623,11 @@ header.lastUpdatedTimeLabel.hidden = YES;
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 隐藏时间
-header.lastUpdatedTimeLabel.hidden = YES;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 隐藏时间
+</span><span class="c1"></span><span class="n">header</span><span class="p">.</span><span class="n">lastUpdatedTimeLabel</span><span class="p">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
 
-// 隐藏状态
-header.stateLabel.hidden = YES;
+<span class="c1">// 隐藏状态
+</span><span class="c1"></span><span class="n">header</span><span class="p">.</span><span class="n">stateLabel</span><span class="p">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-bea00ff6a76a81fd.gif?imageMogr2/auto-orient/strip" alt="下拉刷新04-隐藏状态和时间"></p>
@@ -648,18 +648,18 @@ header.stateLabel.hidden = YES;
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 设置文字
-[header setTitle:@&#34;Pull down to refresh&#34; forState:MJRefreshStateIdle];
-[header setTitle:@&#34;Release to refresh&#34; forState:MJRefreshStatePulling];
-[header setTitle:@&#34;Loading ...&#34; forState:MJRefreshStateRefreshing];
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 设置文字
+</span><span class="c1"></span><span class="p">[</span><span class="n">header</span> <span class="nl">setTitle</span><span class="p">:</span><span class="s">@&#34;Pull down to refresh&#34;</span> <span class="nl">forState</span><span class="p">:</span><span class="n">MJRefreshStateIdle</span><span class="p">];</span>
+<span class="p">[</span><span class="n">header</span> <span class="nl">setTitle</span><span class="p">:</span><span class="s">@&#34;Release to refresh&#34;</span> <span class="nl">forState</span><span class="p">:</span><span class="n">MJRefreshStatePulling</span><span class="p">];</span>
+<span class="p">[</span><span class="n">header</span> <span class="nl">setTitle</span><span class="p">:</span><span class="s">@&#34;Loading ...&#34;</span> <span class="nl">forState</span><span class="p">:</span><span class="n">MJRefreshStateRefreshing</span><span class="p">];</span>
 
-// 设置字体
-header.stateLabel.font = [UIFont systemFontOfSize:15];
-header.lastUpdatedTimeLabel.font = [UIFont systemFontOfSize:14];
+<span class="c1">// 设置字体
+</span><span class="c1"></span><span class="n">header</span><span class="p">.</span><span class="n">stateLabel</span><span class="p">.</span><span class="n">font</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIFont</span> <span class="nl">systemFontOfSize</span><span class="p">:</span><span class="mi">15</span><span class="p">];</span>
+<span class="n">header</span><span class="p">.</span><span class="n">lastUpdatedTimeLabel</span><span class="p">.</span><span class="n">font</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIFont</span> <span class="nl">systemFontOfSize</span><span class="p">:</span><span class="mi">14</span><span class="p">];</span>
 
-// 设置颜色
-header.stateLabel.textColor = [UIColor redColor];
-header.lastUpdatedTimeLabel.textColor = [UIColor blueColor];
+<span class="c1">// 设置颜色
+</span><span class="c1"></span><span class="n">header</span><span class="p">.</span><span class="n">stateLabel</span><span class="p">.</span><span class="n">textColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">redColor</span><span class="p">];</span>
+<span class="n">header</span><span class="p">.</span><span class="n">lastUpdatedTimeLabel</span><span class="p">.</span><span class="n">textColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">blueColor</span><span class="p">];</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-ad9e5a170567e3bb.gif?imageMogr2/auto-orient/strip" alt="下拉刷新05-自定义文字"></p>
@@ -670,9 +670,9 @@ header.lastUpdatedTimeLabel.textColor = [UIColor blueColor];
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">self.tableView.mj_header = [MJDIYHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
-// 具体实现参考 MJDIYHeader.h 和 MJDIYHeader.m
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="nb">self</span><span class="p">.</span><span class="n">tableView</span><span class="p">.</span><span class="n">mj_header</span> <span class="o">=</span> <span class="p">[</span><span class="n">MJDIYHeader</span> <span class="nl">headerWithRefreshingTarget</span><span class="p">:</span><span class="nb">self</span> <span class="nl">refreshingAction</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">loadNewData</span><span class="p">)];</span>
+<span class="c1">// 具体实现参考 MJDIYHeader.h 和 MJDIYHeader.m
+</span></code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-02fca65a8c891905.gif?imageMogr2/auto-orient/strip" alt="下拉刷新06-自定义刷新控件"></p>
 <h3 id="上拉刷新01-默认">上拉刷新01-默认</h3>
@@ -686,40 +686,38 @@ header.lastUpdatedTimeLabel.textColor = [UIColor blueColor];
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        // 进入刷新状态后会自动调用这个 block
-    }];
-    // 或
-    // 设置回调（一旦进入刷新状态，就调用 target 的 action，即调用 self 的 loadMoreData 方法）
-    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="nb">self</span><span class="p">.</span><span class="n">tableView</span><span class="p">.</span><span class="n">mj_footer</span> <span class="o">=</span> <span class="p">[</span><span class="n">MJRefreshAutoNormalFooter</span> <span class="nl">footerWithRefreshingBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+        <span class="c1">// 进入刷新状态后会自动调用这个 block
+</span><span class="c1"></span>    <span class="p">}];</span>
+    <span class="c1">// 或
+</span><span class="c1"></span>    <span class="c1">// 设置回调（一旦进入刷新状态，就调用 target 的 action，即调用 self 的 loadMoreData 方法）
+</span><span class="c1"></span>    <span class="nb">self</span><span class="p">.</span><span class="n">tableView</span><span class="p">.</span><span class="n">mj_footer</span> <span class="o">=</span> <span class="p">[</span><span class="n">MJRefreshAutoNormalFooter</span> <span class="nl">footerWithRefreshingTarget</span><span class="p">:</span><span class="nb">self</span> <span class="nl">refreshingAction</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">loadMoreData</span><span class="p">)];</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-475e06e1f29fb149.gif?imageMogr2/auto-orient/strip" alt="上拉刷新01-默认"></p>
 <h3 id="上拉刷新02-动画图片">上拉刷新02-动画图片</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">
-    // 设置回调（一旦进入刷新状态，就调用 target 的 action，即调用 self 的 loadMoreData 方法）
-    MJRefreshAutoGifFooter *footer = [MJRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="c1">// 设置回调（一旦进入刷新状态，就调用 target 的 action，即调用 self 的 loadMoreData 方法）
+</span><span class="c1"></span>    <span class="n">MJRefreshAutoGifFooter</span> <span class="o">*</span><span class="n">footer</span> <span class="o">=</span> <span class="p">[</span><span class="n">MJRefreshAutoGifFooter</span> <span class="nl">footerWithRefreshingTarget</span><span class="p">:</span><span class="nb">self</span> <span class="nl">refreshingAction</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">loadMoreData</span><span class="p">)];</span>
     
-    // 设置刷新图片
-    NSArray *refreshingImages = @[@&#34;图片1&#34;, @&#34;图片2&#34;, @&#34;图片3&#34;];
-    [footer setImages:refreshingImages forState:MJRefreshStateRefreshing];
+    <span class="c1">// 设置刷新图片
+</span><span class="c1"></span>    <span class="n">NSArray</span> <span class="o">*</span><span class="n">refreshingImages</span> <span class="o">=</span> <span class="l">@[</span><span class="s">@&#34;图片1&#34;</span><span class="p">,</span> <span class="s">@&#34;图片2&#34;</span><span class="p">,</span> <span class="s">@&#34;图片3&#34;</span><span class="l">]</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">footer</span> <span class="nl">setImages</span><span class="p">:</span><span class="n">refreshingImages</span> <span class="nl">forState</span><span class="p">:</span><span class="n">MJRefreshStateRefreshing</span><span class="p">];</span>
     
-    // 设置尾部
-    self.tableView.mj_footer = footer;
+    <span class="c1">// 设置尾部
+</span><span class="c1"></span>    <span class="nb">self</span><span class="p">.</span><span class="n">tableView</span><span class="p">.</span><span class="n">mj_footer</span> <span class="o">=</span> <span class="n">footer</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-15a83363eff10b1e.gif?imageMogr2/auto-orient/strip" alt="上拉刷新02-动画图片"></p>
@@ -731,10 +729,10 @@ header.lastUpdatedTimeLabel.textColor = [UIColor blueColor];
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 隐藏刷新状态的文字
-footer.refreshingTitleHidden = YES;
-// 如果没有上面的方法，就用footer.stateLabel.hidden = YES;
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 隐藏刷新状态的文字
+</span><span class="c1"></span><span class="n">footer</span><span class="p">.</span><span class="n">refreshingTitleHidden</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="c1">// 如果没有上面的方法，就用footer.stateLabel.hidden = YES;
+</span></code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-7dcd46bd73d0423f.gif?imageMogr2/auto-orient/strip" alt="上拉刷新03-隐藏刷新状态的文字"></p>
 <h3 id="上拉刷新04-全部加载完毕">上拉刷新04-全部加载完毕</h3>
@@ -744,8 +742,8 @@ footer.refreshingTitleHidden = YES;
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    // 变为没有更多数据的状态
-    [footer endRefreshingWithNoMoreData];
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="c1">// 变为没有更多数据的状态
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">footer</span> <span class="n">endRefreshingWithNoMoreData</span><span class="p">];</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-3f0e9a88feb33219.gif?imageMogr2/auto-orient/strip" alt="上拉刷新04-全部加载完毕"></p>
@@ -764,16 +762,16 @@ footer.refreshingTitleHidden = YES;
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 设置文字
-[footer setTitle:@&#34;Click or drag up to refresh&#34; forState:MJRefreshStateIdle];
-[footer setTitle:@&#34;Loading more ...&#34; forState:MJRefreshStateRefreshing];
-[footer setTitle:@&#34;No more data&#34; forState:MJRefreshStateNoMoreData];
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 设置文字
+</span><span class="c1"></span><span class="p">[</span><span class="n">footer</span> <span class="nl">setTitle</span><span class="p">:</span><span class="s">@&#34;Click or drag up to refresh&#34;</span> <span class="nl">forState</span><span class="p">:</span><span class="n">MJRefreshStateIdle</span><span class="p">];</span>
+<span class="p">[</span><span class="n">footer</span> <span class="nl">setTitle</span><span class="p">:</span><span class="s">@&#34;Loading more ...&#34;</span> <span class="nl">forState</span><span class="p">:</span><span class="n">MJRefreshStateRefreshing</span><span class="p">];</span>
+<span class="p">[</span><span class="n">footer</span> <span class="nl">setTitle</span><span class="p">:</span><span class="s">@&#34;No more data&#34;</span> <span class="nl">forState</span><span class="p">:</span><span class="n">MJRefreshStateNoMoreData</span><span class="p">];</span>
 
-// 设置字体
-footer.stateLabel.font = [UIFont systemFontOfSize:17];
+<span class="c1">// 设置字体
+</span><span class="c1"></span><span class="n">footer</span><span class="p">.</span><span class="n">stateLabel</span><span class="p">.</span><span class="n">font</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIFont</span> <span class="nl">systemFontOfSize</span><span class="p">:</span><span class="mi">17</span><span class="p">];</span>
 
-// 设置颜色
-footer.stateLabel.textColor = [UIColor blueColor];
+<span class="c1">// 设置颜色
+</span><span class="c1"></span><span class="n">footer</span><span class="p">.</span><span class="n">stateLabel</span><span class="p">.</span><span class="n">textColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">blueColor</span><span class="p">];</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-f9383ff9ab48a6b2.gif?imageMogr2/auto-orient/strip" alt="上拉刷新05-自定义文字"></p>
@@ -784,8 +782,8 @@ footer.stateLabel.textColor = [UIColor blueColor];
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 隐藏当前的上拉刷新控件
-self.tableView.mj_footer.hidden = YES;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 隐藏当前的上拉刷新控件
+</span><span class="c1"></span><span class="nb">self</span><span class="p">.</span><span class="n">tableView</span><span class="p">.</span><span class="n">mj_footer</span><span class="p">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-44824bc808564096.gif?imageMogr2/auto-orient/strip" alt="上拉刷新06-加载后隐藏"></p>
@@ -795,7 +793,7 @@ self.tableView.mj_footer.hidden = YES;
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="nb">self</span><span class="p">.</span><span class="n">tableView</span><span class="p">.</span><span class="n">mj_footer</span> <span class="o">=</span> <span class="p">[</span><span class="n">MJRefreshBackNormalFooter</span> <span class="nl">footerWithRefreshingTarget</span><span class="p">:</span><span class="nb">self</span> <span class="nl">refreshingAction</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">loadMoreData</span><span class="p">)];</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-ab778a9f00a22a4f.gif?imageMogr2/auto-orient/strip" alt="上拉刷新07-自动回弹的上拉01"></p>
@@ -819,27 +817,25 @@ self.tableView.mj_footer.hidden = YES;
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
-</span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">
-    MJRefreshBackGifFooter *footer = [MJRefreshBackGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="n">MJRefreshBackGifFooter</span> <span class="o">*</span><span class="n">footer</span> <span class="o">=</span> <span class="p">[</span><span class="n">MJRefreshBackGifFooter</span> <span class="nl">footerWithRefreshingTarget</span><span class="p">:</span><span class="nb">self</span> <span class="nl">refreshingAction</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">loadMoreData</span><span class="p">)];</span>
     
-    // 设置普通状态的动画图片
-    NSArray *idleImages = @[@&#34;图片1&#34;, @&#34;图片2&#34;, @&#34;图片3&#34;];
-    [footer setImages:idleImages forState:MJRefreshStateIdle];
+    <span class="c1">// 设置普通状态的动画图片
+</span><span class="c1"></span>    <span class="n">NSArray</span> <span class="o">*</span><span class="n">idleImages</span> <span class="o">=</span> <span class="l">@[</span><span class="s">@&#34;图片1&#34;</span><span class="p">,</span> <span class="s">@&#34;图片2&#34;</span><span class="p">,</span> <span class="s">@&#34;图片3&#34;</span><span class="l">]</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">footer</span> <span class="nl">setImages</span><span class="p">:</span><span class="n">idleImages</span> <span class="nl">forState</span><span class="p">:</span><span class="n">MJRefreshStateIdle</span><span class="p">];</span>
     
-    // 设置即将刷新状态的动画图片（一松开就会刷新的状态）
-    NSArray *pullingImages = @[@&#34;图片1&#34;, @&#34;图片2&#34;, @&#34;图片3&#34;];
+    <span class="c1">// 设置即将刷新状态的动画图片（一松开就会刷新的状态）
+</span><span class="c1"></span>    <span class="n">NSArray</span> <span class="o">*</span><span class="n">pullingImages</span> <span class="o">=</span> <span class="l">@[</span><span class="s">@&#34;图片1&#34;</span><span class="p">,</span> <span class="s">@&#34;图片2&#34;</span><span class="p">,</span> <span class="s">@&#34;图片3&#34;</span><span class="l">]</span><span class="p">;</span>
 
-    [footer setImages:pullingImages forState:MJRefreshStatePulling];
+    <span class="p">[</span><span class="n">footer</span> <span class="nl">setImages</span><span class="p">:</span><span class="n">pullingImages</span> <span class="nl">forState</span><span class="p">:</span><span class="n">MJRefreshStatePulling</span><span class="p">];</span>
     
-    // 设置正在刷新状态的动画图片
-    NSArray *refreshingImages = @[@&#34;图片1&#34;, @&#34;图片2&#34;, @&#34;图片3&#34;];
-    [footer setImages:refreshingImages forState:MJRefreshStateRefreshing];
+    <span class="c1">// 设置正在刷新状态的动画图片
+</span><span class="c1"></span>    <span class="n">NSArray</span> <span class="o">*</span><span class="n">refreshingImages</span> <span class="o">=</span> <span class="l">@[</span><span class="s">@&#34;图片1&#34;</span><span class="p">,</span> <span class="s">@&#34;图片2&#34;</span><span class="p">,</span> <span class="s">@&#34;图片3&#34;</span><span class="l">]</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">footer</span> <span class="nl">setImages</span><span class="p">:</span><span class="n">refreshingImages</span> <span class="nl">forState</span><span class="p">:</span><span class="n">MJRefreshStateRefreshing</span><span class="p">];</span>
     
-    // 设置尾部
-    self.tableView.mj_footer = footer;
+    <span class="c1">// 设置尾部
+</span><span class="c1"></span>    <span class="nb">self</span><span class="p">.</span><span class="n">tableView</span><span class="p">.</span><span class="n">mj_footer</span> <span class="o">=</span> <span class="n">footer</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-7ff75c5dc70d3d33.gif?imageMogr2/auto-orient/strip" alt="上拉刷新08-自动回弹的上拉02"></p>
@@ -850,9 +846,9 @@ self.tableView.mj_footer.hidden = YES;
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">self.tableView.mj_footer = [MJDIYAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-// 具体实现参考MJDIYAutoFooter.h和MJDIYAutoFooter.m
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="nb">self</span><span class="p">.</span><span class="n">tableView</span><span class="p">.</span><span class="n">mj_footer</span> <span class="o">=</span> <span class="p">[</span><span class="n">MJDIYAutoFooter</span> <span class="nl">footerWithRefreshingTarget</span><span class="p">:</span><span class="nb">self</span> <span class="nl">refreshingAction</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">loadMoreData</span><span class="p">)];</span>
+<span class="c1">// 具体实现参考MJDIYAutoFooter.h和MJDIYAutoFooter.m
+</span></code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-504544818173e40a.gif?imageMogr2/auto-orient/strip" alt="上拉刷新09-自定义刷新控件(自动刷新)"></p>
 <h3 id="上拉刷新10-自定义刷新控件自动回弹">上拉刷新10-自定义刷新控件(自动回弹)</h3>
@@ -862,9 +858,9 @@ self.tableView.mj_footer.hidden = YES;
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">self.tableView.mj_footer = [MJDIYBackFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-// 具体实现参考MJDIYBackFooter.h和MJDIYBackFooter.m
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="nb">self</span><span class="p">.</span><span class="n">tableView</span><span class="p">.</span><span class="n">mj_footer</span> <span class="o">=</span> <span class="p">[</span><span class="n">MJDIYBackFooter</span> <span class="nl">footerWithRefreshingTarget</span><span class="p">:</span><span class="nb">self</span> <span class="nl">refreshingAction</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">loadMoreData</span><span class="p">)];</span>
+<span class="c1">// 具体实现参考MJDIYBackFooter.h和MJDIYBackFooter.m
+</span></code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-39f29fe70a310b80.gif?imageMogr2/auto-orient/strip" alt="上拉刷新10-自定义刷新控件(自动回弹)"></p>
 <h3 id="uicollectionview01-上下拉刷新">UICollectionView01-上下拉刷新</h3>
@@ -880,14 +876,14 @@ self.tableView.mj_footer.hidden = YES;
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 下拉刷新
-self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-  // 进入刷新状态后会自动调用这个block
-}];
-// 上拉刷新
-self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-  // 进入刷新状态后会自动调用这个block
-}];
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 下拉刷新
+</span><span class="c1"></span><span class="nb">self</span><span class="p">.</span><span class="n">collectionView</span><span class="p">.</span><span class="n">mj_header</span> <span class="o">=</span> <span class="p">[</span><span class="n">MJRefreshNormalHeader</span> <span class="nl">headerWithRefreshingBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+  <span class="c1">// 进入刷新状态后会自动调用这个block
+</span><span class="c1"></span><span class="p">}];</span>
+<span class="c1">// 上拉刷新
+</span><span class="c1"></span><span class="nb">self</span><span class="p">.</span><span class="n">collectionView</span><span class="p">.</span><span class="n">mj_footer</span> <span class="o">=</span> <span class="p">[</span><span class="n">MJRefreshAutoNormalFooter</span> <span class="nl">footerWithRefreshingBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+  <span class="c1">// 进入刷新状态后会自动调用这个block
+</span><span class="c1"></span><span class="p">}];</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-0d4fd9a97ffb9513.gif?imageMogr2/auto-orient/strip" alt="UICollectionView01-上下拉刷新"></p>
@@ -900,10 +896,10 @@ self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingB
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 添加下拉刷新控件
-self.webView.scrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-   // 进入刷新状态后会自动调用这个block
-}];
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 添加下拉刷新控件
+</span><span class="c1"></span><span class="nb">self</span><span class="p">.</span><span class="n">webView</span><span class="p">.</span><span class="n">scrollView</span><span class="p">.</span><span class="n">mj_header</span> <span class="o">=</span> <span class="p">[</span><span class="n">MJRefreshNormalHeader</span> <span class="nl">headerWithRefreshingBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+   <span class="c1">// 进入刷新状态后会自动调用这个block
+</span><span class="c1"></span><span class="p">}];</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-ee3c092adb2b9561.gif?imageMogr2/auto-orient/strip" alt="UIWebView01-下拉刷新"></p>
@@ -963,8 +959,8 @@ self.webView.scrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingB
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         
-          <a class="next" href="/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-sdwebimage-%E7%9A%84%E4%BD%BF%E7%94%A8/">
-            <span class="next-text nav-default">iOS开发之 - SDWebImage 的使用</span>
+          <a class="next" href="/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-wkwebview-vs-uiwebview/">
+            <span class="next-text nav-default">iOS开发之 - WKWebView VS UIWebView</span>
             <span class="prev-text nav-mobile">Next</span>
             
             <i class="iconfont">

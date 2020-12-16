@@ -69,7 +69,7 @@
 <meta itemprop="description" content="项目中用到了 极光推送，这里记录下极光推送中生产证书和开发证书的生成过程。 推送设置中需要配置生产证书以及开发证书~~ 1.开发证书生成步骤 登录 苹">
 <meta itemprop="datePublished" content="2017-07-18T15:43:48+08:00" />
 <meta itemprop="dateModified" content="2017-12-12T15:43:48+08:00" />
-<meta itemprop="wordCount" content="542">
+<meta itemprop="wordCount" content="543">
 
 
 
@@ -306,7 +306,7 @@
             <a href="https://liupengkun1993.github.io/categories/ios/"> iOS </a>
             
           </div>
-        <span class="more-meta"> 542 words </span>
+        <span class="more-meta"> 543 words </span>
           <span class="more-meta"> 2 min read </span>
 
         
@@ -328,7 +328,7 @@
       <ul>
         <li><a href="#1开发证书生成步骤">1.开发证书生成步骤</a></li>
         <li><a href="#2生产证书生成步骤">2.生产证书生成步骤</a></li>
-        <li><a href="#3-导出-p12-文件">3. 导出 <strong>p12</strong> 文件</a></li>
+        <li><a href="#3导出-p12-文件">3.导出 <strong>p12</strong> 文件</a></li>
       </ul>
     </li>
   </ul>
@@ -341,74 +341,70 @@
       <blockquote>
 <p>项目中用到了 <a href="https://www.jiguang.cn/push?source=bdjj#B_vid=1350498826687775136">极光推送</a>，这里记录下极光推送中生产证书和开发证书的生成过程。</p>
 </blockquote>
-<p>推送设置中需要配置生产证书以及开发证书~~
-<img src="http://upload-images.jianshu.io/upload_images/2665449-f6e129813e38c4b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="极光推送中生产证书和开发证书的生成"></p>
+<p>推送设置中需要配置生产证书以及开发证书~~</p>
+<p><img src="/image/iOS/iOS_Push/Push01.png" alt="极光推送中生产证书和开发证书的生成"></p>
 <h3 id="1开发证书生成步骤">1.开发证书生成步骤</h3>
 <ul>
 <li>登录 <a href="https://developer.apple.com/account/#/overview/82W2K9C6T2">苹果开发者中心</a>，点击 <strong>Certificates, IDs &amp; Profiles</strong></li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-b6de1efe8a9bc32d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开发证书生成步骤1"></p>
+<p><img src="/image/iOS/iOS_Push/Push02.png" alt="开发证书生成步骤1"></p>
 <ul>
 <li>点击 <strong>Development</strong>，并选择 <strong>Apple Push Notification service SSL (Sandbox)</strong>，接着点击下边的 <strong>Continue</strong> 按钮</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-140d40d381467beb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开发证书生成步骤2"></p>
+<p><img src="/image/iOS/iOS_Push/Push03.png" alt="开发证书生成步骤2"></p>
 <ul>
 <li>来到 <strong>App ID</strong> 这个界面之后，继续点击下边的 <strong>Continue</strong> 按钮</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-69cf10ec6fcb88c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开发证书生成步骤3"></p>
+<p><img src="/image/iOS/iOS_Push/Push04.png" alt="开发证书生成步骤3"></p>
 <ul>
 <li>这里的说明是让我们生成一个 <strong>CSR 文件</strong>，继续点击 <strong>Continue</strong> 按钮</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-c02bbf6bb568e09f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开发证书生成步骤4"></p>
+<p><img src="/image/iOS/iOS_Push/Push05.png" alt="开发证书生成步骤4"></p>
 <ul>
-<li>
-<p>这个界面需要上传 CSR 文件，上传 CSR 证书之后继续点击 <strong>Continue</strong> 按钮（ <strong>CSR 文件</strong> 生成很简单，后面会提一下）
-<img src="http://upload-images.jianshu.io/upload_images/2665449-1bc222f798021465.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开发证书生成步骤5"></p>
-</li>
-<li>
-<p>点击 <strong>Continue</strong> 按钮之后，就会出现下面这个界面，直接点击 <strong>Download</strong> ，然后双击下载的证书，安装到钥匙串里。
-<img src="http://upload-images.jianshu.io/upload_images/2665449-0bb19655f5e19139.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开发证书生成步骤6"></p>
-</li>
+<li>这个界面需要上传 CSR 文件，上传 CSR 证书之后继续点击 <strong>Continue</strong> 按钮（ <strong>CSR 文件</strong> 生成很简单，后面会提一下）</li>
 </ul>
+<p><img src="/image/iOS/iOS_Push/Push06.png" alt="开发证书生成步骤5"></p>
+<ul>
+<li>点击 <strong>Continue</strong> 按钮之后，就会出现下面这个界面，直接点击 <strong>Download</strong> ，然后双击下载的证书，安装到钥匙串里。</li>
+</ul>
+<p><img src="/image/iOS/iOS_Push/Push07.png" alt="开发证书生成步骤6"></p>
 <h5 id="11-csr-文件生成步骤">1.1 CSR 文件生成步骤</h5>
 <ul>
 <li>首先打开电脑上的钥匙串，点击 <strong>从证书颁发机构请求证书</strong>，如下图所示：</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-153b4345af65eb1a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="生成 CSR 文件步骤1"></p>
+<p><img src="/image/iOS/iOS_Push/Push08.png" alt="生成 CSR 文件步骤1"></p>
 <ul>
 <li>填写用户邮箱地址以及 CA 电子邮件地址，将请求改为“存储到磁盘”，点击 <strong>继续</strong>，接着点击 <strong>存储</strong> 即可。
-<img src="http://upload-images.jianshu.io/upload_images/2665449-b6141e6c50613449.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="生成 CSR 文件步骤2"></li>
+<img src="/image/iOS/iOS_Push/Push09.png" alt="生成 CSR 文件步骤2"></li>
 </ul>
 <h3 id="2生产证书生成步骤">2.生产证书生成步骤</h3>
 <ul>
 <li>生产证书的生成和开发证书的生成类似，先选择 <strong>Production</strong> ，点击“加号”后选择 <strong>Production</strong> 中的 ** Apple Push Notification service SSL (Sandbox &amp; Production)** 这一栏，接着点击 **Continue** 按钮</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-a8554f4b0b579a2a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="生产证书生成步骤1"></p>
+<p><img src="/image/iOS/iOS_Push/Push10.png" alt="生产证书生成步骤1"></p>
 <ul>
 <li>来到 <strong>App ID</strong> 这个界面之后，继续点击下边的 <strong>Continue</strong> 按钮</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-721072f3f4f498bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="生产证书生成步骤2"></p>
+<p><img src="/image/iOS/iOS_Push/Push11.png" alt="生产证书生成步骤2"></p>
 <ul>
 <li>然后依然会让上传一个 <strong>CSR 文件</strong>， 不再累述。生产证书生成后，下载安装到钥匙串中即可。</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-7dda501137bad5df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="生产证书生成步骤3"></p>
-<h3 id="3-导出-p12-文件">3. 导出 <strong>p12</strong> 文件</h3>
+<p><img src="/image/iOS/iOS_Push/Push12.png" alt="生产证书生成步骤3"></p>
+<h3 id="3导出-p12-文件">3.导出 <strong>p12</strong> 文件</h3>
 <ul>
-<li>
-<p>选中刚刚安装的生产证书和开发证书，然后导出~
-<img src="http://upload-images.jianshu.io/upload_images/2665449-7b1b25481edad0e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="导出 p12 文件步骤1"></p>
-</li>
-<li>
-<p>文件格式为 <strong>个人信息交换(.p12)</strong>
-<img src="http://upload-images.jianshu.io/upload_images/2665449-cf0e2374a4886415.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="导出 p12 文件步骤2"></p>
-</li>
-<li>
-<p>接着设置下密码
-<img src="http://upload-images.jianshu.io/upload_images/2665449-8c590c020fed9efe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="导出 p12 文件步骤3"></p>
-</li>
+<li>选中刚刚安装的生产证书和开发证书，然后导出~</li>
 </ul>
+<p><img src="/image/iOS/iOS_Push/Push13.png" alt="导出 p12 文件步骤1"></p>
+<ul>
+<li>文件格式为 <strong>个人信息交换(.p12)</strong></li>
+</ul>
+<p><img src="/image/iOS/iOS_Push/Push14.png" alt="导出 p12 文件步骤2"></p>
+<ul>
+<li>接着设置下密码</li>
+</ul>
+<p><img src="/image/iOS/iOS_Push/Push15.png" alt="导出 p12 文件步骤3"></p>
 <h5 id="最后将两个p12文件上传到极光推送上就ok了">最后将两个p12文件上传到极光推送上，就OK了！</h5>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-d8d78f18c48bcf0c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="极光推送中生产证书和开发证书的生成"></p>
+<p><img src="/image/iOS/iOS_Push/Push16.png" alt="极光推送中生产证书和开发证书的生成"></p>
 
     </div>
 

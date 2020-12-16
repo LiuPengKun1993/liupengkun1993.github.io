@@ -365,19 +365,19 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#import &lt;Foundation/Foundation.h&gt;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#import &lt;Foundation/Foundation.h&gt;
+</span><span class="cp"></span>
+<span class="k">@interface</span> <span class="nc">NSString</span> <span class="nl">(MD5)</span>
+<span class="cm">/** 直接加密 */</span>
+<span class="p">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">MD5_32BIT</span><span class="p">;</span>
+<span class="cm">/** 加盐 */</span>
+<span class="p">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">MD5_saltStr:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">saltStr</span><span class="p">;</span>
+<span class="cm">/** 多次加密 */</span>
+<span class="p">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">MD5_againStr:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">againStr</span><span class="p">;</span>
+<span class="cm">/** 乱序加密 */</span>
+<span class="p">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">MD5_Chaos:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chaosStr</span><span class="p">;</span>
 
-@interface NSString (MD5)
-/** 直接加密 */
-- (NSString *)MD5_32BIT;
-/** 加盐 */
-- (NSString *)MD5_saltStr:(NSString *)saltStr;
-/** 多次加密 */
-- (NSString *)MD5_againStr:(NSString *)againStr;
-/** 乱序加密 */
-- (NSString *)MD5_Chaos:(NSString *)chaosStr;
-
-@end
+<span class="k">@end</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>这里是分类 NSString+MD5.m 中的代码，需要导入头文件 #import &lt;CommonCrypto/CommonDigest.h&gt;：</p>
@@ -445,66 +445,66 @@
 </span><span class="lnt">60
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#import &#34;NSString+MD5.h&#34;
-#import &lt;CommonCrypto/CommonDigest.h&gt;
-#define salt @&#34;qwertyuiop&#34;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#import &#34;NSString+MD5.h&#34;
+</span><span class="cp">#import &lt;CommonCrypto/CommonDigest.h&gt;
+</span><span class="cp">#define salt @&#34;qwertyuiop&#34;
+</span><span class="cp"></span>
+<span class="k">@implementation</span> <span class="nc">NSString</span> <span class="nl">(MD5)</span>
 
-@implementation NSString (MD5)
 
+<span class="c1">// 直接加密
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">MD5_32BIT</span> <span class="p">{</span>
+    
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cStr</span> <span class="o">=</span> <span class="p">[</span><span class="nb">self</span> <span class="n">UTF8String</span><span class="p">];</span>
+    
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">digest</span><span class="p">[</span><span class="n">CC_MD5_DIGEST_LENGTH</span><span class="p">];</span>
+    
+    <span class="n">CC_MD5</span><span class="p">(</span> <span class="n">cStr</span><span class="p">,</span> <span class="p">(</span><span class="n">CC_LONG</span><span class="p">)</span><span class="nb">self</span><span class="p">.</span><span class="n">length</span><span class="p">,</span> <span class="n">digest</span> <span class="p">);</span>
+    
+    <span class="n">NSMutableString</span> <span class="o">*</span><span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSMutableString</span> <span class="nl">stringWithCapacity</span><span class="p">:</span><span class="n">CC_MD5_DIGEST_LENGTH</span> <span class="o">*</span> <span class="mi">2</span><span class="p">];</span>
+    
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">CC_MD5_DIGEST_LENGTH</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">[</span><span class="n">result</span> <span class="nl">appendFormat</span><span class="p">:</span><span class="s">@&#34;%02X&#34;</span><span class="p">,</span> <span class="n">digest</span><span class="p">[</span><span class="n">i</span><span class="p">]];</span>
+    
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
 
-// 直接加密
-- (NSString *)MD5_32BIT {
+<span class="c1">// 加盐
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">MD5_saltStr:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">saltStr</span> <span class="p">{</span>
     
-    const char *cStr = [self UTF8String];
+    <span class="n">saltStr</span> <span class="o">=</span> <span class="p">[</span><span class="n">saltStr</span> <span class="nl">stringByAppendingString</span><span class="p">:</span><span class="n">salt</span><span class="p">];</span>
     
-    unsigned char digest[CC_MD5_DIGEST_LENGTH];
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">result</span> <span class="o">=</span><span class="p">[</span><span class="n">saltStr</span> <span class="n">MD5_32BIT</span><span class="p">];</span>
     
-    CC_MD5( cStr, (CC_LONG)self.length, digest );
-    
-    NSMutableString *result = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
-    
-    for(int i = 0; i &lt; CC_MD5_DIGEST_LENGTH; i++)
-        [result appendFormat:@&#34;%02X&#34;, digest[i]];
-    
-    return result;
-}
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
 
-// 加盐
-- (NSString *)MD5_saltStr:(NSString *)saltStr {
+<span class="c1">// 多次加密
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">MD5_againStr:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">againStr</span> <span class="p">{</span>
     
-    saltStr = [saltStr stringByAppendingString:salt];
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">againStr</span> <span class="n">MD5_32BIT</span><span class="p">];</span>
     
-    NSString *result =[saltStr MD5_32BIT];
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span> <span class="n">MD5_32BIT</span><span class="p">];</span>
     
-    return result;
-}
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
 
-// 多次加密
-- (NSString *)MD5_againStr:(NSString *)againStr {
+<span class="c1">// 乱序加密
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">MD5_Chaos:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chaosStr</span> <span class="p">{</span>
     
-    NSString *result = [againStr MD5_32BIT];
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">result</span> <span class="o">=</span><span class="p">[</span><span class="n">chaosStr</span> <span class="n">MD5_32BIT</span><span class="p">];</span>
     
-    result = [result MD5_32BIT];
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">header</span> <span class="o">=</span><span class="p">[</span><span class="n">result</span> <span class="nl">substringFromIndex</span><span class="p">:</span><span class="mi">2</span><span class="p">];</span>
     
-    return result;
-}
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">footer</span><span class="o">=</span><span class="p">[</span><span class="n">result</span> <span class="nl">substringFromIndex</span><span class="p">:</span><span class="mi">2</span><span class="p">];</span>
+    
+    <span class="n">result</span> <span class="o">=</span><span class="p">[</span><span class="n">footer</span> <span class="nl">stringByAppendingString</span><span class="p">:</span><span class="n">header</span><span class="p">];</span>
+    
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+    
+<span class="p">}</span>
 
-// 乱序加密
-- (NSString *)MD5_Chaos:(NSString *)chaosStr {
-    
-    NSString *result =[chaosStr MD5_32BIT];
-    
-    NSString *header =[result substringFromIndex:2];
-    
-    NSString *footer=[result substringFromIndex:2];
-    
-    result =[footer stringByAppendingString:header];
-    
-    return result;
-    
-}
-
-@end
+<span class="k">@end</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>接着在控制器中调用：</p>
@@ -527,21 +527,21 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#import &#34;ViewController.h&#34;
-#import &#34;NSString+MD5.h&#34;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#import &#34;ViewController.h&#34;
+</span><span class="cp">#import &#34;NSString+MD5.h&#34;
+</span><span class="cp"></span>
+<span class="k">@implementation</span> <span class="nc">ViewController</span>
 
-@implementation ViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
     
-    NSString *string = @&#34;10.24&#34;;
-    // 调用 MD5 加密并打印结果
-    NSLog(@&#34;MD5Result = %@&#34;, [string MD5_32BIT]);
-    NSLog(@&#34;MD5_saltResult = %@&#34;, [string MD5_saltStr:string]);
-    NSLog(@&#34;MD5_againResult = %@&#34;, [string MD5_againStr:string]);
-    NSLog(@&#34;chaosResult = %@&#34;, [string MD5_Chaos:string]);
-}
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">string</span> <span class="o">=</span> <span class="s">@&#34;10.24&#34;</span><span class="p">;</span>
+    <span class="c1">// 调用 MD5 加密并打印结果
+</span><span class="c1"></span>    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;MD5Result = %@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">string</span> <span class="n">MD5_32BIT</span><span class="p">]);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;MD5_saltResult = %@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">string</span> <span class="nl">MD5_saltStr</span><span class="p">:</span><span class="n">string</span><span class="p">]);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;MD5_againResult = %@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">string</span> <span class="nl">MD5_againStr</span><span class="p">:</span><span class="n">string</span><span class="p">]);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;chaosResult = %@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">string</span> <span class="nl">MD5_Chaos</span><span class="p">:</span><span class="n">string</span><span class="p">]);</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>这里是打印结果：</p>
@@ -553,10 +553,10 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">2016-10-26 08:15:49.616 md5[92278:6185546] MD5Result = F7F942B87C2D0B62FC27AD465CF0D05B
-2016-10-26 08:15:49.616 md5[92278:6185546] MD5_saltResult = 1C2140C07ADD1E334896D499E8C4968C
-2016-10-26 08:15:49.617 md5[92278:6185546] MD5_againResult = 01AE5309B5A8E672AE4D427FE987E06A
-2016-10-26 08:15:49.617 md5[92278:6185546] chaosResult = F942B87C2D0B62FC27AD465CF0D05BF942B87C2D0B62FC27AD465CF0D05B
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="mi">2016</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">26</span> <span class="mi">08</span><span class="o">:</span><span class="mi">15</span><span class="o">:</span><span class="mf">49.616</span> <span class="n">md5</span><span class="p">[</span><span class="mi">92278</span><span class="o">:</span><span class="mi">6185546</span><span class="p">]</span> <span class="n">MD5Result</span> <span class="o">=</span> <span class="n">F7F942B87C2D0B62FC27AD465CF0D05B</span>
+<span class="mi">2016</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">26</span> <span class="mi">08</span><span class="o">:</span><span class="mi">15</span><span class="o">:</span><span class="mf">49.616</span> <span class="n">md5</span><span class="p">[</span><span class="mi">92278</span><span class="o">:</span><span class="mi">6185546</span><span class="p">]</span> <span class="n">MD5_saltResult</span> <span class="o">=</span> <span class="mi">1</span><span class="n">C2140C07ADD1E334896D499E8C4968C</span>
+<span class="mi">2016</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">26</span> <span class="mi">08</span><span class="o">:</span><span class="mi">15</span><span class="o">:</span><span class="mf">49.617</span> <span class="n">md5</span><span class="p">[</span><span class="mi">92278</span><span class="o">:</span><span class="mi">6185546</span><span class="p">]</span> <span class="n">MD5_againResult</span> <span class="o">=</span> <span class="mo">01</span><span class="n">AE5309B5A8E672AE4D427FE987E06A</span>
+<span class="mi">2016</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">26</span> <span class="mi">08</span><span class="o">:</span><span class="mi">15</span><span class="o">:</span><span class="mf">49.617</span> <span class="n">md5</span><span class="p">[</span><span class="mi">92278</span><span class="o">:</span><span class="mi">6185546</span><span class="p">]</span> <span class="n">chaosResult</span> <span class="o">=</span> <span class="n">F942B87C2D0B62FC27AD465CF0D05BF942B87C2D0B62FC27AD465CF0D05B</span>
 </code></pre></td></tr></table>
 </div>
 </div><hr>

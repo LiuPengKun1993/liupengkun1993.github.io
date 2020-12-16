@@ -346,9 +346,9 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">[imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.left.right.equalTo(self.view).insets(UIEdgeInsetsMake(250, 100, 250, 100));
-    }];
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">[</span><span class="n">imageView</span> <span class="nl">mas_makeConstraints</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">MASConstraintMaker</span> <span class="o">*</span><span class="n">make</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">make</span><span class="p">.</span><span class="n">top</span><span class="p">.</span><span class="n">bottom</span><span class="p">.</span><span class="n">left</span><span class="p">.</span><span class="n">right</span><span class="p">.</span><span class="n">equalTo</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">).</span><span class="n">insets</span><span class="p">(</span><span class="n">UIEdgeInsetsMake</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">100</span><span class="p">));</span>
+    <span class="p">}];</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>这句代码就属于链式编程，而且 Masonry 框架本身也是通过链式语法对 NSLayoutConstraints 进行的封装。对 Masonry 感兴趣的童鞋可以读读这篇文章 <a href="http://www.jianshu.com/p/2fe9568fd3f5">iOS开发之源码解析 - Masonry</a>。</p>
@@ -369,9 +369,9 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    [UILabel addToView:self.view createLabel:^(UILabel *label) {
-        label.nn_frame(50, 200, 300, 100).nn_text(@&#34;NNTreasure&#34;).nn_fontSize(50).nn_textColor([UIColor redColor]).nn_backgroundColorRGB(224, 224, 224, 1).nn_textAlignment(NSTextAlignmentCenter);
-    }];
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="p">[</span><span class="n">UILabel</span> <span class="nl">addToView</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">createLabel</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">UILabel</span> <span class="o">*</span><span class="n">label</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">label</span><span class="p">.</span><span class="n">nn_frame</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">).</span><span class="n">nn_text</span><span class="p">(</span><span class="s">@&#34;NNTreasure&#34;</span><span class="p">).</span><span class="n">nn_fontSize</span><span class="p">(</span><span class="mi">50</span><span class="p">).</span><span class="n">nn_textColor</span><span class="p">([</span><span class="n">UIColor</span> <span class="n">redColor</span><span class="p">]).</span><span class="n">nn_backgroundColorRGB</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span><span class="n">nn_textAlignment</span><span class="p">(</span><span class="n">NSTextAlignmentCenter</span><span class="p">);</span>
+    <span class="p">}];</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>细心观察上面的代码，我们可以猜出 <code>nn_frame()</code>，<code>nn_text()</code>，<code>nn_fontSize()</code> 这些都是属性，不过为什么它们后面都带有括号呢？这是<strong>因为这些属性都是 <code>block</code> 类型</strong>。那么为什么它们可以点出来呢？即为什么可以 <code>label.nn_frame().nn_text().nn_fontSize()</code> 这么用？简单来说，就是<strong>因为这些 <code>block</code> 类型的属性都带有返回值</strong>！</p>
@@ -403,26 +403,26 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">@property (nonatomic, copy, readonly) UILabel *(^nn_text)(NSString *);
-@property (nonatomic, copy, readonly) UILabel *(^nn_frame)(CGFloat, CGFloat, CGFloat, CGFloat);
-@property (nonatomic, copy, readonly) UILabel *(^nn_attributedText)(NSAttributedString *);
-@property (nonatomic, copy, readonly) UILabel *(^nn_textAlignment)(NSTextAlignment);
-@property (nonatomic, copy, readonly) UILabel *(^nn_textColor)(UIColor *);
-@property (nonatomic, copy, readonly) UILabel *(^nn_textColorRGB)(CGFloat, CGFloat, CGFloat, CGFloat);
-@property (nonatomic, copy, readonly) UILabel *(^nn_backgroundColor)(UIColor *);
-@property (nonatomic, copy, readonly) UILabel *(^nn_backgroundColorRGB)(CGFloat, CGFloat, CGFloat, CGFloat);
-@property (nonatomic, copy, readonly) UILabel *(^nn_highlightTextColor)(UIColor *);
-@property (nonatomic, copy, readonly) UILabel *(^nn_highlight)(BOOL);
-@property (nonatomic, copy, readonly) UILabel *(^nn_enable)(BOOL);
-@property (nonatomic, copy, readonly) UILabel *(^nn_font)(UIFont *);
-@property (nonatomic, copy, readonly) UILabel *(^nn_fontSize)(NSInteger);
-@property (nonatomic, copy, readonly) UILabel *(^nn_shadowColor)(UIColor *);
-@property (nonatomic, copy, readonly) UILabel *(^nn_shadowOffset)(CGSize);
-@property (nonatomic, copy, readonly) UILabel *(^nn_lineBreakMode)(NSLineBreakMode);
-@property (nonatomic, copy, readonly) UILabel *(^nn_numberOfLine)(NSInteger);
-@property (nonatomic, copy, readonly) UILabel *(^nn_adjustsFontSizeToFitWidth)(BOOL);
-@property (nonatomic, copy, readonly) UILabel *(^nn_baselineAdjust)(UIBaselineAdjustment);
-@property (nonatomic, copy, readonly) UILabel *(^nn_drawText)(CGRect);
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">copy</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="n">nn_text</span><span class="p">)(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">);</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">copy</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="n">nn_frame</span><span class="p">)(</span><span class="n">CGFloat</span><span class="p">,</span> <span class="n">CGFloat</span><span class="p">,</span> <span class="n">CGFloat</span><span class="p">,</span> <span class="n">CGFloat</span><span class="p">);</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">copy</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="n">nn_attributedText</span><span class="p">)(</span><span class="n">NSAttributedString</span> <span class="o">*</span><span class="p">);</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">copy</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="n">nn_textAlignment</span><span class="p">)(</span><span class="n">NSTextAlignment</span><span class="p">);</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">copy</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="n">nn_textColor</span><span class="p">)(</span><span class="n">UIColor</span> <span class="o">*</span><span class="p">);</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">copy</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="n">nn_textColorRGB</span><span class="p">)(</span><span class="n">CGFloat</span><span class="p">,</span> <span class="n">CGFloat</span><span class="p">,</span> <span class="n">CGFloat</span><span class="p">,</span> <span class="n">CGFloat</span><span class="p">);</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">copy</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="n">nn_backgroundColor</span><span class="p">)(</span><span class="n">UIColor</span> <span class="o">*</span><span class="p">);</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">copy</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="n">nn_backgroundColorRGB</span><span class="p">)(</span><span class="n">CGFloat</span><span class="p">,</span> <span class="n">CGFloat</span><span class="p">,</span> <span class="n">CGFloat</span><span class="p">,</span> <span class="n">CGFloat</span><span class="p">);</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">copy</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="n">nn_highlightTextColor</span><span class="p">)(</span><span class="n">UIColor</span> <span class="o">*</span><span class="p">);</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">copy</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="n">nn_highlight</span><span class="p">)(</span><span class="kt">BOOL</span><span class="p">);</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">copy</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="n">nn_enable</span><span class="p">)(</span><span class="kt">BOOL</span><span class="p">);</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">copy</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="n">nn_font</span><span class="p">)(</span><span class="n">UIFont</span> <span class="o">*</span><span class="p">);</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">copy</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="n">nn_fontSize</span><span class="p">)(</span><span class="n">NSInteger</span><span class="p">);</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">copy</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="n">nn_shadowColor</span><span class="p">)(</span><span class="n">UIColor</span> <span class="o">*</span><span class="p">);</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">copy</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="n">nn_shadowOffset</span><span class="p">)(</span><span class="n">CGSize</span><span class="p">);</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">copy</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="n">nn_lineBreakMode</span><span class="p">)(</span><span class="n">NSLineBreakMode</span><span class="p">);</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">copy</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="n">nn_numberOfLine</span><span class="p">)(</span><span class="n">NSInteger</span><span class="p">);</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">copy</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="n">nn_adjustsFontSizeToFitWidth</span><span class="p">)(</span><span class="kt">BOOL</span><span class="p">);</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">copy</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="n">nn_baselineAdjust</span><span class="p">)(</span><span class="n">UIBaselineAdjustment</span><span class="p">);</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">copy</span><span class="p">,</span> <span class="k">readonly</span><span class="p">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="n">nn_drawText</span><span class="p">)(</span><span class="n">CGRect</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>我们在 UILabel 分类里面声明了这些属性，所以接下来只要是 UILabel 类型都可以点出来这些属性。这里也可以看出这些属性都是 <code>block</code> 类型。我们抽出一句代码简单说明一下：<code>@property (nonatomic, copy, readonly) UILabel *(^nn_text)(NSString *);</code>，这句代码声明了一个 block(^) 原型，名字叫做 nn_text，包含了一个 NSString 类型的参数，返回值是 UILabel 类型。</p>
@@ -572,145 +572,145 @@
 </span><span class="lnt">139
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">- (UILabel *(^)(NSString *))nn_text {
-    return ^(NSString *text) {
-        self.text = text;
-        return self;
-    };
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">))</span><span class="nf">nn_text</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">^</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">text</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
 
-- (UILabel *(^)(CGFloat, CGFloat, CGFloat, CGFloat))nn_frame {
-    return ^(CGFloat X, CGFloat Y, CGFloat W, CGFloat H) {
-        self.frame = CGRectMake(X, Y, W, H);
-        return self;
-    };
-}
+<span class="p">-</span> <span class="p">(</span><span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">CGFloat</span><span class="p">,</span> <span class="n">CGFloat</span><span class="p">,</span> <span class="n">CGFloat</span><span class="p">,</span> <span class="n">CGFloat</span><span class="p">))</span><span class="nf">nn_frame</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">^</span><span class="p">(</span><span class="n">CGFloat</span> <span class="n">X</span><span class="p">,</span> <span class="n">CGFloat</span> <span class="n">Y</span><span class="p">,</span> <span class="n">CGFloat</span> <span class="n">W</span><span class="p">,</span> <span class="n">CGFloat</span> <span class="n">H</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">H</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
 
-- (UILabel *(^)(NSAttributedString *))nn_attributedText {
-    return ^(NSAttributedString *attributedText) {
-        self.attributedText = attributedText;
-        return self;
-    };
-}
+<span class="p">-</span> <span class="p">(</span><span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSAttributedString</span> <span class="o">*</span><span class="p">))</span><span class="nf">nn_attributedText</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">^</span><span class="p">(</span><span class="n">NSAttributedString</span> <span class="o">*</span><span class="n">attributedText</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="n">attributedText</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
 
-- (UILabel *(^)(NSTextAlignment))nn_textAlignment {
-    return ^(NSTextAlignment textAlignment) {
-        self.textAlignment = textAlignment;
-        return self;
-    };
-}
+<span class="p">-</span> <span class="p">(</span><span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSTextAlignment</span><span class="p">))</span><span class="nf">nn_textAlignment</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">^</span><span class="p">(</span><span class="n">NSTextAlignment</span> <span class="n">textAlignment</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">textAlignment</span> <span class="o">=</span> <span class="n">textAlignment</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
 
-- (UILabel *(^)(UIColor *))nn_textColor {
-    return ^(UIColor *textColor) {
-        self.textColor = textColor;
-        return self;
-    };
-}
+<span class="p">-</span> <span class="p">(</span><span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">UIColor</span> <span class="o">*</span><span class="p">))</span><span class="nf">nn_textColor</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">^</span><span class="p">(</span><span class="n">UIColor</span> <span class="o">*</span><span class="n">textColor</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">textColor</span> <span class="o">=</span> <span class="n">textColor</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
 
-- (UILabel *(^)(CGFloat, CGFloat, CGFloat, CGFloat))nn_textColorRGB {
-    return ^(CGFloat r, CGFloat g, CGFloat b, CGFloat a){
-        self.textColor = [UIColor colorWithRed:r / 255.0 green:g / 255.0 blue:g / 255.0 alpha:a];
-        return self;
-    };
-}
+<span class="p">-</span> <span class="p">(</span><span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">CGFloat</span><span class="p">,</span> <span class="n">CGFloat</span><span class="p">,</span> <span class="n">CGFloat</span><span class="p">,</span> <span class="n">CGFloat</span><span class="p">))</span><span class="nf">nn_textColorRGB</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">^</span><span class="p">(</span><span class="n">CGFloat</span> <span class="n">r</span><span class="p">,</span> <span class="n">CGFloat</span> <span class="n">g</span><span class="p">,</span> <span class="n">CGFloat</span> <span class="n">b</span><span class="p">,</span> <span class="n">CGFloat</span> <span class="n">a</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">textColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nl">colorWithRed</span><span class="p">:</span><span class="n">r</span> <span class="o">/</span> <span class="mf">255.0</span> <span class="nl">green</span><span class="p">:</span><span class="n">g</span> <span class="o">/</span> <span class="mf">255.0</span> <span class="nl">blue</span><span class="p">:</span><span class="n">g</span> <span class="o">/</span> <span class="mf">255.0</span> <span class="nl">alpha</span><span class="p">:</span><span class="n">a</span><span class="p">];</span>
+        <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
 
-- (UILabel *(^)(UIColor *))nn_backgroundColor {
-    return ^(UIColor *backgroundColor) {
-        self.backgroundColor = backgroundColor;
-        return self;
-    };
-}
+<span class="p">-</span> <span class="p">(</span><span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">UIColor</span> <span class="o">*</span><span class="p">))</span><span class="nf">nn_backgroundColor</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">^</span><span class="p">(</span><span class="n">UIColor</span> <span class="o">*</span><span class="n">backgroundColor</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="n">backgroundColor</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
 
-- (UILabel *(^)(CGFloat, CGFloat, CGFloat, CGFloat))nn_backgroundColorRGB {
-    return ^(CGFloat r, CGFloat g, CGFloat b, CGFloat a) {
-        self.backgroundColor = [UIColor colorWithRed:r / 255.0 green:g / 255.0 blue:g / 255.0 alpha:a];
-        return self;
-    };
-}
+<span class="p">-</span> <span class="p">(</span><span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">CGFloat</span><span class="p">,</span> <span class="n">CGFloat</span><span class="p">,</span> <span class="n">CGFloat</span><span class="p">,</span> <span class="n">CGFloat</span><span class="p">))</span><span class="nf">nn_backgroundColorRGB</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">^</span><span class="p">(</span><span class="n">CGFloat</span> <span class="n">r</span><span class="p">,</span> <span class="n">CGFloat</span> <span class="n">g</span><span class="p">,</span> <span class="n">CGFloat</span> <span class="n">b</span><span class="p">,</span> <span class="n">CGFloat</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nl">colorWithRed</span><span class="p">:</span><span class="n">r</span> <span class="o">/</span> <span class="mf">255.0</span> <span class="nl">green</span><span class="p">:</span><span class="n">g</span> <span class="o">/</span> <span class="mf">255.0</span> <span class="nl">blue</span><span class="p">:</span><span class="n">g</span> <span class="o">/</span> <span class="mf">255.0</span> <span class="nl">alpha</span><span class="p">:</span><span class="n">a</span><span class="p">];</span>
+        <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
 
-- (UILabel *(^)(UIColor *))nn_highlightTextColor {
-    return ^(UIColor *color) {
-        self.highlightedTextColor = color;
-        return self;
-    };
-}
+<span class="p">-</span> <span class="p">(</span><span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">UIColor</span> <span class="o">*</span><span class="p">))</span><span class="nf">nn_highlightTextColor</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">^</span><span class="p">(</span><span class="n">UIColor</span> <span class="o">*</span><span class="n">color</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">highlightedTextColor</span> <span class="o">=</span> <span class="n">color</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
 
-- (UILabel *(^)(BOOL))nn_highlight {
-    return ^(BOOL isHighlighted) {
-        self.highlighted = isHighlighted;
-        return self;
-    };
-}
+<span class="p">-</span> <span class="p">(</span><span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="kt">BOOL</span><span class="p">))</span><span class="nf">nn_highlight</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">^</span><span class="p">(</span><span class="kt">BOOL</span> <span class="n">isHighlighted</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">highlighted</span> <span class="o">=</span> <span class="n">isHighlighted</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
 
-- (UILabel *(^)(BOOL))nn_enable {
-    return ^(BOOL isEnabled) {
-        self.enabled = isEnabled;
-        return self;
-    };
-}
+<span class="p">-</span> <span class="p">(</span><span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="kt">BOOL</span><span class="p">))</span><span class="nf">nn_enable</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">^</span><span class="p">(</span><span class="kt">BOOL</span> <span class="n">isEnabled</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="n">isEnabled</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
 
-- (UILabel *(^)(UIFont *))nn_font {
-    return ^(UIFont *font) {
-        self.font = font;
-        return self;
-    };
-}
+<span class="p">-</span> <span class="p">(</span><span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">UIFont</span> <span class="o">*</span><span class="p">))</span><span class="nf">nn_font</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">^</span><span class="p">(</span><span class="n">UIFont</span> <span class="o">*</span><span class="n">font</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
 
-- (UILabel *(^)(NSInteger))nn_fontSize {
-    return ^(NSInteger size) {
-        self.font = [UIFont systemFontOfSize:size];
-        return self;
-    };
-}
+<span class="p">-</span> <span class="p">(</span><span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSInteger</span><span class="p">))</span><span class="nf">nn_fontSize</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">^</span><span class="p">(</span><span class="n">NSInteger</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">font</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIFont</span> <span class="nl">systemFontOfSize</span><span class="p">:</span><span class="n">size</span><span class="p">];</span>
+        <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
 
-- (UILabel *(^)(UIColor *))nn_shadowColor {
-    return ^(UIColor *shadowColor) {
-        self.shadowColor = shadowColor;
-        return self;
-    };
-}
+<span class="p">-</span> <span class="p">(</span><span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">UIColor</span> <span class="o">*</span><span class="p">))</span><span class="nf">nn_shadowColor</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">^</span><span class="p">(</span><span class="n">UIColor</span> <span class="o">*</span><span class="n">shadowColor</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">shadowColor</span> <span class="o">=</span> <span class="n">shadowColor</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
 
-- (UILabel *(^)(CGSize))nn_shadowOffset {
-    return ^(CGSize size) {
-        self.shadowOffset = size;
-        return self;
-    };
-}
+<span class="p">-</span> <span class="p">(</span><span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">CGSize</span><span class="p">))</span><span class="nf">nn_shadowOffset</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">^</span><span class="p">(</span><span class="n">CGSize</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">shadowOffset</span> <span class="o">=</span> <span class="n">size</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
 
-- (UILabel *(^)(NSLineBreakMode))nn_lineBreakMode {
-    return ^(NSLineBreakMode mode) {
-        self.lineBreakMode = mode;
-        return self;
-    };
-}
+<span class="p">-</span> <span class="p">(</span><span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSLineBreakMode</span><span class="p">))</span><span class="nf">nn_lineBreakMode</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">^</span><span class="p">(</span><span class="n">NSLineBreakMode</span> <span class="n">mode</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">lineBreakMode</span> <span class="o">=</span> <span class="n">mode</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
 
-- (UILabel *(^)(NSInteger))nn_numberOfLine {
-    return ^(NSInteger number) {
-        self.numberOfLines = number;
-        return self;
-    };
-}
+<span class="p">-</span> <span class="p">(</span><span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSInteger</span><span class="p">))</span><span class="nf">nn_numberOfLine</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">^</span><span class="p">(</span><span class="n">NSInteger</span> <span class="n">number</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">numberOfLines</span> <span class="o">=</span> <span class="n">number</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
 
-- (UILabel *(^)(BOOL))nn_adjustsFontSizeToFitWidth {
-    return ^(BOOL b) {
-        self.adjustsFontSizeToFitWidth = b;
-        return self;
-    };
-}
+<span class="p">-</span> <span class="p">(</span><span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="kt">BOOL</span><span class="p">))</span><span class="nf">nn_adjustsFontSizeToFitWidth</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">^</span><span class="p">(</span><span class="kt">BOOL</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">adjustsFontSizeToFitWidth</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
 
-- (UILabel *(^)(UIBaselineAdjustment))nn_baselineAdjust {
-    return ^(UIBaselineAdjustment adjustment) {
-        self.baselineAdjustment = adjustment;
-        return self;
-    };
-}
+<span class="p">-</span> <span class="p">(</span><span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">UIBaselineAdjustment</span><span class="p">))</span><span class="nf">nn_baselineAdjust</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">^</span><span class="p">(</span><span class="n">UIBaselineAdjustment</span> <span class="n">adjustment</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">baselineAdjustment</span> <span class="o">=</span> <span class="n">adjustment</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
 
-- (UILabel *(^)(CGRect))nn_drawText {
-    return ^(CGRect rect) {
-        [self drawTextInRect:rect];
-        return self;
-    };
-}
+<span class="p">-</span> <span class="p">(</span><span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">CGRect</span><span class="p">))</span><span class="nf">nn_drawText</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">^</span><span class="p">(</span><span class="n">CGRect</span> <span class="n">rect</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">[</span><span class="nb">self</span> <span class="nl">drawTextInRect</span><span class="p">:</span><span class="n">rect</span><span class="p">];</span>
+        <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><code>UILabel+NNCategory.m</code> 中的这些是 <code>UILabel+NNCategory.h</code> 文件中属性的 getter 方法。我们抽出一个简单说明一下</p>
@@ -727,15 +727,15 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">- (UILabel *(^)(NSString *))nn_text {
-	// 返回临时变量的 block
-    return ^(NSString *text) {
-    	// block 执行的一些功能
-        self.text = text;
-        // block 执行完毕的返回值
-        return self;
-    };
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="n">UILabel</span> <span class="o">*</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">))</span><span class="nf">nn_text</span> <span class="p">{</span>
+	<span class="c1">// 返回临时变量的 block
+</span><span class="c1"></span>    <span class="k">return</span> <span class="o">^</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">text</span><span class="p">)</span> <span class="p">{</span>
+    	<span class="c1">// block 执行的一些功能
+</span><span class="c1"></span>        <span class="nb">self</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="p">;</span>
+        <span class="c1">// block 执行完毕的返回值
+</span><span class="c1"></span>        <span class="k">return</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>这个属性的类型是 block，具体是 <code>UILabel *(^nn_text)(NSString *)</code> 类型，需要说明的是，我们用 block 并不是为了返回 block 对象本身，而是为了在 block 内部执行一些操作，所以我们在属性的 getter 方法中首先返回一个临时的 block 对象，主要是为了在 block 内部返回 UILabel 类型的对象。具体请看上面代码块中的一些注释。</p>
@@ -748,7 +748,7 @@
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">+ (instancetype)addToView:(UIView *)superView createLabel:(void(^)(UILabel *label))block;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">+</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">addToView:</span><span class="p">(</span><span class="n">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">superView</span> <span class="nf">createLabel:</span><span class="p">(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">UILabel</span> <span class="o">*</span><span class="n">label</span><span class="p">))</span><span class="nv">block</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>这里是模仿 Masonry，我们通常用 Masonry 加约束时首先会调用这个方法：<code>- (NSArray *)mas_makeConstraints:(void(^)(MASConstraintMaker *make))block</code>，</p>
@@ -762,12 +762,12 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">- (NSArray *)mas_makeConstraints:(void(^)(MASConstraintMaker *))block {
-    self.translatesAutoresizingMaskIntoConstraints = NO;
-    MASConstraintMaker *constraintMaker = [[MASConstraintMaker alloc] initWithView:self];
-    block(constraintMaker);
-    return [constraintMaker install];
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nf">mas_makeConstraints:</span><span class="p">(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">MASConstraintMaker</span> <span class="o">*</span><span class="p">))</span><span class="nv">block</span> <span class="p">{</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">translatesAutoresizingMaskIntoConstraints</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+    <span class="n">MASConstraintMaker</span> <span class="o">*</span><span class="n">constraintMaker</span> <span class="o">=</span> <span class="p">[[</span><span class="n">MASConstraintMaker</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithView</span><span class="p">:</span><span class="nb">self</span><span class="p">];</span>
+    <span class="n">block</span><span class="p">(</span><span class="n">constraintMaker</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">constraintMaker</span> <span class="n">install</span><span class="p">];</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>我们用 Masonry 加约束时调用这个方法，是因为 Masonry 在这个方法内部早已做好一些所需要的操作。所以接下来我们也要在 UILabel+NNCategory.m 中做些事情。</p>
@@ -787,15 +787,15 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">+ (instancetype)addToView:(UIView *)superView createLabel:(void(^)(UILabel *label))block {
-	// 创建 UILabel
-    UILabel *label = [[UILabel alloc] init];
-    // 把 UILabel 添加到传过来的 superView 上
-    [superView addSubview:label];
-    // 通过 block 进行回调
-    if (block) block(label);
-    return label;
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">+</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">addToView:</span><span class="p">(</span><span class="n">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">superView</span> <span class="nf">createLabel:</span><span class="p">(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">UILabel</span> <span class="o">*</span><span class="n">label</span><span class="p">))</span><span class="nv">block</span> <span class="p">{</span>
+	<span class="c1">// 创建 UILabel
+</span><span class="c1"></span>    <span class="n">UILabel</span> <span class="o">*</span><span class="n">label</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UILabel</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="c1">// 把 UILabel 添加到传过来的 superView 上
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">superView</span> <span class="nl">addSubview</span><span class="p">:</span><span class="n">label</span><span class="p">];</span>
+    <span class="c1">// 通过 block 进行回调
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">block</span><span class="p">)</span> <span class="n">block</span><span class="p">(</span><span class="n">label</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">label</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>上面这个方法首先初始化一个 UILabel 对象，接着把 UILabel 添加到传过来的 superView 上，然后对 block 进行回调，执行 block，把外界对 UILabel 设置的属性添加上去，最后返回 UILabel 对象。</p>
@@ -808,13 +808,13 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    [UILabel addToView:self.view createLabel:^(UILabel *label) {
-        label.nn_frame(50, 200, 300, 100).nn_text(@&#34;NNTreasure&#34;).nn_fontSize(50).nn_textColor([UIColor redColor]).nn_backgroundColorRGB(224, 224, 224, 1).nn_textAlignment(NSTextAlignmentCenter);
-    }];
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="p">[</span><span class="n">UILabel</span> <span class="nl">addToView</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">createLabel</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">UILabel</span> <span class="o">*</span><span class="n">label</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">label</span><span class="p">.</span><span class="n">nn_frame</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">).</span><span class="n">nn_text</span><span class="p">(</span><span class="s">@&#34;NNTreasure&#34;</span><span class="p">).</span><span class="n">nn_fontSize</span><span class="p">(</span><span class="mi">50</span><span class="p">).</span><span class="n">nn_textColor</span><span class="p">([</span><span class="n">UIColor</span> <span class="n">redColor</span><span class="p">]).</span><span class="n">nn_backgroundColorRGB</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">1</span><span class="p">).</span><span class="n">nn_textAlignment</span><span class="p">(</span><span class="n">NSTextAlignmentCenter</span><span class="p">);</span>
+    <span class="p">}];</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>效果图如下：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-98cb658222344c24.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="链式编程"></p>
+<p><img src="/image/iOS/iOS_MethodChaining/MethodChaining01.png" alt="链式编程"></p>
 
     </div>
 

@@ -355,16 +355,16 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    // 获得 NSURLSession 对象
-    NSURLSession *session =  [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="c1">// 获得 NSURLSession 对象
+</span><span class="c1"></span>    <span class="n">NSURLSession</span> <span class="o">*</span><span class="n">session</span> <span class="o">=</span>  <span class="p">[</span><span class="n">NSURLSession</span> <span class="nl">sessionWithConfiguration</span><span class="p">:[</span><span class="n">NSURLSessionConfiguration</span> <span class="n">defaultSessionConfiguration</span><span class="p">]</span> <span class="nl">delegate</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">delegateQueue</span><span class="p">:[</span><span class="n">NSOperationQueue</span> <span class="n">mainQueue</span><span class="p">]];</span>
     
-    // 创建任务
-    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@&#34; &#34;]] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSLog(@&#34;data ~~~ %@ ~~~ response ~~~ %@ ~~~ error~~~ %@&#34;, data, response , error);
-    }];
+    <span class="c1">// 创建任务
+</span><span class="c1"></span>    <span class="n">NSURLSessionDataTask</span> <span class="o">*</span><span class="n">dataTask</span> <span class="o">=</span> <span class="p">[</span><span class="n">session</span> <span class="nl">dataTaskWithRequest</span><span class="p">:[</span><span class="n">NSURLRequest</span> <span class="nl">requestWithURL</span><span class="p">:[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34; &#34;</span><span class="p">]]</span> <span class="nl">completionHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSData</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">data</span><span class="p">,</span> <span class="n">NSURLResponse</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">response</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;data ~~~ %@ ~~~ response ~~~ %@ ~~~ error~~~ %@&#34;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">response</span> <span class="p">,</span> <span class="n">error</span><span class="p">);</span>
+    <span class="p">}];</span>
     
-    // 启动任务
-    [dataTask resume];
+    <span class="c1">// 启动任务
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">dataTask</span> <span class="n">resume</span><span class="p">];</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>2.POST 请求:</p>
@@ -391,25 +391,25 @@
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    // 获得NSURLSession对象
-    NSURLSession *session = [NSURLSession sharedSession];
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="c1">// 获得NSURLSession对象
+</span><span class="c1"></span>    <span class="n">NSURLSession</span> <span class="o">*</span><span class="n">session</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLSession</span> <span class="n">sharedSession</span><span class="p">];</span>
     
-    // 创建请求
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@&#34; &#34;]];
+    <span class="c1">// 创建请求
+</span><span class="c1"></span>    <span class="n">NSMutableURLRequest</span> <span class="o">*</span><span class="n">request</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSMutableURLRequest</span> <span class="nl">requestWithURL</span><span class="p">:[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34; &#34;</span><span class="p">]];</span>
     
-    // 设置请求方法
-    request.HTTPMethod = @&#34;POST&#34;; 
+    <span class="c1">// 设置请求方法
+</span><span class="c1"></span>    <span class="n">request</span><span class="p">.</span><span class="n">HTTPMethod</span> <span class="o">=</span> <span class="s">@&#34;POST&#34;</span><span class="p">;</span> 
     
-    // 设置请求体
-    request.HTTPBody = [@&#34; &#34; dataUsingEncoding:NSUTF8StringEncoding]; 
+    <span class="c1">// 设置请求体
+</span><span class="c1"></span>    <span class="n">request</span><span class="p">.</span><span class="n">HTTPBody</span> <span class="o">=</span> <span class="p">[</span><span class="s">@&#34; &#34;</span> <span class="nl">dataUsingEncoding</span><span class="p">:</span><span class="n">NSUTF8StringEncoding</span><span class="p">];</span> 
     
-    // 创建任务
-    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSLog(@&#34;data ~~~ %@ ~~~ response ~~~ %@ ~~~ error~~~ %@&#34;, data, response , error);
-    }];
+    <span class="c1">// 创建任务
+</span><span class="c1"></span>    <span class="n">NSURLSessionDataTask</span> <span class="o">*</span><span class="n">task</span> <span class="o">=</span> <span class="p">[</span><span class="n">session</span> <span class="nl">dataTaskWithRequest</span><span class="p">:</span><span class="n">request</span> <span class="nl">completionHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSData</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="n">NSURLResponse</span> <span class="o">*</span><span class="n">response</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;data ~~~ %@ ~~~ response ~~~ %@ ~~~ error~~~ %@&#34;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">response</span> <span class="p">,</span> <span class="n">error</span><span class="p">);</span>
+    <span class="p">}];</span>
     
-    // 启动任务
-    [task resume];
+    <span class="c1">// 启动任务
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">task</span> <span class="n">resume</span><span class="p">];</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>3.代理:NSURLSessionDataDelegate</p>
@@ -460,49 +460,49 @@
 </span><span class="lnt">43
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">- (void)viewDidLoad {
-    [super viewDidLoad];
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@&#34; &#34;]];
+    <span class="n">NSMutableURLRequest</span> <span class="o">*</span><span class="n">request</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSMutableURLRequest</span> <span class="nl">requestWithURL</span><span class="p">:[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34; &#34;</span><span class="p">]];</span>
     
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+    <span class="n">NSURLSession</span> <span class="o">*</span><span class="n">session</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLSession</span> <span class="nl">sessionWithConfiguration</span><span class="p">:[</span><span class="n">NSURLSessionConfiguration</span> <span class="n">defaultSessionConfiguration</span><span class="p">]</span> <span class="nl">delegate</span><span class="p">:</span><span class="nb">self</span> <span class="nl">delegateQueue</span><span class="p">:[</span><span class="n">NSOperationQueue</span> <span class="n">mainQueue</span><span class="p">]];</span>
     
-    // 如果创建task时，有block，代理会失效
-    NSURLSessionDataTask *task = [session dataTaskWithRequest:request];
+    <span class="c1">// 如果创建task时，有block，代理会失效
+</span><span class="c1"></span>    <span class="n">NSURLSessionDataTask</span> <span class="o">*</span><span class="n">task</span> <span class="o">=</span> <span class="p">[</span><span class="n">session</span> <span class="nl">dataTaskWithRequest</span><span class="p">:</span><span class="n">request</span><span class="p">];</span>
     
-    [task resume];
-}
+    <span class="p">[</span><span class="n">task</span> <span class="n">resume</span><span class="p">];</span>
+<span class="p">}</span>
 
-#pragma mark - NSURLSessionDataDelegate
-#pragma mark - 接收到响应头调用的协议方法
-- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask
-didReceiveResponse:(NSURLResponse *)response
- completionHandler:(void (^)(NSURLSessionResponseDisposition disposition))completionHandler {
+<span class="cp">#pragma mark - NSURLSessionDataDelegate
+</span><span class="cp">#pragma mark - 接收到响应头调用的协议方法
+</span><span class="cp"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">URLSession:</span><span class="p">(</span><span class="n">NSURLSession</span> <span class="o">*</span><span class="p">)</span><span class="nv">session</span> <span class="nf">dataTask:</span><span class="p">(</span><span class="n">NSURLSessionDataTask</span> <span class="o">*</span><span class="p">)</span><span class="nv">dataTask</span>
+<span class="nf">didReceiveResponse:</span><span class="p">(</span><span class="n">NSURLResponse</span> <span class="o">*</span><span class="p">)</span><span class="nv">response</span>
+ <span class="nf">completionHandler:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSURLSessionResponseDisposition</span> <span class="n">disposition</span><span class="p">))</span><span class="nv">completionHandler</span> <span class="p">{</span>
     
-    NSHTTPURLResponse *httpRes = (NSHTTPURLResponse *)response;
-    NSLog(@&#34;%@&#34;,httpRes.allHeaderFields);
+    <span class="n">NSHTTPURLResponse</span> <span class="o">*</span><span class="n">httpRes</span> <span class="o">=</span> <span class="p">(</span><span class="n">NSHTTPURLResponse</span> <span class="o">*</span><span class="p">)</span><span class="n">response</span><span class="p">;</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;%@&#34;</span><span class="p">,</span><span class="n">httpRes</span><span class="p">.</span><span class="n">allHeaderFields</span><span class="p">);</span>
     
-    //通过设置 completionHandler, Block 可以设置后面的响应体中的数据是否继续发送,默认是不发送
-    completionHandler(NSURLSessionResponseAllow);
+    <span class="c1">//通过设置 completionHandler, Block 可以设置后面的响应体中的数据是否继续发送,默认是不发送
+</span><span class="c1"></span>    <span class="n">completionHandler</span><span class="p">(</span><span class="n">NSURLSessionResponseAllow</span><span class="p">);</span>
     
-}
+<span class="p">}</span>
 
-#pragma mark - 数据请求完成后，调用的协议方法，data是响应体中的数据
-- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask
-    didReceiveData:(NSData *)data {
+<span class="cp">#pragma mark - 数据请求完成后，调用的协议方法，data是响应体中的数据
+</span><span class="cp"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">URLSession:</span><span class="p">(</span><span class="n">NSURLSession</span> <span class="o">*</span><span class="p">)</span><span class="nv">session</span> <span class="nf">dataTask:</span><span class="p">(</span><span class="n">NSURLSessionDataTask</span> <span class="o">*</span><span class="p">)</span><span class="nv">dataTask</span>
+    <span class="nf">didReceiveData:</span><span class="p">(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span> <span class="p">{</span>
     
-    NSLog(@&#34;%@&#34;,data);
-}
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;%@&#34;</span><span class="p">,</span><span class="n">data</span><span class="p">);</span>
+<span class="p">}</span>
 
-#pragma mark - 不管请求成功还是失败，最终都会调用此方法
-- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error {
+<span class="cp">#pragma mark - 不管请求成功还是失败，最终都会调用此方法
+</span><span class="cp"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">URLSession:</span><span class="p">(</span><span class="n">NSURLSession</span> <span class="o">*</span><span class="p">)</span><span class="nv">session</span> <span class="nf">task:</span><span class="p">(</span><span class="n">NSURLSessionTask</span> <span class="o">*</span><span class="p">)</span><span class="nv">task</span> <span class="nf">didCompleteWithError:</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span> <span class="p">{</span>
     
-    if (error) {
-        NSLog(@&#34;请求失败&#34;);
-    } else {
-        NSLog(@&#34;请求成功&#34;);
-    }
-}
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;请求失败&#34;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;请求成功&#34;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="二afnetworking2x">二、AFNetworking2.x</h2>
@@ -519,14 +519,14 @@ didReceiveResponse:(NSURLResponse *)response
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback"> AFHTTPRequestOperationManager *operationManager = [AFHTTPRequestOperationManager manager];
+<pre class="chroma"><code class="language-objc" data-lang="objc"> <span class="n">AFHTTPRequestOperationManager</span> <span class="o">*</span><span class="n">operationManager</span> <span class="o">=</span> <span class="p">[</span><span class="n">AFHTTPRequestOperationManager</span> <span class="n">manager</span><span class="p">];</span>
     
-    [operationManager GET:@&#34; &#34; parameters:nil
-     success:^(AFHTTPRequestOperation *operation, id responseObject) {
-         NSLog(@&#34;请求成功&#34;);
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         NSLog(@&#34;请求失败&#34;);
-     }];
+    <span class="p">[</span><span class="n">operationManager</span> <span class="nl">GET</span><span class="p">:</span><span class="s">@&#34; &#34;</span> <span class="nl">parameters</span><span class="p">:</span><span class="nb">nil</span>
+     <span class="nl">success</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">AFHTTPRequestOperation</span> <span class="o">*</span><span class="n">operation</span><span class="p">,</span> <span class="kt">id</span> <span class="n">responseObject</span><span class="p">)</span> <span class="p">{</span>
+         <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;请求成功&#34;</span><span class="p">);</span>
+     <span class="p">}</span> <span class="nl">failure</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">AFHTTPRequestOperation</span> <span class="o">*</span><span class="n">operation</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+         <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;请求失败&#34;</span><span class="p">);</span>
+     <span class="p">}];</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>2.POST 请求</p>
@@ -542,14 +542,14 @@ didReceiveResponse:(NSURLResponse *)response
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback"> AFHTTPRequestOperationManager *operationManager = [AFHTTPRequestOperationManager manager];
+<pre class="chroma"><code class="language-objc" data-lang="objc"> <span class="n">AFHTTPRequestOperationManager</span> <span class="o">*</span><span class="n">operationManager</span> <span class="o">=</span> <span class="p">[</span><span class="n">AFHTTPRequestOperationManager</span> <span class="n">manager</span><span class="p">];</span>
     
-    [operationManager POST:@&#34; &#34; parameters:nil
-      success:^(AFHTTPRequestOperation *operation, id responseObject) {
-          NSLog(@&#34;请求成功&#34;);
-      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-          NSLog(@&#34;请求失败&#34;);
-   }];
+    <span class="p">[</span><span class="n">operationManager</span> <span class="nl">POST</span><span class="p">:</span><span class="s">@&#34; &#34;</span> <span class="nl">parameters</span><span class="p">:</span><span class="nb">nil</span>
+      <span class="nl">success</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">AFHTTPRequestOperation</span> <span class="o">*</span><span class="n">operation</span><span class="p">,</span> <span class="kt">id</span> <span class="n">responseObject</span><span class="p">)</span> <span class="p">{</span>
+          <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;请求成功&#34;</span><span class="p">);</span>
+      <span class="p">}</span> <span class="nl">failure</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">AFHTTPRequestOperation</span> <span class="o">*</span><span class="n">operation</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+          <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;请求失败&#34;</span><span class="p">);</span>
+   <span class="p">}];</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="三afnetworking30">三、AFNetworking3.0</h2>
@@ -577,25 +577,25 @@ didReceiveResponse:(NSURLResponse *)response
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="n">AFHTTPSessionManager</span> <span class="o">*</span><span class="n">sessionManager</span> <span class="o">=</span> <span class="p">[</span><span class="n">AFHTTPSessionManager</span> <span class="n">manager</span><span class="p">];</span>
     
-    // 解析服务器返回的JSON数据
-//        [AFJSONResponseSerializer serializer];
-    // 解析服务器返回的XML数据
-//        [AFXMLParserResponseSerializer serializer];
-
-	// 参数1: 请求的网址
-	// 参数2: 参数
-	// 参数3: 当前的进度
-	// 参数4: 请求成功
-	// 参数5: 请求失败
-   [sessionManager GET:@&#34; &#34; parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        NSLog(@&#34;进度&#34;);
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@&#34;请求成功&#34;);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@&#34;请求失败&#34;);
-    }];
+    <span class="c1">// 解析服务器返回的JSON数据
+</span><span class="c1">//        [AFJSONResponseSerializer serializer];
+</span><span class="c1"></span>    <span class="c1">// 解析服务器返回的XML数据
+</span><span class="c1">//        [AFXMLParserResponseSerializer serializer];
+</span><span class="c1"></span>
+	<span class="c1">// 参数1: 请求的网址
+</span><span class="c1"></span>	<span class="c1">// 参数2: 参数
+</span><span class="c1"></span>	<span class="c1">// 参数3: 当前的进度
+</span><span class="c1"></span>	<span class="c1">// 参数4: 请求成功
+</span><span class="c1"></span>	<span class="c1">// 参数5: 请求失败
+</span><span class="c1"></span>   <span class="p">[</span><span class="n">sessionManager</span> <span class="nl">GET</span><span class="p">:</span><span class="s">@&#34; &#34;</span> <span class="nl">parameters</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">progress</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSProgress</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">downloadProgress</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;进度&#34;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="nl">success</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSURLSessionDataTask</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">task</span><span class="p">,</span> <span class="kt">id</span>  <span class="n">_Nullable</span> <span class="n">responseObject</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;请求成功&#34;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="nl">failure</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSURLSessionDataTask</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">task</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;请求失败&#34;</span><span class="p">);</span>
+    <span class="p">}];</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>2.POST 请求</p>
@@ -619,22 +619,22 @@ didReceiveResponse:(NSURLResponse *)response
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 创建管理者对象
-    AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 创建管理者对象
+</span><span class="c1"></span>    <span class="n">AFHTTPSessionManager</span> <span class="o">*</span><span class="n">sessionManager</span> <span class="o">=</span> <span class="p">[</span><span class="n">AFHTTPSessionManager</span> <span class="n">manager</span><span class="p">];</span>
     
-    // 设置请求参数
-    NSString *urlStr = @&#34; &#34;;
+    <span class="c1">// 设置请求参数
+</span><span class="c1"></span>    <span class="n">NSString</span> <span class="o">*</span><span class="n">urlStr</span> <span class="o">=</span> <span class="s">@&#34; &#34;</span><span class="p">;</span>
     
-    // 需要设置 body 体
-    NSDictionary *dic = @{@&#34; &#34; : @&#34; &#34;,@&#34; &#34; : @&#34; &#34;};
+    <span class="c1">// 需要设置 body 体
+</span><span class="c1"></span>    <span class="n">NSDictionary</span> <span class="o">*</span><span class="n">dic</span> <span class="o">=</span> <span class="l">@{</span><span class="s">@&#34; &#34;</span> <span class="o">:</span> <span class="s">@&#34; &#34;</span><span class="p">,</span><span class="s">@&#34; &#34;</span> <span class="o">:</span> <span class="s">@&#34; &#34;</span><span class="l">}</span><span class="p">;</span>
 
-    [sessionManager POST:urlStr parameters:dic progress:^(NSProgress * _Nonnull downloadProgress) {
-        NSLog(@&#34;进度&#34;);
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@&#34;请求成功&#34;);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@&#34;请求失败&#34;);
-    }];
+    <span class="p">[</span><span class="n">sessionManager</span> <span class="nl">POST</span><span class="p">:</span><span class="n">urlStr</span> <span class="nl">parameters</span><span class="p">:</span><span class="n">dic</span> <span class="nl">progress</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSProgress</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">downloadProgress</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;进度&#34;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="nl">success</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSURLSessionDataTask</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">task</span><span class="p">,</span> <span class="kt">id</span>  <span class="n">_Nullable</span> <span class="n">responseObject</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;请求成功&#34;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="nl">failure</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSURLSessionDataTask</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">task</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;请求失败&#34;</span><span class="p">);</span>
+    <span class="p">}];</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>上面的一些代码都是基础性代码，因此也没怎么做注释，如果有疑问的话可以私信交流&hellip;另外代码有什么问题的话也希望大家能够指出！谢谢大家！</p>

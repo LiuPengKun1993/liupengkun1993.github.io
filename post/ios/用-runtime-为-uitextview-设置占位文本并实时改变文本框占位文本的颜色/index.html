@@ -69,7 +69,7 @@
 <meta itemprop="description" content="UITextView 实现占位文本的方式有很多种，网上一搜一大把，，这里只介绍 最简单 的一种，如标题所述：用 RunTime 为 UITextView 设置占位文本并实时改变文本框占位文本的颜色。 对 RunTime">
 <meta itemprop="datePublished" content="2017-03-19T15:43:48+08:00" />
 <meta itemprop="dateModified" content="2017-12-12T15:43:48+08:00" />
-<meta itemprop="wordCount" content="1761">
+<meta itemprop="wordCount" content="1753">
 
 
 
@@ -306,7 +306,7 @@
             <a href="https://liupengkun1993.github.io/categories/ios/"> iOS </a>
             
           </div>
-        <span class="more-meta"> 1761 words </span>
+        <span class="more-meta"> 1753 words </span>
           <span class="more-meta"> 4 min read </span>
 
         
@@ -326,7 +326,9 @@
   <ul>
     <li>
       <ul>
-        <li></li>
+        <li><a href="#思路">思路</a></li>
+        <li><a href="#效果图">效果图</a></li>
+        <li><a href="#代码">代码</a></li>
       </ul>
     </li>
   </ul>
@@ -343,7 +345,8 @@
 <p>对 <code>RunTime</code> 不太了解的童鞋可以简单看下这篇文章：<a href="http://www.jianshu.com/p/d92452217f68">iOS开发之 - Runtime</a>，懒得点击鼠标的话我这里也简单的说下，<code>Runtime 简称运行时，是苹果官方的一套比较底层的纯 C 语言 API, 用它可以做很多底层操作（比如访问隐藏的成员变量和方法）。</code></p>
 </blockquote>
 <p>OK，足够了，接下来我们就抓紧时间来看看如何用 RunTime 为 UITextView 设置占位文本并实时改变文本框占位文本的颜色。。。</p>
-<h5 id="首先我们利用-runtime-获取一下-uitextview-中一些隐藏的成员变量">首先我们利用 RunTime 获取一下 UITextView 中一些隐藏的成员变量</h5>
+<h3 id="思路">思路</h3>
+<p>首先我们利用 RunTime 获取一下 UITextView 中一些隐藏的成员变量</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -366,28 +369,28 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">- (void)viewDidLoad {
-    [super viewDidLoad];
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
     
-    //  获取 UITextView 中所有的成员变量
-    unsigned int count = 0;
-    Ivar *ivars = class_copyIvarList([UITextView class], &amp;count);
+    <span class="c1">//  获取 UITextView 中所有的成员变量
+</span><span class="c1"></span>    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">Ivar</span> <span class="o">*</span><span class="n">ivars</span> <span class="o">=</span> <span class="n">class_copyIvarList</span><span class="p">([</span><span class="n">UITextView</span> <span class="k">class</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">count</span><span class="p">);</span>
     
-    for (int i = 0; i &lt; count; i ++) {
-        Ivar ivar = ivars[i];
-        // ivar_getName(ivar) 意思是获取成员变量名字，如果想获得成员变量的类型用这个 ivar_getTypeEncoding(ivar)
-        const char *name = ivar_getName(ivar);
-        NSString *objcName = [NSString stringWithUTF8String:name];
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">count</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Ivar</span> <span class="n">ivar</span> <span class="o">=</span> <span class="n">ivars</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="c1">// ivar_getName(ivar) 意思是获取成员变量名字，如果想获得成员变量的类型用这个 ivar_getTypeEncoding(ivar)
+</span><span class="c1"></span>        <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span> <span class="o">=</span> <span class="n">ivar_getName</span><span class="p">(</span><span class="n">ivar</span><span class="p">);</span>
+        <span class="n">NSString</span> <span class="o">*</span><span class="n">objcName</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithUTF8String</span><span class="p">:</span><span class="n">name</span><span class="p">];</span>
         
-        NSLog(@&#34;    %d     %@    &#34;, i, objcName);
-    }
-    // 释放
-    free(ivars);
-}
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;    %d     %@    &#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">objcName</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">// 释放
+</span><span class="c1"></span>    <span class="n">free</span><span class="p">(</span><span class="n">ivars</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><h5 id="打印结果如下这里直接放截图">打印结果如下（这里直接放截图）</h5>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-065666a1bd7773b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="UITextView 中的属性"></p>
+<p><img src="/image/iOS/iOS_Runtime/Runtime04.png" alt="UITextView 中的属性"></p>
 <p>从上面的截图中我们可以看出，打印的结果里有一个 <code>placeHolderLabel</code> 的私有变量，即 <strong>UITextView 类内部有一个名为“_placeHolderLabel”的私有成员变量</strong>。那么就简单多了，我们现在就对这个私有变量进行操作。具体的步骤如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -411,38 +414,38 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">- (void)setupTextView {
-    _textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 50, [UIScreen mainScreen].bounds.size.width, 200)];
-    _textView.delegate = self;
-    _textView.tintColor = [UIColor whiteColor];
-    _textView.font = [UIFont systemFontOfSize:15.f];
-    _textView.backgroundColor =[UIColor grayColor];
-    [self.view addSubview:_textView];
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setupTextView</span> <span class="p">{</span>
+    <span class="n">_textView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UITextView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithFrame</span><span class="p">:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="p">[</span><span class="n">UIScreen</span> <span class="n">mainScreen</span><span class="p">].</span><span class="n">bounds</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">200</span><span class="p">)];</span>
+    <span class="n">_textView</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="n">_textView</span><span class="p">.</span><span class="n">tintColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">whiteColor</span><span class="p">];</span>
+    <span class="n">_textView</span><span class="p">.</span><span class="n">font</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIFont</span> <span class="nl">systemFontOfSize</span><span class="p">:</span><span class="mf">15.f</span><span class="p">];</span>
+    <span class="n">_textView</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span><span class="p">[</span><span class="n">UIColor</span> <span class="n">grayColor</span><span class="p">];</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview</span><span class="p">:</span><span class="n">_textView</span><span class="p">];</span>
     
-    UILabel *placeholderLabel = [[UILabel alloc] init];
-    placeholderLabel.text = @&#34;请输入内容请输入内容请输入内容请输入内容请输入内容请输入内容请输入内容请输入内容请输入内容请输入内容请输入内容&#34;;
-    placeholderLabel.font = [UIFont systemFontOfSize:15.f];
-    placeholderLabel.textColor = [UIColor whiteColor];
-    placeholderLabel.numberOfLines = 0;
-    [placeholderLabel sizeToFit];
-    [_textView addSubview:placeholderLabel];
+    <span class="n">UILabel</span> <span class="o">*</span><span class="n">placeholderLabel</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UILabel</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">placeholderLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="s">@&#34;请输入内容请输入内容请输入内容请输入内容请输入内容请输入内容请输入内容请输入内容请输入内容请输入内容请输入内容&#34;</span><span class="p">;</span>
+    <span class="n">placeholderLabel</span><span class="p">.</span><span class="n">font</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIFont</span> <span class="nl">systemFontOfSize</span><span class="p">:</span><span class="mf">15.f</span><span class="p">];</span>
+    <span class="n">placeholderLabel</span><span class="p">.</span><span class="n">textColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">whiteColor</span><span class="p">];</span>
+    <span class="n">placeholderLabel</span><span class="p">.</span><span class="n">numberOfLines</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">placeholderLabel</span> <span class="n">sizeToFit</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">_textView</span> <span class="nl">addSubview</span><span class="p">:</span><span class="n">placeholderLabel</span><span class="p">];</span>
     
-    [_textView setValue:placeholderLabel forKey:@&#34;_placeholderLabel&#34;];
-}
+    <span class="p">[</span><span class="n">_textView</span> <span class="nl">setValue</span><span class="p">:</span><span class="n">placeholderLabel</span> <span class="nl">forKey</span><span class="p">:</span><span class="s">@&#34;_placeholderLabel&#34;</span><span class="p">];</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>上面代码做的事情，<strong>无非是创建一个 UITextView 和一个 UILabel 控件，然后通过键值对的原理给 UITextView 中的 _placeholderLabel 这一属性赋值</strong>，，，就不详细注释了，重要的是这种思想。。。只需上面这段代码，我们就已经完成了利用 RunTime 为 UITextView 设置占位文本。效果图如下，比较丑但很实用😂：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-85668f6a6f72ba93.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="为 UITextView 设置占位文本"></p>
-<p>#####接下来我们开始实时改变文本框占位文本的颜色。
-举个栗子：当我们开始输入时占位文本是白色，结束输入时占位文本是灰色。那我们在哪里设置比较好呢？我在 UITextViewDelegate 中找到了两个方法，可以解决我们的需求</p>
+<p><img src="/image/iOS/iOS_Runtime/Runtime05.png" alt="为 UITextView 设置占位文本"></p>
+<h5 id="接下来我们开始实时改变文本框占位文本的颜色">接下来我们开始实时改变文本框占位文本的颜色。</h5>
+<p>举个栗子：当我们开始输入时占位文本是白色，结束输入时占位文本是灰色。那我们在哪里设置比较好呢？我在 UITextViewDelegate 中找到了两个方法，可以解决我们的需求</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">- (BOOL)textViewShouldBeginEditing:(UITextView *)textView;
-- (BOOL)textViewShouldEndEditing:(UITextView *)textView;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">textViewShouldBeginEditing:</span><span class="p">(</span><span class="n">UITextView</span> <span class="o">*</span><span class="p">)</span><span class="nv">textView</span><span class="p">;</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">textViewShouldEndEditing:</span><span class="p">(</span><span class="n">UITextView</span> <span class="o">*</span><span class="p">)</span><span class="nv">textView</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>看名字就能猜到这俩方法是干嘛的了，这里不再多说，，，我们需要在这两个方法里进行一些操作，先贴代码。</p>
@@ -469,33 +472,34 @@
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#pragma mark - UITextViewDelegate
-#pragma mark - 开始编辑 UITextView
-- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
-    // 设置高亮时，占位文字颜色为白色
-    [_textView setValue:[UIColor whiteColor] forKeyPath:@&#34;_placeholderLabel.textColor&#34;];
-    // 设置光标颜色为白色
-    _textView.tintColor = [UIColor whiteColor];
-    return YES;
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#pragma mark - UITextViewDelegate
+</span><span class="cp">#pragma mark - 开始编辑 UITextView
+</span><span class="cp"></span><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">textViewShouldBeginEditing:</span><span class="p">(</span><span class="n">UITextView</span> <span class="o">*</span><span class="p">)</span><span class="nv">textView</span> <span class="p">{</span>
+    <span class="c1">// 设置高亮时，占位文字颜色为白色
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">_textView</span> <span class="nl">setValue</span><span class="p">:[</span><span class="n">UIColor</span> <span class="n">whiteColor</span><span class="p">]</span> <span class="nl">forKeyPath</span><span class="p">:</span><span class="s">@&#34;_placeholderLabel.textColor&#34;</span><span class="p">];</span>
+    <span class="c1">// 设置光标颜色为白色
+</span><span class="c1"></span>    <span class="n">_textView</span><span class="p">.</span><span class="n">tintColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">whiteColor</span><span class="p">];</span>
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
 
-#pragma mark - 结束编辑 UITextView
-- (BOOL)textViewShouldEndEditing:(UITextView *)textView {
+<span class="cp">#pragma mark - 结束编辑 UITextView
+</span><span class="cp"></span><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">textViewShouldEndEditing:</span><span class="p">(</span><span class="n">UITextView</span> <span class="o">*</span><span class="p">)</span><span class="nv">textView</span> <span class="p">{</span>
     
-    // 设置非高亮状态下，占位文字颜色为 lightGrayColor
-    [_textView setValue:[UIColor lightGrayColor] forKeyPath:@&#34;_placeholderLabel.textColor&#34;];
-    // 设置光标颜色为 lightGrayColor
-    _textView.tintColor = [UIColor lightGrayColor];
-    return YES;
-}
+    <span class="c1">// 设置非高亮状态下，占位文字颜色为 lightGrayColor
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">_textView</span> <span class="nl">setValue</span><span class="p">:[</span><span class="n">UIColor</span> <span class="n">lightGrayColor</span><span class="p">]</span> <span class="nl">forKeyPath</span><span class="p">:</span><span class="s">@&#34;_placeholderLabel.textColor&#34;</span><span class="p">];</span>
+    <span class="c1">// 设置光标颜色为 lightGrayColor
+</span><span class="c1"></span>    <span class="n">_textView</span><span class="p">.</span><span class="n">tintColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">lightGrayColor</span><span class="p">];</span>
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>和上文设置占位文本的思想一样，这里也是 <strong>根据键值对的原理给 _placeholderLabel.textColor 赋值</strong>，开始编辑时设置为白色，结束编辑时设置为 lightGrayColor，具体请看代码中的注释。</p>
 <p>到这里实时改变文本框占位文本的颜色也搞定了，是不是觉得很简单，先看下效果图（比较丑但很使用😂），文章结尾我会再次贴出完整的代码。。。自己以后看着方便，也可以帮助有需要的道友少走弯路，，不过文章如果有需要改正或改进的地方，还希望各位同行能多多指点。</p>
-<h5 id="效果图">效果图</h5>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-f89dfd4f1b745501.gif?imageMogr2/auto-orient/strip" alt="为 UITextView 设置占位文本并实时改变文本框占位文本的颜色"></p>
+<h3 id="效果图">效果图</h3>
+<p><img src="/image/iOS/iOS_Runtime/Runtime06.gif" alt="为 UITextView 设置占位文本并实时改变文本框占位文本的颜色"></p>
 <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<h5 id="在需要-uitextview--的页面进行设置nnviewcontrollerh-中没有相关操作直接在nnviewcontrollerm-中进行设置即可当然如果项目中用到-uitextview-这个类比较多的话你也可以简单封装一下以便多次利用以下是全部代码">在需要 <code>UITextView</code>  的页面进行设置，<code>NNViewController.h</code> 中没有相关操作，直接在<code>NNViewController.m</code> 中进行设置即可，当然如果项目中用到 <code>UITextView</code> 这个类比较多的话，你也可以简单封装一下，以便多次利用。。。以下是全部代码</h5>
+<h5 id="在需要-uitextview--的页面进行设置nnviewcontrollerh-中没有相关操作直接在nnviewcontrollerm-中进行设置即可当然如果项目中用到-uitextview-这个类比较多的话你也可以简单封装一下以便多次利用">在需要 <code>UITextView</code>  的页面进行设置，<code>NNViewController.h</code> 中没有相关操作，直接在<code>NNViewController.m</code> 中进行设置即可，当然如果项目中用到 <code>UITextView</code> 这个类比较多的话，你也可以简单封装一下，以便多次利用。。。</h5>
+<h3 id="代码">代码</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -579,83 +583,83 @@
 </span><span class="lnt">79
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#import &#34;NNViewController.h&#34;
-#import &lt;objc/runtime.h&gt;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#import &#34;NNViewController.h&#34;
+</span><span class="cp">#import &lt;objc/runtime.h&gt;
+</span><span class="cp"></span>
+<span class="k">@interface</span> <span class="nc">NNViewController</span> <span class="p">()</span><span class="o">&lt;</span><span class="n">UITextViewDelegate</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="n">UITextView</span> <span class="o">*</span><span class="n">_textView</span><span class="p">;</span>
+<span class="p">}</span>
 
-@interface NNViewController ()&lt;UITextViewDelegate&gt; {
-    UITextView *_textView;
-}
+<span class="k">@end</span>
 
-@end
+<span class="k">@implementation</span> <span class="nc">NNViewController</span>
 
-@implementation NNViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
     
-    //  获取 UITextView 中所有的成员变量
-    unsigned int count = 0;
-    Ivar *ivars = class_copyIvarList([UITextView class], &amp;count);
+    <span class="c1">//  获取 UITextView 中所有的成员变量
+</span><span class="c1"></span>    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">Ivar</span> <span class="o">*</span><span class="n">ivars</span> <span class="o">=</span> <span class="n">class_copyIvarList</span><span class="p">([</span><span class="n">UITextView</span> <span class="k">class</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">count</span><span class="p">);</span>
     
-    for (int i = 0; i &lt; count; i ++) {
-        Ivar ivar = ivars[i];
-        // ivar_getName(ivar) 意思是获取成员变量名字，如果想获得成员变量的类型用这个 ivar_getTypeEncoding(ivar)
-        const char *name = ivar_getName(ivar);
-        NSString *objcName = [NSString stringWithUTF8String:name];
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">count</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Ivar</span> <span class="n">ivar</span> <span class="o">=</span> <span class="n">ivars</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="c1">// ivar_getName(ivar) 意思是获取成员变量名字，如果想获得成员变量的类型用这个 ivar_getTypeEncoding(ivar)
+</span><span class="c1"></span>        <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span> <span class="o">=</span> <span class="n">ivar_getName</span><span class="p">(</span><span class="n">ivar</span><span class="p">);</span>
+        <span class="n">NSString</span> <span class="o">*</span><span class="n">objcName</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithUTF8String</span><span class="p">:</span><span class="n">name</span><span class="p">];</span>
         
-        NSLog(@&#34;    %d     %@    &#34;, i, objcName);
-    }
-    // 释放
-    free(ivars);
-        [self setupTextView];
-}
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;    %d     %@    &#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">objcName</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">// 释放
+</span><span class="c1"></span>    <span class="n">free</span><span class="p">(</span><span class="n">ivars</span><span class="p">);</span>
+        <span class="p">[</span><span class="nb">self</span> <span class="n">setupTextView</span><span class="p">];</span>
+<span class="p">}</span>
 
 
-- (void)setupTextView {
-    _textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 50, [UIScreen mainScreen].bounds.size.width, 200)];
-    _textView.delegate = self;
-    _textView.tintColor = [UIColor lightGrayColor];
-    _textView.font = [UIFont systemFontOfSize:15.f];
-    _textView.backgroundColor =[UIColor grayColor];
-    [self.view addSubview:_textView];
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setupTextView</span> <span class="p">{</span>
+    <span class="n">_textView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UITextView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithFrame</span><span class="p">:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="p">[</span><span class="n">UIScreen</span> <span class="n">mainScreen</span><span class="p">].</span><span class="n">bounds</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">200</span><span class="p">)];</span>
+    <span class="n">_textView</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="n">_textView</span><span class="p">.</span><span class="n">tintColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">lightGrayColor</span><span class="p">];</span>
+    <span class="n">_textView</span><span class="p">.</span><span class="n">font</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIFont</span> <span class="nl">systemFontOfSize</span><span class="p">:</span><span class="mf">15.f</span><span class="p">];</span>
+    <span class="n">_textView</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span><span class="p">[</span><span class="n">UIColor</span> <span class="n">grayColor</span><span class="p">];</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview</span><span class="p">:</span><span class="n">_textView</span><span class="p">];</span>
     
-    UILabel *placeholderLabel = [[UILabel alloc] init];
-    placeholderLabel.text = @&#34;请输入内容请输入内容请输入内容请输入内容请输入内容请输入内容请输入内容请输入内容请输入内容请输入内容请输入内容&#34;;
-    placeholderLabel.font = [UIFont systemFontOfSize:15.f];
-    placeholderLabel.textColor = [UIColor lightGrayColor];
-    placeholderLabel.numberOfLines = 0;
-    [placeholderLabel sizeToFit];
-    [_textView addSubview:placeholderLabel];
+    <span class="n">UILabel</span> <span class="o">*</span><span class="n">placeholderLabel</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UILabel</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">placeholderLabel</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="s">@&#34;请输入内容请输入内容请输入内容请输入内容请输入内容请输入内容请输入内容请输入内容请输入内容请输入内容请输入内容&#34;</span><span class="p">;</span>
+    <span class="n">placeholderLabel</span><span class="p">.</span><span class="n">font</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIFont</span> <span class="nl">systemFontOfSize</span><span class="p">:</span><span class="mf">15.f</span><span class="p">];</span>
+    <span class="n">placeholderLabel</span><span class="p">.</span><span class="n">textColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">lightGrayColor</span><span class="p">];</span>
+    <span class="n">placeholderLabel</span><span class="p">.</span><span class="n">numberOfLines</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">placeholderLabel</span> <span class="n">sizeToFit</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">_textView</span> <span class="nl">addSubview</span><span class="p">:</span><span class="n">placeholderLabel</span><span class="p">];</span>
     
-    [_textView setValue:placeholderLabel forKey:@&#34;_placeholderLabel&#34;];
-}
+    <span class="p">[</span><span class="n">_textView</span> <span class="nl">setValue</span><span class="p">:</span><span class="n">placeholderLabel</span> <span class="nl">forKey</span><span class="p">:</span><span class="s">@&#34;_placeholderLabel&#34;</span><span class="p">];</span>
+<span class="p">}</span>
 
-#pragma mark - UITextViewDelegate
-#pragma mark - 开始编辑 UITextView
-- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
-    // 设置高亮时，占位文字颜色为白色
-    [_textView setValue:[UIColor whiteColor] forKeyPath:@&#34;_placeholderLabel.textColor&#34;];
-    // 设置光标颜色为白色
-    _textView.tintColor = [UIColor whiteColor];
-    return YES;
-}
+<span class="cp">#pragma mark - UITextViewDelegate
+</span><span class="cp">#pragma mark - 开始编辑 UITextView
+</span><span class="cp"></span><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">textViewShouldBeginEditing:</span><span class="p">(</span><span class="n">UITextView</span> <span class="o">*</span><span class="p">)</span><span class="nv">textView</span> <span class="p">{</span>
+    <span class="c1">// 设置高亮时，占位文字颜色为白色
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">_textView</span> <span class="nl">setValue</span><span class="p">:[</span><span class="n">UIColor</span> <span class="n">whiteColor</span><span class="p">]</span> <span class="nl">forKeyPath</span><span class="p">:</span><span class="s">@&#34;_placeholderLabel.textColor&#34;</span><span class="p">];</span>
+    <span class="c1">// 设置光标颜色为白色
+</span><span class="c1"></span>    <span class="n">_textView</span><span class="p">.</span><span class="n">tintColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">whiteColor</span><span class="p">];</span>
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
 
-#pragma mark - 结束编辑 UITextView
-- (BOOL)textViewShouldEndEditing:(UITextView *)textView {
+<span class="cp">#pragma mark - 结束编辑 UITextView
+</span><span class="cp"></span><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">textViewShouldEndEditing:</span><span class="p">(</span><span class="n">UITextView</span> <span class="o">*</span><span class="p">)</span><span class="nv">textView</span> <span class="p">{</span>
     
-    // 设置非高亮状态下，占位文字颜色为 lightGrayColor
-    [_textView setValue:[UIColor lightGrayColor] forKeyPath:@&#34;_placeholderLabel.textColor&#34;];
-    // 设置光标颜色为 lightGrayColor
-    _textView.tintColor = [UIColor lightGrayColor];
-    return YES;
-}
+    <span class="c1">// 设置非高亮状态下，占位文字颜色为 lightGrayColor
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">_textView</span> <span class="nl">setValue</span><span class="p">:[</span><span class="n">UIColor</span> <span class="n">lightGrayColor</span><span class="p">]</span> <span class="nl">forKeyPath</span><span class="p">:</span><span class="s">@&#34;_placeholderLabel.textColor&#34;</span><span class="p">];</span>
+    <span class="c1">// 设置光标颜色为 lightGrayColor
+</span><span class="c1"></span>    <span class="n">_textView</span><span class="p">.</span><span class="n">tintColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">lightGrayColor</span><span class="p">];</span>
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
 
-#pragma mark - 点击空白页面时收回键盘
-- (void)touchesBegan:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event {
-    [self.view endEditing:YES];
-}
+<span class="cp">#pragma mark - 点击空白页面时收回键盘
+</span><span class="cp"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">touchesBegan:</span><span class="p">(</span><span class="n">NSSet</span><span class="o">&lt;</span><span class="n">UITouch</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">touches</span> <span class="nf">withEvent:</span><span class="p">(</span><span class="n">UIEvent</span> <span class="o">*</span><span class="p">)</span><span class="nv">event</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">endEditing</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
+<span class="p">}</span>
 
-@end
+<span class="k">@end</span>
 
 
 </code></pre></td></tr></table>

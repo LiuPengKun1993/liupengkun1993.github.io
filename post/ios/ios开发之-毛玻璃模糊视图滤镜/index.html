@@ -326,7 +326,9 @@
   <ul>
     <li>
       <ul>
-        <li></li>
+        <li><a href="#一简单的毛玻璃效果">一、简单的毛玻璃效果：</a></li>
+        <li><a href="#二高斯模糊运动模糊等先看效果图">二、高斯模糊运动模糊等，先看效果图：</a></li>
+        <li><a href="#三滤镜效果先看下效果图">三、滤镜效果，先看下效果图</a></li>
       </ul>
     </li>
   </ul>
@@ -341,7 +343,7 @@
 </blockquote>
 <p><img src="http://upload-images.jianshu.io/upload_images/2665449-6946c7d084d2e1ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="CoreImage/CoreImage初窥"></p>
 <p>这篇文章主要演示了三种模糊效果，如下：</p>
-<h4 id="一简单的毛玻璃效果">一、简单的毛玻璃效果：</h4>
+<h3 id="一简单的毛玻璃效果">一、简单的毛玻璃效果：</h3>
 <ul>
 <li>
 <p>原图
@@ -384,30 +386,30 @@
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#import &#34;ViewController.h&#34;
-#import &lt;CoreImage/CoreImage.h&gt;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#import &#34;ViewController.h&#34;
+</span><span class="cp">#import &lt;CoreImage/CoreImage.h&gt;
+</span><span class="cp"></span>
+<span class="k">@interface</span> <span class="nc">ViewController</span> <span class="p">()</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">strong</span><span class="p">)</span> <span class="n">UIImageView</span> <span class="o">*</span><span class="n">imageView</span><span class="p">;</span>
+<span class="k">@end</span>
 
-@interface ViewController ()
-@property (nonatomic, strong) UIImageView *imageView;
-@end
+<span class="k">@implementation</span> <span class="nc">ViewController</span>
 
-@implementation ViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
     
-    self.imageView = [[UIImageView alloc]initWithFrame:self.view.frame];
-    self.imageView.image = [UIImage imageNamed:@&#34;1.jpg&#34;];
-    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
-    [self.view addSubview:self.imageView];
+    <span class="nb">self</span><span class="p">.</span><span class="n">imageView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIImageView</span> <span class="n">alloc</span><span class="p">]</span><span class="nl">initWithFrame</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">imageView</span><span class="p">.</span><span class="n">image</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed</span><span class="p">:</span><span class="s">@&#34;1.jpg&#34;</span><span class="p">];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">imageView</span><span class="p">.</span><span class="n">contentMode</span> <span class="o">=</span> <span class="n">UIViewContentModeScaleAspectFill</span><span class="p">;</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">imageView</span><span class="p">];</span>
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0, self.view.frame.size.height - 80, self.view.frame.size.width, 40);
-    [button setTitle:@&#34;蒙奇·D·路飞&#34; forState:UIControlStateNormal];
-    button.backgroundColor = [UIColor brownColor];
-    [button addTarget:self action:@selector(&#34;点击调用的方法&#34;) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
-}
+    <span class="n">UIButton</span> <span class="o">*</span><span class="n">button</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIButton</span> <span class="nl">buttonWithType</span><span class="p">:</span><span class="n">UIButtonTypeCustom</span><span class="p">];</span>
+    <span class="n">button</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span> <span class="o">-</span> <span class="mi">80</span><span class="p">,</span> <span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">40</span><span class="p">);</span>
+    <span class="p">[</span><span class="n">button</span> <span class="nl">setTitle</span><span class="p">:</span><span class="s">@&#34;蒙奇·D·路飞&#34;</span> <span class="nl">forState</span><span class="p">:</span><span class="n">UIControlStateNormal</span><span class="p">];</span>
+    <span class="n">button</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">brownColor</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">button</span> <span class="nl">addTarget</span><span class="p">:</span><span class="nb">self</span> <span class="nl">action</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="s">&#34;点击调用的方法&#34;</span><span class="p">)</span> <span class="nl">forControlEvents</span><span class="p">:</span><span class="n">UIControlEventTouchUpInside</span><span class="p">];</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview</span><span class="p">:</span><span class="n">button</span><span class="p">];</span>
+<span class="p">}</span>
 
 </code></pre></td></tr></table>
 </div>
@@ -436,29 +438,29 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    self.imageView = [[UIImageView alloc] initWithFrame:self.view.frame];
-    self.imageView.image = [UIImage imageNamed:@&#34;1.jpg&#34;];
-    UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    UIVisualEffectView *visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blur];
-    visualEffectView.frame = self.view.frame;
-    [self.imageView addSubview:visualEffectView];
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="nb">self</span><span class="p">.</span><span class="n">imageView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIImageView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithFrame</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">imageView</span><span class="p">.</span><span class="n">image</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed</span><span class="p">:</span><span class="s">@&#34;1.jpg&#34;</span><span class="p">];</span>
+    <span class="n">UIBlurEffect</span> <span class="o">*</span><span class="n">blur</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIBlurEffect</span> <span class="nl">effectWithStyle</span><span class="p">:</span><span class="n">UIBlurEffectStyleLight</span><span class="p">];</span>
+    <span class="n">UIVisualEffectView</span> <span class="o">*</span><span class="n">visualEffectView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIVisualEffectView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithEffect</span><span class="p">:</span><span class="n">blur</span><span class="p">];</span>
+    <span class="n">visualEffectView</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">;</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">imageView</span> <span class="nl">addSubview</span><span class="p">:</span><span class="n">visualEffectView</span><span class="p">];</span>
 
-    UIVibrancyEffect *vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:blur];
-    UIVisualEffectView *ano = [[UIVisualEffectView alloc] initWithEffect:vibrancyEffect];
-    ano.frame = self.view.frame;
+    <span class="n">UIVibrancyEffect</span> <span class="o">*</span><span class="n">vibrancyEffect</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIVibrancyEffect</span> <span class="nl">effectForBlurEffect</span><span class="p">:</span><span class="n">blur</span><span class="p">];</span>
+    <span class="n">UIVisualEffectView</span> <span class="o">*</span><span class="n">ano</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIVisualEffectView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithEffect</span><span class="p">:</span><span class="n">vibrancyEffect</span><span class="p">];</span>
+    <span class="n">ano</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">;</span>
 
-    UILabel *label = [[UILabel alloc] init];
-    label.font = [UIFont systemFontOfSize:40];
-    label.frame = CGRectMake(0, self.view.frame.size.height - 120, self.view.frame.size.width, 80);
-    label.textAlignment = NSTextAlignmentCenter;
-    label.text = @&#34;蒙奇·D·路飞&#34;;
-    [visualEffectView.contentView addSubview:ano];
-    [ano.contentView addSubview:label];
+    <span class="n">UILabel</span> <span class="o">*</span><span class="n">label</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UILabel</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">label</span><span class="p">.</span><span class="n">font</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIFont</span> <span class="nl">systemFontOfSize</span><span class="p">:</span><span class="mi">40</span><span class="p">];</span>
+    <span class="n">label</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span> <span class="o">-</span> <span class="mi">120</span><span class="p">,</span> <span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">80</span><span class="p">);</span>
+    <span class="n">label</span><span class="p">.</span><span class="n">textAlignment</span> <span class="o">=</span> <span class="n">NSTextAlignmentCenter</span><span class="p">;</span>
+    <span class="n">label</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="s">@&#34;蒙奇·D·路飞&#34;</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">visualEffectView</span><span class="p">.</span><span class="n">contentView</span> <span class="nl">addSubview</span><span class="p">:</span><span class="n">ano</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">ano</span><span class="p">.</span><span class="n">contentView</span> <span class="nl">addSubview</span><span class="p">:</span><span class="n">label</span><span class="p">];</span>
     
-    [self.view addSubview:self.imageView];
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">imageView</span><span class="p">];</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="二高斯模糊运动模糊等先看效果图">二、高斯模糊运动模糊等，先看效果图：</h4>
+</div><h3 id="二高斯模糊运动模糊等先看效果图">二、高斯模糊运动模糊等，先看效果图：</h3>
 <ul>
 <li>原图</li>
 </ul>
@@ -490,22 +492,22 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    CIImage *inputImage = [CIImage imageWithCGImage:self.imageView.image.CGImage];
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="n">CIImage</span> <span class="o">*</span><span class="n">inputImage</span> <span class="o">=</span> <span class="p">[</span><span class="n">CIImage</span> <span class="nl">imageWithCGImage</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">imageView</span><span class="p">.</span><span class="n">image</span><span class="p">.</span><span class="n">CGImage</span><span class="p">];</span>
 
-    // CIGaussianBlur   高斯模糊
-    // CIBoxBlur        均值模糊
-    // CIDiscBlur       环形卷积模糊
-    // CIMotionBlur     运动模糊
-    CIFilter *filter = [CIFilter filterWithName:@&#34;CIMotionBlur&#34;];
-    [filter setValue:inputImage forKey:kCIInputImageKey];
-    [filter setValue:@5 forKey:kCIInputRadiusKey];
-    CIContext *context = [CIContext contextWithOptions:nil];
-    CIImage *outupImage = filter.outputImage;
-    CGImageRef imageRef = [context createCGImage:outupImage fromRect:outupImage.extent];
-    self.imageView.image= [UIImage imageWithCGImage:imageRef];
+    <span class="c1">// CIGaussianBlur   高斯模糊
+</span><span class="c1"></span>    <span class="c1">// CIBoxBlur        均值模糊
+</span><span class="c1"></span>    <span class="c1">// CIDiscBlur       环形卷积模糊
+</span><span class="c1"></span>    <span class="c1">// CIMotionBlur     运动模糊
+</span><span class="c1"></span>    <span class="n">CIFilter</span> <span class="o">*</span><span class="n">filter</span> <span class="o">=</span> <span class="p">[</span><span class="n">CIFilter</span> <span class="nl">filterWithName</span><span class="p">:</span><span class="s">@&#34;CIMotionBlur&#34;</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">filter</span> <span class="nl">setValue</span><span class="p">:</span><span class="n">inputImage</span> <span class="nl">forKey</span><span class="p">:</span><span class="n">kCIInputImageKey</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">filter</span> <span class="nl">setValue</span><span class="p">:</span><span class="mi">@5</span> <span class="nl">forKey</span><span class="p">:</span><span class="n">kCIInputRadiusKey</span><span class="p">];</span>
+    <span class="n">CIContext</span> <span class="o">*</span><span class="n">context</span> <span class="o">=</span> <span class="p">[</span><span class="n">CIContext</span> <span class="nl">contextWithOptions</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+    <span class="n">CIImage</span> <span class="o">*</span><span class="n">outupImage</span> <span class="o">=</span> <span class="n">filter</span><span class="p">.</span><span class="n">outputImage</span><span class="p">;</span>
+    <span class="n">CGImageRef</span> <span class="n">imageRef</span> <span class="o">=</span> <span class="p">[</span><span class="n">context</span> <span class="nl">createCGImage</span><span class="p">:</span><span class="n">outupImage</span> <span class="nl">fromRect</span><span class="p">:</span><span class="n">outupImage</span><span class="p">.</span><span class="n">extent</span><span class="p">];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">imageView</span><span class="p">.</span><span class="n">image</span><span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageWithCGImage</span><span class="p">:</span><span class="n">imageRef</span><span class="p">];</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="三滤镜效果先看下效果图">三、滤镜效果，先看下效果图</h4>
+</div><h3 id="三滤镜效果先看下效果图">三、滤镜效果，先看下效果图</h3>
 <ul>
 <li>
 <p>原图
@@ -542,23 +544,23 @@
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    CIContext *context = [CIContext contextWithOptions:nil];
-    CIImage *inputImage = [[CIImage alloc] initWithImage:self.imageView.image];
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="n">CIContext</span> <span class="o">*</span><span class="n">context</span> <span class="o">=</span> <span class="p">[</span><span class="n">CIContext</span> <span class="nl">contextWithOptions</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+    <span class="n">CIImage</span> <span class="o">*</span><span class="n">inputImage</span> <span class="o">=</span> <span class="p">[[</span><span class="n">CIImage</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithImage</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">imageView</span><span class="p">.</span><span class="n">image</span><span class="p">];</span>
     
-    // 怀旧  CIPhotoEffectInstant
-    // 单色  CIPhotoEffectMono
-    // 黑白  CIPhotoEffectNoir
-    // 褪色  CIPhotoEffectFade
-    // 色调  CIPhotoEffectTonal
-    // 冲印  CIPhotoEffectProcess
-    // 岁月  CIPhotoEffectTransfer
-    // 铬黄  CIPhotoEffectChrome
-    CIFilter *filter = [CIFilter filterWithName:@&#34;CIPhotoEffectInstant&#34;]; 
-    [filter setValue:inputImage forKey:kCIInputImageKey];
-    CIImage *result = [filter valueForKey:kCIOutputImageKey];
-    CGImageRef cgImage = [context createCGImage:result fromRect:[result extent]];
-    UIImage *resultImage = [UIImage imageWithCGImage:cgImage];
-    self.imageView.image= [UIImage imageWithCGImage:resultImage.CGImage];
+    <span class="c1">// 怀旧  CIPhotoEffectInstant
+</span><span class="c1"></span>    <span class="c1">// 单色  CIPhotoEffectMono
+</span><span class="c1"></span>    <span class="c1">// 黑白  CIPhotoEffectNoir
+</span><span class="c1"></span>    <span class="c1">// 褪色  CIPhotoEffectFade
+</span><span class="c1"></span>    <span class="c1">// 色调  CIPhotoEffectTonal
+</span><span class="c1"></span>    <span class="c1">// 冲印  CIPhotoEffectProcess
+</span><span class="c1"></span>    <span class="c1">// 岁月  CIPhotoEffectTransfer
+</span><span class="c1"></span>    <span class="c1">// 铬黄  CIPhotoEffectChrome
+</span><span class="c1"></span>    <span class="n">CIFilter</span> <span class="o">*</span><span class="n">filter</span> <span class="o">=</span> <span class="p">[</span><span class="n">CIFilter</span> <span class="nl">filterWithName</span><span class="p">:</span><span class="s">@&#34;CIPhotoEffectInstant&#34;</span><span class="p">];</span> 
+    <span class="p">[</span><span class="n">filter</span> <span class="nl">setValue</span><span class="p">:</span><span class="n">inputImage</span> <span class="nl">forKey</span><span class="p">:</span><span class="n">kCIInputImageKey</span><span class="p">];</span>
+    <span class="n">CIImage</span> <span class="o">*</span><span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">filter</span> <span class="nl">valueForKey</span><span class="p">:</span><span class="n">kCIOutputImageKey</span><span class="p">];</span>
+    <span class="n">CGImageRef</span> <span class="n">cgImage</span> <span class="o">=</span> <span class="p">[</span><span class="n">context</span> <span class="nl">createCGImage</span><span class="p">:</span><span class="n">result</span> <span class="nl">fromRect</span><span class="p">:[</span><span class="n">result</span> <span class="n">extent</span><span class="p">]];</span>
+    <span class="n">UIImage</span> <span class="o">*</span><span class="n">resultImage</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageWithCGImage</span><span class="p">:</span><span class="n">cgImage</span><span class="p">];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">imageView</span><span class="p">.</span><span class="n">image</span><span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageWithCGImage</span><span class="p">:</span><span class="n">resultImage</span><span class="p">.</span><span class="n">CGImage</span><span class="p">];</span>
     
 </code></pre></td></tr></table>
 </div>

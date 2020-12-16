@@ -382,13 +382,13 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">application:</span><span class="p">(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions:</span><span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
     
-    // 向微信终端注册ID
-    [WXApi registerApp:@&#34;wx0f8d5e0eadd2d4b7&#34; withDescription:@&#34;demo test&#34;];
+    <span class="c1">// 向微信终端注册ID
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">WXApi</span> <span class="nl">registerApp</span><span class="p">:</span><span class="s">@&#34;wx0f8d5e0eadd2d4b7&#34;</span> <span class="nl">withDescription</span><span class="p">:</span><span class="s">@&#34;demo test&#34;</span><span class="p">];</span>
     
-    return YES;
-}
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>2.获取微信支付所必要的参数
@@ -412,21 +412,21 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go">    <span class="c1">// 发起微信支付，设置参数
-</span><span class="c1"></span>    <span class="nx">PayReq</span> <span class="o">*</span><span class="nx">request</span>   <span class="p">=</span> <span class="p">[[</span><span class="nx">PayReq</span> <span class="nx">alloc</span><span class="p">]</span> <span class="nx">init</span><span class="p">];</span>  <span class="c1">// 创建支付对象
-</span><span class="c1"></span>    <span class="nx">request</span><span class="p">.</span><span class="nx">openID</span> <span class="p">=</span> <span class="err">@</span><span class="s">&#34;&#34;</span><span class="p">;</span> <span class="c1">// 由用户微信号和AppID组成的唯一标识
-</span><span class="c1"></span>    <span class="nx">request</span><span class="p">.</span><span class="nx">partnerId</span> <span class="p">=</span> <span class="err">@</span><span class="s">&#34;&#34;</span><span class="p">;</span> <span class="c1">// 商家ID
-</span><span class="c1"></span>    <span class="nx">request</span><span class="p">.</span><span class="nx">prepayId</span>  <span class="p">=</span> <span class="err">@</span><span class="s">&#34;&#34;</span><span class="p">;</span> <span class="c1">// 预支付订单ID
-</span><span class="c1"></span>    <span class="nx">request</span><span class="p">.</span><span class="kn">package</span>   <span class="p">=</span> <span class="err">@</span><span class="s">&#34;Sign=WXPay&#34;</span><span class="p">;</span> <span class="c1">// 数据和签名
-</span><span class="c1"></span>    <span class="nx">request</span><span class="p">.</span><span class="nx">nonceStr</span>  <span class="p">=</span> <span class="err">@</span><span class="s">&#34;&#34;</span><span class="p">;</span> <span class="c1">// 随机编码
-</span><span class="c1"></span>    <span class="nx">NSDate</span> <span class="o">*</span><span class="nx">date</span> <span class="p">=</span> <span class="p">[</span><span class="nx">NSDate</span> <span class="nx">date</span><span class="p">];</span>
-    <span class="nx">NSString</span> <span class="o">*</span> <span class="nx">timeSp</span> <span class="p">=</span> <span class="p">[</span><span class="nx">NSString</span> <span class="nx">stringWithFormat</span><span class="p">:</span><span class="err">@</span><span class="s">&#34;%ld&#34;</span><span class="p">,</span> <span class="p">(</span><span class="nx">long</span><span class="p">)[</span><span class="nx">date</span> <span class="nx">timeIntervalSince1970</span><span class="p">]];</span>
-    <span class="nx">UInt32</span> <span class="nx">timeStamp</span> <span class="p">=</span> <span class="p">[</span><span class="nx">timeSp</span> <span class="nx">intValue</span><span class="p">];</span>
-    <span class="nx">request</span><span class="p">.</span><span class="nx">timeStamp</span> <span class="p">=</span> <span class="nx">timeStamp</span><span class="p">;</span> <span class="c1">// 时间戳
-</span><span class="c1"></span>    <span class="nx">request</span><span class="p">.</span><span class="nx">sign</span> <span class="p">=</span> <span class="err">@</span><span class="s">&#34;&#34;</span><span class="p">;</span> <span class="c1">// 签名，签名一般都会加密
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="c1">// 发起微信支付，设置参数
+</span><span class="c1"></span>    <span class="n">PayReq</span> <span class="o">*</span><span class="n">request</span>   <span class="o">=</span> <span class="p">[[</span><span class="n">PayReq</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>  <span class="c1">// 创建支付对象
+</span><span class="c1"></span>    <span class="n">request</span><span class="p">.</span><span class="n">openID</span> <span class="o">=</span> <span class="s">@&#34;&#34;</span><span class="p">;</span> <span class="c1">// 由用户微信号和AppID组成的唯一标识
+</span><span class="c1"></span>    <span class="n">request</span><span class="p">.</span><span class="n">partnerId</span> <span class="o">=</span> <span class="s">@&#34;&#34;</span><span class="p">;</span> <span class="c1">// 商家ID
+</span><span class="c1"></span>    <span class="n">request</span><span class="p">.</span><span class="n">prepayId</span>  <span class="o">=</span> <span class="s">@&#34;&#34;</span><span class="p">;</span> <span class="c1">// 预支付订单ID
+</span><span class="c1"></span>    <span class="n">request</span><span class="p">.</span><span class="n">package</span>   <span class="o">=</span> <span class="s">@&#34;Sign=WXPay&#34;</span><span class="p">;</span> <span class="c1">// 数据和签名
+</span><span class="c1"></span>    <span class="n">request</span><span class="p">.</span><span class="n">nonceStr</span>  <span class="o">=</span> <span class="s">@&#34;&#34;</span><span class="p">;</span> <span class="c1">// 随机编码
+</span><span class="c1"></span>    <span class="n">NSDate</span> <span class="o">*</span><span class="n">date</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSDate</span> <span class="n">date</span><span class="p">];</span>
+    <span class="n">NSString</span> <span class="o">*</span> <span class="n">timeSp</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&#34;%ld&#34;</span><span class="p">,</span> <span class="p">(</span><span class="kt">long</span><span class="p">)[</span><span class="n">date</span> <span class="n">timeIntervalSince1970</span><span class="p">]];</span>
+    <span class="kt">UInt32</span> <span class="n">timeStamp</span> <span class="o">=</span> <span class="p">[</span><span class="n">timeSp</span> <span class="n">intValue</span><span class="p">];</span>
+    <span class="n">request</span><span class="p">.</span><span class="n">timeStamp</span> <span class="o">=</span> <span class="n">timeStamp</span><span class="p">;</span> <span class="c1">// 时间戳
+</span><span class="c1"></span>    <span class="n">request</span><span class="p">.</span><span class="n">sign</span> <span class="o">=</span> <span class="s">@&#34;&#34;</span><span class="p">;</span> <span class="c1">// 签名，签名一般都会加密
 </span><span class="c1"></span>    
     <span class="c1">//发送请求到微信，等待微信返回 onResp
-</span><span class="c1"></span>    <span class="p">[</span><span class="nx">WXApi</span> <span class="nx">sendReq</span><span class="p">:</span><span class="nx">request</span><span class="p">];</span>
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">WXApi</span> <span class="nl">sendReq</span><span class="p">:</span><span class="n">request</span><span class="p">];</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>3.微信支付回调
@@ -473,44 +473,44 @@
 </span><span class="lnt">38
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 判断发起的请求是否为微信支付，如果是就回调
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary&lt;NSString *,id&gt; *)options {
-    return [WXApi handleOpenURL:url delegate:self];
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 判断发起的请求是否为微信支付，如果是就回调
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">application:</span><span class="p">(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">app</span> <span class="nf">openURL:</span><span class="p">(</span><span class="n">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="nv">url</span> <span class="nf">options:</span><span class="p">(</span><span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span><span class="kt">id</span><span class="o">&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">options</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">WXApi</span> <span class="nl">handleOpenURL</span><span class="p">:</span><span class="n">url</span> <span class="nl">delegate</span><span class="p">:</span><span class="nb">self</span><span class="p">];</span>
+<span class="p">}</span>
 
-#pragma mark - WXApiDelegate
-// 微信支付结果回调方法
-- (void)onResp:(BaseResp *)resp {
-    NSString *payResoult = [NSString stringWithFormat:@&#34;%d&#34;, resp.errCode];
+<span class="cp">#pragma mark - WXApiDelegate
+</span><span class="cp"></span><span class="c1">// 微信支付结果回调方法
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onResp:</span><span class="p">(</span><span class="n">BaseResp</span> <span class="o">*</span><span class="p">)</span><span class="nv">resp</span> <span class="p">{</span>
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">payResoult</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&#34;%d&#34;</span><span class="p">,</span> <span class="n">resp</span><span class="p">.</span><span class="n">errCode</span><span class="p">];</span>
     
-    if([resp isKindOfClass:[PayResp class]]){
+    <span class="k">if</span><span class="p">([</span><span class="n">resp</span> <span class="nl">isKindOfClass</span><span class="p">:[</span><span class="n">PayResp</span> <span class="k">class</span><span class="p">]]){</span>
 
-        /**
-         WXSuccess           = 0,    成功
-        WXErrCodeCommon     = -1,    普通错误类型
-        WXErrCodeUserCancel = -2,    用户点击取消并返回
-        WXErrCodeSentFail   = -3,    发送失败
-        WXErrCodeAuthDeny   = -4,    授权失败
-        WXErrCodeUnsupport  = -5,    微信不支持
-         */
-        //支付返回结果，实际支付结果需要去微信服务器端查询
-        switch (resp.errCode) {
-            case WXSuccess:
-                payResoult = @&#34;支付成功&#34;;
-                break;
-            case WXErrCodeCommon:
-                payResoult = @&#34;支付失败&#34;;
-                break;
-            case WXErrCodeUserCancel:
-                payResoult = @&#34;用户点击取消并返回&#34;;
-                break;
-            default:
-                // 错误码 以及 错误提示字符串
-                payResoult = [NSString stringWithFormat:@&#34;支付结果：失败！retcode = %d, retstr = %@&#34;, resp.errCode,resp.errStr];
-                break;
-        }
-    }
-}
+        <span class="cm">/**
+</span><span class="cm">         WXSuccess           = 0,    成功
+</span><span class="cm">        WXErrCodeCommon     = -1,    普通错误类型
+</span><span class="cm">        WXErrCodeUserCancel = -2,    用户点击取消并返回
+</span><span class="cm">        WXErrCodeSentFail   = -3,    发送失败
+</span><span class="cm">        WXErrCodeAuthDeny   = -4,    授权失败
+</span><span class="cm">        WXErrCodeUnsupport  = -5,    微信不支持
+</span><span class="cm">         */</span>
+        <span class="c1">//支付返回结果，实际支付结果需要去微信服务器端查询
+</span><span class="c1"></span>        <span class="k">switch</span> <span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="n">errCode</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="nl">WXSuccess</span><span class="p">:</span>
+                <span class="n">payResoult</span> <span class="o">=</span> <span class="s">@&#34;支付成功&#34;</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="nl">WXErrCodeCommon</span><span class="p">:</span>
+                <span class="n">payResoult</span> <span class="o">=</span> <span class="s">@&#34;支付失败&#34;</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="nl">WXErrCodeUserCancel</span><span class="p">:</span>
+                <span class="n">payResoult</span> <span class="o">=</span> <span class="s">@&#34;用户点击取消并返回&#34;</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">default</span><span class="o">:</span>
+                <span class="c1">// 错误码 以及 错误提示字符串
+</span><span class="c1"></span>                <span class="n">payResoult</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&#34;支付结果：失败！retcode = %d, retstr = %@&#34;</span><span class="p">,</span> <span class="n">resp</span><span class="p">.</span><span class="n">errCode</span><span class="p">,</span><span class="n">resp</span><span class="p">.</span><span class="n">errStr</span><span class="p">];</span>
+                <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><hr>

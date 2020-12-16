@@ -69,7 +69,7 @@
 <meta itemprop="description" content="年后上班第一天，比较闲，上午的时候抽空整理了iOS开发中常用的易忘知识点：iOS开发之 - 小冷易忘知识点总结，有兴趣的朋友们可以去看看。下午整">
 <meta itemprop="datePublished" content="2017-02-06T15:43:48+08:00" />
 <meta itemprop="dateModified" content="2017-12-12T15:43:48+08:00" />
-<meta itemprop="wordCount" content="1160">
+<meta itemprop="wordCount" content="1162">
 
 
 
@@ -306,7 +306,7 @@
             <a href="https://liupengkun1993.github.io/categories/ios/"> iOS </a>
             
           </div>
-        <span class="more-meta"> 1160 words </span>
+        <span class="more-meta"> 1162 words </span>
           <span class="more-meta"> 3 min read </span>
 
         
@@ -324,11 +324,16 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#使用步骤">使用步骤</a>
       <ul>
-        <li><a href="#以下是-iqkeyboardmanager-的一些具体使用">以下是 IQKeyboardManager 的一些具体使用</a></li>
+        <li><a href="#1-集成">1. 集成</a></li>
+        <li><a href="#2-导入头文件">2. 导入头文件</a></li>
+        <li><a href="#3-设置全局属性">3. 设置全局属性</a></li>
+        <li><a href="#4-特殊处理">4. 特殊处理</a></li>
       </ul>
     </li>
+    <li><a href="#常用属性介绍">常用属性介绍</a></li>
+    <li><a href="#相关文章推荐">相关文章推荐</a></li>
   </ul>
 </nav>
   </div>
@@ -351,25 +356,28 @@ GitHub 地址：<a href="https://github.com/hackiftekhar/IQKeyboardManager">GitH
 <p>官方示意效果图如下：</p>
 </li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-85b8ad91640b23c3.gif?imageMogr2/auto-orient/strip" alt="官方示意效果图"></p>
+<p><img src="/image/iOS/iOS_IQKeyboardManager/IQKeyboardManager01.gif" alt="官方示意效果图"></p>
 <hr>
 <p>再贴一下自己做的简单效果图☺️
 先说下我的 Xcode 版本是：Version 8.1 (8B62)，简单起见直接在 Main.storyboard 中拖入 7 个UITextField， 每个 UITextField 都设有占位文字。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-1cabc35287b06995.gif?imageMogr2/auto-orient/strip" alt="简单效果图☺️"></p>
+<p><img src="/image/iOS/iOS_IQKeyboardManager/IQKeyboardManager02.gif" alt="简单效果图☺️"></p>
 <hr>
-<h3 id="以下是-iqkeyboardmanager-的一些具体使用">以下是 IQKeyboardManager 的一些具体使用</h3>
-<h4 id="1-用-cocoapod--导入或直接下载拖进去这里方便起见直接用-cocoapod-导入">1. 用 Cocoapod  导入或直接下载拖进去，这里方便起见直接用 Cocoapod 导入。</h4>
-<p>IQKeyboardManager 的 GitHub地址：<a href="https://github.com/hackiftekhar/IQKeyboardManager">IQKeyboardManager 的 GitHub 地址</a></p>
-<h4 id="2-在-appdelegatem-中导入头文件">2. 在 AppDelegate.m 中导入头文件</h4>
+<h2 id="使用步骤">使用步骤</h2>
+<h3 id="1-集成">1. 集成</h3>
+<p>用 Cocoapod  导入或直接下载拖进去，这里方便起见直接用 Cocoapod 导入。
+IQKeyboardManager 的 GitHub地址：<a href="https://github.com/hackiftekhar/IQKeyboardManager">IQKeyboardManager 的 GitHub 地址</a></p>
+<h3 id="2-导入头文件">2. 导入头文件</h3>
+<p>在 AppDelegate.m 中导入头文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#import &lt;IQKeyboardManager/IQKeyboardManager.h&gt; 
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#import &lt;IQKeyboardManager/IQKeyboardManager.h&gt; 
+</span></code></pre></td></tr></table>
 </div>
-</div><h4 id="3-在-appdelegate-中设置全局属性">3. 在 AppDelegate 中设置全局属性</h4>
+</div><h3 id="3-设置全局属性">3. 设置全局属性</h3>
+<p>在 AppDelegate 中设置全局属性</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -396,31 +404,32 @@ GitHub 地址：<a href="https://github.com/hackiftekhar/IQKeyboardManager">GitH
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback"> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+<pre class="chroma"><code class="language-objc" data-lang="objc"> <span class="o">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nl">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="n">application</span> <span class="nl">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">launchOptions</span> <span class="p">{</span>
 
-    IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager]; // 获取类库的单例变量
-
-    keyboardManager.enable = YES; // 控制整个功能是否启用
-
-    keyboardManager.shouldResignOnTouchOutside = YES; // 控制点击背景是否收起键盘
-
-    keyboardManager.shouldToolbarUsesTextFieldTintColor = YES; // 控制键盘上的工具条文字颜色是否用户自定义
-
-    keyboardManager.toolbarManageBehaviour = IQAutoToolbarBySubviews; // 有多个输入框时，可以通过点击Toolbar 上的“前一个”“后一个”按钮来实现移动到不同的输入框
-
-    keyboardManager.enableAutoToolbar = YES; // 控制是否显示键盘上的工具条
-
-    keyboardManager.shouldShowTextFieldPlaceholder = YES; // 是否显示占位文字
-
-    keyboardManager.placeholderFont = [UIFont boldSystemFontOfSize:17]; // 设置占位文字的字体
-
-    keyboardManager.keyboardDistanceFromTextField = 10.0f; // 输入框距离键盘的距离
-
-    return YES;
-}
+    <span class="n">IQKeyboardManager</span> <span class="o">*</span><span class="n">keyboardManager</span> <span class="o">=</span> <span class="p">[</span><span class="n">IQKeyboardManager</span> <span class="n">sharedManager</span><span class="p">];</span> <span class="c1">// 获取类库的单例变量
+</span><span class="c1"></span>
+    <span class="n">keyboardManager</span><span class="p">.</span><span class="n">enable</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span> <span class="c1">// 控制整个功能是否启用
+</span><span class="c1"></span>
+    <span class="n">keyboardManager</span><span class="p">.</span><span class="n">shouldResignOnTouchOutside</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span> <span class="c1">// 控制点击背景是否收起键盘
+</span><span class="c1"></span>
+    <span class="n">keyboardManager</span><span class="p">.</span><span class="n">shouldToolbarUsesTextFieldTintColor</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span> <span class="c1">// 控制键盘上的工具条文字颜色是否用户自定义
+</span><span class="c1"></span>
+    <span class="n">keyboardManager</span><span class="p">.</span><span class="n">toolbarManageBehaviour</span> <span class="o">=</span> <span class="n">IQAutoToolbarBySubviews</span><span class="p">;</span> <span class="c1">// 有多个输入框时，可以通过点击Toolbar 上的“前一个”“后一个”按钮来实现移动到不同的输入框
+</span><span class="c1"></span>
+    <span class="n">keyboardManager</span><span class="p">.</span><span class="n">enableAutoToolbar</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span> <span class="c1">// 控制是否显示键盘上的工具条
+</span><span class="c1"></span>
+    <span class="n">keyboardManager</span><span class="p">.</span><span class="n">shouldShowTextFieldPlaceholder</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span> <span class="c1">// 是否显示占位文字
+</span><span class="c1"></span>
+    <span class="n">keyboardManager</span><span class="p">.</span><span class="n">placeholderFont</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIFont</span> <span class="nl">boldSystemFontOfSize</span><span class="p">:</span><span class="mi">17</span><span class="p">];</span> <span class="c1">// 设置占位文字的字体
+</span><span class="c1"></span>
+    <span class="n">keyboardManager</span><span class="p">.</span><span class="n">keyboardDistanceFromTextField</span> <span class="o">=</span> <span class="mf">10.0f</span><span class="p">;</span> <span class="c1">// 输入框距离键盘的距离
+</span><span class="c1"></span>
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="4-若某个类不需要使用-iqkeyboardmanager可以在这个类中这样设置">4. 若某个类不需要使用 IQKeyboardManager，可以在这个类中这样设置</h4>
+</div><h3 id="4-特殊处理">4. 特殊处理</h3>
+<p>若某个类不需要使用 IQKeyboardManager，可以在这个类中这样设置</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -434,18 +443,18 @@ GitHub 地址：<a href="https://github.com/hackiftekhar/IQKeyboardManager">GitH
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">  - (void)viewWillAppear:(BOOL)animated {
-  [super viewWillAppear:animated];
-   [IQKeyboardManager sharedManager].enable = NO;
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc">  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">viewWillAppear</span><span class="p">:(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">animated</span> <span class="p">{</span>
+  <span class="p">[</span><span class="nb">super</span> <span class="nl">viewWillAppear</span><span class="p">:</span><span class="n">animated</span><span class="p">];</span>
+   <span class="p">[</span><span class="n">IQKeyboardManager</span> <span class="n">sharedManager</span><span class="p">].</span><span class="n">enable</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+<span class="p">}</span>
 
-  - (void)viewWillDisappear:(BOOL)animated {
-  [super viewWillDisappear:animated]; 
-  [IQKeyboardManager sharedManager].enable = YES;
-}
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">viewWillDisappear</span><span class="p">:(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">animated</span> <span class="p">{</span>
+  <span class="p">[</span><span class="nb">super</span> <span class="nl">viewWillDisappear</span><span class="p">:</span><span class="n">animated</span><span class="p">];</span> 
+  <span class="p">[</span><span class="n">IQKeyboardManager</span> <span class="n">sharedManager</span><span class="p">].</span><span class="n">enable</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="5-常用属性介绍">5. 常用属性介绍</h4>
+</div><h2 id="常用属性介绍">常用属性介绍</h2>
 <ul>
 <li><code>sharedManager</code>：获取类库的单例变量</li>
 <li><code> enable</code>：项目使用不使用 IQKeyboardManager 这个类库，当然，某些页面可以根据需要单独设置</li>
@@ -457,7 +466,7 @@ GitHub 地址：<a href="https://github.com/hackiftekhar/IQKeyboardManager">GitH
 <li><code>placeholderFont</code>：占位文字的字体大小</li>
 <li><code>keyboardDistanceFromTextField</code>：输入框距离键盘的距离</li>
 </ul>
-<h4 id="6-再推荐几篇不错的相关文章">6. 再推荐几篇不错的相关文章</h4>
+<h2 id="相关文章推荐">相关文章推荐</h2>
 <ul>
 <li>
 <p><a href="http://www.jianshu.com/p/01c0682003a9">iOS开发第三方库一 IQKeyboardManager</a></p>

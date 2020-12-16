@@ -69,7 +69,7 @@
 <meta itemprop="description" content="这一篇是接着上一篇总结的，如果有朋友需要了解网络请求的内容，可以到这里。和上篇一样，先说下这篇文章的大概内容，以便朋友们能够快速找到自己需要">
 <meta itemprop="datePublished" content="2016-10-08T15:43:48+08:00" />
 <meta itemprop="dateModified" content="2018-01-02T15:43:48+08:00" />
-<meta itemprop="wordCount" content="1116">
+<meta itemprop="wordCount" content="1073">
 
 
 
@@ -306,7 +306,7 @@
             <a href="https://liupengkun1993.github.io/categories/ios/"> iOS </a>
             
           </div>
-        <span class="more-meta"> 1116 words </span>
+        <span class="more-meta"> 1073 words </span>
           <span class="more-meta"> 3 min read </span>
 
         
@@ -377,41 +377,41 @@
 </span><span class="lnt">35
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">     // 创建管理者对象
-    AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
+<pre class="chroma"><code class="language-objc" data-lang="objc">     <span class="c1">// 创建管理者对象
+</span><span class="c1"></span>    <span class="n">AFHTTPSessionManager</span> <span class="o">*</span><span class="n">sessionManager</span> <span class="o">=</span> <span class="p">[</span><span class="n">AFHTTPSessionManager</span> <span class="n">manager</span><span class="p">];</span>
     
-    // 请求参数
-    NSString *urlStr = @&#34; &#34;;
+    <span class="c1">// 请求参数
+</span><span class="c1"></span>    <span class="n">NSString</span> <span class="o">*</span><span class="n">urlStr</span> <span class="o">=</span> <span class="s">@&#34; &#34;</span><span class="p">;</span>
     
-    NSDictionary *dic = @{@&#34; &#34; : @&#34; &#34;,@&#34; &#34; : @&#34; &#34;};
+    <span class="n">NSDictionary</span> <span class="o">*</span><span class="n">dic</span> <span class="o">=</span> <span class="l">@{</span><span class="s">@&#34; &#34;</span> <span class="o">:</span> <span class="s">@&#34; &#34;</span><span class="p">,</span><span class="s">@&#34; &#34;</span> <span class="o">:</span> <span class="s">@&#34; &#34;</span><span class="l">}</span><span class="p">;</span>
     
-    // 发送 post 请求，上传一张图片
-    [sessionManager POST:urlStr parameters:dic constructingBodyWithBlock:^(id&lt;AFMultipartFormData&gt;  _Nonnull formData) {
+    <span class="c1">// 发送 post 请求，上传一张图片
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">sessionManager</span> <span class="nl">POST</span><span class="p">:</span><span class="n">urlStr</span> <span class="nl">parameters</span><span class="p">:</span><span class="n">dic</span> <span class="nl">constructingBodyWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">id</span><span class="o">&lt;</span><span class="n">AFMultipartFormData</span><span class="o">&gt;</span>  <span class="n">_Nonnull</span> <span class="n">formData</span><span class="p">)</span> <span class="p">{</span>
         
-        NSString *filePath = [[NSBundle mainBundle] pathForResource:@&#34;a.jpg&#34; ofType:nil];
-        NSData *imgData = [NSData dataWithContentsOfFile:filePath];
+        <span class="n">NSString</span> <span class="o">*</span><span class="n">filePath</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSBundle</span> <span class="n">mainBundle</span><span class="p">]</span> <span class="nl">pathForResource</span><span class="p">:</span><span class="s">@&#34;a.jpg&#34;</span> <span class="nl">ofType</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+        <span class="n">NSData</span> <span class="o">*</span><span class="n">imgData</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSData</span> <span class="nl">dataWithContentsOfFile</span><span class="p">:</span><span class="n">filePath</span><span class="p">];</span>
         
-        // 将图片数据拼接，进行上传
-        [formData appendPartWithFileData:imgData name:@&#34;pic&#34; fileName:@&#34;filename&#34; mimeType:@&#34;image/jpg&#34;];
+        <span class="c1">// 将图片数据拼接，进行上传
+</span><span class="c1"></span>        <span class="p">[</span><span class="n">formData</span> <span class="nl">appendPartWithFileData</span><span class="p">:</span><span class="n">imgData</span> <span class="nl">name</span><span class="p">:</span><span class="s">@&#34;pic&#34;</span> <span class="nl">fileName</span><span class="p">:</span><span class="s">@&#34;filename&#34;</span> <span class="nl">mimeType</span><span class="p">:</span><span class="s">@&#34;image/jpg&#34;</span><span class="p">];</span>
         
-    } progress:^(NSProgress * _Nonnull uploadProgress) {
+    <span class="p">}</span> <span class="nl">progress</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSProgress</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">uploadProgress</span><span class="p">)</span> <span class="p">{</span>
         
-        // 获取上传的进度
-        NSLog(@&#34;%.2f&#34;,uploadProgress.fractionCompleted);
-        NSLog(@&#34;%@&#34;,[NSThread currentThread]); //子线程
+        <span class="c1">// 获取上传的进度
+</span><span class="c1"></span>        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;%.2f&#34;</span><span class="p">,</span><span class="n">uploadProgress</span><span class="p">.</span><span class="n">fractionCompleted</span><span class="p">);</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;%@&#34;</span><span class="p">,[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span> <span class="c1">//子线程
+</span><span class="c1"></span>        
         
+    <span class="p">}</span> <span class="nl">success</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSURLSessionDataTask</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">task</span><span class="p">,</span> <span class="kt">id</span>  <span class="n">_Nullable</span> <span class="n">responseObject</span><span class="p">)</span> <span class="p">{</span>
         
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        <span class="c1">// 请求成功
+</span><span class="c1"></span>        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;请求成功：%@&#34;</span><span class="p">,</span><span class="n">responseObject</span><span class="p">);</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;%@&#34;</span><span class="p">,[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span> <span class="c1">//主线程
+</span><span class="c1"></span>        
+    <span class="p">}</span> <span class="nl">failure</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSURLSessionDataTask</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">task</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
         
-        // 请求成功
-        NSLog(@&#34;请求成功：%@&#34;,responseObject);
-        NSLog(@&#34;%@&#34;,[NSThread currentThread]); //主线程
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        // 请求失败
-        NSLog(@&#34;请求失败：%@&#34;,error);
-    }];
+        <span class="c1">// 请求失败
+</span><span class="c1"></span>        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;请求失败：%@&#34;</span><span class="p">,</span><span class="n">error</span><span class="p">);</span>
+    <span class="p">}];</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>2.根据URL路径上传</p>
@@ -434,21 +434,21 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">     // 创建管理者对象
-    AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
+<pre class="chroma"><code class="language-objc" data-lang="objc">     <span class="c1">// 创建管理者对象
+</span><span class="c1"></span>    <span class="n">AFHTTPSessionManager</span> <span class="o">*</span><span class="n">sessionManager</span> <span class="o">=</span> <span class="p">[</span><span class="n">AFHTTPSessionManager</span> <span class="n">manager</span><span class="p">];</span>
     
-    [sessionManager POST:@&#34; &#34; parameters:@{@&#34; &#34; : @&#34; &#34;} constructingBodyWithBlock:^(id&lt;AFMultipartFormData&gt; formData) {
+    <span class="p">[</span><span class="n">sessionManager</span> <span class="nl">POST</span><span class="p">:</span><span class="s">@&#34; &#34;</span> <span class="nl">parameters</span><span class="p">:</span><span class="l">@{</span><span class="s">@&#34; &#34;</span> <span class="o">:</span> <span class="s">@&#34; &#34;</span><span class="l">}</span> <span class="nl">constructingBodyWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">id</span><span class="o">&lt;</span><span class="n">AFMultipartFormData</span><span class="o">&gt;</span> <span class="n">formData</span><span class="p">)</span> <span class="p">{</span>
         
-    // 在block中设置需要上传的文件
-    [formData appendPartWithFileURL:[NSURL fileURLWithPath:@&#34;文件路径&#34;] name:@&#34;file&#34; error:nil];
+    <span class="c1">// 在block中设置需要上传的文件
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">formData</span> <span class="nl">appendPartWithFileURL</span><span class="p">:[</span><span class="n">NSURL</span> <span class="nl">fileURLWithPath</span><span class="p">:</span><span class="s">@&#34;文件路径&#34;</span><span class="p">]</span> <span class="nl">name</span><span class="p">:</span><span class="s">@&#34;file&#34;</span> <span class="nl">error</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
     
-    } success:^(NSURLSessionDataTask *task, id responseObject) {
+    <span class="p">}</span> <span class="nl">success</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSURLSessionDataTask</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span> <span class="kt">id</span> <span class="n">responseObject</span><span class="p">)</span> <span class="p">{</span>
         
-        NSLog(@&#34;成功：%@&#34;, responseObject);
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;成功：%@&#34;</span><span class="p">,</span> <span class="n">responseObject</span><span class="p">);</span>
         
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@&#34;失败：%@&#34;, error);
-	}];
+    <span class="p">}</span> <span class="nl">failure</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSURLSessionDataTask</span> <span class="o">*</span><span class="n">task</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;失败：%@&#34;</span><span class="p">,</span> <span class="n">error</span><span class="p">);</span>
+	<span class="p">}];</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="二下载">二、下载</h2>
@@ -493,43 +493,43 @@
 </span><span class="lnt">37
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">	// 创建管理者对象
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+<pre class="chroma"><code class="language-objc" data-lang="objc">	<span class="c1">// 创建管理者对象
+</span><span class="c1"></span>    <span class="n">AFHTTPSessionManager</span> <span class="o">*</span><span class="n">manager</span> <span class="o">=</span> <span class="p">[</span><span class="n">AFHTTPSessionManager</span> <span class="n">manager</span><span class="p">];</span>
     
-    // 确定请求的URL地址
-    NSURL *url = [NSURL URLWithString:@&#34; &#34;];
+    <span class="c1">// 确定请求的URL地址
+</span><span class="c1"></span>    <span class="n">NSURL</span> <span class="o">*</span><span class="n">url</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34; &#34;</span><span class="p">];</span>
     
-    // 创建请求对象
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    <span class="c1">// 创建请求对象
+</span><span class="c1"></span>    <span class="n">NSURLRequest</span> <span class="o">*</span><span class="n">request</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURLRequest</span> <span class="nl">requestWithURL</span><span class="p">:</span><span class="n">url</span><span class="p">];</span>
     
-    // 下载文件
-    NSURLSessionDownloadTask *task = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
+    <span class="c1">// 下载文件
+</span><span class="c1"></span>    <span class="n">NSURLSessionDownloadTask</span> <span class="o">*</span><span class="n">task</span> <span class="o">=</span> <span class="p">[</span><span class="n">manager</span> <span class="nl">downloadTaskWithRequest</span><span class="p">:</span><span class="n">request</span> <span class="nl">progress</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSProgress</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">downloadProgress</span><span class="p">)</span> <span class="p">{</span>
         
-        // block会实时调用
-        NSLog(@&#34;%.2f&#34;,downloadProgress.fractionCompleted);
+        <span class="c1">// block会实时调用
+</span><span class="c1"></span>        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;%.2f&#34;</span><span class="p">,</span><span class="n">downloadProgress</span><span class="p">.</span><span class="n">fractionCompleted</span><span class="p">);</span>
         
-    } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+    <span class="p">}</span> <span class="nl">destination</span><span class="p">:</span><span class="o">^</span><span class="n">NSURL</span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">(</span><span class="n">NSURL</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">targetPath</span><span class="p">,</span> <span class="n">NSURLResponse</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">response</span><span class="p">)</span> <span class="p">{</span>
 
-        // NSHomeDirectory()可以得到应用程序目录的路径
-        // 返回一个URL存储文件
-        NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:@&#34;Documents/***.mp3&#34;];
+        <span class="c1">// NSHomeDirectory()可以得到应用程序目录的路径
+</span><span class="c1"></span>        <span class="c1">// 返回一个URL存储文件
+</span><span class="c1"></span>        <span class="n">NSString</span> <span class="o">*</span><span class="n">filePath</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSHomeDirectory</span><span class="p">()</span> <span class="nl">stringByAppendingPathComponent</span><span class="p">:</span><span class="s">@&#34;Documents/***.mp3&#34;</span><span class="p">];</span>
         
-        NSURL *url = [NSURL fileURLWithPath:filePath];
+        <span class="n">NSURL</span> <span class="o">*</span><span class="n">url</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">fileURLWithPath</span><span class="p">:</span><span class="n">filePath</span><span class="p">];</span>
         
-        return url;
+        <span class="k">return</span> <span class="n">url</span><span class="p">;</span>
         
-    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+    <span class="p">}</span> <span class="nl">completionHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSURLResponse</span> <span class="o">*</span> <span class="n">_Nonnull</span> <span class="n">response</span><span class="p">,</span> <span class="n">NSURL</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">filePath</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
         
-        if (error) {
-            NSLog(@&#34;下载失败 ~~~ %@&#34;,error);
-        }else {
+        <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;下载失败 ~~~ %@&#34;</span><span class="p">,</span><span class="n">error</span><span class="p">);</span>
+        <span class="p">}</span><span class="k">else</span> <span class="p">{</span>
             
-            NSLog(@&#34;下载成功&#34;);
-        }
-    }];
+            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;下载成功&#34;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}];</span>
     
-    // 开始下载任务
-    [task resume];
+    <span class="c1">// 开始下载任务
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">task</span> <span class="n">resume</span><span class="p">];</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="三网络监听监听手机网络的不同状态">三、网络监听（监听手机网络的不同状态）</h2>
@@ -575,48 +575,47 @@
 </span><span class="lnt">38
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">	 // 获得网络监控的管理者
-    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager manager];
+<pre class="chroma"><code class="language-objc" data-lang="objc">	 <span class="c1">// 获得网络监控的管理者
+</span><span class="c1"></span>    <span class="n">AFNetworkReachabilityManager</span> <span class="o">*</span><span class="n">manager</span> <span class="o">=</span> <span class="p">[</span><span class="n">AFNetworkReachabilityManager</span> <span class="n">manager</span><span class="p">];</span>
     
-    // 只要网络环境发生变化，就会调用此 block
-    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+    <span class="c1">// 只要网络环境发生变化，就会调用此 block
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">manager</span> <span class="nl">setReachabilityStatusChangeBlock</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">AFNetworkReachabilityStatus</span> <span class="n">status</span><span class="p">)</span> <span class="p">{</span>
         
-        /* 枚举里面的四个状态
-         AFNetworkReachabilityStatusUnknown          = -1,  未知
-         AFNetworkReachabilityStatusNotReachable     = 0,   不可用
-         AFNetworkReachabilityStatusReachableViaWWAN = 1,   手机自带网络
-         AFNetworkReachabilityStatusReachableViaWiFi = 2,   wifi
-         */
+        <span class="cm">/* 枚举里面的四个状态
+</span><span class="cm">         AFNetworkReachabilityStatusUnknown          = -1,  未知
+</span><span class="cm">         AFNetworkReachabilityStatusNotReachable     = 0,   不可用
+</span><span class="cm">         AFNetworkReachabilityStatusReachableViaWWAN = 1,   手机自带网络
+</span><span class="cm">         AFNetworkReachabilityStatusReachableViaWiFi = 2,   wifi
+</span><span class="cm">         */</span>
         
-        switch (status) {
-            case AFNetworkReachabilityStatusUnknown:
-                NSLog(@&#34;未知&#34;);
-                break;
+        <span class="k">switch</span> <span class="p">(</span><span class="n">status</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="nl">AFNetworkReachabilityStatusUnknown</span><span class="p">:</span>
+                <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;未知&#34;</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
                 
-            case AFNetworkReachabilityStatusNotReachable:
-                NSLog(@&#34;不可用&#34;);
-                break;
+            <span class="k">case</span> <span class="nl">AFNetworkReachabilityStatusNotReachable</span><span class="p">:</span>
+                <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;不可用&#34;</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
                 
-            case AFNetworkReachabilityStatusReachableViaWWAN:
-                NSLog(@&#34;手机自带网络&#34;);
-                break;
+            <span class="k">case</span> <span class="nl">AFNetworkReachabilityStatusReachableViaWWAN</span><span class="p">:</span>
+                <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;手机自带网络&#34;</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
                 
-            case AFNetworkReachabilityStatusReachableViaWiFi:
-                NSLog(@&#34;Wifi&#34;);
-                break;
+            <span class="k">case</span> <span class="nl">AFNetworkReachabilityStatusReachableViaWiFi</span><span class="p">:</span>
+                <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;Wifi&#34;</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
                 
-            default:
-                break;
-        }
+            <span class="k">default</span><span class="o">:</span>
+                <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
         
-    }];
+    <span class="p">}];</span>
     
-    // 开始监听
-    [manager startMonitoring];
+    <span class="c1">// 开始监听
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">manager</span> <span class="n">startMonitoring</span><span class="p">];</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>这是今天做的一些关于 AFNetworking 的总结，如果有错误或疏忽的地方，希望大家能够指出！谢谢大家！！！</p>
-
+</div>
     </div>
 
     

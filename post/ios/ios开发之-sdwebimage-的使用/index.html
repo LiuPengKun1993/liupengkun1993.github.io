@@ -351,17 +351,17 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback"> 方式一：
-     // 只下载图片
-    [self.imageView sd_setImageWithURL:@&#34;URL地址&#34;]];
+<pre class="chroma"><code class="language-objc" data-lang="objc"> <span class="err">方式一：</span>
+     <span class="c1">// 只下载图片
+</span><span class="c1"></span>    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">imageView</span> <span class="nl">sd_setImageWithURL</span><span class="p">:</span><span class="s">@&#34;URL地址&#34;</span><span class="p">]];</span>
 
- 方式二：
-     /**
-     第一个参数:图片的url
-     第二个参数:占位图片
-     */
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:@&#34;URL地址&#34;]
-                      placeholderImage:[UIImage imageNamed: @&#34;占位图片名&#34;]];
+ <span class="err">方式二：</span>
+     <span class="cm">/**
+</span><span class="cm">     第一个参数:图片的url
+</span><span class="cm">     第二个参数:占位图片
+</span><span class="cm">     */</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">imageView</span> <span class="nl">sd_setImageWithURL</span><span class="p">:[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34;URL地址&#34;</span><span class="p">]</span>
+                      <span class="nl">placeholderImage</span><span class="p">:[</span><span class="n">UIImage</span> <span class="nl">imageNamed</span><span class="p">:</span> <span class="s">@&#34;占位图片名&#34;</span><span class="p">]];</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -408,43 +408,43 @@
 </span><span class="lnt">37
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">方式一：
-     /**
-     第一个参数:图片的url
-     block:下载成功或失败之后的回调
-     */
-[self.imageView sd_setImageWithURL:[NSURL URLWithString:@&#34;URL地址&#34;] 
-completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        NSLog(@&#34;下载成功或失败之后的回调&#34;);
-    }];
-方式二：
-    /**
-     第一个参数:图片的url
-     第二个参数:占位图片
-     block:下载成功或失败之后的回调
-     */
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:@&#34;URL地址&#34;]
-                      placeholderImage:[UIImage imageNamed: @&#34;占位图片名&#34;]
-                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-       NSLog(@&#34;下载成功或失败之后的回调&#34;);
- }];
-方式三：
-    /**
-     第一个参数:图片的url
-     第二个参数:占位图片
-     第三个参数:下载图片的策略
-     第四个参数:progress进度
-     第五个参数:completed 下载完成之后的回调
-     */
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:@&#34;URL地址&#34;]
-                      placeholderImage:[UIImage imageNamed: @&#34;占位图片名&#34;]
-                               options:SDWebImageRetryFailed
-                              progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-        NSLog(@&#34;progress进度&#34;);
-    }
-                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        NSLog(@&#34;下载成功或失败之后的回调&#34;);
-    }];
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="err">方式一：</span>
+     <span class="cm">/**
+</span><span class="cm">     第一个参数:图片的url
+</span><span class="cm">     block:下载成功或失败之后的回调
+</span><span class="cm">     */</span>
+<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">imageView</span> <span class="nl">sd_setImageWithURL</span><span class="p">:[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34;URL地址&#34;</span><span class="p">]</span> 
+<span class="nl">completed</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="n">image</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">,</span> <span class="n">SDImageCacheType</span> <span class="n">cacheType</span><span class="p">,</span> <span class="n">NSURL</span> <span class="o">*</span><span class="n">imageURL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;下载成功或失败之后的回调&#34;</span><span class="p">);</span>
+    <span class="p">}];</span>
+<span class="err">方式二：</span>
+    <span class="cm">/**
+</span><span class="cm">     第一个参数:图片的url
+</span><span class="cm">     第二个参数:占位图片
+</span><span class="cm">     block:下载成功或失败之后的回调
+</span><span class="cm">     */</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">imageView</span> <span class="nl">sd_setImageWithURL</span><span class="p">:[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34;URL地址&#34;</span><span class="p">]</span>
+                      <span class="nl">placeholderImage</span><span class="p">:[</span><span class="n">UIImage</span> <span class="nl">imageNamed</span><span class="p">:</span> <span class="s">@&#34;占位图片名&#34;</span><span class="p">]</span>
+                             <span class="nl">completed</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="n">image</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">,</span> <span class="n">SDImageCacheType</span> <span class="n">cacheType</span><span class="p">,</span> <span class="n">NSURL</span> <span class="o">*</span><span class="n">imageURL</span><span class="p">)</span> <span class="p">{</span>
+       <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;下载成功或失败之后的回调&#34;</span><span class="p">);</span>
+ <span class="p">}];</span>
+<span class="err">方式三：</span>
+    <span class="cm">/**
+</span><span class="cm">     第一个参数:图片的url
+</span><span class="cm">     第二个参数:占位图片
+</span><span class="cm">     第三个参数:下载图片的策略
+</span><span class="cm">     第四个参数:progress进度
+</span><span class="cm">     第五个参数:completed 下载完成之后的回调
+</span><span class="cm">     */</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">imageView</span> <span class="nl">sd_setImageWithURL</span><span class="p">:[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34;URL地址&#34;</span><span class="p">]</span>
+                      <span class="nl">placeholderImage</span><span class="p">:[</span><span class="n">UIImage</span> <span class="nl">imageNamed</span><span class="p">:</span> <span class="s">@&#34;占位图片名&#34;</span><span class="p">]</span>
+                               <span class="nl">options</span><span class="p">:</span><span class="n">SDWebImageRetryFailed</span>
+                              <span class="nl">progress</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSInteger</span> <span class="n">receivedSize</span><span class="p">,</span> <span class="n">NSInteger</span> <span class="n">expectedSize</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;progress进度&#34;</span><span class="p">);</span>
+    <span class="p">}</span>
+                             <span class="nl">completed</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="n">image</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">,</span> <span class="n">SDImageCacheType</span> <span class="n">cacheType</span><span class="p">,</span> <span class="n">NSURL</span> <span class="o">*</span><span class="n">imageURL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;下载成功或失败之后的回调&#34;</span><span class="p">);</span>
+    <span class="p">}];</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -481,33 +481,33 @@ completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *i
 </span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">     /**
-     //失败后重试
-     SDWebImageRetryFailed = 1 &lt;&lt; 0,
-     //UI交互期间开始下载，导致延迟下载比如UIScrollView减速。
-     SDWebImageLowPriority = 1 &lt;&lt; 1,
-     //只进行内存缓存
-     SDWebImageCacheMemoryOnly = 1 &lt;&lt; 2,
-     //这个标志可以渐进式下载,显示的图像是逐步在下载
-     SDWebImageProgressiveDownload = 1 &lt;&lt; 3,
-     //刷新缓存
-     SDWebImageRefreshCached = 1 &lt;&lt; 4,
-     //后台下载
-     SDWebImageContinueInBackground = 1 &lt;&lt; 5,
-     //NSMutableURLRequest.HTTPShouldHandleCookies = YES;
-     SDWebImageHandleCookies = 1 &lt;&lt; 6,
-     //允许使用无效的SSL证书
-     //SDWebImageAllowInvalidSSLCertificates = 1 &lt;&lt; 7,
-     //优先下载
-     SDWebImageHighPriority = 1 &lt;&lt; 8,
-     //延迟占位符
-     SDWebImageDelayPlaceholder = 1 &lt;&lt; 9,
-     //改变动画形象
-     SDWebImageTransformAnimatedImage = 1 &lt;&lt; 10,
-     */
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:@&#34;URL地址&#34;] 
-placeholderImage:[UIImage imageNamed: @&#34;占位图片名&#34;] 
-options:SDWebImageRetryFailed];
+<pre class="chroma"><code class="language-objc" data-lang="objc">     <span class="cm">/**
+</span><span class="cm">     //失败后重试
+</span><span class="cm">     SDWebImageRetryFailed = 1 &lt;&lt; 0,
+</span><span class="cm">     //UI交互期间开始下载，导致延迟下载比如UIScrollView减速。
+</span><span class="cm">     SDWebImageLowPriority = 1 &lt;&lt; 1,
+</span><span class="cm">     //只进行内存缓存
+</span><span class="cm">     SDWebImageCacheMemoryOnly = 1 &lt;&lt; 2,
+</span><span class="cm">     //这个标志可以渐进式下载,显示的图像是逐步在下载
+</span><span class="cm">     SDWebImageProgressiveDownload = 1 &lt;&lt; 3,
+</span><span class="cm">     //刷新缓存
+</span><span class="cm">     SDWebImageRefreshCached = 1 &lt;&lt; 4,
+</span><span class="cm">     //后台下载
+</span><span class="cm">     SDWebImageContinueInBackground = 1 &lt;&lt; 5,
+</span><span class="cm">     //NSMutableURLRequest.HTTPShouldHandleCookies = YES;
+</span><span class="cm">     SDWebImageHandleCookies = 1 &lt;&lt; 6,
+</span><span class="cm">     //允许使用无效的SSL证书
+</span><span class="cm">     //SDWebImageAllowInvalidSSLCertificates = 1 &lt;&lt; 7,
+</span><span class="cm">     //优先下载
+</span><span class="cm">     SDWebImageHighPriority = 1 &lt;&lt; 8,
+</span><span class="cm">     //延迟占位符
+</span><span class="cm">     SDWebImageDelayPlaceholder = 1 &lt;&lt; 9,
+</span><span class="cm">     //改变动画形象
+</span><span class="cm">     SDWebImageTransformAnimatedImage = 1 &lt;&lt; 10,
+</span><span class="cm">     */</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">imageView</span> <span class="nl">sd_setImageWithURL</span><span class="p">:[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34;URL地址&#34;</span><span class="p">]</span> 
+<span class="nl">placeholderImage</span><span class="p">:[</span><span class="n">UIImage</span> <span class="nl">imageNamed</span><span class="p">:</span> <span class="s">@&#34;占位图片名&#34;</span><span class="p">]</span> 
+<span class="nl">options</span><span class="p">:</span><span class="n">SDWebImageRetryFailed</span><span class="p">];</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -535,24 +535,24 @@ options:SDWebImageRetryFailed];
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">SDWebImageManager *imageManager = [SDWebImageManager sharedManager];
-    /**
-     第一个参数:图片的url
-     第二个参数:下载图片的(策略)
-     第三个参数:progress进度
-     第四个参数:completed 下载完成之后的回调
-     */
-    [imageManager downloadImageWithURL:[NSURL URLWithString:@&#34;URL地址&#34;]
-                               options:SDWebImageRetryFailed
-                              progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-        NSLog(@&#34;progress进度&#34;);
-    }
-                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-        NSLog(@&#34;下载成功或失败之后的回调&#34;);
-                                 if (image) {
-                                     self.image = image;
-                                 }
-    }];
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">SDWebImageManager</span> <span class="o">*</span><span class="n">imageManager</span> <span class="o">=</span> <span class="p">[</span><span class="n">SDWebImageManager</span> <span class="n">sharedManager</span><span class="p">];</span>
+    <span class="cm">/**
+</span><span class="cm">     第一个参数:图片的url
+</span><span class="cm">     第二个参数:下载图片的(策略)
+</span><span class="cm">     第三个参数:progress进度
+</span><span class="cm">     第四个参数:completed 下载完成之后的回调
+</span><span class="cm">     */</span>
+    <span class="p">[</span><span class="n">imageManager</span> <span class="nl">downloadImageWithURL</span><span class="p">:[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34;URL地址&#34;</span><span class="p">]</span>
+                               <span class="nl">options</span><span class="p">:</span><span class="n">SDWebImageRetryFailed</span>
+                              <span class="nl">progress</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSInteger</span> <span class="n">receivedSize</span><span class="p">,</span> <span class="n">NSInteger</span> <span class="n">expectedSize</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;progress进度&#34;</span><span class="p">);</span>
+    <span class="p">}</span>
+                             <span class="nl">completed</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="n">image</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">,</span> <span class="n">SDImageCacheType</span> <span class="n">cacheType</span><span class="p">,</span> <span class="kt">BOOL</span> <span class="n">finished</span><span class="p">,</span> <span class="n">NSURL</span> <span class="o">*</span><span class="n">imageURL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;下载成功或失败之后的回调&#34;</span><span class="p">);</span>
+                                 <span class="k">if</span> <span class="p">(</span><span class="n">image</span><span class="p">)</span> <span class="p">{</span>
+                                     <span class="nb">self</span><span class="p">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="p">;</span>
+                                 <span class="p">}</span>
+    <span class="p">}];</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -580,24 +580,24 @@ options:SDWebImageRetryFailed];
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">SDWebImageDownloader *imageDownloader = [SDWebImageDownloader sharedDownloader];
-    /*
-     第一个参数:图片的url
-     第二个参数:下载图片的策略
-     第三个参数:progressBlock 进度
-     第四个参数:completedBlock 下载完成之后的回调
-     */
-    [imageDownloader downloadImageWithURL:[NSURL URLWithString:@&#34;URL地址&#34;]
-                                  options:SDWebImageDownloaderLowPriority
-                                 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-                                     NSLog(@&#34;progress进度&#34;);
-                                 }
-                                completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-                                    NSLog(@&#34;下载成功或失败之后的回调&#34;);
-                                    if (image) {
-                                        self.image = image;
-                                    }
-                                }];
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">SDWebImageDownloader</span> <span class="o">*</span><span class="n">imageDownloader</span> <span class="o">=</span> <span class="p">[</span><span class="n">SDWebImageDownloader</span> <span class="n">sharedDownloader</span><span class="p">];</span>
+    <span class="cm">/*
+</span><span class="cm">     第一个参数:图片的url
+</span><span class="cm">     第二个参数:下载图片的策略
+</span><span class="cm">     第三个参数:progressBlock 进度
+</span><span class="cm">     第四个参数:completedBlock 下载完成之后的回调
+</span><span class="cm">     */</span>
+    <span class="p">[</span><span class="n">imageDownloader</span> <span class="nl">downloadImageWithURL</span><span class="p">:[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34;URL地址&#34;</span><span class="p">]</span>
+                                  <span class="nl">options</span><span class="p">:</span><span class="n">SDWebImageDownloaderLowPriority</span>
+                                 <span class="nl">progress</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">NSInteger</span> <span class="n">receivedSize</span><span class="p">,</span> <span class="n">NSInteger</span> <span class="n">expectedSize</span><span class="p">)</span> <span class="p">{</span>
+                                     <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;progress进度&#34;</span><span class="p">);</span>
+                                 <span class="p">}</span>
+                                <span class="nl">completed</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="n">image</span><span class="p">,</span> <span class="n">NSData</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">,</span> <span class="kt">BOOL</span> <span class="n">finished</span><span class="p">)</span> <span class="p">{</span>
+                                    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;下载成功或失败之后的回调&#34;</span><span class="p">);</span>
+                                    <span class="k">if</span> <span class="p">(</span><span class="n">image</span><span class="p">)</span> <span class="p">{</span>
+                                        <span class="nb">self</span><span class="p">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="p">;</span>
+                                    <span class="p">}</span>
+                                <span class="p">}];</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -617,16 +617,16 @@ options:SDWebImageRetryFailed];
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 当程序收到内存警告时会调用这个方法
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // 清除缓存
-    [[SDWebImageManager sharedManager].imageCache clearDisk]; // clean:删除过期缓存
-    [[SDWebImageManager sharedManager].imageCache cleanDisk]; // clear:直接删除然后重新创建
-    // 取消下载
-    [[SDWebImageManager sharedManager] cancelAll];
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 当程序收到内存警告时会调用这个方法
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">didReceiveMemoryWarning</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nb">super</span> <span class="n">didReceiveMemoryWarning</span><span class="p">];</span>
+    <span class="c1">// 清除缓存
+</span><span class="c1"></span>    <span class="p">[[</span><span class="n">SDWebImageManager</span> <span class="n">sharedManager</span><span class="p">].</span><span class="n">imageCache</span> <span class="n">clearDisk</span><span class="p">];</span> <span class="c1">// clean:删除过期缓存
+</span><span class="c1"></span>    <span class="p">[[</span><span class="n">SDWebImageManager</span> <span class="n">sharedManager</span><span class="p">].</span><span class="n">imageCache</span> <span class="n">cleanDisk</span><span class="p">];</span> <span class="c1">// clear:直接删除然后重新创建
+</span><span class="c1"></span>    <span class="c1">// 取消下载
+</span><span class="c1"></span>    <span class="p">[[</span><span class="n">SDWebImageManager</span> <span class="n">sharedManager</span><span class="p">]</span> <span class="n">cancelAll</span><span class="p">];</span>
 
-}
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -658,28 +658,28 @@ options:SDWebImageRetryFailed];
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 取消掉当前所有的下载
-- (void)cancelAll;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 取消掉当前所有的下载
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">cancelAll</span><span class="p">;</span>
 
-// 检查是否有图片在下载
-- (BOOL)isRunning;
+<span class="c1">// 检查是否有图片在下载
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">isRunning</span><span class="p">;</span>
 
-// 将图片存入cache的方法
-- (void)saveImageToCache:(UIImage *)image forURL:(NSURL *)url;
+<span class="c1">// 将图片存入cache的方法
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">saveImageToCache:</span><span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nv">image</span> <span class="nf">forURL:</span><span class="p">(</span><span class="n">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="nv">url</span><span class="p">;</span>
 
-// 通过图片的url判断其是否已经存在
-- (BOOL)cachedImageExistsForURL:(NSURL *)url;
+<span class="c1">// 通过图片的url判断其是否已经存在
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">cachedImageExistsForURL:</span><span class="p">(</span><span class="n">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="nv">url</span><span class="p">;</span>
 
-// 检测一个image是否已经被缓存到磁盘(是否存且仅存在disk里).
-- (BOOL)diskImageExistsForURL:(NSURL *)url;
+<span class="c1">// 检测一个image是否已经被缓存到磁盘(是否存且仅存在disk里).
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">diskImageExistsForURL:</span><span class="p">(</span><span class="n">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="nv">url</span><span class="p">;</span>
 
-// 如果检测到图片已经被缓存,那么执行回调block
-- (void)cachedImageExistsForURL:(NSURL *)url
-                     completion:(SDWebImageCheckCacheCompletionBlock)completionBlock;
+<span class="c1">// 如果检测到图片已经被缓存,那么执行回调block
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">cachedImageExistsForURL:</span><span class="p">(</span><span class="n">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="nv">url</span>
+                     <span class="nf">completion:</span><span class="p">(</span><span class="n">SDWebImageCheckCacheCompletionBlock</span><span class="p">)</span><span class="nv">completionBlock</span><span class="p">;</span>
 
- // 如果检测到图片已经在磁盘中,那么执行回调block
-- (void)diskImageExistsForURL:(NSURL *)url
-                   completion:(SDWebImageCheckCacheCompletionBlock)completionBlock;
+ <span class="c1">// 如果检测到图片已经在磁盘中,那么执行回调block
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">diskImageExistsForURL:</span><span class="p">(</span><span class="n">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="nv">url</span>
+                   <span class="nf">completion:</span><span class="p">(</span><span class="n">SDWebImageCheckCacheCompletionBlock</span><span class="p">)</span><span class="nv">completionBlock</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>以上是关于 SDWebImage 的一些用法总结，以后再用到其它的了，会再来补充。另外如果有写错的地方，欢迎朋友们指正！谢谢😊！</p>
@@ -721,7 +721,7 @@ options:SDWebImageRetryFailed];
       
       <nav class="post-nav">
         
-          <a class="prev" href="/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%88%B7%E6%96%B0%E6%A1%86%E6%9E%B6-mjrefresh-%E7%9A%84%E4%BD%BF%E7%94%A8/">
+          <a class="prev" href="/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-wkwebview-vs-uiwebview/">
             
             <i class="iconfont">
               <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -731,7 +731,7 @@ options:SDWebImageRetryFailed];
 </svg>
 
             </i>
-            <span class="prev-text nav-default">iOS开发之 - 刷新框架 MJRefresh 的使用</span>
+            <span class="prev-text nav-default">iOS开发之 - WKWebView VS UIWebView</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
         

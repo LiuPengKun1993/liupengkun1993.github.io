@@ -326,7 +326,8 @@
   <ul>
     <li>
       <ul>
-        <li></li>
+        <li><a href="#一生成二维码">一、生成二维码</a></li>
+        <li><a href="#二扫描二维码">二、扫描二维码</a></li>
       </ul>
     </li>
   </ul>
@@ -339,16 +340,14 @@
       <blockquote>
 <p>在我们的日常生活中，二维码扫描越来越常见，比如支付宝支付扫描、微信支付扫描、信息获取等等，所以简单的整理了二维码相关的知识，总共分为两部分：生成二维码；扫描二维码。</p>
 </blockquote>
-<h4 id="一生成二维码">一、生成二维码</h4>
+<h3 id="一生成二维码">一、生成二维码</h3>
 <ul>
-<li>
-<p>简单的生成二维码，先看效果图
-如图所示，这个效果不太好，有些模糊
-<img src="http://upload-images.jianshu.io/upload_images/2665449-a0c118e13587ec11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="简单生成二维码"></p>
-</li>
-<li>
-<p>生成简单二维码的代码如下：</p>
-</li>
+<li>简单的生成二维码，先看效果图
+如图所示，这个效果不太好，有些模糊</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-a0c118e13587ec11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="简单生成二维码"></p>
+<ul>
+<li>生成简单二维码的代码如下：</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -406,58 +405,58 @@
 </span><span class="lnt">52
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#import &#34;ViewController.h&#34;
-// 需要导入此框架
-#import &lt;CoreImage/CoreImage.h&gt;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#import &#34;ViewController.h&#34;
+</span><span class="cp"></span><span class="c1">// 需要导入此框架
+</span><span class="c1"></span><span class="cp">#import &lt;CoreImage/CoreImage.h&gt;
+</span><span class="cp"></span>
+<span class="k">@interface</span> <span class="nc">ViewController</span> <span class="p">()</span>
 
-@interface ViewController ()
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">strong</span><span class="p">)</span> <span class="n">UIImageView</span> <span class="o">*</span><span class="n">imageView</span><span class="p">;</span>
+<span class="k">@end</span>
 
-@property (nonatomic, strong) UIImageView *imageView;
-@end
+<span class="k">@implementation</span> <span class="nc">ViewController</span>
 
-@implementation ViewController
+<span class="p">-</span> <span class="p">(</span><span class="n">UIImageView</span> <span class="o">*</span><span class="p">)</span><span class="nf">imageView</span> <span class="p">{</span>
 
-- (UIImageView *)imageView {
-
-    if (!_imageView) {
-        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-        _imageView.center = self.view.center;
-        [self.view addSubview:_imageView];
-    }
-    return _imageView;
-}
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">_imageView</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">_imageView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIImageView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithFrame</span><span class="p">:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)];</span>
+        <span class="n">_imageView</span><span class="p">.</span><span class="n">center</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">center</span><span class="p">;</span>
+        <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview</span><span class="p">:</span><span class="n">_imageView</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">_imageView</span><span class="p">;</span>
+<span class="p">}</span>
 
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self creatQRCode];
-}
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
+    <span class="p">[</span><span class="nb">self</span> <span class="n">creatQRCode</span><span class="p">];</span>
+<span class="p">}</span>
 
-// 生成二维码
-- (void)creatQRCode {
+<span class="c1">// 生成二维码
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">creatQRCode</span> <span class="p">{</span>
     
-    // 创建二维码滤镜
-    CIFilter *filter = [CIFilter filterWithName:@&#34;CIQRCodeGenerator&#34;];
+    <span class="c1">// 创建二维码滤镜
+</span><span class="c1"></span>    <span class="n">CIFilter</span> <span class="o">*</span><span class="n">filter</span> <span class="o">=</span> <span class="p">[</span><span class="n">CIFilter</span> <span class="nl">filterWithName</span><span class="p">:</span><span class="s">@&#34;CIQRCodeGenerator&#34;</span><span class="p">];</span>
     
-    // 恢复滤镜的默认属性
-    [filter setDefaults];
+    <span class="c1">// 恢复滤镜的默认属性
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">filter</span> <span class="n">setDefaults</span><span class="p">];</span>
     
-    // 给过滤器添加数据（纯文本，URL都可以）
-    //    NSString *dataString = @&#34;http://www.baidu.com&#34;;
-    NSString *dataString = @&#34;生成二维码&#34;;
-    // 将字符串转换成NSData
-    NSData *data = [dataString dataUsingEncoding:NSUTF8StringEncoding];
+    <span class="c1">// 给过滤器添加数据（纯文本，URL都可以）
+</span><span class="c1"></span>    <span class="c1">//    NSString *dataString = @&#34;http://www.baidu.com&#34;;
+</span><span class="c1"></span>    <span class="n">NSString</span> <span class="o">*</span><span class="n">dataString</span> <span class="o">=</span> <span class="s">@&#34;生成二维码&#34;</span><span class="p">;</span>
+    <span class="c1">// 将字符串转换成NSData
+</span><span class="c1"></span>    <span class="n">NSData</span> <span class="o">*</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">dataString</span> <span class="nl">dataUsingEncoding</span><span class="p">:</span><span class="n">NSUTF8StringEncoding</span><span class="p">];</span>
     
-    // 设置滤镜 inputMessage 数据
-    [filter setValue:data forKeyPath:@&#34;inputMessage&#34;];
+    <span class="c1">// 设置滤镜 inputMessage 数据
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">filter</span> <span class="nl">setValue</span><span class="p">:</span><span class="n">data</span> <span class="nl">forKeyPath</span><span class="p">:</span><span class="s">@&#34;inputMessage&#34;</span><span class="p">];</span>
     
-    CIImage *outputImage = [filter outputImage];
+    <span class="n">CIImage</span> <span class="o">*</span><span class="n">outputImage</span> <span class="o">=</span> <span class="p">[</span><span class="n">filter</span> <span class="n">outputImage</span><span class="p">];</span>
     
-    UIImage *image = [UIImage  imageWithCIImage:outputImage];
+    <span class="n">UIImage</span> <span class="o">*</span><span class="n">image</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span>  <span class="nl">imageWithCIImage</span><span class="p">:</span><span class="n">outputImage</span><span class="p">];</span>
     
-    // 把生成的二维码显示在 imageview 上
-    self.imageView.image = image;
-}
+    <span class="c1">// 把生成的二维码显示在 imageview 上
+</span><span class="c1"></span>    <span class="nb">self</span><span class="p">.</span><span class="n">imageView</span><span class="p">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><hr>
@@ -545,82 +544,82 @@
 </span><span class="lnt">73
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#import &#34;ViewController.h&#34;
-#import &lt;CoreImage/CoreImage.h&gt;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#import &#34;ViewController.h&#34;
+</span><span class="cp">#import &lt;CoreImage/CoreImage.h&gt;
+</span><span class="cp"></span>
+<span class="k">@interface</span> <span class="nc">ViewController</span> <span class="p">()</span>
 
-@interface ViewController ()
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">strong</span><span class="p">)</span> <span class="n">UIImageView</span> <span class="o">*</span><span class="n">imageView</span><span class="p">;</span>
+<span class="k">@end</span>
 
-@property (nonatomic, strong) UIImageView *imageView;
-@end
+<span class="k">@implementation</span> <span class="nc">ViewController</span>
 
-@implementation ViewController
+<span class="p">-</span> <span class="p">(</span><span class="n">UIImageView</span> <span class="o">*</span><span class="p">)</span><span class="nf">imageView</span> <span class="p">{</span>
 
-- (UIImageView *)imageView {
-
-    if (!_imageView) {
-        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-        _imageView.center = self.view.center;
-        [self.view addSubview:_imageView];
-    }
-    return _imageView;
-}
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">_imageView</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">_imageView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIImageView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithFrame</span><span class="p">:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)];</span>
+        <span class="n">_imageView</span><span class="p">.</span><span class="n">center</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">center</span><span class="p">;</span>
+        <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview</span><span class="p">:</span><span class="n">_imageView</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">_imageView</span><span class="p">;</span>
+<span class="p">}</span>
 
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self creatQRCode];
-}
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
+    <span class="p">[</span><span class="nb">self</span> <span class="n">creatQRCode</span><span class="p">];</span>
+<span class="p">}</span>
 
-// 生成二维码
-- (void)creatQRCode {
+<span class="c1">// 生成二维码
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">creatQRCode</span> <span class="p">{</span>
     
-    // 创建二维码滤镜
-    CIFilter *filter = [CIFilter filterWithName:@&#34;CIQRCodeGenerator&#34;];
+    <span class="c1">// 创建二维码滤镜
+</span><span class="c1"></span>    <span class="n">CIFilter</span> <span class="o">*</span><span class="n">filter</span> <span class="o">=</span> <span class="p">[</span><span class="n">CIFilter</span> <span class="nl">filterWithName</span><span class="p">:</span><span class="s">@&#34;CIQRCodeGenerator&#34;</span><span class="p">];</span>
     
-    // 恢复滤镜的默认属性
-    [filter setDefaults];
+    <span class="c1">// 恢复滤镜的默认属性
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">filter</span> <span class="n">setDefaults</span><span class="p">];</span>
     
-    // 给过滤器添加数据（纯文本，URL都可以）
-    //    NSString *dataString = @&#34;http://www.baidu.com&#34;;
-    NSString *dataString = @&#34;生成二维码&#34;;
-    // 将字符串转换成NSData
-    NSData *data = [dataString dataUsingEncoding:NSUTF8StringEncoding];
+    <span class="c1">// 给过滤器添加数据（纯文本，URL都可以）
+</span><span class="c1"></span>    <span class="c1">//    NSString *dataString = @&#34;http://www.baidu.com&#34;;
+</span><span class="c1"></span>    <span class="n">NSString</span> <span class="o">*</span><span class="n">dataString</span> <span class="o">=</span> <span class="s">@&#34;生成二维码&#34;</span><span class="p">;</span>
+    <span class="c1">// 将字符串转换成NSData
+</span><span class="c1"></span>    <span class="n">NSData</span> <span class="o">*</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">dataString</span> <span class="nl">dataUsingEncoding</span><span class="p">:</span><span class="n">NSUTF8StringEncoding</span><span class="p">];</span>
     
-    // 设置滤镜 inputMessage 数据
-    [filter setValue:data forKeyPath:@&#34;inputMessage&#34;];
+    <span class="c1">// 设置滤镜 inputMessage 数据
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">filter</span> <span class="nl">setValue</span><span class="p">:</span><span class="n">data</span> <span class="nl">forKeyPath</span><span class="p">:</span><span class="s">@&#34;inputMessage&#34;</span><span class="p">];</span>
     
-    // 获取滤镜输出的二维码
-    CIImage *outputImage = [filter outputImage];
+    <span class="c1">// 获取滤镜输出的二维码
+</span><span class="c1"></span>    <span class="n">CIImage</span> <span class="o">*</span><span class="n">outputImage</span> <span class="o">=</span> <span class="p">[</span><span class="n">filter</span> <span class="n">outputImage</span><span class="p">];</span>
 
-    // 显示二维码
-    self.imageView.image = [self creatClearImageFromCIImage:outputImage withSize:200];
-}
+    <span class="c1">// 显示二维码
+</span><span class="c1"></span>    <span class="nb">self</span><span class="p">.</span><span class="n">imageView</span><span class="p">.</span><span class="n">image</span> <span class="o">=</span> <span class="p">[</span><span class="nb">self</span> <span class="nl">creatClearImageFromCIImage</span><span class="p">:</span><span class="n">outputImage</span> <span class="nl">withSize</span><span class="p">:</span><span class="mi">200</span><span class="p">];</span>
+<span class="p">}</span>
 
-- (UIImage *)creatClearImageFromCIImage:(CIImage *)image withSize:(CGFloat) size
-{
-    CGRect extent = CGRectIntegral(image.extent);
-    CGFloat scale = MIN(size/CGRectGetWidth(extent), size/CGRectGetHeight(extent));
+<span class="p">-</span> <span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nf">creatClearImageFromCIImage:</span><span class="p">(</span><span class="n">CIImage</span> <span class="o">*</span><span class="p">)</span><span class="nv">image</span> <span class="nf">withSize:</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span> <span class="nv">size</span>
+<span class="p">{</span>
+    <span class="n">CGRect</span> <span class="n">extent</span> <span class="o">=</span> <span class="n">CGRectIntegral</span><span class="p">(</span><span class="n">image</span><span class="p">.</span><span class="n">extent</span><span class="p">);</span>
+    <span class="n">CGFloat</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">MIN</span><span class="p">(</span><span class="n">size</span><span class="o">/</span><span class="n">CGRectGetWidth</span><span class="p">(</span><span class="n">extent</span><span class="p">),</span> <span class="n">size</span><span class="o">/</span><span class="n">CGRectGetHeight</span><span class="p">(</span><span class="n">extent</span><span class="p">));</span>
     
-    size_t width = CGRectGetWidth(extent) * scale;
-    size_t height = CGRectGetHeight(extent) * scale;
-    // 创建灰度色调空间
-    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceGray();
-    CGContextRef bitmapRef = CGBitmapContextCreate(nil, width, height, 8, 0, colorSpaceRef, (CGBitmapInfo)kCGImageAlphaNone);
-    CIContext *context = [CIContext contextWithOptions:nil];
-    CGImageRef bitmapImage = [context createCGImage:image fromRect:extent];
-    CGContextSetInterpolationQuality(bitmapRef, kCGInterpolationNone);
-    CGContextScaleCTM(bitmapRef, scale, scale);
-    CGContextDrawImage(bitmapRef, extent, bitmapImage);
+    <span class="n">size_t</span> <span class="n">width</span> <span class="o">=</span> <span class="n">CGRectGetWidth</span><span class="p">(</span><span class="n">extent</span><span class="p">)</span> <span class="o">*</span> <span class="n">scale</span><span class="p">;</span>
+    <span class="n">size_t</span> <span class="n">height</span> <span class="o">=</span> <span class="n">CGRectGetHeight</span><span class="p">(</span><span class="n">extent</span><span class="p">)</span> <span class="o">*</span> <span class="n">scale</span><span class="p">;</span>
+    <span class="c1">// 创建灰度色调空间
+</span><span class="c1"></span>    <span class="n">CGColorSpaceRef</span> <span class="n">colorSpaceRef</span> <span class="o">=</span> <span class="n">CGColorSpaceCreateDeviceGray</span><span class="p">();</span>
+    <span class="n">CGContextRef</span> <span class="n">bitmapRef</span> <span class="o">=</span> <span class="n">CGBitmapContextCreate</span><span class="p">(</span><span class="nb">nil</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">colorSpaceRef</span><span class="p">,</span> <span class="p">(</span><span class="n">CGBitmapInfo</span><span class="p">)</span><span class="n">kCGImageAlphaNone</span><span class="p">);</span>
+    <span class="n">CIContext</span> <span class="o">*</span><span class="n">context</span> <span class="o">=</span> <span class="p">[</span><span class="n">CIContext</span> <span class="nl">contextWithOptions</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+    <span class="n">CGImageRef</span> <span class="n">bitmapImage</span> <span class="o">=</span> <span class="p">[</span><span class="n">context</span> <span class="nl">createCGImage</span><span class="p">:</span><span class="n">image</span> <span class="nl">fromRect</span><span class="p">:</span><span class="n">extent</span><span class="p">];</span>
+    <span class="n">CGContextSetInterpolationQuality</span><span class="p">(</span><span class="n">bitmapRef</span><span class="p">,</span> <span class="n">kCGInterpolationNone</span><span class="p">);</span>
+    <span class="n">CGContextScaleCTM</span><span class="p">(</span><span class="n">bitmapRef</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">scale</span><span class="p">);</span>
+    <span class="n">CGContextDrawImage</span><span class="p">(</span><span class="n">bitmapRef</span><span class="p">,</span> <span class="n">extent</span><span class="p">,</span> <span class="n">bitmapImage</span><span class="p">);</span>
     
-    // 保存图片
-    CGImageRef scaledImage = CGBitmapContextCreateImage(bitmapRef);
-    CGContextRelease(bitmapRef);
-    CGImageRelease(bitmapImage);
-    return [UIImage imageWithCGImage:scaledImage];
-}
+    <span class="c1">// 保存图片
+</span><span class="c1"></span>    <span class="n">CGImageRef</span> <span class="n">scaledImage</span> <span class="o">=</span> <span class="n">CGBitmapContextCreateImage</span><span class="p">(</span><span class="n">bitmapRef</span><span class="p">);</span>
+    <span class="n">CGContextRelease</span><span class="p">(</span><span class="n">bitmapRef</span><span class="p">);</span>
+    <span class="n">CGImageRelease</span><span class="p">(</span><span class="n">bitmapImage</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageWithCGImage</span><span class="p">:</span><span class="n">scaledImage</span><span class="p">];</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="二扫描二维码">二、扫描二维码</h4>
+</div><h3 id="二扫描二维码">二、扫描二维码</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -681,62 +680,62 @@
 </span><span class="lnt">56
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#import &#34;ViewController.h&#34;
-#import &lt;AVFoundation/AVFoundation.h&gt;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#import &#34;ViewController.h&#34;
+</span><span class="cp">#import &lt;AVFoundation/AVFoundation.h&gt;
+</span><span class="cp"></span>
+<span class="k">@interface</span> <span class="nc">ViewController</span> <span class="p">()</span> <span class="o">&lt;</span><span class="n">AVCaptureMetadataOutputObjectsDelegate</span><span class="o">&gt;</span>
 
-@interface ViewController () &lt;AVCaptureMetadataOutputObjectsDelegate&gt;
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">strong</span><span class="p">)</span> <span class="n">AVCaptureSession</span> <span class="o">*</span><span class="n">session</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">strong</span><span class="p">)</span> <span class="n">AVCaptureVideoPreviewLayer</span> <span class="o">*</span><span class="n">layer</span><span class="p">;</span>
+<span class="k">@end</span>
 
-@property (nonatomic, strong) AVCaptureSession *session;
-@property (nonatomic, strong) AVCaptureVideoPreviewLayer *layer;
-@end
+<span class="k">@implementation</span> <span class="nc">ViewController</span>
 
-@implementation ViewController
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-    // 创建拍摄会话
-    self.session = [[AVCaptureSession alloc] init];
+    <span class="c1">// 创建拍摄会话
+</span><span class="c1"></span>    <span class="nb">self</span><span class="p">.</span><span class="n">session</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AVCaptureSession</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
     
-    // 添加输入设备
-    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
-    [self.session addInput:input];
+    <span class="c1">// 添加输入设备
+</span><span class="c1"></span>    <span class="n">AVCaptureDevice</span> <span class="o">*</span><span class="n">device</span> <span class="o">=</span> <span class="p">[</span><span class="n">AVCaptureDevice</span> <span class="nl">defaultDeviceWithMediaType</span><span class="p">:</span><span class="n">AVMediaTypeVideo</span><span class="p">];</span>
+    <span class="n">AVCaptureDeviceInput</span> <span class="o">*</span><span class="n">input</span> <span class="o">=</span> <span class="p">[</span><span class="n">AVCaptureDeviceInput</span> <span class="nl">deviceInputWithDevice</span><span class="p">:</span><span class="n">device</span> <span class="nl">error</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">session</span> <span class="nl">addInput</span><span class="p">:</span><span class="n">input</span><span class="p">];</span>
     
-    // 添加输出数据
-    AVCaptureMetadataOutput *output = [[AVCaptureMetadataOutput alloc] init];
-    [output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
-    [self.session addOutput:output];
+    <span class="c1">// 添加输出数据
+</span><span class="c1"></span>    <span class="n">AVCaptureMetadataOutput</span> <span class="o">*</span><span class="n">output</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AVCaptureMetadataOutput</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">output</span> <span class="nl">setMetadataObjectsDelegate</span><span class="p">:</span><span class="nb">self</span> <span class="nl">queue</span><span class="p">:</span><span class="n">dispatch_get_main_queue</span><span class="p">()];</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">session</span> <span class="nl">addOutput</span><span class="p">:</span><span class="n">output</span><span class="p">];</span>
     
-    // 设置输入元数据的类型
-    [output setMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
+    <span class="c1">// 设置输入元数据的类型
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">output</span> <span class="nl">setMetadataObjectTypes</span><span class="p">:</span><span class="l">@[</span><span class="n">AVMetadataObjectTypeQRCode</span><span class="l">]</span><span class="p">];</span>
     
-    // 添加扫描图层
-    self.layer = [AVCaptureVideoPreviewLayer layerWithSession:self.session];
-    self.layer.frame = self.view.bounds;
-    [self.view.layer addSublayer:self.layer];
+    <span class="c1">// 添加扫描图层
+</span><span class="c1"></span>    <span class="nb">self</span><span class="p">.</span><span class="n">layer</span> <span class="o">=</span> <span class="p">[</span><span class="n">AVCaptureVideoPreviewLayer</span> <span class="nl">layerWithSession</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">session</span><span class="p">];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">bounds</span><span class="p">;</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">layer</span> <span class="nl">addSublayer</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">layer</span><span class="p">];</span>
     
-    // 启动会话
-    [self.session startRunning];
-}
+    <span class="c1">// 启动会话
+</span><span class="c1"></span>    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">session</span> <span class="n">startRunning</span><span class="p">];</span>
+<span class="p">}</span>
 
-#pragma mark - 扫描到数据就会执行该代理方法
-- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
-{
-    if (metadataObjects.count &gt; 0) {
-         // 提示：如果需要对url或者文本等信息进行扫描，可以在此进行扩展
-        AVMetadataMachineReadableCodeObject *object = [metadataObjects lastObject];
-        NSLog(@&#34;%@&#34;, object.stringValue);
+<span class="cp">#pragma mark - 扫描到数据就会执行该代理方法
+</span><span class="cp"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">captureOutput:</span><span class="p">(</span><span class="n">AVCaptureOutput</span> <span class="o">*</span><span class="p">)</span><span class="nv">captureOutput</span> <span class="nf">didOutputMetadataObjects:</span><span class="p">(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nv">metadataObjects</span> <span class="nf">fromConnection:</span><span class="p">(</span><span class="n">AVCaptureConnection</span> <span class="o">*</span><span class="p">)</span><span class="nv">connection</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">metadataObjects</span><span class="p">.</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+         <span class="c1">// 提示：如果需要对url或者文本等信息进行扫描，可以在此进行扩展
+</span><span class="c1"></span>        <span class="n">AVMetadataMachineReadableCodeObject</span> <span class="o">*</span><span class="n">object</span> <span class="o">=</span> <span class="p">[</span><span class="n">metadataObjects</span> <span class="n">lastObject</span><span class="p">];</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;%@&#34;</span><span class="p">,</span> <span class="n">object</span><span class="p">.</span><span class="n">stringValue</span><span class="p">);</span>
         
-        // 如果扫描完成，停止会话
-        [self.session stopRunning];
+        <span class="c1">// 如果扫描完成，停止会话
+</span><span class="c1"></span>        <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">session</span> <span class="n">stopRunning</span><span class="p">];</span>
         
-        // 删除预览图层
-        [self.layer removeFromSuperlayer];
-    } else {
-        NSLog(@&#34;没有扫描到数据&#34;);
-    }
-}
+        <span class="c1">// 删除预览图层
+</span><span class="c1"></span>        <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">layer</span> <span class="n">removeFromSuperlayer</span><span class="p">];</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;没有扫描到数据&#34;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>最后说几个二维码相关的注意点：</p>

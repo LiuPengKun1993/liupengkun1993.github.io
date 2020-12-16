@@ -81,15 +81,6 @@
     </item>
     
     <item>
-      <title>iOS开发之 - WKWebView VS UIWebView</title>
-      <link>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-wkwebview-vs-uiwebview/</link>
-      <pubDate>Tue, 02 Jan 2018 15:43:48 +0800</pubDate>
-      
-      <guid>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-wkwebview-vs-uiwebview/</guid>
-      <description>WKWebView是苹果在 iOS 8 中推出的新框架，相比UIWebView来说，WKWebView 性能好，速度快，内存小，功能多，且支持了更多的 HTML5</description>
-    </item>
-    
-    <item>
       <title>iOS 开发 - Swift 全面系统的学习</title>
       <link>https://liupengkun1993.github.io/post/ios/ios-%E5%BC%80%E5%8F%91-swift-%E5%85%A8%E9%9D%A2%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Tue, 22 Aug 2017 15:43:48 +0800</pubDate>
@@ -104,7 +95,7 @@
       <pubDate>Sat, 05 Aug 2017 15:43:48 +0800</pubDate>
       
       <guid>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E4%BB%BF%E7%AE%80%E4%B9%A6%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E5%A4%9A%E9%A1%B5%E9%9D%A2%E6%BB%91%E5%8A%A8%E8%A7%86%E5%9B%BE/</guid>
-      <description>之前项目中很多地方用到了滑动视图，三个界面五个界面或界面个数不定的情况都有，这里以简书 APP 的个人主页为例，总结一下，一则对自己也有好处，二则希</description>
+      <description>前言 之前项目中很多地方用到了滑动视图，三个界面五个界面或界面个数不定的情况都有，这里以简书 APP 的个人主页为例，总结一下，一则对自己也有好处，二</description>
     </item>
     
     <item>
@@ -140,7 +131,7 @@
       <pubDate>Fri, 07 Apr 2017 15:43:48 +0800</pubDate>
       
       <guid>https://liupengkun1993.github.io/post/ios/ios-%E8%8E%B7%E5%8F%96%E8%AE%BE%E5%A4%87%E7%9A%84%E5%90%84%E7%A7%8D%E4%BF%A1%E6%81%AF/</guid>
-      <description>iOS 获取设备的各种信息 一、目录结构: 获取屏幕宽度与高度 获取设备版本号 获取iPhone名称 获取app版本号 获取电池电量 获取当前系统名称 获取当前系</description>
+      <description>一、目录结构 获取屏幕宽度与高度 获取设备版本号 获取iPhone名称 获取app版本号 获取电池电量 获取当前系统名称 获取当前系统版本号 获取通用的唯一</description>
     </item>
     
     <item>
@@ -149,7 +140,7 @@
       <pubDate>Thu, 30 Mar 2017 15:43:48 +0800</pubDate>
       
       <guid>https://liupengkun1993.github.io/post/ios/%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E8%A7%A3%E8%80%A6/</guid>
-      <description>读了一篇很不错的 iOS 架构方面的文章，这里和大家分享一下！这里是原文 模块化与解耦 简述 本文主要讲述了在iOS开发过程中，模块化工程架构的一种组织方</description>
+      <description>读了一篇很不错的 iOS 架构方面的文章，和大家分享一下！原文地址 模块化与解耦 简述 本文主要讲述了在iOS开发过程中，模块化工程架构的一种组织方式，本</description>
     </item>
     
     <item>
@@ -167,7 +158,7 @@
       <pubDate>Sat, 18 Mar 2017 15:43:48 +0800</pubDate>
       
       <guid>https://liupengkun1993.github.io/post/ios/ios-%E5%BC%80%E5%8F%91%E4%B8%AD%E5%AF%BC%E8%88%AA%E6%A0%8F%E6%B8%90%E5%8F%98%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/</guid>
-      <description>很多 APP 都有导航栏颜色渐变的效果，各位开发者也都八仙过海各显神通，各有各的方法，我这里提供两种思路：第一种是通过设置 navigationBar 的 alpha；第二种是在</description>
+      <description>思路 很多 APP 都有导航栏颜色渐变的效果，各位开发者也都八仙过海各显神通，各有各的方法，我这里提供两种思路： 第一种是通过设置 navigationBar 的 alpha； 第二种</description>
     </item>
     
     <item>
@@ -186,6 +177,15 @@
       
       <guid>https://liupengkun1993.github.io/post/ios/app-%E8%A2%AB%E8%8B%B9%E6%9E%9C-app-store-%E6%8B%92%E7%BB%9D%E7%9A%84n%E4%B8%AA%E5%8E%9F%E5%9B%A0/</guid>
       <description>原文链接：http://bbs.chinaapp.org/forum.php?mod=viewthread&amp;amp;tid=15&amp;amp;p</description>
+    </item>
+    
+    <item>
+      <title>iOS开发技巧 - UIViewController 基类设计</title>
+      <link>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7-uiviewcontroller-%E5%9F%BA%E7%B1%BB%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Wed, 08 Mar 2017 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E6%8A%80%E5%B7%A7-uiviewcontroller-%E5%9F%BA%E7%B1%BB%E8%AE%BE%E8%AE%A1/</guid>
+      <description>前言 在项目开发中，所有控制器里面大概都有共同的属性，比如背景色、导航栏、tarBar 的设置等等，这时我们一般都会设计出来一个 UIViewController 的基类，通常叫</description>
     </item>
     
   </channel>

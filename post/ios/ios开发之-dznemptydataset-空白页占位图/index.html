@@ -69,7 +69,7 @@
 <meta itemprop="description" content="发现了一个很有用的第三方，DZNEmptyDataSet，用起来也极其方便，这里给大家分享下！先说下其用途：DZNEmptyDataSet 主">
 <meta itemprop="datePublished" content="2017-01-17T15:43:48+08:00" />
 <meta itemprop="dateModified" content="2018-01-02T15:43:48+08:00" />
-<meta itemprop="wordCount" content="1674">
+<meta itemprop="wordCount" content="1508">
 
 
 
@@ -306,7 +306,7 @@
             <a href="https://liupengkun1993.github.io/categories/ios/"> iOS </a>
             
           </div>
-        <span class="more-meta"> 1674 words </span>
+        <span class="more-meta"> 1508 words </span>
           <span class="more-meta"> 4 min read </span>
 
         
@@ -324,11 +324,19 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#一dznemptydataset-简介">一、DZNEmptyDataSet 简介</a></li>
+    <li><a href="#二集成使用">二、集成使用</a></li>
+    <li><a href="#三高级用法">三、高级用法</a>
       <ul>
-        <li><a href="#一先来认识一下-dznemptydataset">一、先来认识一下 DZNEmptyDataSet</a></li>
-        <li><a href="#二用-dznemptydataset-实现占位图效果">二、用 DZNEmptyDataSet 实现占位图效果</a></li>
-        <li><a href="#三接下来是-dznemptydataset-的其它使用方法">三、接下来是 DZNEmptyDataSet 的其它使用方法</a></li>
+        <li><a href="#31-添加标题文字">3.1 添加标题文字</a></li>
+        <li><a href="#32-添加详情文字">3.2 添加详情文字</a></li>
+        <li><a href="#33-添加可以点击的按钮-上面带文字">3.3 添加可以点击的按钮 上面带文字</a></li>
+        <li><a href="#34-空白区域点击事件">3.4 空白区域点击事件</a></li>
+        <li><a href="#35-改变标题文字与详情文字的距离">3.5 改变标题文字与详情文字的距离</a></li>
+        <li><a href="#36-空白区域的颜色自定义">3.6 空白区域的颜色自定义</a></li>
+        <li><a href="#37-标题文字与详情文字同时调整垂直偏移量">3.7 标题文字与详情文字同时调整垂直偏移量</a></li>
+        <li><a href="#38-添加动画效果">3.8 添加动画效果</a></li>
+        <li><a href="#39-其它方法">3.9 其它方法</a></li>
       </ul>
     </li>
   </ul>
@@ -341,14 +349,14 @@
       <blockquote>
 <p>发现了一个很有用的第三方，<a href="https://github.com/dzenbot/DZNEmptyDataSet">DZNEmptyDataSet</a>，用起来也极其方便，这里给大家分享下！先说下其用途：<code>DZNEmptyDataSet</code> 主要用于 <code>UITableView</code> 以及 <code>UICollectionView</code> 页面空白时展示（据说也可以用于 <code>UIScrollView</code>， 有兴趣的童鞋可以试试）。开发中之所以用占位图，是为了提高用户体验；而为什么选 <code>DZNEmptyDataSet</code> 而不自行设计占位图（做过占位图的童鞋应该会觉得做占位图并不难，但没有对比就没有伤害，你如果试用了 <code>DZNEmptyDataSet</code> ，就会顿悟自己做占位图是多么地繁琐）。坦白说，<code>DZNEmptyDataSet</code> 是一个为了让开发人员“变懒”的第三方（貌似每个第三方都是这样的“宗旨”），接下来我们就一起看下 <code>DZNEmptyDataSet</code> 吧！</p>
 </blockquote>
-<h3 id="一先来认识一下-dznemptydataset">一、先来认识一下 DZNEmptyDataSet</h3>
+<h2 id="一dznemptydataset-简介">一、DZNEmptyDataSet 简介</h2>
 <ul>
 <li>GitHub 地址：<a href="https://github.com/dzenbot/DZNEmptyDataSet">DZNEmptyDataSet</a></li>
 <li>DZNEmptyDataSet 效果图</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-a0171c63c0ebeaa1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="DZNEmptyDataSet效果图1"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-9b7b23c881b34deb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="DZNEmptyDataSet效果图2"></p>
-<h3 id="二用-dznemptydataset-实现占位图效果">二、用 DZNEmptyDataSet 实现占位图效果</h3>
+<p><img src="/image/iOS/iOS_DZNEmptyDataSet/DZNEmptyDataSet01.png" alt="DZNEmptyDataSet效果图1"></p>
+<p><img src="/image/iOS/iOS_DZNEmptyDataSet/DZNEmptyDataSet02.png" alt="DZNEmptyDataSet效果图2"></p>
+<h2 id="二集成使用">二、集成使用</h2>
 <p>不得不说，其使用方法极其简单，用 cocoapods 导入可以，直接拖进项目也行。。。接着~~~</p>
 <ul>
 <li>导入头文件</li>
@@ -358,8 +366,8 @@
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#import &#34;UIScrollView+EmptyDataSet.h&#34;
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#import &#34;UIScrollView+EmptyDataSet.h&#34;
+</span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>添加代理协议</li>
@@ -369,7 +377,7 @@
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">@interface NNViewController ()&lt;UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate&gt;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">NNViewController</span> <span class="p">()</span><span class="o">&lt;</span><span class="n">UITableViewDataSource</span><span class="p">,</span> <span class="n">DZNEmptyDataSetSource</span><span class="p">,</span> <span class="n">DZNEmptyDataSetDelegate</span><span class="o">&gt;</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -387,13 +395,13 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, NNSCREENWIDTH, NNSCREENHEIGHT) style:UITableViewStylePlain];
-    [self.view addSubview:self.tableView];
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="n">_tableView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UITableView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithFrame</span><span class="p">:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">NNSCREENWIDTH</span><span class="p">,</span> <span class="n">NNSCREENHEIGHT</span><span class="p">)</span> <span class="nl">style</span><span class="p">:</span><span class="n">UITableViewStylePlain</span><span class="p">];</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">tableView</span><span class="p">];</span>
     
-    self.tableView.dataSource = self;
-    self.tableView.emptyDataSetSource = self;
-    self.tableView.emptyDataSetDelegate = self;
-    self.tableView.tableFooterView = [[UIView alloc] init];
+    <span class="nb">self</span><span class="p">.</span><span class="n">tableView</span><span class="p">.</span><span class="n">dataSource</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">tableView</span><span class="p">.</span><span class="n">emptyDataSetSource</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">tableView</span><span class="p">.</span><span class="n">emptyDataSetDelegate</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">tableView</span><span class="p">.</span><span class="n">tableFooterView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIView</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
    
 </code></pre></td></tr></table>
 </div>
@@ -409,18 +417,18 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#pragma mark - DZNEmptyDataSetSource
-// 返回图片
-- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
-    return [UIImage imageNamed:@&#34;Screenshot_Slack&#34;];
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#pragma mark - DZNEmptyDataSetSource
+</span><span class="cp"></span><span class="c1">// 返回图片
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nf">imageForEmptyDataSet:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span><span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed</span><span class="p">:</span><span class="s">@&#34;Screenshot_Slack&#34;</span><span class="p">];</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>到这里简单的占位图已经做好了，是不是觉得 so 轻松 so easy！下面是效果图：
-<img src="http://upload-images.jianshu.io/upload_images/2665449-ec13c6b78895b11f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="效果图"></p>
-<h3 id="三接下来是-dznemptydataset-的其它使用方法">三、接下来是 DZNEmptyDataSet 的其它使用方法</h3>
+</div><p>到这里简单的占位图已经做好了，是不是觉得 so 轻松 so easy！下面是效果图：</p>
+<p><img src="/image/iOS/iOS_DZNEmptyDataSet/DZNEmptyDataSet03.png" alt="效果图"></p>
+<h2 id="三高级用法">三、高级用法</h2>
 <p>DZNEmptyDataSet 框架扩展性极强，可以在占位图上添加图片、标题文字、详情文字等等一堆东西，总有一款适合你！下边是一些具体用法及效果图。</p>
-<h4 id="31-添加标题文字">3.1 添加标题文字</h4>
+<h3 id="31-添加标题文字">3.1 添加标题文字</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -431,16 +439,16 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 返回标题文字
-- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
-    NSString *text = @&#34;这是一张空白页&#34;;
-    NSDictionary *attribute = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f], NSForegroundColorAttributeName: [UIColor darkGrayColor]};
-    return [[NSAttributedString alloc] initWithString:text attributes:attribute];
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 返回标题文字
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="n">NSAttributedString</span> <span class="o">*</span><span class="p">)</span><span class="nf">titleForEmptyDataSet:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="p">{</span>
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">text</span> <span class="o">=</span> <span class="s">@&#34;这是一张空白页&#34;</span><span class="p">;</span>
+    <span class="n">NSDictionary</span> <span class="o">*</span><span class="n">attribute</span> <span class="o">=</span> <span class="l">@{</span><span class="nl">NSFontAttributeName</span><span class="p">:</span> <span class="p">[</span><span class="n">UIFont</span> <span class="nl">boldSystemFontOfSize</span><span class="p">:</span><span class="mf">18.0f</span><span class="p">],</span> <span class="nl">NSForegroundColorAttributeName</span><span class="p">:</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">darkGrayColor</span><span class="p">]</span><span class="l">}</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">[[</span><span class="n">NSAttributedString</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithString</span><span class="p">:</span><span class="n">text</span> <span class="nl">attributes</span><span class="p">:</span><span class="n">attribute</span><span class="p">];</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-8d76ca82b929405b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="返回标题文字"></p>
-<h4 id="32-添加详情文字">3.2 添加详情文字</h4>
+</div><p><img src="/image/iOS/iOS_DZNEmptyDataSet/DZNEmptyDataSet04.png" alt="返回标题文字"></p>
+<h3 id="32-添加详情文字">3.2 添加详情文字</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -453,18 +461,18 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 返回详情文字
-- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView { NSString *text = @&#34;哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈&#34;;
-    NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
-    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
-    paragraph.alignment = NSTextAlignmentCenter;
-    NSDictionary *attribute = @{NSFontAttributeName: [UIFont systemFontOfSize:14.0f], NSForegroundColorAttributeName: [UIColor lightGrayColor], NSParagraphStyleAttributeName: paragraph};
-    return [[NSAttributedString alloc] initWithString:text attributes:attribute];
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 返回详情文字
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="n">NSAttributedString</span> <span class="o">*</span><span class="p">)</span><span class="nf">descriptionForEmptyDataSet:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="p">{</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">text</span> <span class="o">=</span> <span class="s">@&#34;哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈&#34;</span><span class="p">;</span>
+    <span class="n">NSMutableParagraphStyle</span> <span class="o">*</span><span class="n">paragraph</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSMutableParagraphStyle</span> <span class="n">new</span><span class="p">];</span>
+    <span class="n">paragraph</span><span class="p">.</span><span class="n">lineBreakMode</span> <span class="o">=</span> <span class="n">NSLineBreakByWordWrapping</span><span class="p">;</span>
+    <span class="n">paragraph</span><span class="p">.</span><span class="n">alignment</span> <span class="o">=</span> <span class="n">NSTextAlignmentCenter</span><span class="p">;</span>
+    <span class="n">NSDictionary</span> <span class="o">*</span><span class="n">attribute</span> <span class="o">=</span> <span class="l">@{</span><span class="nl">NSFontAttributeName</span><span class="p">:</span> <span class="p">[</span><span class="n">UIFont</span> <span class="nl">systemFontOfSize</span><span class="p">:</span><span class="mf">14.0f</span><span class="p">],</span> <span class="nl">NSForegroundColorAttributeName</span><span class="p">:</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">lightGrayColor</span><span class="p">],</span> <span class="nl">NSParagraphStyleAttributeName</span><span class="p">:</span> <span class="n">paragraph</span><span class="l">}</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">[[</span><span class="n">NSAttributedString</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithString</span><span class="p">:</span><span class="n">text</span> <span class="nl">attributes</span><span class="p">:</span><span class="n">attribute</span><span class="p">];</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-f0154c472bfe6c61.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="详情文字"></p>
-<h4 id="33-添加可以点击的按钮-上面带文字">3.3 添加可以点击的按钮 上面带文字</h4>
+</div><p><img src="/image/iOS/iOS_DZNEmptyDataSet/DZNEmptyDataSet05.png" alt="详情文字"></p>
+<h3 id="33-添加可以点击的按钮-上面带文字">3.3 添加可以点击的按钮 上面带文字</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -483,24 +491,24 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 返回可以点击的按钮 上面带文字
-- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
-    NSDictionary *attribute = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f]};
-    return [[NSAttributedString alloc] initWithString:@&#34;哈喽&#34; attributes:attribute];
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 返回可以点击的按钮 上面带文字
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="n">NSAttributedString</span> <span class="o">*</span><span class="p">)</span><span class="nf">buttonTitleForEmptyDataSet:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="nf">forState:</span><span class="p">(</span><span class="n">UIControlState</span><span class="p">)</span><span class="nv">state</span> <span class="p">{</span>
+    <span class="n">NSDictionary</span> <span class="o">*</span><span class="n">attribute</span> <span class="o">=</span> <span class="l">@{</span><span class="nl">NSFontAttributeName</span><span class="p">:</span> <span class="p">[</span><span class="n">UIFont</span> <span class="nl">boldSystemFontOfSize</span><span class="p">:</span><span class="mf">17.0f</span><span class="p">]</span><span class="l">}</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">[[</span><span class="n">NSAttributedString</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithString</span><span class="p">:</span><span class="s">@&#34;哈喽&#34;</span> <span class="nl">attributes</span><span class="p">:</span><span class="n">attribute</span><span class="p">];</span>
+<span class="p">}</span>
 
-//#pragma mark - DZNEmptyDataSetDelegate
-// 处理按钮的点击事件
-- (void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@&#34;https://www.baidu.com&#34;]];
-    if ([[UIApplication sharedApplication] canOpenURL:url]) {
-        [[UIApplication sharedApplication] openURL:url];
-    }
-}
+<span class="c1">//#pragma mark - DZNEmptyDataSetDelegate
+</span><span class="c1">// 处理按钮的点击事件
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">emptyDataSet:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="nf">didTapButton:</span><span class="p">(</span><span class="n">UIButton</span> <span class="o">*</span><span class="p">)</span><span class="nv">button</span> <span class="p">{</span>
+    <span class="n">NSURL</span> <span class="o">*</span><span class="n">url</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:[</span><span class="n">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&#34;https://www.baidu.com&#34;</span><span class="p">]];</span>
+    <span class="k">if</span> <span class="p">([[</span><span class="n">UIApplication</span> <span class="n">sharedApplication</span><span class="p">]</span> <span class="nl">canOpenURL</span><span class="p">:</span><span class="n">url</span><span class="p">])</span> <span class="p">{</span>
+        <span class="p">[[</span><span class="n">UIApplication</span> <span class="n">sharedApplication</span><span class="p">]</span> <span class="nl">openURL</span><span class="p">:</span><span class="n">url</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-d2ae69bb76fd8299.gif?imageMogr2/auto-orient/strip" alt="可以点击的按钮"></p>
-<h4 id="34-空白区域点击事件">3.4 空白区域点击事件</h4>
+</div><p><img src="/image/iOS/iOS_DZNEmptyDataSet/DZNEmptyDataSet06.gif" alt="可以点击的按钮"></p>
+<h3 id="34-空白区域点击事件">3.4 空白区域点击事件</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -510,15 +518,15 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 空白区域点击事件
-- (void)emptyDataSet:(UIScrollView *)scrollView didTapView:(UIView *)view {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@&#34;哈哈&#34; message:@&#34;最近咋样&#34; delegate:nil cancelButtonTitle:@&#34;别点我&#34; otherButtonTitles:@&#34;点我干啥&#34;, nil];
-    [alert show];
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 空白区域点击事件
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">emptyDataSet:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="nf">didTapView:</span><span class="p">(</span><span class="n">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">view</span> <span class="p">{</span>
+    <span class="n">UIAlertView</span> <span class="o">*</span><span class="n">alert</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIAlertView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithTitle</span><span class="p">:</span><span class="s">@&#34;哈哈&#34;</span> <span class="nl">message</span><span class="p">:</span><span class="s">@&#34;最近咋样&#34;</span> <span class="nl">delegate</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">cancelButtonTitle</span><span class="p">:</span><span class="s">@&#34;别点我&#34;</span> <span class="nl">otherButtonTitles</span><span class="p">:</span><span class="s">@&#34;点我干啥&#34;</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">alert</span> <span class="n">show</span><span class="p">];</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-bc977dd868779f9a.gif?imageMogr2/auto-orient/strip" alt="空白区域点击事件"></p>
-<h4 id="35-改变标题文字与详情文字的距离">3.5 改变标题文字与详情文字的距离</h4>
+</div><p><img src="/image/iOS/iOS_DZNEmptyDataSet/DZNEmptyDataSet07.gif" alt="空白区域点击事件"></p>
+<h3 id="35-改变标题文字与详情文字的距离">3.5 改变标题文字与详情文字的距离</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -527,14 +535,14 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 标题文字与详情文字的距离
-- (CGFloat)spaceHeightForEmptyDataSet:(UIScrollView *)scrollView {
-    return 100;
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 标题文字与详情文字的距离
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nf">spaceHeightForEmptyDataSet:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">100</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-c7e36364da637b6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="标题文字与详情文字的距离"></p>
-<h4 id="36-空白区域的颜色自定义">3.6 空白区域的颜色自定义</h4>
+</div><p><img src="/image/iOS/iOS_DZNEmptyDataSet/DZNEmptyDataSet08.png" alt="标题文字与详情文字的距离"></p>
+<h3 id="36-空白区域的颜色自定义">3.6 空白区域的颜色自定义</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -543,14 +551,14 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 返回空白区域的颜色自定义
-- (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView {
-    return [UIColor cyanColor];
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 返回空白区域的颜色自定义
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="n">UIColor</span> <span class="o">*</span><span class="p">)</span><span class="nf">backgroundColorForEmptyDataSet:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">cyanColor</span><span class="p">];</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-e6e70559dd5033fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="空白区域的颜色自定义"></p>
-<h4 id="37-标题文字与详情文字同时调整垂直偏移量">3.7 标题文字与详情文字同时调整垂直偏移量</h4>
+</div><p><img src="/image/iOS/iOS_DZNEmptyDataSet/DZNEmptyDataSet09.png" alt="空白区域的颜色自定义"></p>
+<h3 id="37-标题文字与详情文字同时调整垂直偏移量">3.7 标题文字与详情文字同时调整垂直偏移量</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -559,14 +567,14 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 标题文字与详情文字同时调整垂直偏移量
-- (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView {
-    return -100;
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 标题文字与详情文字同时调整垂直偏移量
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nf">verticalOffsetForEmptyDataSet:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">100</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-659f044350373024.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="标题文字与详情文字同时调整垂直偏移量"></p>
-<h4 id="38-添加动画效果">3.8 添加动画效果</h4>
+</div><p><img src="/image/iOS/iOS_DZNEmptyDataSet/DZNEmptyDataSet10.png" alt="标题文字与详情文字同时调整垂直偏移量"></p>
+<h3 id="38-添加动画效果">3.8 添加动画效果</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -592,31 +600,31 @@
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#pragma mark - DZNEmptyDataSetSource
-// 返回图片
-- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
-    return [UIImage imageNamed:@&#34;icon_wwdc&#34;];
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#pragma mark - DZNEmptyDataSetSource
+</span><span class="cp"></span><span class="c1">// 返回图片
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nf">imageForEmptyDataSet:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span><span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed</span><span class="p">:</span><span class="s">@&#34;icon_wwdc&#34;</span><span class="p">];</span>
+<span class="p">}</span>
 
-- (CAAnimation *)imageAnimationForEmptyDataSet:(UIScrollView *)scrollView {
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath: @&#34;transform&#34;];
-    animation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
-    animation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeRotation(M_PI_2, 0.0, 0.0,   1.0)];
-    animation.duration = 0.25;
-    animation.cumulative = YES;
-    animation.repeatCount = MAXFLOAT;
-    return animation;
-}
+<span class="p">-</span> <span class="p">(</span><span class="n">CAAnimation</span> <span class="o">*</span><span class="p">)</span><span class="nf">imageAnimationForEmptyDataSet:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="p">{</span>
+    <span class="n">CABasicAnimation</span> <span class="o">*</span><span class="n">animation</span> <span class="o">=</span> <span class="p">[</span><span class="n">CABasicAnimation</span> <span class="nl">animationWithKeyPath</span><span class="p">:</span> <span class="s">@&#34;transform&#34;</span><span class="p">];</span>
+    <span class="n">animation</span><span class="p">.</span><span class="n">fromValue</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSValue</span> <span class="nl">valueWithCATransform3D</span><span class="p">:</span><span class="n">CATransform3DIdentity</span><span class="p">];</span>
+    <span class="n">animation</span><span class="p">.</span><span class="n">toValue</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSValue</span> <span class="nl">valueWithCATransform3D</span><span class="p">:</span><span class="n">CATransform3DMakeRotation</span><span class="p">(</span><span class="n">M_PI_2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>   <span class="mf">1.0</span><span class="p">)];</span>
+    <span class="n">animation</span><span class="p">.</span><span class="n">duration</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">;</span>
+    <span class="n">animation</span><span class="p">.</span><span class="n">cumulative</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+    <span class="n">animation</span><span class="p">.</span><span class="n">repeatCount</span> <span class="o">=</span> <span class="n">MAXFLOAT</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">animation</span><span class="p">;</span>
+<span class="p">}</span>
 
-#pragma mark - DZNEmptyDataSetDelegate
-// 图片是否要动画效果，默认NO
-- (BOOL)emptyDataSetShouldAnimateImageView:(UIScrollView *)scrollView {
-    return YES;
-}
+<span class="cp">#pragma mark - DZNEmptyDataSetDelegate
+</span><span class="cp"></span><span class="c1">// 图片是否要动画效果，默认NO
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">emptyDataSetShouldAnimateImageView:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-8a61fbb540b61cfa.gif?imageMogr2/auto-orient/strip" alt="动画效果"></p>
-<h4 id="39-其它方法">3.9 其它方法</h4>
+</div><p><img src="/image/iOS/iOS_DZNEmptyDataSet/DZNEmptyDataSet11.gif" alt="动画效果"></p>
+<h3 id="39-其它方法">3.9 其它方法</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -675,65 +683,63 @@
 </span><span class="lnt">54
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#pragma mark - DZNEmptyDataSetSource
-// 返回图片的 tintColor
-- (UIColor *)imageTintColorForEmptyDataSet:(UIScrollView *)scrollView {
-    return [UIColor yellowColor];
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#pragma mark - DZNEmptyDataSetSource
+</span><span class="cp"></span><span class="c1">// 返回图片的 tintColor
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="n">UIColor</span> <span class="o">*</span><span class="p">)</span><span class="nf">imageTintColorForEmptyDataSet:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">yellowColor</span><span class="p">];</span>
+<span class="p">}</span>
 
-// 返回可点击按钮的 image
-- (UIImage *)buttonImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
-    return [UIImage imageNamed:@&#34;icon_wwdc&#34;];
-}
+<span class="c1">// 返回可点击按钮的 image
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nf">buttonImageForEmptyDataSet:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="nf">forState:</span><span class="p">(</span><span class="n">UIControlState</span><span class="p">)</span><span class="nv">state</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed</span><span class="p">:</span><span class="s">@&#34;icon_wwdc&#34;</span><span class="p">];</span>
+<span class="p">}</span>
 
-// 返回可点击按钮的 backgroundImage
-- (UIImage *)buttonBackgroundImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
-    return [UIImage imageNamed:@&#34;icon_wwdc&#34;];
-}
+<span class="c1">// 返回可点击按钮的 backgroundImage
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nf">buttonBackgroundImageForEmptyDataSet:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="nf">forState:</span><span class="p">(</span><span class="n">UIControlState</span><span class="p">)</span><span class="nv">state</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed</span><span class="p">:</span><span class="s">@&#34;icon_wwdc&#34;</span><span class="p">];</span>
+<span class="p">}</span>
 
-// 返回自定义 view
-- (UIView *)customViewForEmptyDataSet:(UIScrollView *)scrollView {
-    return nil;
-}
+<span class="c1">// 返回自定义 view
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="n">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nf">customViewForEmptyDataSet:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
+<span class="p">}</span>
 
-#pragma mark - DZNEmptyDataSetDelegate
-// 是否显示空白页，默认YES
-- (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView {
-    return YES;
-}
-// 是否允许点击，默认YES
-- (BOOL)emptyDataSetShouldAllowTouch:(UIScrollView *)scrollView {
-    return YES;
-}
-// 是否允许滚动，默认NO
-- (BOOL)emptyDataSetShouldAllowScroll:(UIScrollView *)scrollView {
-    return YES;
-}
-// 图片是否要动画效果，默认NO
-- (BOOL)emptyDataSetShouldAnimateImageView:(UIScrollView *)scrollView {
-    return YES;
-}
-// 空白页将要出现
-- (void)emptyDataSetWillAppear:(UIScrollView *)scrollView {
+<span class="cp">#pragma mark - DZNEmptyDataSetDelegate
+</span><span class="cp"></span><span class="c1">// 是否显示空白页，默认YES
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">emptyDataSetShouldDisplay:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// 是否允许点击，默认YES
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">emptyDataSetShouldAllowTouch:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// 是否允许滚动，默认NO
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">emptyDataSetShouldAllowScroll:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// 图片是否要动画效果，默认NO
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">emptyDataSetShouldAnimateImageView:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// 空白页将要出现
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">emptyDataSetWillAppear:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="p">{</span>
     
-}
-// 空白页已经出现
-- (void)emptyDataSetDidAppear:(UIScrollView *)scrollView {
+<span class="p">}</span>
+<span class="c1">// 空白页已经出现
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">emptyDataSetDidAppear:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="p">{</span>
     
-}
-// 空白页将要消失
-- (void)emptyDataSetWillDisappear:(UIScrollView *)scrollView {
+<span class="p">}</span>
+<span class="c1">// 空白页将要消失
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">emptyDataSetWillDisappear:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="p">{</span>
     
-}
-// 空白页已经消失
-- (void)emptyDataSetDidDisappear:(UIScrollView *)scrollView {
+<span class="p">}</span>
+<span class="c1">// 空白页已经消失
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">emptyDataSetDidDisappear:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="p">{</span>
     
-}
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;华丽的分割线&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</p>
-<p>小结：本小白只在 UITableView 上试用了 DZNEmptyDataSet 框架。。。公司要求年前再迭代一个版本，时间不太充裕因此没逐一去试。。。哪位大神如果试了 UICollectionView 或 UIScrollView 发现有问题，还请不吝赐教！</p>
-
+</div>
     </div>
 
     

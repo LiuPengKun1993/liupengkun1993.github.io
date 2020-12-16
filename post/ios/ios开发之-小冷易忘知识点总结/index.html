@@ -379,47 +379,47 @@
 </span><span class="lnt">41
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#import &#34;NNBaseViewController.h&#34;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#import &#34;NNBaseViewController.h&#34;
+</span><span class="cp"></span>
+<span class="k">@interface</span> <span class="nc">NNBaseViewController</span> <span class="p">()</span>
 
-@interface NNBaseViewController ()
+<span class="k">@end</span>
 
-@end
+<span class="k">@implementation</span> <span class="nc">NNBaseViewController</span>
 
-@implementation NNBaseViewController
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
+    <span class="p">[</span><span class="nb">self</span> <span class="n">setupViews</span><span class="p">];</span>
+    <span class="c1">// 判断是否有上级页面，有的话再设置返回按钮
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">([</span><span class="nb">self</span><span class="p">.</span><span class="n">navigationController</span><span class="p">.</span><span class="n">viewControllers</span> <span class="nl">indexOfObject</span><span class="p">:</span><span class="nb">self</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">[</span><span class="nb">self</span> <span class="n">setupLeftBarButton</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self setupViews];
-    // 判断是否有上级页面，有的话再设置返回按钮
-    if ([self.navigationController.viewControllers indexOfObject:self] != 0) {
-        [self setupLeftBarButton];
-    }
-}
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setupViews</span> <span class="p">{</span>
+    <span class="c1">// 设置应用的背景色
+</span><span class="c1"></span>    <span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">lightGrayColor</span><span class="p">];</span>
+    <span class="c1">// 不允许 viewController 自动调整，我们自己布局；如果设置为YES，视图会自动下移 64 像素
+</span><span class="c1"></span>    <span class="nb">self</span><span class="p">.</span><span class="n">automaticallyAdjustsScrollViewInsets</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+<span class="p">}</span>
 
-- (void)setupViews {
-    // 设置应用的背景色
-    self.view.backgroundColor = [UIColor lightGrayColor];
-    // 不允许 viewController 自动调整，我们自己布局；如果设置为YES，视图会自动下移 64 像素
-    self.automaticallyAdjustsScrollViewInsets = NO;
-}
+<span class="cp">#pragma mark - 自定义返回按钮
+</span><span class="cp"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setupLeftBarButton</span> <span class="p">{</span>
+    <span class="c1">// 自定义 leftBarButtonItem ，UIImageRenderingModeAlwaysOriginal 防止图片被渲染
+</span><span class="c1"></span>    <span class="nb">self</span><span class="p">.</span><span class="n">navigationItem</span><span class="p">.</span><span class="n">leftBarButtonItem</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIBarButtonItem</span> <span class="n">alloc</span><span class="p">]</span>
+                                             <span class="nl">initWithImage</span><span class="p">:[[</span><span class="n">UIImage</span> <span class="nl">imageNamed</span><span class="p">:</span><span class="s">@&#34;Back-蓝&#34;</span><span class="p">]</span> <span class="nl">imageWithRenderingMode</span><span class="p">:</span><span class="n">UIImageRenderingModeAlwaysOriginal</span><span class="p">]</span>
+                                             <span class="nl">style</span><span class="p">:</span><span class="n">UIBarButtonItemStylePlain</span>
+                                             <span class="nl">target</span><span class="p">:</span><span class="nb">self</span>
+                                             <span class="nl">action</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">leftBarButtonClick</span><span class="p">)];</span>
+    <span class="c1">// 防止返回手势失效
+</span><span class="c1"></span>    <span class="nb">self</span><span class="p">.</span><span class="n">navigationController</span><span class="p">.</span><span class="n">interactivePopGestureRecognizer</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="p">(</span><span class="kt">id</span><span class="o">&lt;</span><span class="n">UIGestureRecognizerDelegate</span><span class="o">&gt;</span><span class="p">)</span><span class="nb">self</span><span class="p">;</span>
+<span class="p">}</span>
 
-#pragma mark - 自定义返回按钮
-- (void)setupLeftBarButton {
-    // 自定义 leftBarButtonItem ，UIImageRenderingModeAlwaysOriginal 防止图片被渲染
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
-                                             initWithImage:[[UIImage imageNamed:@&#34;Back-蓝&#34;] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
-                                             style:UIBarButtonItemStylePlain
-                                             target:self
-                                             action:@selector(leftBarButtonClick)];
-    // 防止返回手势失效
-    self.navigationController.interactivePopGestureRecognizer.delegate = (id&lt;UIGestureRecognizerDelegate&gt;)self;
-}
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">leftBarButtonClick</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">navigationController</span> <span class="nl">popViewControllerAnimated</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
+<span class="p">}</span>
 
-- (void)leftBarButtonClick {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-@end
+<span class="k">@end</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -436,12 +436,12 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">	// 这两句貌似不太管用
-    self.navigationItem.leftBarButtonItems = nil;
-    self.navigationItem.rightBarButtonItem = nil;
-    // 可以试试这两句代码
-    self.navigationItem.hidesBackButton = YES;
-    self.navigationItem.rightBarButtonItem.customView.hidden = YES;
+<pre class="chroma"><code class="language-objc" data-lang="objc">	<span class="c1">// 这两句貌似不太管用
+</span><span class="c1"></span>    <span class="nb">self</span><span class="p">.</span><span class="n">navigationItem</span><span class="p">.</span><span class="n">leftBarButtonItems</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">navigationItem</span><span class="p">.</span><span class="n">rightBarButtonItem</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+    <span class="c1">// 可以试试这两句代码
+</span><span class="c1"></span>    <span class="nb">self</span><span class="p">.</span><span class="n">navigationItem</span><span class="p">.</span><span class="n">hidesBackButton</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">navigationItem</span><span class="p">.</span><span class="n">rightBarButtonItem</span><span class="p">.</span><span class="n">customView</span><span class="p">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -455,9 +455,9 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">	// 已经做了适配，各位可以根据需要做屏幕适配
-    self.changeSpecialistBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -lengthFit(16), 0, 0);
-    self.changeSpecialistBtn.imageEdgeInsets = UIEdgeInsetsMake(0, lengthFit(76), 0, 0);
+<pre class="chroma"><code class="language-objc" data-lang="objc">	<span class="c1">// 已经做了适配，各位可以根据需要做屏幕适配
+</span><span class="c1"></span>    <span class="nb">self</span><span class="p">.</span><span class="n">changeSpecialistBtn</span><span class="p">.</span><span class="n">titleEdgeInsets</span> <span class="o">=</span> <span class="n">UIEdgeInsetsMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">lengthFit</span><span class="p">(</span><span class="mi">16</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">changeSpecialistBtn</span><span class="p">.</span><span class="n">imageEdgeInsets</span> <span class="o">=</span> <span class="n">UIEdgeInsetsMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">lengthFit</span><span class="p">(</span><span class="mi">76</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -469,7 +469,7 @@
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="nb">self</span><span class="p">.</span><span class="n">tableView</span><span class="p">.</span><span class="n">keyboardDismissMode</span> <span class="o">=</span> <span class="n">UIScrollViewKeyboardDismissModeOnDrag</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -487,13 +487,13 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">	// 我这里的项目需求是，如果上一个页面是 KXOrderCenterViewController，就隐藏稍后支付按钮，否则不隐藏
-	NSArray *array = self.navigationController.viewControllers;
-    if ([array[0] isKindOfClass:[KXOrderCenterViewController class]]) {
-        self.payLaterBtn.hidden = YES;
-    } else {
-        self.payLaterBtn.hidden = NO;
-    }
+<pre class="chroma"><code class="language-objc" data-lang="objc">	<span class="c1">// 我这里的项目需求是，如果上一个页面是 KXOrderCenterViewController，就隐藏稍后支付按钮，否则不隐藏
+</span><span class="c1"></span>	<span class="n">NSArray</span> <span class="o">*</span><span class="n">array</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">navigationController</span><span class="p">.</span><span class="n">viewControllers</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="nl">isKindOfClass</span><span class="p">:[</span><span class="n">KXOrderCenterViewController</span> <span class="k">class</span><span class="p">]])</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">payLaterBtn</span><span class="p">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">payLaterBtn</span><span class="p">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+    <span class="p">}</span>
       
 </code></pre></td></tr></table>
 </div>
@@ -525,25 +525,25 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">	// 得到当前的 NavigationController
-	[[APPDELEGATE getCurrentViewController].navigationController popToRootViewControllerAnimated:NO];
+<pre class="chroma"><code class="language-objc" data-lang="objc">	<span class="c1">// 得到当前的 NavigationController
+</span><span class="c1"></span>	<span class="p">[[</span><span class="n">APPDELEGATE</span> <span class="n">getCurrentViewController</span><span class="p">].</span><span class="n">navigationController</span> <span class="nl">popToRootViewControllerAnimated</span><span class="p">:</span><span class="nb">NO</span><span class="p">];</span>
 	
-    // 跳转到哪个 NavigationController，这里下标为1，表示第二个
-    [APPDELEGATE.tabBarController setSelectedIndex:1];
+    <span class="c1">// 跳转到哪个 NavigationController，这里下标为1，表示第二个
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">APPDELEGATE</span><span class="p">.</span><span class="n">tabBarController</span> <span class="nl">setSelectedIndex</span><span class="p">:</span><span class="mi">1</span><span class="p">];</span>
     
-    // 退出当前界面并执行 block 中的内容
-    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+    <span class="c1">// 退出当前界面并执行 block 中的内容
+</span><span class="c1"></span>    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">navigationController</span> <span class="nl">dismissViewControllerAnimated</span><span class="p">:</span><span class="nb">YES</span> <span class="nl">completion</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
             
-        UINavigationController *navi = APPDELEGATE.tabBarController.viewControllers[1];
+        <span class="n">UINavigationController</span> <span class="o">*</span><span class="n">navi</span> <span class="o">=</span> <span class="n">APPDELEGATE</span><span class="p">.</span><span class="n">tabBarController</span><span class="p">.</span><span class="n">viewControllers</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
         
-        // 保险起见，再判断下是否是将要跳转到的页面
-        if ([navi.viewControllers[0] isKindOfClass:[KXOrderCenterViewController class]]) {
+        <span class="c1">// 保险起见，再判断下是否是将要跳转到的页面
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">([</span><span class="n">navi</span><span class="p">.</span><span class="n">viewControllers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="nl">isKindOfClass</span><span class="p">:[</span><span class="n">KXOrderCenterViewController</span> <span class="k">class</span><span class="p">]])</span> <span class="p">{</span>
         
-        	// 我这里需要刷新
-            KXOrderCenterViewController *orderCenter = navi.viewControllers[0];
-            [orderCenter beginRefreshing];
-            }
-    }];
+        	<span class="c1">// 我这里需要刷新
+</span><span class="c1"></span>            <span class="n">KXOrderCenterViewController</span> <span class="o">*</span><span class="n">orderCenter</span> <span class="o">=</span> <span class="n">navi</span><span class="p">.</span><span class="n">viewControllers</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+            <span class="p">[</span><span class="n">orderCenter</span> <span class="n">beginRefreshing</span><span class="p">];</span>
+            <span class="p">}</span>
+    <span class="p">}];</span>
         
 </code></pre></td></tr></table>
 </div>
@@ -563,15 +563,15 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 添加文字按钮
-	UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithTitle:@&#34;编辑&#34; style:UIBarButtonItemStylePlain target:self action:@selector(editor)];
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 添加文字按钮
+</span><span class="c1"></span>	<span class="n">UIBarButtonItem</span> <span class="o">*</span><span class="n">rightBarButton</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIBarButtonItem</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithTitle</span><span class="p">:</span><span class="s">@&#34;编辑&#34;</span> <span class="nl">style</span><span class="p">:</span><span class="n">UIBarButtonItemStylePlain</span> <span class="nl">target</span><span class="p">:</span><span class="nb">self</span> <span class="nl">action</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">editor</span><span class="p">)];</span>
         
-	self.navigationItem.rightBarButtonItem = rightBarButton;
+	<span class="nb">self</span><span class="p">.</span><span class="n">navigationItem</span><span class="p">.</span><span class="n">rightBarButtonItem</span> <span class="o">=</span> <span class="n">rightBarButton</span><span class="p">;</span>
         
-// 添加图片按钮
-    UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@&#34;图片名&#34;] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonEvent)];
+<span class="c1">// 添加图片按钮
+</span><span class="c1"></span>    <span class="n">UIBarButtonItem</span> <span class="o">*</span><span class="n">rightBarBtn</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIBarButtonItem</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithImage</span><span class="p">:[[</span><span class="n">UIImage</span> <span class="nl">imageNamed</span><span class="p">:</span><span class="s">@&#34;图片名&#34;</span><span class="p">]</span> <span class="nl">imageWithRenderingMode</span><span class="p">:</span><span class="n">UIImageRenderingModeAlwaysOriginal</span><span class="p">]</span> <span class="nl">style</span><span class="p">:</span><span class="n">UIBarButtonItemStylePlain</span> <span class="nl">target</span><span class="p">:</span><span class="nb">self</span> <span class="nl">action</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">rightBarButtonEvent</span><span class="p">)];</span>
     
-    [self.navigationItem setRightBarButtonItem:rightBarBtn];
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">navigationItem</span> <span class="nl">setRightBarButtonItem</span><span class="p">:</span><span class="n">rightBarBtn</span><span class="p">];</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -585,9 +585,9 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">	UITapGestureRecognizer *operationTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(gotoCapture:)];
+<pre class="chroma"><code class="language-objc" data-lang="objc">	<span class="n">UITapGestureRecognizer</span> <span class="o">*</span><span class="n">operationTap</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UITapGestureRecognizer</span> <span class="n">alloc</span><span class="p">]</span><span class="nl">initWithTarget</span><span class="p">:</span><span class="nb">self</span> <span class="nl">action</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">gotoCapture</span><span class="p">:)];</span>
 
-	[self.operationView addGestureRecognizer:operationTap];
+	<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">operationView</span> <span class="nl">addGestureRecognizer</span><span class="p">:</span><span class="n">operationTap</span><span class="p">];</span>
     
 </code></pre></td></tr></table>
 </div>
@@ -635,42 +635,42 @@
 </span><span class="lnt">36
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">- (void)textViewDidChange:(UITextView *)textView {
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">textViewDidChange:</span><span class="p">(</span><span class="n">UITextView</span> <span class="o">*</span><span class="p">)</span><span class="nv">textView</span> <span class="p">{</span>
     
-    [self updateViewHeight];
-    // 该判断用于联想输入
-    if (textView == self.secondDiagnosisTextView) {
-        if (textView.text.length &gt; 32) {
-        	// 截取字符串
-            textView.text = [textView.text substringToIndex:32];
-            // HUD 提示
-            [CommunityPublicClass showHUDwithLabelText:@&#34;最多输入32个字&#34; andDetailsLabelText:nil];
-        }
-    }
-}
+    <span class="p">[</span><span class="nb">self</span> <span class="n">updateViewHeight</span><span class="p">];</span>
+    <span class="c1">// 该判断用于联想输入
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">textView</span> <span class="o">==</span> <span class="nb">self</span><span class="p">.</span><span class="n">secondDiagnosisTextView</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">textView</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">32</span><span class="p">)</span> <span class="p">{</span>
+        	<span class="c1">// 截取字符串
+</span><span class="c1"></span>            <span class="n">textView</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="n">textView</span><span class="p">.</span><span class="n">text</span> <span class="nl">substringToIndex</span><span class="p">:</span><span class="mi">32</span><span class="p">];</span>
+            <span class="c1">// HUD 提示
+</span><span class="c1"></span>            <span class="p">[</span><span class="n">CommunityPublicClass</span> <span class="nl">showHUDwithLabelText</span><span class="p">:</span><span class="s">@&#34;最多输入32个字&#34;</span> <span class="nl">andDetailsLabelText</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-// 代理方法规定只能输入32个字
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+<span class="c1">// 代理方法规定只能输入32个字
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">textView:</span><span class="p">(</span><span class="n">UITextView</span> <span class="o">*</span><span class="p">)</span><span class="nv">textView</span> <span class="nf">shouldChangeTextInRange:</span><span class="p">(</span><span class="n">NSRange</span><span class="p">)</span><span class="nv">range</span> <span class="nf">replacementText:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">text</span> <span class="p">{</span>
 
-	// 输入32字之后，允许删除
-    if ([text isEqualToString:@&#34;&#34;]) {
-        return YES;
-    }
+	<span class="c1">// 输入32字之后，允许删除
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">([</span><span class="n">text</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;&#34;</span><span class="p">])</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+    <span class="p">}</span>
     
-    if (textView == self.secondDiagnosisTextView) {
-        if (textView.text.length == 0)
-            return YES;
-        NSInteger existedLength = textView.text.length;
-        NSInteger selectedLength = range.length;
-        NSInteger replaceLength = text.length;
-        if (existedLength - selectedLength + replaceLength &gt; 32) {
-        	// HUD 提示
-            [CommunityPublicClass showHUDwithLabelText:@&#34;最多输入32个字&#34; andDetailsLabelText:nil];
-            return NO;
-        }
-    }
-    return YES;
-}
+    <span class="k">if</span> <span class="p">(</span><span class="n">textView</span> <span class="o">==</span> <span class="nb">self</span><span class="p">.</span><span class="n">secondDiagnosisTextView</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">textView</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="n">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+        <span class="n">NSInteger</span> <span class="n">existedLength</span> <span class="o">=</span> <span class="n">textView</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="n">length</span><span class="p">;</span>
+        <span class="n">NSInteger</span> <span class="n">selectedLength</span> <span class="o">=</span> <span class="n">range</span><span class="p">.</span><span class="n">length</span><span class="p">;</span>
+        <span class="n">NSInteger</span> <span class="n">replaceLength</span> <span class="o">=</span> <span class="n">text</span><span class="p">.</span><span class="n">length</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">existedLength</span> <span class="o">-</span> <span class="n">selectedLength</span> <span class="o">+</span> <span class="n">replaceLength</span> <span class="o">&gt;</span> <span class="mi">32</span><span class="p">)</span> <span class="p">{</span>
+        	<span class="c1">// HUD 提示
+</span><span class="c1"></span>            <span class="p">[</span><span class="n">CommunityPublicClass</span> <span class="nl">showHUDwithLabelText</span><span class="p">:</span><span class="s">@&#34;最多输入32个字&#34;</span> <span class="nl">andDetailsLabelText</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+            <span class="k">return</span> <span class="nb">NO</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -699,25 +699,25 @@
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">textField:</span><span class="p">(</span><span class="n">UITextField</span> <span class="o">*</span><span class="p">)</span><span class="nv">textField</span> <span class="nf">shouldChangeCharactersInRange:</span><span class="p">(</span><span class="n">NSRange</span><span class="p">)</span><span class="nv">range</span> <span class="nf">replacementString:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">string</span><span class="p">{</span>
     
-    if (textField == self.secondAgeTextField) {
+    <span class="k">if</span> <span class="p">(</span><span class="n">textField</span> <span class="o">==</span> <span class="nb">self</span><span class="p">.</span><span class="n">secondAgeTextField</span><span class="p">)</span> <span class="p">{</span>
         
-        if ([self isPureInt:string] || [string isEqualToString:@&#34;&#34;]) {
-            return YES;
-        }else{
-            return NO;
-        }
-    }
-    return YES;
-}
+        <span class="k">if</span> <span class="p">([</span><span class="nb">self</span> <span class="nl">isPureInt</span><span class="p">:</span><span class="n">string</span><span class="p">]</span> <span class="o">||</span> <span class="p">[</span><span class="n">string</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&#34;&#34;</span><span class="p">])</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="k">return</span> <span class="nb">NO</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
 
-// 判断输入的是否是纯数字
-- (BOOL)isPureInt:(NSString*)string{
-    NSScanner *scan = [NSScanner scannerWithString:string];
-    int val;
-    return [scan scanInt:&amp;val] &amp;&amp; [scan isAtEnd];
-}
+<span class="c1">// 判断输入的是否是纯数字
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">isPureInt:</span><span class="p">(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">string</span><span class="p">{</span>
+    <span class="n">NSScanner</span> <span class="o">*</span><span class="n">scan</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSScanner</span> <span class="nl">scannerWithString</span><span class="p">:</span><span class="n">string</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">val</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">scan</span> <span class="nl">scanInt</span><span class="p">:</span><span class="o">&amp;</span><span class="n">val</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="p">[</span><span class="n">scan</span> <span class="n">isAtEnd</span><span class="p">];</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -731,9 +731,9 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback"> 	[self.completeBtn.layer setBorderWidth:1.0];
-    self.completeBtn.layer.cornerRadius = 1;
-    [self.completeBtn.layer setBorderColor:KXColorTextBlack.CGColor];
+<pre class="chroma"><code class="language-objc" data-lang="objc"> 	<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">completeBtn</span><span class="p">.</span><span class="n">layer</span> <span class="nl">setBorderWidth</span><span class="p">:</span><span class="mf">1.0</span><span class="p">];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">completeBtn</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">cornerRadius</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">completeBtn</span><span class="p">.</span><span class="n">layer</span> <span class="nl">setBorderColor</span><span class="p">:</span><span class="n">KXColorTextBlack</span><span class="p">.</span><span class="n">CGColor</span><span class="p">];</span>
     
 </code></pre></td></tr></table>
 </div>
@@ -749,9 +749,9 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">  // 设置图片拉伸
-  UIImage *bgImage = [UIImage imageNamed:@&#34;&#34;];
-  _bgImageView.image = [bgImage stretchableImageWithLeftCapWidth:15 topCapHeight:15];
+<pre class="chroma"><code class="language-objc" data-lang="objc">  <span class="c1">// 设置图片拉伸
+</span><span class="c1"></span>  <span class="n">UIImage</span> <span class="o">*</span><span class="n">bgImage</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed</span><span class="p">:</span><span class="s">@&#34;&#34;</span><span class="p">];</span>
+  <span class="n">_bgImageView</span><span class="p">.</span><span class="n">image</span> <span class="o">=</span> <span class="p">[</span><span class="n">bgImage</span> <span class="nl">stretchableImageWithLeftCapWidth</span><span class="p">:</span><span class="mi">15</span> <span class="nl">topCapHeight</span><span class="p">:</span><span class="mi">15</span><span class="p">];</span>
   
 </code></pre></td></tr></table>
 </div>
@@ -766,10 +766,10 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">  - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-  {
-      [tableView deselectRowAtIndexPath:indexPath animated:YES] ;
-  }
+<pre class="chroma"><code class="language-objc" data-lang="objc">  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">tableView</span><span class="p">:(</span><span class="n">UITableView</span> <span class="o">*</span><span class="p">)</span><span class="n">tableView</span> <span class="nl">didSelectRowAtIndexPath</span><span class="p">:(</span><span class="n">NSIndexPath</span> <span class="o">*</span><span class="p">)</span><span class="n">indexPath</span>
+  <span class="p">{</span>
+      <span class="p">[</span><span class="n">tableView</span> <span class="nl">deselectRowAtIndexPath</span><span class="p">:</span><span class="n">indexPath</span> <span class="nl">animated</span><span class="p">:</span><span class="nb">YES</span><span class="p">]</span> <span class="p">;</span>
+  <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -783,9 +783,9 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">	UIColor *color = [UIColor cyanColor];
-    NSDictionary *dictionary = [NSDictionary dictionaryWithObject: color forKey:NSForegroundColorAttributeName];
-    self.navigationController.navigationBar.titleTextAttributes = dictionary;
+<pre class="chroma"><code class="language-objc" data-lang="objc">	<span class="n">UIColor</span> <span class="o">*</span><span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">cyanColor</span><span class="p">];</span>
+    <span class="n">NSDictionary</span> <span class="o">*</span><span class="n">dictionary</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSDictionary</span> <span class="nl">dictionaryWithObject</span><span class="p">:</span> <span class="n">color</span> <span class="nl">forKey</span><span class="p">:</span><span class="n">NSForegroundColorAttributeName</span><span class="p">];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">navigationController</span><span class="p">.</span><span class="n">navigationBar</span><span class="p">.</span><span class="n">titleTextAttributes</span> <span class="o">=</span> <span class="n">dictionary</span><span class="p">;</span>
     
 </code></pre></td></tr></table>
 </div>
@@ -798,8 +798,8 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">  // 延迟两秒钟调用 beginAction 方法
- [self performSelector:@selector(beginAction) withObject:nil afterDelay:0.2] ;
+<pre class="chroma"><code class="language-objc" data-lang="objc">  <span class="c1">// 延迟两秒钟调用 beginAction 方法
+</span><span class="c1"></span> <span class="p">[</span><span class="nb">self</span> <span class="nl">performSelector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">beginAction</span><span class="p">)</span> <span class="nl">withObject</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">afterDelay</span><span class="p">:</span><span class="mf">0.2</span><span class="p">]</span> <span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -814,11 +814,11 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 改变 UISwitch  的大小，CGAffineTransformMakeScale(CGFloat x, CGFloat y) 对 view 的长和宽进行缩放，不改变 view 的中心点
-self.orderSwitch.transform = CGAffineTransformMakeScale(0.7, 0.7); 
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 改变 UISwitch  的大小，CGAffineTransformMakeScale(CGFloat x, CGFloat y) 对 view 的长和宽进行缩放，不改变 view 的中心点
+</span><span class="c1"></span><span class="nb">self</span><span class="p">.</span><span class="n">orderSwitch</span><span class="p">.</span><span class="n">transform</span> <span class="o">=</span> <span class="n">CGAffineTransformMakeScale</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">);</span> 
 
-// 改变 UISwitch 开启时的颜色
-self.orderSwitch.onTintColor = KXColorBlue;
+<span class="c1">// 改变 UISwitch 开启时的颜色
+</span><span class="c1"></span><span class="nb">self</span><span class="p">.</span><span class="n">orderSwitch</span><span class="p">.</span><span class="n">onTintColor</span> <span class="o">=</span> <span class="n">KXColorBlue</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -843,21 +843,21 @@ self.orderSwitch.onTintColor = KXColorBlue;
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">- (IBAction)btnClick:(UIButton *)sender {
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">IBAction</span><span class="p">)</span><span class="nf">btnClick:</span><span class="p">(</span><span class="n">UIButton</span> <span class="o">*</span><span class="p">)</span><span class="nv">sender</span> <span class="p">{</span>
     
-    sender.selected = !sender.selected;
-    NSString *passwordString = self.passwordText.text;
-    // 这句代码可以防止切换的时候光标偏移
-    self.passwordText.text = @&#34;&#34;;
+    <span class="n">sender</span><span class="p">.</span><span class="n">selected</span> <span class="o">=</span> <span class="o">!</span><span class="n">sender</span><span class="p">.</span><span class="n">selected</span><span class="p">;</span>
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">passwordString</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">passwordText</span><span class="p">.</span><span class="n">text</span><span class="p">;</span>
+    <span class="c1">// 这句代码可以防止切换的时候光标偏移
+</span><span class="c1"></span>    <span class="nb">self</span><span class="p">.</span><span class="n">passwordText</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="s">@&#34;&#34;</span><span class="p">;</span>
 
-    if (sender.selected) { // 明文
-        self.passwordText.secureTextEntry = NO;
-    } else { // 暗文
-        self.passwordText.secureTextEntry = YES;
-    }
+    <span class="k">if</span> <span class="p">(</span><span class="n">sender</span><span class="p">.</span><span class="n">selected</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 明文
+</span><span class="c1"></span>        <span class="nb">self</span><span class="p">.</span><span class="n">passwordText</span><span class="p">.</span><span class="n">secureTextEntry</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// 暗文
+</span><span class="c1"></span>        <span class="nb">self</span><span class="p">.</span><span class="n">passwordText</span><span class="p">.</span><span class="n">secureTextEntry</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+    <span class="p">}</span>
     
-    self.passwordText.text = passwordString;
-}
+    <span class="nb">self</span><span class="p">.</span><span class="n">passwordText</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">passwordString</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -879,18 +879,18 @@ self.orderSwitch.onTintColor = KXColorBlue;
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 屏幕发生翻转的时候会调用
-- (void)viewWillLayoutSubviews {
-    [self shouldRotateToOrientation:(UIDeviceOrientation)[UIApplication sharedApplication].statusBarOrientation];
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 屏幕发生翻转的时候会调用
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewWillLayoutSubviews</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nb">self</span> <span class="nl">shouldRotateToOrientation</span><span class="p">:(</span><span class="n">UIDeviceOrientation</span><span class="p">)[</span><span class="n">UIApplication</span> <span class="n">sharedApplication</span><span class="p">].</span><span class="n">statusBarOrientation</span><span class="p">];</span>
+<span class="p">}</span>
 
-- (void)shouldRotateToOrientation:(UIDeviceOrientation)orientation {
-    if (orientation == UIDeviceOrientationPortrait ||orientation == UIDeviceOrientationPortraitUpsideDown) {
-        NSLog(@&#34;这是竖屏&#34;);
-    } else {
-        NSLog(@&#34;这是横屏&#34;);
-    }
-}
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">shouldRotateToOrientation:</span><span class="p">(</span><span class="n">UIDeviceOrientation</span><span class="p">)</span><span class="nv">orientation</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">orientation</span> <span class="o">==</span> <span class="n">UIDeviceOrientationPortrait</span> <span class="o">||</span><span class="n">orientation</span> <span class="o">==</span> <span class="n">UIDeviceOrientationPortraitUpsideDown</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;这是竖屏&#34;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;这是横屏&#34;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -904,10 +904,10 @@ self.orderSwitch.onTintColor = KXColorBlue;
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
-    NSString *filePath = [resourcePath stringByAppendingPathComponent:@&#34;serviceDescription.html&#34;];
-    NSString *htmlString = [[NSString alloc] initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-    [self.webView loadHTMLString: htmlString baseURL: [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]]];
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSString</span> <span class="o">*</span><span class="n">resourcePath</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSBundle</span> <span class="n">mainBundle</span><span class="p">]</span> <span class="n">resourcePath</span><span class="p">];</span>
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">filePath</span> <span class="o">=</span> <span class="p">[</span><span class="n">resourcePath</span> <span class="nl">stringByAppendingPathComponent</span><span class="p">:</span><span class="s">@&#34;serviceDescription.html&#34;</span><span class="p">];</span>
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">htmlString</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSString</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithContentsOfFile</span><span class="p">:</span><span class="n">filePath</span> <span class="nl">encoding</span><span class="p">:</span><span class="n">NSUTF8StringEncoding</span> <span class="nl">error</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">webView</span> <span class="nl">loadHTMLString</span><span class="p">:</span> <span class="n">htmlString</span> <span class="nl">baseURL</span><span class="p">:</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">fileURLWithPath</span><span class="p">:[[</span><span class="n">NSBundle</span> <span class="n">mainBundle</span><span class="p">]</span> <span class="n">bundlePath</span><span class="p">]]];</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -960,50 +960,50 @@ self.orderSwitch.onTintColor = KXColorBlue;
 </span><span class="lnt">43
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">/** self的弱引用 */
-#define NNWeakSelf __weak typeof(self) weakSelf = self;
-/** self的强引用 */
-#define NNStrongSelf __strong __typeof(weakSelf)strongSelf = weakSelf;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cm">/** self的弱引用 */</span>
+<span class="cp">#define NNWeakSelf __weak typeof(self) weakSelf = self;
+</span><span class="cp"></span><span class="cm">/** self的强引用 */</span>
+<span class="cp">#define NNStrongSelf __strong __typeof(weakSelf)strongSelf = weakSelf;
+</span><span class="cp"></span>
+<span class="cp">#define NNColorBlue [UIColor colorWithRed:0.0/255.0f green:135.0/255.0f blue:209.0/255.0f alpha:1]
+</span><span class="cp">#define NNFontBoldText [UIFont boldSystemFontOfSize:fontFit(16)]
+</span><span class="cp">#define NNFontText [UIFont systemFontOfSize:fontFit(16)]
+</span><span class="cp"></span>
+<span class="cp">#define SCREENWIDTH [UIScreen mainScreen].bounds.size.width
+</span><span class="cp">#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
+</span><span class="cp"></span>
+<span class="cp">#define iPhone5 (([[UIScreen mainScreen] bounds].size.height*[[UIScreen mainScreen] bounds].size.width &lt;= 320*568)?YES:NO)
+</span><span class="cp"></span>
+<span class="cp">#define iPhone6 (([[UIScreen mainScreen] bounds].size.height*[[UIScreen mainScreen] bounds].size.width &lt;= 375*667)?YES:NO)
+</span><span class="cp"></span>
+<span class="cp">#define iPhone6p (([[UIScreen mainScreen] bounds].size.height*[[UIScreen mainScreen] bounds].size.width &lt;= 414*736)?YES:NO)
+</span><span class="cp"></span>
+<span class="cp">#define iOS7 ([[[UIDevice currentDevice] systemVersion] floatValue] &gt;= 7.0 ? YES : NO) </span><span class="c1">// 是否IOS7
+</span><span class="c1"></span>
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">float</span> <span class="nf">lengthFit</span><span class="p">(</span><span class="kt">float</span> <span class="n">iphone6PlusLength</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">iPhone5</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">iphone6PlusLength</span> <span class="o">*</span><span class="mf">320.0f</span><span class="o">/</span><span class="mf">414.0f</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">iPhone6</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">iphone6PlusLength</span> <span class="o">*</span><span class="mf">375.0f</span><span class="o">/</span><span class="mf">414.0f</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">iphone6PlusLength</span><span class="p">;</span>
+<span class="p">}</span>
 
-#define NNColorBlue [UIColor colorWithRed:0.0/255.0f green:135.0/255.0f blue:209.0/255.0f alpha:1]
-#define NNFontBoldText [UIFont boldSystemFontOfSize:fontFit(16)]
-#define NNFontText [UIFont systemFontOfSize:fontFit(16)]
+<span class="k">static</span> <span class="kr">inline</span> <span class="kt">float</span> <span class="nf">fontFit</span><span class="p">(</span><span class="kt">float</span> <span class="n">iphone6PlusFont</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">iPhone5</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">iphone6PlusFont</span> <span class="o">-</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">iPhone6</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">iphone6PlusFont</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">iphone6PlusFont</span><span class="p">;</span>
+<span class="p">}</span>
 
-#define SCREENWIDTH [UIScreen mainScreen].bounds.size.width
-#define SCREENHEIGHT [UIScreen mainScreen].bounds.size.height
-
-#define iPhone5 (([[UIScreen mainScreen] bounds].size.height*[[UIScreen mainScreen] bounds].size.width &lt;= 320*568)?YES:NO)
-
-#define iPhone6 (([[UIScreen mainScreen] bounds].size.height*[[UIScreen mainScreen] bounds].size.width &lt;= 375*667)?YES:NO)
-
-#define iPhone6p (([[UIScreen mainScreen] bounds].size.height*[[UIScreen mainScreen] bounds].size.width &lt;= 414*736)?YES:NO)
-
-#define iOS7 ([[[UIDevice currentDevice] systemVersion] floatValue] &gt;= 7.0 ? YES : NO) // 是否IOS7
-
-static inline float lengthFit(float iphone6PlusLength)
-{
-    if (iPhone5) {
-        return iphone6PlusLength *320.0f/414.0f;
-    }
-    if (iPhone6) {
-        return iphone6PlusLength *375.0f/414.0f;
-    }
-    return iphone6PlusLength;
-}
-
-static inline float fontFit(float iphone6PlusFont)
-{
-    if (iPhone5) {
-        return iphone6PlusFont - 2;
-    }
-    if (iPhone6) {
-        return iphone6PlusFont - 1;
-    }
-    return iphone6PlusFont;
-}
-
-#define PlaceholderAvatarImage [UIImage imageNamed:@&#34;默认头像&#34;]
-</code></pre></td></tr></table>
+<span class="cp">#define PlaceholderAvatarImage [UIImage imageNamed:@&#34;默认头像&#34;]
+</span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>一句代码隐藏 UITableView 中空的 cell</li>
@@ -1013,7 +1013,7 @@ static inline float fontFit(float iphone6PlusFont)
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">self.tableView.tableFooterView = [[UIView alloc] init];
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="nb">self</span><span class="p">.</span><span class="n">tableView</span><span class="p">.</span><span class="n">tableFooterView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIView</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -1035,18 +1035,18 @@ static inline float fontFit(float iphone6PlusFont)
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">- (void)setupLeftBarButton {
-self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
-                                             initWithImage:[[UIImage imageNamed:@&#34;Back-蓝&#34;] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
-                                                style:UIBarButtonItemStylePlain
-                                                target:self
-                                                action:@selector(leftBarButtonClick)];
-    self.navigationController.interactivePopGestureRecognizer.delegate = (id&lt;UIGestureRecognizerDelegate&gt;)self;
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setupLeftBarButton</span> <span class="p">{</span>
+<span class="nb">self</span><span class="p">.</span><span class="n">navigationItem</span><span class="p">.</span><span class="n">leftBarButtonItem</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIBarButtonItem</span> <span class="n">alloc</span><span class="p">]</span>
+                                             <span class="nl">initWithImage</span><span class="p">:[[</span><span class="n">UIImage</span> <span class="nl">imageNamed</span><span class="p">:</span><span class="s">@&#34;Back-蓝&#34;</span><span class="p">]</span> <span class="nl">imageWithRenderingMode</span><span class="p">:</span><span class="n">UIImageRenderingModeAlwaysOriginal</span><span class="p">]</span>
+                                                <span class="nl">style</span><span class="p">:</span><span class="n">UIBarButtonItemStylePlain</span>
+                                                <span class="nl">target</span><span class="p">:</span><span class="nb">self</span>
+                                                <span class="nl">action</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">leftBarButtonClick</span><span class="p">)];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">navigationController</span><span class="p">.</span><span class="n">interactivePopGestureRecognizer</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="p">(</span><span class="kt">id</span><span class="o">&lt;</span><span class="n">UIGestureRecognizerDelegate</span><span class="o">&gt;</span><span class="p">)</span><span class="nb">self</span><span class="p">;</span>
+<span class="p">}</span>
 
-- (void)leftBarButtonClick {
-    [self.navigationController popViewControllerAnimated:YES];
-}
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">leftBarButtonClick</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">navigationController</span> <span class="nl">popViewControllerAnimated</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -1057,7 +1057,7 @@ self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    self.automaticallyAdjustsScrollViewInsets = NO;
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="nb">self</span><span class="p">.</span><span class="n">automaticallyAdjustsScrollViewInsets</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -1072,11 +1072,11 @@ self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">        // 去掉两端的空格
-        [trimString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+<pre class="chroma"><code class="language-objc" data-lang="objc">        <span class="c1">// 去掉两端的空格
+</span><span class="c1"></span>        <span class="p">[</span><span class="n">trimString</span> <span class="nl">stringByTrimmingCharactersInSet</span><span class="p">:[</span><span class="n">NSCharacterSet</span> <span class="n">whitespaceAndNewlineCharacterSet</span><span class="p">]];</span>
         
-        // 去掉所有空格
-        [trimString stringByReplacingOccurrencesOfString:@&#34; &#34; withString:@&#34;&#34;];
+        <span class="c1">// 去掉所有空格
+</span><span class="c1"></span>        <span class="p">[</span><span class="n">trimString</span> <span class="nl">stringByReplacingOccurrencesOfString</span><span class="p">:</span><span class="s">@&#34; &#34;</span> <span class="nl">withString</span><span class="p">:</span><span class="s">@&#34;&#34;</span><span class="p">];</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -1091,11 +1091,11 @@ self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">if ([self.searchText.text rangeOfString:@&#34;&#39;&#34;].location != NSNotFound) {
-        // 用封装好的提示框提示
-        [CommunityPublicClass showHUDwithLabelText:@&#34;您输入的字符不合法&#34; andDetailsLabelText:nil];
-        return;
-    }
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">if</span> <span class="p">([</span><span class="nb">self</span><span class="p">.</span><span class="n">searchText</span><span class="p">.</span><span class="n">text</span> <span class="nl">rangeOfString</span><span class="p">:</span><span class="s">@&#34;&#39;&#34;</span><span class="p">].</span><span class="n">location</span> <span class="o">!=</span> <span class="n">NSNotFound</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 用封装好的提示框提示
+</span><span class="c1"></span>        <span class="p">[</span><span class="n">CommunityPublicClass</span> <span class="nl">showHUDwithLabelText</span><span class="p">:</span><span class="s">@&#34;您输入的字符不合法&#34;</span> <span class="nl">andDetailsLabelText</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -1117,17 +1117,17 @@ self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewWillAppear:</span><span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nv">animated</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nb">super</span> <span class="nl">viewWillAppear</span><span class="p">:</span><span class="n">animated</span><span class="p">];</span>
 
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-}
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">navigationController</span> <span class="nl">setNavigationBarHidden</span><span class="p">:</span><span class="nb">YES</span> <span class="nl">animated</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
+<span class="p">}</span>
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewWillDisappear:</span><span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nv">animated</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nb">super</span> <span class="nl">viewWillDisappear</span><span class="p">:</span><span class="n">animated</span><span class="p">];</span>
 
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-}
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">navigationController</span> <span class="nl">setNavigationBarHidden</span><span class="p">:</span><span class="nb">NO</span> <span class="nl">animated</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>第二种方法</p>
@@ -1153,24 +1153,24 @@ self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">@interface NNViewController () &lt;UINavigationControllerDelegate&gt;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">NNViewController</span> <span class="p">()</span> <span class="o">&lt;</span><span class="n">UINavigationControllerDelegate</span><span class="o">&gt;</span>
 
-@end
+<span class="k">@end</span>
 
-@implementation NNViewController 
+<span class="k">@implementation</span> <span class="nc">NNViewController</span> 
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
 
-    // 设置导航控制器的代理为self
-    self.navigationController.delegate = self;
-}
+    <span class="c1">// 设置导航控制器的代理为self
+</span><span class="c1"></span>    <span class="nb">self</span><span class="p">.</span><span class="n">navigationController</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
+<span class="p">}</span>
 
-#pragma mark - UINavigationControllerDelegate
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+<span class="cp">#pragma mark - UINavigationControllerDelegate
+</span><span class="cp"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">navigationController:</span><span class="p">(</span><span class="n">UINavigationController</span> <span class="o">*</span><span class="p">)</span><span class="nv">navigationController</span> <span class="nf">willShowViewController:</span><span class="p">(</span><span class="n">UIViewController</span> <span class="o">*</span><span class="p">)</span><span class="nv">viewController</span> <span class="nf">animated:</span><span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nv">animated</span> <span class="p">{</span>
 
-    [self.navigationController setNavigationBarHidden: [viewController isKindOfClass:[self class]] animated:YES];
-}
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">navigationController</span> <span class="nl">setNavigationBarHidden</span><span class="p">:</span> <span class="p">[</span><span class="n">viewController</span> <span class="nl">isKindOfClass</span><span class="p">:[</span><span class="nb">self</span> <span class="k">class</span><span class="p">]]</span> <span class="nl">animated</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -1193,19 +1193,19 @@ self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 判断字符串是否为空
-+ (BOOL)isBlankString:(NSString *)string {
-    if (string == nil || string == NULL) {
-        return YES;
-    }
-    if ([string isKindOfClass:[NSNull class]]) {
-        return YES;
-    }
-    if ([[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0) {
-        return YES;
-    }
-    return NO;
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 判断字符串是否为空
+</span><span class="c1"></span><span class="p">+</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">isBlankString:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">string</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">string</span> <span class="o">==</span> <span class="nb">nil</span> <span class="o">||</span> <span class="n">string</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">string</span> <span class="nl">isKindOfClass</span><span class="p">:[</span><span class="n">NSNull</span> <span class="k">class</span><span class="p">]])</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">([[</span><span class="n">string</span> <span class="nl">stringByTrimmingCharactersInSet</span><span class="p">:[</span><span class="n">NSCharacterSet</span> <span class="n">whitespaceCharacterSet</span><span class="p">]]</span> <span class="n">length</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">NO</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -1217,7 +1217,7 @@ self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">[view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">[</span><span class="n">view</span><span class="p">.</span><span class="n">subviews</span> <span class="nl">makeObjectsPerformSelector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">removeFromSuperview</span><span class="p">)];</span>
 
 </code></pre></td></tr></table>
 </div>

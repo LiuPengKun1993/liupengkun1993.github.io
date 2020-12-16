@@ -342,7 +342,7 @@
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">self.textView.text = @&#34;很好玩的富文本&#34;;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="nb">self</span><span class="p">.</span><span class="n">textView</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="s">@&#34;很好玩的富文本&#34;</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>显示出来大概是这个样子滴：
@@ -361,12 +361,12 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@&#34;很好玩的富文本&#34;];
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSMutableAttributedString</span> <span class="o">*</span><span class="n">string</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSMutableAttributedString</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithString</span><span class="p">:</span><span class="s">@&#34;很好玩的富文本&#34;</span><span class="p">];</span>
     
-    [string addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:NSMakeRange(1, 2)];
-    [string addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(3, 1)];
-    [string addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:NSMakeRange(4, 3)];
-    self.textView.attributedText = string;
+    <span class="p">[</span><span class="n">string</span> <span class="nl">addAttribute</span><span class="p">:</span><span class="n">NSForegroundColorAttributeName</span> <span class="nl">value</span><span class="p">:[</span><span class="n">UIColor</span> <span class="n">blueColor</span><span class="p">]</span> <span class="nl">range</span><span class="p">:</span><span class="n">NSMakeRange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)];</span>
+    <span class="p">[</span><span class="n">string</span> <span class="nl">addAttribute</span><span class="p">:</span><span class="n">NSForegroundColorAttributeName</span> <span class="nl">value</span><span class="p">:[</span><span class="n">UIColor</span> <span class="n">redColor</span><span class="p">]</span> <span class="nl">range</span><span class="p">:</span><span class="n">NSMakeRange</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)];</span>
+    <span class="p">[</span><span class="n">string</span> <span class="nl">addAttribute</span><span class="p">:</span><span class="n">NSForegroundColorAttributeName</span> <span class="nl">value</span><span class="p">:[</span><span class="n">UIColor</span> <span class="n">blueColor</span><span class="p">]</span> <span class="nl">range</span><span class="p">:</span><span class="n">NSMakeRange</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">textView</span><span class="p">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="n">string</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-9ab05decdf730650.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="改变字体颜色"></p>
@@ -381,10 +381,10 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@&#34;很好玩的富文本&#34;];
-    [string addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:20] range:NSMakeRange(1, 2)];
-    [string addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:30] range:NSMakeRange(4, 3)];
-    self.textView.attributedText = string;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSMutableAttributedString</span> <span class="o">*</span><span class="n">string</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSMutableAttributedString</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithString</span><span class="p">:</span><span class="s">@&#34;很好玩的富文本&#34;</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">string</span> <span class="nl">addAttribute</span><span class="p">:</span><span class="n">NSFontAttributeName</span> <span class="nl">value</span><span class="p">:[</span><span class="n">UIFont</span> <span class="nl">systemFontOfSize</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span> <span class="nl">range</span><span class="p">:</span><span class="n">NSMakeRange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)];</span>
+    <span class="p">[</span><span class="n">string</span> <span class="nl">addAttribute</span><span class="p">:</span><span class="n">NSFontAttributeName</span> <span class="nl">value</span><span class="p">:[</span><span class="n">UIFont</span> <span class="nl">systemFontOfSize</span><span class="p">:</span><span class="mi">30</span><span class="p">]</span> <span class="nl">range</span><span class="p">:</span><span class="n">NSMakeRange</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">textView</span><span class="p">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="n">string</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-c85ab447f29b3333.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="改变字体大小"></p>
@@ -399,10 +399,10 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback"> NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@&#34;很好玩的富文本&#34;];
-    [string addAttribute:NSBackgroundColorAttributeName value:[UIColor cyanColor] range:NSMakeRange(1, 2)];
-    [string addAttribute:NSBackgroundColorAttributeName value:[UIColor yellowColor] range:NSMakeRange(4, 3)];
-    self.textView.attributedText = string;
+<pre class="chroma"><code class="language-objc" data-lang="objc"> <span class="n">NSMutableAttributedString</span> <span class="o">*</span><span class="n">string</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSMutableAttributedString</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithString</span><span class="p">:</span><span class="s">@&#34;很好玩的富文本&#34;</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">string</span> <span class="nl">addAttribute</span><span class="p">:</span><span class="n">NSBackgroundColorAttributeName</span> <span class="nl">value</span><span class="p">:[</span><span class="n">UIColor</span> <span class="n">cyanColor</span><span class="p">]</span> <span class="nl">range</span><span class="p">:</span><span class="n">NSMakeRange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)];</span>
+    <span class="p">[</span><span class="n">string</span> <span class="nl">addAttribute</span><span class="p">:</span><span class="n">NSBackgroundColorAttributeName</span> <span class="nl">value</span><span class="p">:[</span><span class="n">UIColor</span> <span class="n">yellowColor</span><span class="p">]</span> <span class="nl">range</span><span class="p">:</span><span class="n">NSMakeRange</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">textView</span><span class="p">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="n">string</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-5b3beb42cba98ef1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="给文字添加背景色"></p>
@@ -416,9 +416,9 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@&#34;很好玩的富文本&#34;];
-    [string addAttribute:NSKernAttributeName value:@(20) range:NSMakeRange(0, 6)];
-    self.textView.attributedText = string;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSMutableAttributedString</span> <span class="o">*</span><span class="n">string</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSMutableAttributedString</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithString</span><span class="p">:</span><span class="s">@&#34;很好玩的富文本&#34;</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">string</span> <span class="nl">addAttribute</span><span class="p">:</span><span class="n">NSKernAttributeName</span> <span class="nl">value</span><span class="p">:</span><span class="l">@(</span><span class="mi">20</span><span class="l">)</span> <span class="nl">range</span><span class="p">:</span><span class="n">NSMakeRange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">textView</span><span class="p">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="n">string</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-faf5af7f1000d40e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="给文字设置间距"></p>
@@ -432,9 +432,9 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@&#34;很好玩的富文本&#34;];
-    [string addAttribute:NSObliquenessAttributeName value:@(0.5) range:NSMakeRange(0, 7)];
-    self.textView.attributedText = string;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSMutableAttributedString</span> <span class="o">*</span><span class="n">string</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSMutableAttributedString</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithString</span><span class="p">:</span><span class="s">@&#34;很好玩的富文本&#34;</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">string</span> <span class="nl">addAttribute</span><span class="p">:</span><span class="n">NSObliquenessAttributeName</span> <span class="nl">value</span><span class="p">:</span><span class="l">@(</span><span class="mf">0.5</span><span class="l">)</span> <span class="nl">range</span><span class="p">:</span><span class="n">NSMakeRange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">textView</span><span class="p">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="n">string</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-84144fae563a02fd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="字体倾斜"></p>
@@ -448,9 +448,9 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@&#34;很好玩的富文本&#34;];
-    [string addAttribute:NSExpansionAttributeName value:@(0.5) range:NSMakeRange(4, 3)];
-    self.textView.attributedText = string;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSMutableAttributedString</span> <span class="o">*</span><span class="n">string</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSMutableAttributedString</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithString</span><span class="p">:</span><span class="s">@&#34;很好玩的富文本&#34;</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">string</span> <span class="nl">addAttribute</span><span class="p">:</span><span class="n">NSExpansionAttributeName</span> <span class="nl">value</span><span class="p">:</span><span class="l">@(</span><span class="mf">0.5</span><span class="l">)</span> <span class="nl">range</span><span class="p">:</span><span class="n">NSMakeRange</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">textView</span><span class="p">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="n">string</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-1a4c2b74f132931e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="字体加粗"></p>
@@ -465,10 +465,10 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@&#34;很好玩的富文本&#34;];
-    [string addAttribute:NSUnderlineStyleAttributeName value:@(1) range:NSMakeRange(4, 3)];
-    [string addAttribute:NSUnderlineColorAttributeName value:[UIColor blueColor] range:NSMakeRange(4, 3)];
-    self.textView.attributedText = string;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSMutableAttributedString</span> <span class="o">*</span><span class="n">string</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSMutableAttributedString</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithString</span><span class="p">:</span><span class="s">@&#34;很好玩的富文本&#34;</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">string</span> <span class="nl">addAttribute</span><span class="p">:</span><span class="n">NSUnderlineStyleAttributeName</span> <span class="nl">value</span><span class="p">:</span><span class="l">@(</span><span class="mi">1</span><span class="l">)</span> <span class="nl">range</span><span class="p">:</span><span class="n">NSMakeRange</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)];</span>
+    <span class="p">[</span><span class="n">string</span> <span class="nl">addAttribute</span><span class="p">:</span><span class="n">NSUnderlineColorAttributeName</span> <span class="nl">value</span><span class="p">:[</span><span class="n">UIColor</span> <span class="n">blueColor</span><span class="p">]</span> <span class="nl">range</span><span class="p">:</span><span class="n">NSMakeRange</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">textView</span><span class="p">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="n">string</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-54fdb333b29af0a2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="加下划线并设置下划线颜色"></p>
@@ -483,10 +483,10 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@&#34;原价666💰，现价只要66💰！&#34;];
-    [string addAttribute:NSStrikethroughStyleAttributeName value:@(1) range:NSMakeRange(2, 3)];
-    [string addAttribute:NSStrikethroughColorAttributeName value:[UIColor blueColor] range:NSMakeRange(2, 3)];
-    self.textView.attributedText = string;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSMutableAttributedString</span> <span class="o">*</span><span class="n">string</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSMutableAttributedString</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithString</span><span class="p">:</span><span class="s">@&#34;原价666💰，现价只要66💰！&#34;</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">string</span> <span class="nl">addAttribute</span><span class="p">:</span><span class="n">NSStrikethroughStyleAttributeName</span> <span class="nl">value</span><span class="p">:</span><span class="l">@(</span><span class="mi">1</span><span class="l">)</span> <span class="nl">range</span><span class="p">:</span><span class="n">NSMakeRange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)];</span>
+    <span class="p">[</span><span class="n">string</span> <span class="nl">addAttribute</span><span class="p">:</span><span class="n">NSStrikethroughColorAttributeName</span> <span class="nl">value</span><span class="p">:[</span><span class="n">UIColor</span> <span class="n">blueColor</span><span class="p">]</span> <span class="nl">range</span><span class="p">:</span><span class="n">NSMakeRange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">textView</span><span class="p">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="n">string</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-7660641928dfc070.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="加删除线并设置删除线颜色"></p>
@@ -501,10 +501,10 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@&#34;很好玩的富文本&#34;];
-    [string addAttribute:NSVerticalGlyphFormAttributeName value:@(1) range:NSMakeRange(0, 7)];
-    [string addAttribute:NSWritingDirectionAttributeName value:@[@(2),@(3)] range:NSMakeRange(0, 7)];
-    self.textView.attributedText = string;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSMutableAttributedString</span> <span class="o">*</span><span class="n">string</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSMutableAttributedString</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithString</span><span class="p">:</span><span class="s">@&#34;很好玩的富文本&#34;</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">string</span> <span class="nl">addAttribute</span><span class="p">:</span><span class="n">NSVerticalGlyphFormAttributeName</span> <span class="nl">value</span><span class="p">:</span><span class="l">@(</span><span class="mi">1</span><span class="l">)</span> <span class="nl">range</span><span class="p">:</span><span class="n">NSMakeRange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)];</span>
+    <span class="p">[</span><span class="n">string</span> <span class="nl">addAttribute</span><span class="p">:</span><span class="n">NSWritingDirectionAttributeName</span> <span class="nl">value</span><span class="p">:</span><span class="l">@[@(</span><span class="mi">2</span><span class="l">)</span><span class="p">,</span><span class="l">@(</span><span class="mi">3</span><span class="l">)]</span> <span class="nl">range</span><span class="p">:</span><span class="n">NSMakeRange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">textView</span><span class="p">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="n">string</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-3e892743a9f112f5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="设置文字方向"></p>
@@ -522,13 +522,13 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@&#34;很好玩的富文本&#34;];
-    NSShadow *shadow = [[NSShadow alloc]init];
-    shadow.shadowOffset = CGSizeMake(5, 5);
-    shadow.shadowColor = [UIColor blueColor];
-    shadow.shadowBlurRadius = 1;
-    [string addAttribute:NSShadowAttributeName value:shadow range:NSMakeRange(4, 3)];
-    self.textView.attributedText = string;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSMutableAttributedString</span> <span class="o">*</span><span class="n">string</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSMutableAttributedString</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithString</span><span class="p">:</span><span class="s">@&#34;很好玩的富文本&#34;</span><span class="p">];</span>
+    <span class="n">NSShadow</span> <span class="o">*</span><span class="n">shadow</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSShadow</span> <span class="n">alloc</span><span class="p">]</span><span class="n">init</span><span class="p">];</span>
+    <span class="n">shadow</span><span class="p">.</span><span class="n">shadowOffset</span> <span class="o">=</span> <span class="n">CGSizeMake</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+    <span class="n">shadow</span><span class="p">.</span><span class="n">shadowColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">blueColor</span><span class="p">];</span>
+    <span class="n">shadow</span><span class="p">.</span><span class="n">shadowBlurRadius</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">string</span> <span class="nl">addAttribute</span><span class="p">:</span><span class="n">NSShadowAttributeName</span> <span class="nl">value</span><span class="p">:</span><span class="n">shadow</span> <span class="nl">range</span><span class="p">:</span><span class="n">NSMakeRange</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">textView</span><span class="p">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="n">string</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-8f882d994febb18b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="给文字添加阴影"></p>
@@ -547,14 +547,14 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@&#34;很好玩的富文本&#34;];
-    // 创建图片图片附件
-    NSTextAttachment *attach = [[NSTextAttachment alloc] init];
-    attach.image = [UIImage imageNamed:@&#34;1.jpg&#34;];
-    attach.bounds = CGRectMake(0, 0, 20, 20);
-    NSAttributedString *attachString = [NSAttributedString attributedStringWithAttachment:attach];
-    [string appendAttributedString:attachString];
-    self.textView.attributedText = string;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSMutableAttributedString</span> <span class="o">*</span><span class="n">string</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSMutableAttributedString</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithString</span><span class="p">:</span><span class="s">@&#34;很好玩的富文本&#34;</span><span class="p">];</span>
+    <span class="c1">// 创建图片图片附件
+</span><span class="c1"></span>    <span class="n">NSTextAttachment</span> <span class="o">*</span><span class="n">attach</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSTextAttachment</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">attach</span><span class="p">.</span><span class="n">image</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageNamed</span><span class="p">:</span><span class="s">@&#34;1.jpg&#34;</span><span class="p">];</span>
+    <span class="n">attach</span><span class="p">.</span><span class="n">bounds</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+    <span class="n">NSAttributedString</span> <span class="o">*</span><span class="n">attachString</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSAttributedString</span> <span class="nl">attributedStringWithAttachment</span><span class="p">:</span><span class="n">attach</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">string</span> <span class="nl">appendAttributedString</span><span class="p">:</span><span class="n">attachString</span><span class="p">];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">textView</span><span class="p">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="n">string</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-27adc1a27e0637ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图文混排"></p>
@@ -572,13 +572,13 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@&#34;很好玩的富文本&#34;];
-    [string addAttribute:NSBaselineOffsetAttributeName value:@(10) range:NSMakeRange(0, 1)];
-    [string addAttribute:NSBaselineOffsetAttributeName value:@(20) range:NSMakeRange(1, 1)];
-    [string addAttribute:NSBaselineOffsetAttributeName value:@(30) range:NSMakeRange(2, 1)];
-    [string addAttribute:NSBaselineOffsetAttributeName value:@(40) range:NSMakeRange(3, 1)];
-    [string addAttribute:NSBaselineOffsetAttributeName value:@(50) range:NSMakeRange(4, 3)];
-    self.textView.attributedText = string;
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSMutableAttributedString</span> <span class="o">*</span><span class="n">string</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSMutableAttributedString</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithString</span><span class="p">:</span><span class="s">@&#34;很好玩的富文本&#34;</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">string</span> <span class="nl">addAttribute</span><span class="p">:</span><span class="n">NSBaselineOffsetAttributeName</span> <span class="nl">value</span><span class="p">:</span><span class="l">@(</span><span class="mi">10</span><span class="l">)</span> <span class="nl">range</span><span class="p">:</span><span class="n">NSMakeRange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)];</span>
+    <span class="p">[</span><span class="n">string</span> <span class="nl">addAttribute</span><span class="p">:</span><span class="n">NSBaselineOffsetAttributeName</span> <span class="nl">value</span><span class="p">:</span><span class="l">@(</span><span class="mi">20</span><span class="l">)</span> <span class="nl">range</span><span class="p">:</span><span class="n">NSMakeRange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)];</span>
+    <span class="p">[</span><span class="n">string</span> <span class="nl">addAttribute</span><span class="p">:</span><span class="n">NSBaselineOffsetAttributeName</span> <span class="nl">value</span><span class="p">:</span><span class="l">@(</span><span class="mi">30</span><span class="l">)</span> <span class="nl">range</span><span class="p">:</span><span class="n">NSMakeRange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)];</span>
+    <span class="p">[</span><span class="n">string</span> <span class="nl">addAttribute</span><span class="p">:</span><span class="n">NSBaselineOffsetAttributeName</span> <span class="nl">value</span><span class="p">:</span><span class="l">@(</span><span class="mi">40</span><span class="l">)</span> <span class="nl">range</span><span class="p">:</span><span class="n">NSMakeRange</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)];</span>
+    <span class="p">[</span><span class="n">string</span> <span class="nl">addAttribute</span><span class="p">:</span><span class="n">NSBaselineOffsetAttributeName</span> <span class="nl">value</span><span class="p">:</span><span class="l">@(</span><span class="mi">50</span><span class="l">)</span> <span class="nl">range</span><span class="p">:</span><span class="n">NSMakeRange</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">textView</span><span class="p">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="n">string</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-4e0d6a0908bfb1e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文字偏移"></p>

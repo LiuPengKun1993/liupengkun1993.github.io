@@ -69,7 +69,7 @@
 <meta itemprop="description" content="想用 HTML 做个文字滚动效果，可以用特殊标签 marquee 实现，当然也可以用 JS 实现， 今天试了下用特殊标签 marquee 实现文字滚动。先声明下本人从事于 iOS 开发，之前零零星星">
 <meta itemprop="datePublished" content="2017-01-07T15:43:48+08:00" />
 <meta itemprop="dateModified" content="2018-01-02T15:43:48+08:00" />
-<meta itemprop="wordCount" content="1503">
+<meta itemprop="wordCount" content="1452">
 
 
 
@@ -306,7 +306,7 @@
             <a href="https://liupengkun1993.github.io/categories/%E5%89%8D%E7%AB%AF/"> 前端 </a>
             
           </div>
-        <span class="more-meta"> 1503 words </span>
+        <span class="more-meta"> 1452 words </span>
           <span class="more-meta"> 3 min read </span>
 
         
@@ -326,8 +326,8 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#先一起看下-marquee-标签存在哪些属性">先一起看下 marquee 标签存在哪些属性：</a></li>
-        <li><a href="#下面便是-marquee-属性的一些应用">下面便是 marquee 属性的一些应用</a></li>
+        <li><a href="#一滚动方式-behavior-scroll循环滚动">一、滚动方式 behavior ：scroll（循环滚动）</a></li>
+        <li><a href="#二滚动方式-behavioralternate来回滚动">二、滚动方式 behavior：alternate（来回滚动）</a></li>
         <li><a href="#三滚动方向-directionup从下到上">三、滚动方向 direction：up（从下到上）</a></li>
         <li><a href="#四滚动方向-directionleft从右到左">四、滚动方向 direction：left（从右到左）</a></li>
         <li><a href="#五滚动速度scrollamount">五、滚动速度（scrollamount）</a></li>
@@ -347,7 +347,7 @@
       <blockquote>
 <p>想用 HTML 做个文字滚动效果，可以用特殊标签 marquee 实现，当然也可以用 JS 实现， 今天试了下用特殊标签 marquee 实现文字滚动。先声明下本人从事于 iOS 开发，之前零零星星的学过 HTML ，但目前尚处于小白阶段😂，因此文章如果有不当之处还请各位大神不吝指出！</p>
 </blockquote>
-<h3 id="先一起看下-marquee-标签存在哪些属性">先一起看下 marquee 标签存在哪些属性：</h3>
+<p>先一起看下 marquee 标签存在哪些属性：</p>
 <ul>
 <li>behavior：滚动方式，三种：scroll（循环滚动） slide（单次滚动）、alternate（来回滚动）</li>
 <li>bgcolor：滚动文本框的背景颜色</li>
@@ -361,8 +361,8 @@
 <li>hspace：水平方向的空白距离</li>
 <li>vspace：垂直方向的空白距离</li>
 </ul>
-<h3 id="下面便是-marquee-属性的一些应用">下面便是 marquee 属性的一些应用</h3>
-<h4 id="一滚动方式-behavior-scroll循环滚动">一、滚动方式 behavior ：scroll（循环滚动）</h4>
+<p>下面便是 marquee 属性的一些应用</p>
+<h3 id="一滚动方式-behavior-scroll循环滚动">一、滚动方式 behavior ：scroll（循环滚动）</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -381,24 +381,24 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;!DOCTYPE html&gt;
-&lt;html lang=&#34;en&#34;&gt;
-&lt;head&gt;
-    &lt;meta charset=&#34;UTF-8&#34;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;marquee direction=&#34;right&#34;
-         behavior=&#34;scroll&#34;&gt;&lt;br&gt;
-    金风玉露一相逢, 便胜却人间无数.&lt;br&gt;
-    两情若是久长时, 又岂在朝朝暮暮.&lt;br&gt;
-&lt;/marquee&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">marquee</span> <span class="na">direction</span><span class="o">=</span><span class="s">&#34;right&#34;</span>
+         <span class="na">behavior</span><span class="o">=</span><span class="s">&#34;scroll&#34;</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+    金风玉露一相逢, 便胜却人间无数.<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+    两情若是久长时, 又岂在朝朝暮暮.<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">marquee</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-47605cbed1e7bf3a.gif?imageMogr2/auto-orient/strip" alt="循环滚动"></p>
-<h4 id="二滚动方式-behavioralternate来回滚动">二、滚动方式 behavior：alternate（来回滚动）</h4>
+</div><p><img src="/image/JS/JS_Tags/Tag01.gif" alt="循环滚动"></p>
+<h3 id="二滚动方式-behavioralternate来回滚动">二、滚动方式 behavior：alternate（来回滚动）</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -417,23 +417,23 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;!DOCTYPE html&gt;
-&lt;html lang=&#34;en&#34;&gt;
-&lt;head&gt;
-    &lt;meta charset=&#34;UTF-8&#34;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;marquee direction=&#34;right&#34;
-         behavior=&#34;alternate&#34;&gt;&lt;br&gt;
-    金风玉露一相逢, 便胜却人间无数.&lt;br&gt;
-    两情若是久长时, 又岂在朝朝暮暮.&lt;br&gt;
-&lt;/marquee&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">marquee</span> <span class="na">direction</span><span class="o">=</span><span class="s">&#34;right&#34;</span>
+         <span class="na">behavior</span><span class="o">=</span><span class="s">&#34;alternate&#34;</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+    金风玉露一相逢, 便胜却人间无数.<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+    两情若是久长时, 又岂在朝朝暮暮.<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">marquee</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-2ef9e8f7f7097a05.gif?imageMogr2/auto-orient/strip" alt="来回滚动"></p>
+</div><p><img src="/image/JS/JS_Tags/Tag02.gif" alt="来回滚动"></p>
 <h3 id="三滚动方向-directionup从下到上">三、滚动方向 direction：up（从下到上）</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -453,23 +453,23 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;!DOCTYPE html&gt;
-&lt;html lang=&#34;en&#34;&gt;
-&lt;head&gt;
-    &lt;meta charset=&#34;UTF-8&#34;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;marquee direction=&#34;up&#34;
-         behavior=&#34;scroll&#34;&gt;&lt;br&gt;
-    金风玉露一相逢, 便胜却人间无数.&lt;br&gt;
-    两情若是久长时, 又岂在朝朝暮暮.&lt;br&gt;
-&lt;/marquee&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">marquee</span> <span class="na">direction</span><span class="o">=</span><span class="s">&#34;up&#34;</span>
+         <span class="na">behavior</span><span class="o">=</span><span class="s">&#34;scroll&#34;</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+    金风玉露一相逢, 便胜却人间无数.<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+    两情若是久长时, 又岂在朝朝暮暮.<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">marquee</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-afc2adaff655f9b5.gif?imageMogr2/auto-orient/strip" alt="从下到上"></p>
+</div><p><img src="/image/JS/JS_Tags/Tag03.gif" alt="从下到上"></p>
 <h3 id="四滚动方向-directionleft从右到左">四、滚动方向 direction：left（从右到左）</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -489,23 +489,23 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;!DOCTYPE html&gt;
-&lt;html lang=&#34;en&#34;&gt;
-&lt;head&gt;
-    &lt;meta charset=&#34;UTF-8&#34;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;marquee direction=&#34;left&#34;
-         behavior=&#34;scroll&#34;&gt;&lt;br&gt;
-    金风玉露一相逢, 便胜却人间无数.&lt;br&gt;
-    两情若是久长时, 又岂在朝朝暮暮.&lt;br&gt;
-&lt;/marquee&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">marquee</span> <span class="na">direction</span><span class="o">=</span><span class="s">&#34;left&#34;</span>
+         <span class="na">behavior</span><span class="o">=</span><span class="s">&#34;scroll&#34;</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+    金风玉露一相逢, 便胜却人间无数.<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+    两情若是久长时, 又岂在朝朝暮暮.<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">marquee</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-59c59ad94d252736.gif?imageMogr2/auto-orient/strip" alt="从右到左"></p>
+</div><p><img src="/image/JS/JS_Tags/Tag04.gif" alt="从右到左"></p>
 <h3 id="五滚动速度scrollamount">五、滚动速度（scrollamount）</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -526,24 +526,24 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;!DOCTYPE html&gt;
-&lt;html lang=&#34;en&#34;&gt;
-&lt;head&gt;
-    &lt;meta charset=&#34;UTF-8&#34;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;marquee direction=&#34;left&#34;
-         behavior=&#34;scroll&#34;
-         scrollamount=&#34;80px&#34;&gt;&lt;br&gt;
-    金风玉露一相逢, 便胜却人间无数.&lt;br&gt;
-    两情若是久长时, 又岂在朝朝暮暮.&lt;br&gt;
-&lt;/marquee&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">marquee</span> <span class="na">direction</span><span class="o">=</span><span class="s">&#34;left&#34;</span>
+         <span class="na">behavior</span><span class="o">=</span><span class="s">&#34;scroll&#34;</span>
+         <span class="na">scrollamount</span><span class="o">=</span><span class="s">&#34;80px&#34;</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+    金风玉露一相逢, 便胜却人间无数.<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+    两情若是久长时, 又岂在朝朝暮暮.<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">marquee</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-8c084cd3ab2119e7.gif?imageMogr2/auto-orient/strip" alt="滚动速度"></p>
+</div><p><img src="/image/JS/JS_Tags/Tag05.gif" alt="滚动速度"></p>
 <h3 id="六循环次数loop">六、循环次数（loop）</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -565,25 +565,25 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;!DOCTYPE html&gt;
-&lt;html lang=&#34;en&#34;&gt;
-&lt;head&gt;
-    &lt;meta charset=&#34;UTF-8&#34;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;marquee direction=&#34;left&#34;
-         behavior=&#34;scroll&#34;
-         scrollamount=&#34;80px&#34;
-         loop=&#34;5&#34;&gt;&lt;br&gt;
-    金风玉露一相逢, 便胜却人间无数.&lt;br&gt;
-    两情若是久长时, 又岂在朝朝暮暮.&lt;br&gt;
-&lt;/marquee&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">marquee</span> <span class="na">direction</span><span class="o">=</span><span class="s">&#34;left&#34;</span>
+         <span class="na">behavior</span><span class="o">=</span><span class="s">&#34;scroll&#34;</span>
+         <span class="na">scrollamount</span><span class="o">=</span><span class="s">&#34;80px&#34;</span>
+         <span class="na">loop</span><span class="o">=</span><span class="s">&#34;5&#34;</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+    金风玉露一相逢, 便胜却人间无数.<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+    两情若是久长时, 又岂在朝朝暮暮.<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">marquee</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-1e7e0b115db0402f.gif?imageMogr2/auto-orient/strip" alt="循环次数"></p>
+</div><p><img src="/image/JS/JS_Tags/Tag06.gif" alt="循环次数"></p>
 <h3 id="七当鼠标停留在文字上文字停止滚动">七、当鼠标停留在文字上，文字停止滚动</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -606,26 +606,26 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;!DOCTYPE html&gt;
-&lt;html lang=&#34;en&#34;&gt;
-&lt;head&gt;
-    &lt;meta charset=&#34;UTF-8&#34;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;marquee direction=&#34;left&#34;
-         behavior=&#34;scroll&#34;
-         scrollamount=&#34;80px&#34;
-         onmouseover=stop()
-         onmouseout=start()&gt;&lt;br&gt;
-    金风玉露一相逢, 便胜却人间无数.&lt;br&gt;
-    两情若是久长时, 又岂在朝朝暮暮.&lt;br&gt;
-&lt;/marquee&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">marquee</span> <span class="na">direction</span><span class="o">=</span><span class="s">&#34;left&#34;</span>
+         <span class="na">behavior</span><span class="o">=</span><span class="s">&#34;scroll&#34;</span>
+         <span class="na">scrollamount</span><span class="o">=</span><span class="s">&#34;80px&#34;</span>
+         <span class="na">onmouseover</span><span class="o">=</span><span class="s">stop()</span>
+         <span class="na">onmouseout</span><span class="o">=</span><span class="s">start()</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+    金风玉露一相逢, 便胜却人间无数.<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+    两情若是久长时, 又岂在朝朝暮暮.<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">marquee</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-a9a929dcfc80b834.gif?imageMogr2/auto-orient/strip" alt="当鼠标停留在文字上，文字停止滚动"></p>
+</div><p><img src="/image/JS/JS_Tags/Tag07.gif" alt="当鼠标停留在文字上，文字停止滚动"></p>
 <h3 id="八给滚动字幕加超链接">八、给滚动字幕加超链接</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -648,26 +648,26 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;!DOCTYPE html&gt;
-&lt;html lang=&#34;en&#34;&gt;
-&lt;head&gt;
-    &lt;meta charset=&#34;UTF-8&#34;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;marquee direction=&#34;left&#34;
-         behavior=&#34;scroll&#34;
-         scrollamount=&#34;80px&#34;
-         onmouseover=stop()
-         onmouseout=start()&gt;&lt;br&gt;
-    &lt;a href=#&gt;金风玉露&lt;/a&gt;一相逢, 便胜却人间无数.&lt;br&gt;
-    两情若是久长时, 又岂在朝朝暮暮.&lt;br&gt;
-&lt;/marquee&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">marquee</span> <span class="na">direction</span><span class="o">=</span><span class="s">&#34;left&#34;</span>
+         <span class="na">behavior</span><span class="o">=</span><span class="s">&#34;scroll&#34;</span>
+         <span class="na">scrollamount</span><span class="o">=</span><span class="s">&#34;80px&#34;</span>
+         <span class="na">onmouseover</span><span class="o">=</span><span class="s">stop()</span>
+         <span class="na">onmouseout</span><span class="o">=</span><span class="s">start()</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">#</span><span class="p">&gt;</span>金风玉露<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>一相逢, 便胜却人间无数.<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+    两情若是久长时, 又岂在朝朝暮暮.<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">marquee</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-5668ad5af1df16db.gif?imageMogr2/auto-orient/strip" alt="给滚动字幕加超链接"></p>
+</div><p><img src="/image/JS/JS_Tags/Tag08.gif" alt="给滚动字幕加超链接"></p>
 <h3 id="九综合其它属性">九、综合其它属性</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -697,34 +697,33 @@
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;!DOCTYPE html&gt;
-&lt;html lang=&#34;en&#34;&gt;
-&lt;head&gt;
-    &lt;meta charset=&#34;UTF-8&#34;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;marquee direction=&#34;left&#34;
-         behavior=&#34;scroll&#34;
-         scrollamount=&#34;30&#34;
-         scrolldelay=&#34;0&#34;
-         loop=&#34;-1&#34;
-         width=&#34;500&#34;
-         height=&#34;100&#34;
-         bgcolor=&#34;#FFCCFF&#34;
-         hspace=&#34;30&#34;
-         vspace=&#34;10&#34;
-         onmouseover=this.stop()
-         onmouseout=start()&gt;&lt;br&gt;
-    &lt;a href=#&gt;金风玉露&lt;/a&gt;一相逢, 便胜却人间无数.&lt;br&gt;
-    两情若是久长时, 又岂在朝朝暮暮.&lt;br&gt;
-&lt;/marquee&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Document<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">marquee</span> <span class="na">direction</span><span class="o">=</span><span class="s">&#34;left&#34;</span>
+         <span class="na">behavior</span><span class="o">=</span><span class="s">&#34;scroll&#34;</span>
+         <span class="na">scrollamount</span><span class="o">=</span><span class="s">&#34;30&#34;</span>
+         <span class="na">scrolldelay</span><span class="o">=</span><span class="s">&#34;0&#34;</span>
+         <span class="na">loop</span><span class="o">=</span><span class="s">&#34;-1&#34;</span>
+         <span class="na">width</span><span class="o">=</span><span class="s">&#34;500&#34;</span>
+         <span class="na">height</span><span class="o">=</span><span class="s">&#34;100&#34;</span>
+         <span class="na">bgcolor</span><span class="o">=</span><span class="s">&#34;#FFCCFF&#34;</span>
+         <span class="na">hspace</span><span class="o">=</span><span class="s">&#34;30&#34;</span>
+         <span class="na">vspace</span><span class="o">=</span><span class="s">&#34;10&#34;</span>
+         <span class="na">onmouseover</span><span class="o">=</span><span class="s">this.stop()</span>
+         <span class="na">onmouseout</span><span class="o">=</span><span class="s">start()</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">#</span><span class="p">&gt;</span>金风玉露<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>一相逢, 便胜却人间无数.<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+    两情若是久长时, 又岂在朝朝暮暮.<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">marquee</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="http://upload-images.jianshu.io/upload_images/2665449-d8ef46a6806d1d63.gif?imageMogr2/auto-orient/strip" alt="综合其它属性"></p>
-<p>小结：试了 HTML 实现文字滚动效果之后，发现比 iOS 简单方便许多，以后在工作之余会多学学前端知识，求大神带哈😀！</p>
+</div><p><img src="/image/JS/JS_Tags/Tag09.gif" alt="综合其它属性"></p>
 
     </div>
 

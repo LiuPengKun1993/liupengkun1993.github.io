@@ -365,15 +365,15 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">  //当获得的tn不为空时，调用支付接口
-  if (tn != nil &amp;&amp; tn.length &gt; 0)
-  {
-        [[UPPaymentControl defaultControl] 
-                startPay:tn 
-  fromScheme:@&#34;UPPay&#34; 
-       mode:self.tnMode 
-    viewController:self]; 
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc">  <span class="c1">//当获得的tn不为空时，调用支付接口
+</span><span class="c1"></span>  <span class="k">if</span> <span class="p">(</span><span class="n">tn</span> <span class="o">!=</span> <span class="nb">nil</span> <span class="o">&amp;&amp;</span> <span class="n">tn</span><span class="p">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="p">{</span>
+        <span class="p">[[</span><span class="n">UPPaymentControl</span> <span class="n">defaultControl</span><span class="p">]</span> 
+                <span class="nl">startPay</span><span class="p">:</span><span class="n">tn</span> 
+  <span class="nl">fromScheme</span><span class="p">:</span><span class="s">@&#34;UPPay&#34;</span> 
+       <span class="nl">mode</span><span class="p">:</span><span class="nb">self</span><span class="p">.</span><span class="n">tnMode</span> 
+    <span class="nl">viewController</span><span class="p">:</span><span class="nb">self</span><span class="p">];</span> 
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>上边这个方法需要的几个参数文档上都写的有，tn 是交易流水号，fromScheme 是商户自定义协议， mode 是接入模式，viewController指的是发起调用的视图控制器。</p>
@@ -388,10 +388,10 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback"> if([[UPPaymentControl defaultControl] isPaymentAppInstalled])   
-  {
-      //当判断用户手机上已安装银联App，商户客户端可以做相应个性化处理
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"> <span class="k">if</span><span class="p">([[</span><span class="n">UPPaymentControl</span> <span class="n">defaultControl</span><span class="p">]</span> <span class="n">isPaymentAppInstalled</span><span class="p">])</span>   
+  <span class="p">{</span>
+      <span class="c1">//当判断用户手机上已安装银联App，商户客户端可以做相应个性化处理
+</span><span class="c1"></span><span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><hr>

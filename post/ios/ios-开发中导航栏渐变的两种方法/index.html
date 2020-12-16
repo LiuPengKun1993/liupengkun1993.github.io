@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="liupengkun" />
-  <meta name="description" content="很多 APP 都有导航栏颜色渐变的效果，各位开发者也都八仙过海各显神通，各有各的方法，我这里提供两种思路：第一种是通过设置 navigationBar 的 alpha；第二种是在" />
+  <meta name="description" content="思路 很多 APP 都有导航栏颜色渐变的效果，各位开发者也都八仙过海各显神通，各有各的方法，我这里提供两种思路： 第一种是通过设置 navigationBar 的 alpha； 第二种" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -60,23 +60,23 @@
 
 
 <meta property="og:title" content="iOS 开发中导航栏渐变的两种方法" />
-<meta property="og:description" content="很多 APP 都有导航栏颜色渐变的效果，各位开发者也都八仙过海各显神通，各有各的方法，我这里提供两种思路：第一种是通过设置 navigationBar 的 alpha；第二种是在" />
+<meta property="og:description" content="思路 很多 APP 都有导航栏颜色渐变的效果，各位开发者也都八仙过海各显神通，各有各的方法，我这里提供两种思路： 第一种是通过设置 navigationBar 的 alpha； 第二种" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://liupengkun1993.github.io/post/ios/ios-%E5%BC%80%E5%8F%91%E4%B8%AD%E5%AF%BC%E8%88%AA%E6%A0%8F%E6%B8%90%E5%8F%98%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/" />
 <meta property="article:published_time" content="2017-03-18T15:43:48+08:00" />
 <meta property="article:modified_time" content="2017-12-22T15:43:48+08:00" />
 <meta itemprop="name" content="iOS 开发中导航栏渐变的两种方法">
-<meta itemprop="description" content="很多 APP 都有导航栏颜色渐变的效果，各位开发者也都八仙过海各显神通，各有各的方法，我这里提供两种思路：第一种是通过设置 navigationBar 的 alpha；第二种是在">
+<meta itemprop="description" content="思路 很多 APP 都有导航栏颜色渐变的效果，各位开发者也都八仙过海各显神通，各有各的方法，我这里提供两种思路： 第一种是通过设置 navigationBar 的 alpha； 第二种">
 <meta itemprop="datePublished" content="2017-03-18T15:43:48+08:00" />
 <meta itemprop="dateModified" content="2017-12-22T15:43:48+08:00" />
-<meta itemprop="wordCount" content="623">
+<meta itemprop="wordCount" content="601">
 
 
 
 <meta itemprop="keywords" content="iOS,Tips," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="iOS 开发中导航栏渐变的两种方法"/>
-<meta name="twitter:description" content="很多 APP 都有导航栏颜色渐变的效果，各位开发者也都八仙过海各显神通，各有各的方法，我这里提供两种思路：第一种是通过设置 navigationBar 的 alpha；第二种是在"/>
+<meta name="twitter:description" content="思路 很多 APP 都有导航栏颜色渐变的效果，各位开发者也都八仙过海各显神通，各有各的方法，我这里提供两种思路： 第一种是通过设置 navigationBar 的 alpha； 第二种"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -306,7 +306,7 @@
             <a href="https://liupengkun1993.github.io/categories/ios/"> iOS </a>
             
           </div>
-        <span class="more-meta"> 623 words </span>
+        <span class="more-meta"> 601 words </span>
           <span class="more-meta"> 2 min read </span>
 
         
@@ -324,9 +324,10 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#思路">思路</a>
       <ul>
-        <li></li>
+        <li><a href="#一设置-navigationbar-的-alpha">一、设置 navigationBar 的 alpha</a></li>
+        <li><a href="#二在-navigationbar-上加入一个-view">二、在 navigationBar 上加入一个 view</a></li>
       </ul>
     </li>
   </ul>
@@ -336,12 +337,15 @@
 
     
     <div class="post-content">
-      <blockquote>
-<p>很多 APP 都有导航栏颜色渐变的效果，各位开发者也都八仙过海各显神通，各有各的方法，我这里提供两种思路：<strong>第一种是通过设置 navigationBar 的 alpha；第二种是在 navigationBar 上加入一个 view，再设置 view 的 alpha。</strong></p>
+      <h2 id="思路">思路</h2>
+<blockquote>
+<p>很多 APP 都有导航栏颜色渐变的效果，各位开发者也都八仙过海各显神通，各有各的方法，我这里提供两种思路：</p>
+<p><strong>第一种是通过设置 navigationBar 的 alpha；</strong></p>
+<p><strong>第二种是在 navigationBar 上加入一个 view，再设置 view 的 alpha。</strong></p>
 </blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-d8f9e18b30189a3b.gif?imageMogr2/auto-orient/strip" alt="导航栏渐变">
-两种方法的核心代码：</p>
-<h4 id="一设置-navigationbar-的-alpha">一、设置 navigationBar 的 alpha</h4>
+<p><img src="/image/iOS/iOS_Navigation/Navigation01.gif" alt="导航栏渐变"></p>
+<p>两种方法的核心代码：</p>
+<h3 id="一设置-navigationbar-的-alpha">一、设置 navigationBar 的 alpha</h3>
 <p>向上滑和向下滑时分别对 navigationBar 的透明度进行设置。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -372,36 +376,36 @@
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#pragma mark - UIScrollViewDelegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#pragma mark - UIScrollViewDelegate
+</span><span class="cp"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">scrollViewDidScroll:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="p">{</span>
     
-    self.currentPostion = scrollView.contentOffset.y;
+    <span class="nb">self</span><span class="p">.</span><span class="n">currentPostion</span> <span class="o">=</span> <span class="n">scrollView</span><span class="p">.</span><span class="n">contentOffset</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
     
-    if (self.currentPostion &gt; 0) {
-        if (self.currentPostion - self.lastPosition &gt;= 0) {
-                if (self.topBool) {
-                    self.topBool = NO;
-                    self.bottomBool = YES;
-                self.stopPosition = self.currentPostion + 64;
-            }
-            self.lastPosition = self.currentPostion;
-            self.navigationController.navigationBar.alpha = 1 - self.currentPostion / 500;
-        } else {
-            if (self.bottomBool) {
-                self.bottomBool = NO;
-                self.topBool = YES;
-                self.stopPosition = self.currentPostion + 64;
-            }
-            self.lastPosition = self.currentPostion;
-            self.navigationController.navigationBar.alpha = (self.stopPosition - self.currentPostion) / 200;
-        }
-    }
-}
+    <span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">currentPostion</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">currentPostion</span> <span class="o">-</span> <span class="nb">self</span><span class="p">.</span><span class="n">lastPosition</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">topBool</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nb">self</span><span class="p">.</span><span class="n">topBool</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+                    <span class="nb">self</span><span class="p">.</span><span class="n">bottomBool</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+                <span class="nb">self</span><span class="p">.</span><span class="n">stopPosition</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">currentPostion</span> <span class="o">+</span> <span class="mi">64</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">lastPosition</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">currentPostion</span><span class="p">;</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">navigationController</span><span class="p">.</span><span class="n">navigationBar</span><span class="p">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="nb">self</span><span class="p">.</span><span class="n">currentPostion</span> <span class="o">/</span> <span class="mi">500</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">bottomBool</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nb">self</span><span class="p">.</span><span class="n">bottomBool</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+                <span class="nb">self</span><span class="p">.</span><span class="n">topBool</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+                <span class="nb">self</span><span class="p">.</span><span class="n">stopPosition</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">currentPostion</span> <span class="o">+</span> <span class="mi">64</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">lastPosition</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">currentPostion</span><span class="p">;</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">navigationController</span><span class="p">.</span><span class="n">navigationBar</span><span class="p">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">stopPosition</span> <span class="o">-</span> <span class="nb">self</span><span class="p">.</span><span class="n">currentPostion</span><span class="p">)</span> <span class="o">/</span> <span class="mi">200</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>这里要说明一点，<strong>如果你不希望自己 navigationBar 上的按钮也被改变透明度，可以通过自定义 UINavigationController 实现。用系统的 navigationBar 时，navigationBar上的按钮的透明度也会被更改。</strong></p>
 <hr>
-<h4 id="二在-navigationbar-上加入一个-view">二、在 navigationBar 上加入一个 view</h4>
+<h3 id="二在-navigationbar-上加入一个-view">二、在 navigationBar 上加入一个 view</h3>
 <p>在 navigationBar 上加一个 view，然后设置 view 的 alpha。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -412,11 +416,11 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">CGSize customSize = self.navigationController.navigationBar.frame.size;
-    self.customView = [[UIView alloc] initWithFrame:CGRectMake(0, -20, customSize.width, customSize.height + 20)];
-    self.customView.backgroundColor = [UIColor orangeColor];
-    self.customView.userInteractionEnabled = NO;
-    [self.navigationController.navigationBar insertSubview: self.customView atIndex:0];
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">CGSize</span> <span class="n">customSize</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">navigationController</span><span class="p">.</span><span class="n">navigationBar</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">;</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">customView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithFrame</span><span class="p">:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="n">customSize</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">customSize</span><span class="p">.</span><span class="n">height</span> <span class="o">+</span> <span class="mi">20</span><span class="p">)];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">customView</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">orangeColor</span><span class="p">];</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">customView</span><span class="p">.</span><span class="n">userInteractionEnabled</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">navigationController</span><span class="p">.</span><span class="n">navigationBar</span> <span class="nl">insertSubview</span><span class="p">:</span> <span class="nb">self</span><span class="p">.</span><span class="n">customView</span> <span class="nl">atIndex</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>这里也要说明一点，<strong>View 的 userInteractionEnabled 属性要设置为 NO，不然会出现问题。</strong></p>
@@ -450,35 +454,35 @@
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#pragma mark - UIScrollViewDelegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#pragma mark - UIScrollViewDelegate
+</span><span class="cp"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">scrollViewDidScroll:</span><span class="p">(</span><span class="n">UIScrollView</span> <span class="o">*</span><span class="p">)</span><span class="nv">scrollView</span> <span class="p">{</span>
     
-    self.currentPostion = scrollView.contentOffset.y;
+    <span class="nb">self</span><span class="p">.</span><span class="n">currentPostion</span> <span class="o">=</span> <span class="n">scrollView</span><span class="p">.</span><span class="n">contentOffset</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
     
-    if (self.currentPostion &gt; 0) {
-        if (self.currentPostion - self.lastPosition &gt;= 0) {
-            if (self.topBool) {
-                self.topBool = NO;
-                self.bottomBool = YES;
-                self.stopPosition = self.currentPostion + 64;
-            }
-            self.lastPosition = self.currentPostion;
-            self.customView.alpha = 1 - self.currentPostion / 500;
-        } else {
-            if (self.bottomBool) {
-                self.bottomBool = NO;
-                self.topBool = YES;
-                self.stopPosition = self.currentPostion + 64;
-            }
-            self.lastPosition = self.currentPostion;
-            self.customView.alpha = (self.stopPosition - self.currentPostion) / 200;
-        }
-    }
-}
+    <span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">currentPostion</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">currentPostion</span> <span class="o">-</span> <span class="nb">self</span><span class="p">.</span><span class="n">lastPosition</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">topBool</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nb">self</span><span class="p">.</span><span class="n">topBool</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+                <span class="nb">self</span><span class="p">.</span><span class="n">bottomBool</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+                <span class="nb">self</span><span class="p">.</span><span class="n">stopPosition</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">currentPostion</span> <span class="o">+</span> <span class="mi">64</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">lastPosition</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">currentPostion</span><span class="p">;</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">customView</span><span class="p">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="nb">self</span><span class="p">.</span><span class="n">currentPostion</span> <span class="o">/</span> <span class="mi">500</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">bottomBool</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nb">self</span><span class="p">.</span><span class="n">bottomBool</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+                <span class="nb">self</span><span class="p">.</span><span class="n">topBool</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+                <span class="nb">self</span><span class="p">.</span><span class="n">stopPosition</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">currentPostion</span> <span class="o">+</span> <span class="mi">64</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">lastPosition</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">currentPostion</span><span class="p">;</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">customView</span><span class="p">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">stopPosition</span> <span class="o">-</span> <span class="nb">self</span><span class="p">.</span><span class="n">currentPostion</span><span class="p">)</span> <span class="o">/</span> <span class="mi">200</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>上面的两种方法都可以实现导航栏渐变，只是思路不同，一个是改变系统的导航栏，一个是在导航栏上插入 View，另外还可以自定义导航控制器这个类来实现，各位道友可以试试哦！</p>
-<h4 id="代码传送门httpsgithubcomliuzhongningnnjanebook-欢迎各位道友交流或指出错误"><a href="https://github.com/liuzhongning/NNJaneBook">代码传送门</a> 欢迎各位道友交流或指出错误！</h4>
+</div><p>上面的两种方法都可以实现导航栏渐变，只是思路不同，一个是改变系统的导航栏，一个是在导航栏上插入 View，另外还可以自定义导航控制器这个类来实现！</p>
+<p><a href="https://github.com/liuzhongning/NNJaneBook">代码传送门</a></p>
 
     </div>
 
