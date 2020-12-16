@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: http://liupengkun1993.github.io/sitemap.xml

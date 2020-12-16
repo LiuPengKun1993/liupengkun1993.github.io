@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>读书笔记 on liupengkun</title>
+    <link>http://liupengkun1993.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+    <description>Recent content in 读书笔记 on liupengkun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>liupengkun</copyright>
+    <lastBuildDate>Wed, 31 Jan 2018 15:43:48 +0800</lastBuildDate><atom:link href="http://liupengkun1993.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(3)</title>
+      <link>http://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/</link>
+      <pubDate>Wed, 31 Jan 2018 15:43:48 +0800</pubDate>
+      
+      <guid>http://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/</guid>
+      <description>前言 文章共分为三篇： 第一篇：iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1) 第二篇：iOS 开发</description>
+    </item>
+    
+    <item>
+      <title>iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)</title>
+      <link>http://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/</link>
+      <pubDate>Wed, 24 Jan 2018 10:43:48 +0800</pubDate>
+      
+      <guid>http://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/</guid>
+      <description>前言 文章共分为三篇： 第一篇：iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1) 第二篇：iOS 开发</description>
+    </item>
+    
+    <item>
+      <title>iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1)</title>
+      <link>http://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/</link>
+      <pubDate>Tue, 16 Jan 2018 15:43:48 +0800</pubDate>
+      
+      <guid>http://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/</guid>
+      <description>《Effective Objective-C 2.0: 编写高质量 iOS 与 OS X 代码的 52 个有效方法》是一本非常经典的 OC 书籍。这本书从语法、接口与 API 设计、内存管理、框架等 7 大方面总</description>
+    </item>
+    
+    <item>
+      <title>设计模式-《重构》读书笔记及 APP 重构心得</title>
+      <link>http://liupengkun1993.github.io/post/ios/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%87%8D%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%8F%8A-app-%E9%87%8D%E6%9E%84%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Wed, 10 Jan 2018 15:43:48 +0800</pubDate>
+      
+      <guid>http://liupengkun1993.github.io/post/ios/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%87%8D%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%8F%8A-app-%E9%87%8D%E6%9E%84%E5%BF%83%E5%BE%97/</guid>
+      <description>前段时间和一同事一起重构了两个 APP，正好想写一些重构心得，前天又在知乎上看到一前辈推荐《重构》这本书，据说是程序员的必读书籍，于是就粗略的</description>
+    </item>
+    
+    <item>
+      <title>数据结构 -《大话数据结构》读书笔记(3)</title>
+      <link>http://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/</link>
+      <pubDate>Mon, 08 Jan 2018 18:43:48 +0800</pubDate>
+      
+      <guid>http://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/</guid>
+      <description>文章共分为三篇 第一篇：数据结构 -《大话数据结构》读书笔记(1) 一、数据结构绪论 二、算法 三、线性表 第二篇：数据结构 -《大话数据结构》读书笔记(</description>
+    </item>
+    
+    <item>
+      <title>数据结构 -《大话数据结构》读书笔记(2)</title>
+      <link>http://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/</link>
+      <pubDate>Mon, 08 Jan 2018 15:43:48 +0800</pubDate>
+      
+      <guid>http://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/</guid>
+      <description>文章共分为三篇 第一篇：数据结构 -《大话数据结构》读书笔记(1) 一、数据结构绪论 二、算法 三、线性表 第二篇：数据结构 -《大话数据结构》读书笔记(</description>
+    </item>
+    
+    <item>
+      <title>数据结构 -《大话数据结构》读书笔记(1)</title>
+      <link>http://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/</link>
+      <pubDate>Tue, 02 Jan 2018 15:43:48 +0800</pubDate>
+      
+      <guid>http://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/</guid>
+      <description>公司的经理大哥建议过我，说趁年轻要深入学习算法与数据结构，设计模式， APP 架构，当然也包括 iOS 底层的一些知识&amp;hellip;&amp;hellip;半年多</description>
+    </item>
+    
+  </channel>
+</rss>

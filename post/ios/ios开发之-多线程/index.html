@@ -1,0 +1,2269 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>iOS开发之 - 多线程 - liupengkun</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="liupengkun" />
+  <meta name="description" content="最近利用晚上的空闲时间，整理了一下多线程相关的知识，几经更改，就变成你现在看到的模样了（如有失误之处，还请不吝赐教）。把多线程相关的知识总结" />
+
+  <meta name="keywords" content="Hugo, theme, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0" />
+
+
+<link rel="canonical" href="http://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%A4%9A%E7%BA%BF%E7%A8%8B/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.f1e506a781bf25d33ffc18aa6b4e972a965c58049d27d4f92b7db2e9bf28e4bf.css" integrity="sha256-8eUGp4G/JdM//Biqa06XKpZcWASdJ9T5K32y6b8o5L8=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="iOS开发之 - 多线程" />
+<meta property="og:description" content="最近利用晚上的空闲时间，整理了一下多线程相关的知识，几经更改，就变成你现在看到的模样了（如有失误之处，还请不吝赐教）。把多线程相关的知识总结" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%A4%9A%E7%BA%BF%E7%A8%8B/" />
+<meta property="article:published_time" content="2016-10-19T15:43:48+08:00" />
+<meta property="article:modified_time" content="2018-01-02T15:43:48+08:00" />
+<meta itemprop="name" content="iOS开发之 - 多线程">
+<meta itemprop="description" content="最近利用晚上的空闲时间，整理了一下多线程相关的知识，几经更改，就变成你现在看到的模样了（如有失误之处，还请不吝赐教）。把多线程相关的知识总结">
+<meta itemprop="datePublished" content="2016-10-19T15:43:48+08:00" />
+<meta itemprop="dateModified" content="2018-01-02T15:43:48+08:00" />
+<meta itemprop="wordCount" content="7361">
+
+
+
+<meta itemprop="keywords" content="iOS,多线程," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="iOS开发之 - 多线程"/>
+<meta name="twitter:description" content="最近利用晚上的空闲时间，整理了一下多线程相关的知识，几经更改，就变成你现在看到的模样了（如有失误之处，还请不吝赐教）。把多线程相关的知识总结"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">liupengkun'Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://liupengkun1993.github.io/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://liupengkun1993.github.io/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://liupengkun1993.github.io/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://liupengkun1993.github.io/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://liupengkun1993.github.io/about/">关于</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      liupengkun'Blog
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://liupengkun1993.github.io/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://liupengkun1993.github.io/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://liupengkun1993.github.io/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://liupengkun1993.github.io/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://liupengkun1993.github.io/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">iOS开发之 - 多线程</h1>
+      
+      <div class="post-meta">
+        <time datetime="2016-10-19" class="post-time">
+          2016-10-19
+        </time>
+        <div class="post-category">
+            <a href="http://liupengkun1993.github.io/categories/ios/"> iOS </a>
+            
+          </div>
+        <span class="more-meta"> 7361 words </span>
+          <span class="more-meta"> 15 min read </span>
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一ios-开发之多线程-基础知识">（一）iOS 开发之多线程 基础知识</a>
+      <ul>
+        <li><a href="#1多线程简介">1.多线程简介:</a></li>
+        <li><a href="#2多线程的原理">2.多线程的原理:</a></li>
+        <li><a href="#3多线程的优缺点">3.多线程的优缺点:</a></li>
+        <li><a href="#4多线程在-ios-开发中的应用">4.多线程在 iOS 开发中的应用:</a></li>
+        <li><a href="#5ios-中三种多线程编程的技术分别是">5.iOS 中三种多线程编程的技术，分别是：</a></li>
+        <li><a href="#一nsthread">（一）NSThread</a></li>
+        <li><a href="#二cocoa-nsoperation">（二）Cocoa NSOperation</a></li>
+        <li><a href="#三gcd全称grand-central-dispatch">（三）GCD（全称：Grand Central Dispatch）</a></li>
+      </ul>
+    </li>
+    <li><a href="#二ios-开发之多线程-nsthread">（二）iOS 开发之多线程 NSThread</a>
+      <ul>
+        <li><a href="#一nsthread-初始化">一、NSThread 初始化</a></li>
+        <li><a href="#二线程间的通信">二、线程间的通信</a></li>
+        <li><a href="#三一些简单方法">三、一些简单方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#三ios开发之多线程-nsoperation">（三）iOS开发之多线程 NSOperation</a>
+      <ul>
+        <li><a href="#一创建线程的方式">一、创建线程的方式</a></li>
+        <li><a href="#二nsoperationqueue的应用">二、NSOperationQueue的应用</a></li>
+        <li><a href="#三一些简单方法-1">三、一些简单方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#四ios开发之多线程-gcd">（四）iOS开发之多线程 GCD</a></li>
+    <li><a href="#一gcd-术语">一、GCD 术语</a>
+      <ul>
+        <li></li>
+        <li><a href="#二代码演示">二、代码演示</a></li>
+        <li><a href="#1dispatch_async异步函数">1、dispatch_async(异步函数)</a></li>
+        <li><a href="#三gcd与非gcd实现单粒设计模式">三、GCD与非GCD实现单粒设计模式</a></li>
+        <li><a href="#四gcd定时器">四、GCD定时器</a></li>
+      </ul>
+    </li>
+    <li><a href="#五ios开发之多线程-线程间的通信">（五）iOS开发之多线程 线程间的通信</a>
+      <ul>
+        <li><a href="#一简单介绍">一、简单介绍</a></li>
+        <li><a href="#二常用方法">二、常用方法:</a></li>
+        <li><a href="#三nsport方法">三、NSPort方法:</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <p><img src="/image/iOS/iOS_Thread/Thread01.jpg" alt="iOS开发之－多线程"></p>
+<blockquote>
+<p>最近利用晚上的空闲时间，整理了一下多线程相关的知识，几经更改，就变成你现在看到的模样了（如有失误之处，还请不吝赐教）。把多线程相关的知识总结在这里，只希望对看到的朋友们有所帮助！文章有些长，涵盖的知识点也比较多，希望朋友们能够耐心读完哈！我们这篇文章主要包括以下几个模块：</p>
+</blockquote>
+<ul>
+<li><strong>（一）iOS开发之多线程 基础知识</strong></li>
+<li><strong>（二）iOS开发之多线程 NSThread</strong></li>
+<li><strong>（三）iOS开发之多线程 NSOperation</strong></li>
+<li><strong>（四）iOS开发之多线程 GCD</strong></li>
+<li><strong>（五）iOS开发之多线程 线程间的通信</strong></li>
+</ul>
+<p><em>下面我们开始了解 iOS 多线程的基础知识，如果在此之前对多线程已经有所了解的朋友，大可跳过这一部分，直接看后边三种多线程编程的 demo 即可！</em></p>
+<h2 id="一ios-开发之多线程-基础知识">（一）iOS 开发之多线程 基础知识</h2>
+<h3 id="1多线程简介">1.多线程简介:</h3>
+<p>一个进程要想执行任务, 必须得有线程(每个进程至少要有一条线程), 线程是进程的基本执行单元, 一个进程（程序）的所有任务都在线程中执行.</p>
+<h3 id="2多线程的原理">2.多线程的原理:</h3>
+<p>同一时间, CPU 只能处理一条线程,只有一条线程在工作.
+多线程并发(同时)执行, 其实是 CPU 快速地在多条线程之间调度.
+如果 CPU 调度线程的时间足够快,就造成了多线程并发执行的假象.</p>
+<h3 id="3多线程的优缺点">3.多线程的优缺点:</h3>
+<h4 id="多线程的优点">多线程的优点:</h4>
+<p>能适当提高程序的执行效率.
+能适当提高资源利用率(CPU、内存利用率).</p>
+<h4 id="多线程的缺点">多线程的缺点:</h4>
+<p>开启线程需要占用一定的内存空间(默认情况下，主线程占用1M，子线程占用512KB),如果开启大量的线程,会占用大量的内存空间,降低程序的性能.</p>
+<h3 id="4多线程在-ios-开发中的应用">4.多线程在 iOS 开发中的应用:</h3>
+<p>主线程:一个 iOS 程序运行后，默认会开启1条线程，称为“主线程”或“ UI 线程”.
+主线程的主要作用:刷新 UI 界面、处理 UI 事件(比如点击事件、滚动事件、拖拽事件等).</p>
+<h3 id="5ios-中三种多线程编程的技术分别是">5.iOS 中三种多线程编程的技术，分别是：</h3>
+<h3 id="一nsthread">（一）NSThread</h3>
+<h3 id="二cocoa-nsoperation">（二）Cocoa NSOperation</h3>
+<h3 id="三gcd全称grand-central-dispatch">（三）GCD（全称：Grand Central Dispatch）</h3>
+<p>这三种编程方式从上到下，抽象度层次是从低到高的，抽象度越高的使用越简单，也是Apple最推荐使用的。</p>
+<h4 id="三种方式的优缺点介绍">三种方式的优缺点介绍：</h4>
+<h5 id="nsthread">NSThread:</h5>
+<p>优点：NSThread 比其他两个轻量级
+缺点：需要自己管理线程的生命周期，线程同步。线程同步对数据的加锁会有一定的系统开销。</p>
+<h5 id="cocoa-nsoperation">Cocoa NSOperation</h5>
+<p>优点：不需要关心线程管理，数据同步的事情，可以把精力放在自己需要执行的操作上。
+Cocoa operation 相关的类是 NSOperation ，NSOperationQueue。
+NSOperation是个抽象类，使用它必须用它的子类，可以实现它或者使用它定义好的两个子类：NSInvocationOperation 和 NSBlockOperation。
+创建NSOperation子类的对象，把对象添加到NSOperationQueue队列里执行。</p>
+<h5 id="gcd">GCD</h5>
+<p>Grand Central Dispatch (GCD)是Apple开发的一个多核编程的解决方法。在iOS4.0开始之后才能使用。GCD是一个替代诸如NSThread, NSOperationQueue, NSInvocationOperation等技术的很高效和强大的技术。</p>
+<hr>
+<p><em>对 iOS 基础知识有了一定了解之后，下边我们开始看多线程相关的一些 demo， 建议朋友们试试下边的 demo，这样更方便理解！如有疑问，或发现某些 demo 写的有误，还请朋友们告知！</em></p>
+<p><strong>下边我们开始了解NSThread，NSThread 其实用的真不多，主要还是用另外两种，不过作为 iOS 开发者，还是应该对它有些了解的，下边是 NSThread 相关的 demo ！</strong></p>
+<h2 id="二ios-开发之多线程-nsthread">（二）iOS 开发之多线程 NSThread</h2>
+<h3 id="一nsthread-初始化">一、NSThread 初始化</h3>
+<h4 id="1动态方法">1.动态方法</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">initWithTarget:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">target</span> <span class="nf">selector:</span><span class="p">(</span><span class="kt">SEL</span><span class="p">)</span><span class="nv">selector</span> <span class="nf">object:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">argument</span> 
+<span class="c1">// 初始化线程 
+</span><span class="c1"></span><span class="n">NSThread</span><span class="o">*</span> <span class="kr">thread</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSThread</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithTarget</span><span class="p">:</span><span class="nb">self</span> <span class="nl">selector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">doSomething</span><span class="p">:)</span><span class="nl">object</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+<span class="c1">// 线程名字 
+</span><span class="c1"></span><span class="kr">thread</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">@&#34;MYThread&#34;</span><span class="p">;</span>
+ <span class="c1">// 启动线程 
+</span><span class="c1"></span><span class="p">[</span><span class="kr">thread</span> <span class="n">start</span><span class="p">];</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="2静态方法">2.静态方法</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">detachNewThreadSelector:</span><span class="p">(</span><span class="kt">SEL</span><span class="p">)</span><span class="nv">aSelector</span> <span class="nf">toTarget:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">aTarget</span> <span class="nf">withObject:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">anArgument</span>
+<span class="p">[</span><span class="n">NSThread</span> <span class="nl">detachNewThreadSelector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">doSomething</span><span class="p">:)</span> <span class="nl">toTarget</span><span class="p">:</span><span class="nb">self</span> <span class="nl">withObject</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>   
+<span class="c1">// 调用完毕后，会马上创建并开启新线程 
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="3隐式创建线程的方法">3.隐式创建线程的方法：</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">performSelectorInBackground:</span><span class="p">(</span><span class="kt">SEL</span><span class="p">)</span><span class="nv">aSelector</span> <span class="nf">withObject:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">arg</span><span class="p">;</span>
+<span class="p">[</span><span class="nb">self</span> <span class="nl">performSelectorInBackground</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">run</span><span class="p">)</span> <span class="nl">withObject</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>  
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>提示朋友们一下:第一种方式会直接创建线程并且开始运行线程，第二种方式是先创建线程对象，然后再运行线程操作，在运行线程操作前可以设置线程的优先级等线程信息</strong></p>
+<h3 id="二线程间的通信">二、线程间的通信</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">//在主线程上执行操作
+</span><span class="c1"></span><span class="p">[</span><span class="nb">self</span> <span class="nl">performSelectorOnMainThread</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">run</span><span class="p">)</span> <span class="nl">withObject</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">waitUntilDone</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>  
+<span class="c1">//在当前线程执行操作
+</span><span class="c1"></span><span class="p">[</span><span class="nb">self</span> <span class="nl">performSelector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">run</span><span class="p">)</span> <span class="nl">withObject</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>  
+<span class="c1">//在指定线程上执行操作
+</span><span class="c1"></span><span class="p">[</span><span class="nb">self</span> <span class="nl">performSelector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">run</span><span class="p">)</span> <span class="nl">onThread</span><span class="p">:</span><span class="kr">thread</span> <span class="nl">withObject</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">waitUntilDone</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span> 
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="三一些简单方法">三、一些简单方法</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">//获取当前线程
+</span><span class="c1"></span><span class="n">NSThread</span> <span class="o">*</span><span class="kr">thread</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">];</span>
+<span class="c1">//获取主线程
+</span><span class="c1"></span><span class="n">NSThread</span> <span class="o">*</span><span class="n">main</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">mainThread</span><span class="p">];</span> 
+<span class="c1">//睡眠，相当于暂停
+</span><span class="c1"></span><span class="p">[</span><span class="n">NSThread</span> <span class="nl">sleepForTimeInterval</span><span class="p">:</span><span class="mi">3</span><span class="p">];</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<p><em>NSThread  就说到这，一起再看下NSOperation， NSOperation 在开发中用的还是挺多的，虽然苹果建议使用 GCD ，但依然有开发者觉得 NSOperation  比 GCD 更好用！仁者见仁智者见智吧！本小白觉得如果能掌握还是都掌握的好！</em></p>
+<h2 id="三ios开发之多线程-nsoperation">（三）iOS开发之多线程 NSOperation</h2>
+<h3 id="一创建线程的方式">一、创建线程的方式</h3>
+<p>使用NSOperation创建线程的方式有3种:</p>
+<p>（1）NSInvocationOperation 方式
+（2）NSBlockOperation 方式
+（3）自定义子类继承NSOperation,实现内部相应的⽅法</p>
+<p>下面是这三种方式创建线程的具体方法：</p>
+<h4 id="1nsinvocationoperation">1.NSInvocationOperation</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">invocationOperation</span>
+<span class="p">{</span>
+<span class="c1">//创建NSInvocationOperation对象
+</span><span class="c1"></span>    <span class="n">NSInvocationOperation</span> <span class="o">*</span><span class="n">operation</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSInvocationOperation</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithTarget</span><span class="p">:</span><span class="nb">self</span> <span class="nl">selector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">run</span><span class="p">)</span> <span class="nl">object</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+
+<span class="c1">//开始执行操作
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">operation</span> <span class="n">start</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="c1">//一旦执行操作,就会调用target的run方法
+</span></code></pre></td></tr></table>
+</div>
+</div><p>提示:默认情况下,调用了start方法后并不会开一条新线程去执行操作,只有将NSOperation放到一个NSOperationQueue中,才会异步执行操作.</p>
+<h4 id="2nsblockoperation">2.NSBlockOperation</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">blockOperation</span>
+<span class="p">{</span>
+<span class="c1">//创建NSBlockOperation对象
+</span><span class="c1"></span>    <span class="n">NSBlockOperation</span> <span class="o">*</span><span class="n">operation</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSBlockOperation</span> <span class="nl">blockOperationWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+        <span class="c1">// 主线程
+</span><span class="c1"></span>        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;1---%@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>
+    <span class="p">}];</span>
+    <span class="c1">// 添加任务(在子线程执行)
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">operation</span> <span class="nl">addExecutionBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;2---%@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>
+    <span class="p">}];</span>
+    <span class="p">[</span><span class="n">operation</span> <span class="nl">addExecutionBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;3---%@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>
+    <span class="p">}];</span>
+    <span class="c1">//开启执行操作
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">operation</span> <span class="n">start</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>提示:只要NSBlockOperation封装的操作数 &gt; 1,就会异步执行操作</p>
+<h4 id="3自定义子类继承自nsoperation">3.自定义子类继承自NSOperation</h4>
+<p>自定义NSOperation子类需要重写 - (void)main方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">main</span>
+<span class="p">{</span>
+    <span class="c1">// 新建一个自动释放池，如果是异步执行操作，那么将无法访问到主线程的自动释放池
+</span><span class="c1"></span>    <span class="k">@autoreleasepool</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">NSInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;1 - %ld - %@&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>
+    <span class="p">}</span>
+    <span class="c1">//检测操作是否被取消,对取消做出响应
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">isCancelled</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+    
+    <span class="k">for</span> <span class="p">(</span><span class="n">NSInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;2 - %ld - %@&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">isCancelled</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+    
+    <span class="k">for</span> <span class="p">(</span><span class="n">NSInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;3 - %ld - %@&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">isCancelled</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="二nsoperationqueue的应用">二、NSOperationQueue的应用</h3>
+<p>一个NSOperation对象可以通过调用start方法来执行任务,默认是同步执行的.也可以将NSOperation添加到一个NSOperationQueue中去执行,而且是异步执行的.</p>
+<h4 id="1nsoperationqueue简单创建">1.NSOperationQueue简单创建</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">//第一种方式
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">operationQueue</span>
+<span class="p">{</span>
+    <span class="c1">// 创建NSOperationQueue队列
+</span><span class="c1"></span>    <span class="n">NSOperationQueue</span> <span class="o">*</span><span class="n">queue</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSOperationQueue</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="c1">// 创建NSInvocationOperation对象
+</span><span class="c1"></span>    <span class="n">NSInvocationOperation</span> <span class="o">*</span><span class="n">operation1</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSInvocationOperation</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithTarget</span><span class="p">:</span><span class="nb">self</span> <span class="nl">selector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">run1</span><span class="p">)</span> <span class="nl">object</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+    <span class="n">NSInvocationOperation</span> <span class="o">*</span><span class="n">operation2</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSInvocationOperation</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithTarget</span><span class="p">:</span><span class="nb">self</span> <span class="nl">selector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">run2</span><span class="p">)</span> <span class="nl">object</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+    
+  <span class="c1">// 创建NSBlockOperation对象
+</span><span class="c1"></span>    <span class="n">NSBlockOperation</span> <span class="o">*</span><span class="n">operation3</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSBlockOperation</span> <span class="nl">blockOperationWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;1 --- %@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>
+    <span class="p">}];</span>
+    <span class="p">[</span><span class="n">operation3</span> <span class="nl">addExecutionBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;2 --- %@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>
+    <span class="p">}];</span>
+    <span class="n">NSBlockOperation</span> <span class="o">*</span><span class="n">operation4</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSBlockOperation</span> <span class="nl">blockOperationWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;3 --- %@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>
+    <span class="p">}];</span>
+    <span class="c1">// 添加任务到队列中
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">queue</span> <span class="nl">addOperation</span><span class="p">:</span><span class="n">operation1</span><span class="p">];</span> 
+    <span class="p">[</span><span class="n">queue</span> <span class="nl">addOperation</span><span class="p">:</span><span class="n">operation2</span><span class="p">];</span> 
+    <span class="p">[</span><span class="n">queue</span> <span class="nl">addOperation</span><span class="p">:</span><span class="n">operation3</span><span class="p">];</span> 
+    <span class="p">[</span><span class="n">queue</span> <span class="nl">addOperation</span><span class="p">:</span><span class="n">operation4</span><span class="p">];</span> 
+<span class="p">}</span>
+
+
+<span class="c1">//第二种方式
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">operationQueue2</span>
+<span class="p">{</span>
+    <span class="c1">// 创建NSOperationQueue队列
+</span><span class="c1"></span>    <span class="n">NSOperationQueue</span> <span class="o">*</span><span class="n">queue</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSOperationQueue</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">queue</span> <span class="nl">addOperationWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;1 --- %@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>
+    <span class="p">}];</span>
+    <span class="p">[</span><span class="n">queue</span> <span class="nl">addOperationWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;2 --- %@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>
+    <span class="p">}];</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="2nsoperation中的操作依赖">2.NSOperation中的操作依赖</h4>
+<p>NSOperation之间可以设置依赖来保证执行顺序,比如一定要让操作A执行完后,才能执行操作B,可以这么写[operationB addDependency:operationA]; // 操作B依赖于操作operationA,另外,通过removeDependency方法可以删除依赖对象.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#pragma mark - 依赖操作调整执行顺序
+</span><span class="cp"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">NSOperationTest1</span> <span class="p">{</span>
+    <span class="n">NSOperationQueue</span> <span class="o">*</span><span class="n">queue</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSOperationQueue</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">NSBlockOperation</span> <span class="o">*</span><span class="n">op1</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSBlockOperation</span> <span class="nl">blockOperationWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;~~1~~%@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>
+    <span class="p">}];</span>
+    <span class="n">NSBlockOperation</span> <span class="o">*</span><span class="n">op2</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSBlockOperation</span> <span class="nl">blockOperationWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;~~2~~%@~~%d~~&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">],</span> <span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}];</span>
+    <span class="n">NSBlockOperation</span> <span class="o">*</span><span class="n">op3</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSBlockOperation</span> <span class="nl">blockOperationWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;~~3~~%@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>
+    <span class="p">}];</span>
+    <span class="p">[</span><span class="n">op2</span> <span class="nl">addExecutionBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;~~4~~%@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>
+    <span class="p">}];</span>
+    <span class="n">op3</span><span class="p">.</span><span class="n">completionBlock</span> <span class="o">=</span> <span class="o">^</span><span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;~~5~~%@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>
+    <span class="p">};</span>
+      <span class="c1">// 设置依赖
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">op1</span> <span class="nl">addDependency</span><span class="p">:</span><span class="n">op2</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">op1</span> <span class="nl">addDependency</span><span class="p">:</span><span class="n">op3</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">queue</span> <span class="nl">addOperation</span><span class="p">:</span><span class="n">op1</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">queue</span> <span class="nl">addOperation</span><span class="p">:</span><span class="n">op2</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">queue</span> <span class="nl">addOperation</span><span class="p">:</span><span class="n">op3</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="3线程间的通信">3.线程间的通信</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#pragma mark - NSOperation实现线程间的通信
+</span><span class="cp"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">NSOperationTest2</span> <span class="p">{</span>
+    <span class="p">[[[</span><span class="n">NSOperationQueue</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">]</span> <span class="nl">addOperationWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+        <span class="n">NSData</span> <span class="o">*</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSData</span> <span class="nl">dataWithContentsOfURL</span><span class="p">:[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34;http://img.lanrentuku.com/img/allimg/1310/13822295641903.jpg&#34;</span><span class="p">]];</span>
+        
+        <span class="n">UIImage</span> <span class="o">*</span><span class="n">image</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageWithData</span><span class="p">:</span><span class="n">data</span><span class="p">];</span>
+        
+        <span class="p">[[</span><span class="n">NSOperationQueue</span> <span class="n">mainQueue</span><span class="p">]</span> <span class="nl">addOperationWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">imageview</span><span class="p">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="p">;</span>
+        <span class="p">}];</span>
+    <span class="p">}];</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="三一些简单方法-1">三、一些简单方法</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 取消单个操作  
+</span><span class="c1"></span><span class="p">[</span><span class="n">operation</span> <span class="n">cancel</span><span class="p">];</span>  
+<span class="c1">// 取消queue中所有的操作  
+</span><span class="c1"></span><span class="p">[</span><span class="n">queue</span> <span class="n">cancelAllOperations</span><span class="p">];</span> 
+<span class="c1">//设置队列的最大并发操作数量
+</span><span class="c1"></span><span class="n">queue</span><span class="p">.</span><span class="n">maxConcurrentOperationCount</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> 
+<span class="c1">// 会阻塞当前线程，等到某个operation执行完毕
+</span><span class="c1"></span><span class="p">[</span><span class="n">operation</span> <span class="n">waitUntilFinished</span><span class="p">];</span>  
+<span class="c1">// 阻塞当前线程，等待queue的所有操作执行完毕
+</span><span class="c1"></span><span class="p">[</span><span class="n">queue</span> <span class="n">waitUntilAllOperationsAreFinished</span><span class="p">];</span>
+<span class="c1">// 暂停queue YES代表暂停队列,NO代表恢复队列
+</span><span class="c1"></span><span class="p">[</span><span class="n">queue</span> <span class="nl">setSuspended</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>*NSOperation 常用的基本上也就上面那些了。。。GCD 就不用多说了，老东家苹果推荐的，不过我却觉得名字太长~~~，一开始总是记不住，多敲就好了！所有编程语言大概都有这么一个绝招O(∩_∩)O！*</p>
+<h2 id="四ios开发之多线程-gcd">（四）iOS开发之多线程 GCD</h2>
+<h2 id="一gcd-术语">一、GCD 术语</h2>
+<p>要理解GCD ，我们先来熟悉与线程和并发相关的几个概念。</p>
+<h4 id="1serial-vs-concurrent-串行-vs-并发">1.Serial vs. Concurrent 串行 vs. 并发</h4>
+<p>任务串行执行就是每次只有一个任务被执行，任务并发执行就是在同一时间可以有多个任务被执行。</p>
+<h4 id="2同步synchronous与异步asynchronous">2.同步（Synchronous）与异步（Asynchronous）</h4>
+<p>同步，意味着在当前线程中执行任务，不具备开启新的线程的能力。
+异步，在新的线程中执行任务，具备开启新的线程的能力。</p>
+<h4 id="3临界区critical-section">3.临界区（Critical Section）</h4>
+<p>就是一段代码不能被并发执行，即两个线程不能同时执行这段代码。</p>
+<h4 id="4死锁deadlock">4.死锁（Deadlock）</h4>
+<p>停止等待事情的线程会导致多个线程相互维持等待，即死锁。</p>
+<h4 id="5thread-safe-线程安全">5.Thread Safe 线程安全</h4>
+<p>线程安全的代码能在多线程或并发任务中被安全的调用，而不会导致任何问题（数据损坏，崩溃等）。</p>
+<h4 id="6queues-队列">6.Queues 队列</h4>
+<p>GCD 提供有 dispatch queues 来处理代码块，这些队列管理你提供给 GCD 的任务并用 FIFO 顺序执行这些任务。</p>
+<h3 id="二代码演示">二、代码演示</h3>
+<h3 id="1dispatch_async异步函数">1、dispatch_async(异步函数)</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">//异步函数 + 并发队列:可以同时开启多条线程,任务是并行的
+</span><span class="c1">// 1.创建并发队列
+</span><span class="c1"></span>    <span class="n">dispatch_queue_t</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">dispatch_get_global_queue</span><span class="p">(</span><span class="n">DISPATCH_QUEUE_PRIORITY_DEFAULT</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+      <span class="c1">//2.将任务加入队列
+</span><span class="c1"></span>    <span class="n">dispatch_async</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">NSInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;%ld~~~~1~~~~%@&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="n">dispatch_async</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">NSInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;%ld~~~2~~~%@&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="n">dispatch_async</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">NSInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;%ld~~~~3~~~~%@&#34;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+<span class="c1">//异步函数 + 串行队列:会开启新的线程，但是任务是串行的，执行完一个任务，再执行下一个任务
+</span><span class="c1">// 1.创建串行队列
+</span><span class="c1"></span>    <span class="n">dispatch_queue_t</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">dispatch_queue_create</span><span class="p">(</span><span class="s">&#34;YMWM&#34;</span><span class="p">,</span> <span class="n">DISPATCH_QUEUE_SERIAL</span><span class="p">);</span>
+<span class="c1">// 2.将任务加入队列
+</span><span class="c1"></span>    <span class="n">dispatch_async</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">NSInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;1~~~%@~~~~~%ld&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">],</span> <span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="n">dispatch_async</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">NSInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;2~~~%@~~~~~%ld&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">],</span> <span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="n">dispatch_async</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">NSInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;2~~~%@~~~~~%ld&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">],</span> <span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="2dispatch_sync同步函数">2、dispatch_sync(同步函数)</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc">   <span class="c1">//同步函数 + 并发队列:不会开启新的线程
+</span><span class="c1"></span>    <span class="c1">// 1.获得全局的并发队列
+</span><span class="c1"></span><span class="n">dispatch_queue_t</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">dispatch_get_global_queue</span><span class="p">(</span><span class="n">DISPATCH_QUEUE_PRIORITY_DEFAULT</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="c1">// 2.将任务加入队列
+</span><span class="c1"></span>    <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">NSInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;1~~~%@~~~~~%ld&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">],</span> <span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+<span class="p">});</span>
+    <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">NSInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;2~~~%@~~~~~%ld&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">],</span> <span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+<span class="p">});</span>
+    <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">NSInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;3~~~%@~~~~~%ld&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">],</span> <span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+<span class="p">});</span>
+<span class="c1">//同步函数 + 串行队列:不会开启新的线程
+</span><span class="c1"></span>    <span class="c1">// 1.创建串行队列
+</span><span class="c1"></span>    <span class="n">dispatch_queue_t</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">dispatch_queue_create</span><span class="p">(</span><span class="s">&#34;YMWM&#34;</span><span class="p">,</span> <span class="n">DISPATCH_QUEUE_SERIAL</span><span class="p">);</span>
+    <span class="c1">// 2.将任务加入队列
+</span><span class="c1"></span>    <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">NSInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;1~~~%@~~~~~%ld&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">],</span> <span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">NSInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;2~~~%@~~~~~%ld&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">],</span> <span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">NSInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;3~~~%@~~~~~%ld&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">],</span> <span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="3两者在主队列中的应用">3.两者在主队列中的应用</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="c1">//异步函数 + 主队列：只在主线程中执行任务
+</span><span class="c1"></span>    <span class="n">dispatch_queue_t</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">dispatch_get_main_queue</span><span class="p">();</span>
+    <span class="n">dispatch_async</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">NSInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;1~~~%@~~~~~%ld&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">],</span> <span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="n">dispatch_async</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">NSInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;2~~~%@~~~~~%ld&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">],</span> <span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="n">dispatch_async</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">NSInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;3~~~%@~~~~~%ld&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">],</span> <span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="c1">//同步函数 + 主队列：死循环
+</span><span class="c1"></span>    <span class="n">dispatch_queue_t</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">dispatch_get_main_queue</span><span class="p">();</span>
+    <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">NSInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;1~~~%@~~~~~%ld&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">],</span> <span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">NSInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;1~~~%@~~~~~%ld&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">],</span> <span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+    <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">NSInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;1~~~%@~~~~~%ld&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">],</span> <span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="4dispatch_group_async的使用">4、dispatch_group_async的使用</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_queue_t</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">dispatch_get_global_queue</span><span class="p">(</span><span class="n">DISPATCH_QUEUE_PRIORITY_DEFAULT</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="c1">// 创建一个队列组
+</span><span class="c1"></span><span class="n">dispatch_group_t</span> <span class="n">group</span> <span class="o">=</span> <span class="n">dispatch_group_create</span><span class="p">();</span>
+<span class="n">dispatch_group_async</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+<span class="c1">//添加操作...
+</span><span class="c1"></span>   <span class="p">[</span><span class="n">NSThread</span> <span class="nl">sleepForTimeInterval</span><span class="p">:</span><span class="mi">1</span><span class="p">];</span>
+   <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;1%@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>
+<span class="p">});</span>
+<span class="n">dispatch_group_async</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+<span class="c1">//添加操作...
+</span><span class="c1"></span>   <span class="p">[</span><span class="n">NSThread</span> <span class="nl">sleepForTimeInterval</span><span class="p">:</span><span class="mi">1</span><span class="p">];</span>
+   <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;2%@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>
+<span class="p">});</span>
+<span class="n">dispatch_group_async</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+<span class="c1">//添加操作...
+</span><span class="c1"></span>   <span class="p">[</span><span class="n">NSThread</span> <span class="nl">sleepForTimeInterval</span><span class="p">:</span><span class="mi">1</span><span class="p">];</span>
+   <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;3%@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>
+<span class="p">});</span>
+<span class="c1">// 回到主线程
+</span><span class="c1"></span><span class="n">dispatch_group_notify</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">dispatch_get_main_queue</span><span class="p">(),</span> <span class="o">^</span><span class="p">{</span>
+   <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;回到主线程刷新UI&#34;</span><span class="p">);</span>
+<span class="p">});</span>  
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="5dispatch_barrier_async的使用">5、dispatch_barrier_async的使用</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_queue_t</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">dispatch_queue_create</span><span class="p">(</span><span class="s">&#34;YMWM&#34;</span><span class="p">,</span> <span class="n">DISPATCH_QUEUE_CONCURRENT</span><span class="p">);</span>   
+<span class="n">dispatch_async</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>   
+    <span class="p">[</span><span class="n">NSThread</span> <span class="nl">sleepForTimeInterval</span><span class="p">:</span><span class="mf">.5</span><span class="p">];</span>   
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;1%@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>  
+<span class="p">});</span>   
+<span class="n">dispatch_async</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>   
+    <span class="p">[</span><span class="n">NSThread</span> <span class="nl">sleepForTimeInterval</span><span class="p">:</span><span class="mf">.5</span><span class="p">];</span>   
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;2%@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>  
+<span class="p">});</span>   
+<span class="n">dispatch_barrier_async</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>   
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;barrier --- %@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span> 
+    <span class="p">[</span><span class="n">NSThread</span> <span class="nl">sleepForTimeInterval</span><span class="p">:</span><span class="mf">.5</span><span class="p">];</span>  
+<span class="p">});</span>   
+<span class="n">dispatch_async</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>   
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;3%@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>   
+<span class="p">});</span>
+<span class="n">dispatch_async</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>   
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;4%@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>   
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="6dispatch_apply的使用">6、dispatch_apply的使用</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc">  <span class="c1">//执行某个代码片段10次
+</span><span class="c1"></span>    <span class="n">dispatch_queue_t</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">dispatch_get_global_queue</span><span class="p">(</span><span class="n">DISPATCH_QUEUE_PRIORITY_DEFAULT</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">dispatch_apply</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">(</span><span class="n">size_t</span> <span class="n">index</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;%@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>
+    <span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="7dispatch_once_t的使用">7、dispatch_once_t的使用</h4>
+<p>第一个参数predicate，该参数是检查后面第二个参数所代表的代码块是否被调用的谓词，第二个参数则是在整个应用程序中只会被调用一次的代码块</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">static</span> <span class="n">dispatch_once_t</span> <span class="n">onceToken</span><span class="p">;</span>
+    <span class="n">dispatch_once</span><span class="p">(</span><span class="o">&amp;</span><span class="n">onceToken</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;%@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>
+    <span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="8dispatch_after的使用">8.dispatch_after的使用</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc">  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">touchesBegan</span><span class="p">:(</span><span class="n">NSSet</span><span class="o">&lt;</span><span class="n">UITouch</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="n">touches</span> <span class="nl">withEvent</span><span class="p">:(</span><span class="n">UIEvent</span> <span class="o">*</span><span class="p">)</span><span class="n">event</span> <span class="p">{</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;-------&#34;</span><span class="p">);</span>
+    <span class="c1">//延迟执行，较为精确
+</span><span class="c1"></span>   <span class="n">dispatch_after</span><span class="p">(</span><span class="n">dispatch_time</span><span class="p">(</span><span class="n">DISPATCH_TIME_NOW</span><span class="p">,</span> <span class="p">(</span><span class="n">int64_t</span><span class="p">)(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">NSEC_PER_SEC</span><span class="p">)),</span> <span class="n">dispatch_get_main_queue</span><span class="p">(),</span> <span class="o">^</span><span class="p">{</span>
+       <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;~~~~~~&#34;</span><span class="p">);</span>
+   <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="9线程间的通信">9.线程间的通信</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#pragma mark - GCD-线程间的通信
+</span><span class="cp"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">downloadImage</span> <span class="p">{</span>
+    <span class="n">NSData</span> <span class="o">*</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSData</span> <span class="nl">dataWithContentsOfURL</span><span class="p">:[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34;http://img.lanrentuku.com/img/allimg/1310/13822295641903.jpg&#34;</span><span class="p">]];</span>
+    
+    <span class="n">UIImage</span> <span class="o">*</span><span class="n">image</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageWithData</span><span class="p">:</span><span class="n">data</span><span class="p">];</span>
+    
+    <span class="n">dispatch_async</span><span class="p">(</span><span class="n">dispatch_get_main_queue</span><span class="p">(),</span> <span class="o">^</span><span class="p">{</span>
+        
+        <span class="nb">self</span><span class="p">.</span><span class="n">imageview</span><span class="p">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="10文件剪切">10.文件剪切</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">//第一种方式
+</span><span class="c1"></span>	<span class="c1">//将文件从from剪切至to
+</span><span class="c1"></span>    <span class="n">NSString</span> <span class="o">*</span><span class="n">from</span> <span class="o">=</span> <span class="s">@&#34;/Users/iOS/Desktop/Test&#34;</span><span class="p">;</span>
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">to</span> <span class="o">=</span> <span class="s">@&#34;/Users/iOS/Desktop/test1&#34;</span><span class="p">;</span>
+    <span class="n">NSFileManager</span> <span class="o">*</span><span class="n">mgr</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSFileManager</span> <span class="n">defaultManager</span><span class="p">];</span>
+    <span class="n">NSArray</span> <span class="o">*</span><span class="n">subpaths</span> <span class="o">=</span> <span class="p">[</span><span class="n">mgr</span> <span class="nl">subpathsAtPath</span><span class="p">:</span><span class="n">from</span><span class="p">];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">subpath</span> <span class="k">in</span> <span class="n">subpaths</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSString</span> <span class="o">*</span><span class="n">fromFullpath</span> <span class="o">=</span> <span class="p">[</span><span class="n">from</span> <span class="nl">stringByAppendingPathComponent</span><span class="p">:</span><span class="n">subpath</span><span class="p">];</span>
+        <span class="n">NSString</span> <span class="o">*</span><span class="n">toFullpath</span> <span class="o">=</span> <span class="p">[</span><span class="n">to</span> <span class="nl">stringByAppendingPathComponent</span><span class="p">:</span><span class="n">subpath</span><span class="p">];</span>
+<span class="n">dispatch_async</span><span class="p">(</span><span class="n">dispatch_get_global_queue</span><span class="p">(</span><span class="n">DISPATCH_QUEUE_PRIORITY_DEFAULT</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="o">^</span><span class="p">{</span>
+        <span class="c1">//剪切
+</span><span class="c1"></span>            <span class="p">[</span><span class="n">mgr</span> <span class="nl">moveItemAtPath</span><span class="p">:</span><span class="n">fromFullpath</span> <span class="nl">toPath</span><span class="p">:</span><span class="n">toFullpath</span> <span class="nl">error</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+    <span class="c1">//第二种方式
+</span><span class="c1"></span>    <span class="c1">//将文件从from剪切至to
+</span><span class="c1"></span>    <span class="n">dispatch_queue_t</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">dispatch_get_global_queue</span><span class="p">(</span><span class="n">DISPATCH_QUEUE_PRIORITY_DEFAULT</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">from</span> <span class="o">=</span> <span class="s">@&#34;/Users/iOS/Desktop/Test&#34;</span><span class="p">;</span>
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">to</span> <span class="o">=</span> <span class="s">@&#34;/Users/iOS/Desktop/test1&#34;</span><span class="p">;</span>
+    <span class="n">NSFileManager</span> <span class="o">*</span><span class="n">mag</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSFileManager</span> <span class="n">defaultManager</span><span class="p">];</span>
+    <span class="n">NSArray</span> <span class="o">*</span><span class="n">subpaths</span> <span class="o">=</span> <span class="p">[</span><span class="n">mag</span> <span class="nl">subpathsAtPath</span><span class="p">:</span><span class="n">from</span><span class="p">];</span>
+    <span class="n">dispatch_apply</span><span class="p">(</span><span class="n">subpaths</span><span class="p">.</span><span class="n">count</span><span class="p">,</span> <span class="n">queue</span><span class="p">,</span> <span class="o">^</span><span class="p">(</span><span class="n">size_t</span> <span class="n">index</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">NSString</span> <span class="o">*</span><span class="n">subpath</span> <span class="o">=</span> <span class="n">subpaths</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+        <span class="n">NSString</span> <span class="o">*</span><span class="n">fromFullpath</span> <span class="o">=</span> <span class="p">[</span><span class="n">from</span> <span class="nl">stringByAppendingPathComponent</span><span class="p">:</span><span class="n">subpath</span><span class="p">];</span>
+        <span class="n">NSString</span> <span class="o">*</span><span class="n">toFullpath</span> <span class="o">=</span> <span class="p">[</span><span class="n">to</span> <span class="nl">stringByAppendingPathComponent</span><span class="p">:</span><span class="n">subpath</span><span class="p">];</span>
+<span class="c1">//        剪切
+</span><span class="c1"></span>        <span class="p">[</span><span class="n">mag</span> <span class="nl">moveItemAtPath</span><span class="p">:</span><span class="n">fromFullpath</span> <span class="nl">toPath</span><span class="p">:</span><span class="n">toFullpath</span> <span class="nl">error</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;%@~~~~~~%@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">],</span> <span class="n">subpath</span><span class="p">);</span>
+    <span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="三gcd与非gcd实现单粒设计模式">三、GCD与非GCD实现单粒设计模式</h3>
+<h4 id="1gcd实现设计模式">1.GCD实现设计模式</h4>
+<p>类的.h文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">PKPerson</span> : <span class="nc">NSObject</span>
+<span class="p">+</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">sharedCar</span><span class="p">;</span>
+<span class="k">@end</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>类的.m文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">PKPerson</span><span class="p">()</span> <span class="o">&lt;</span><span class="n">NSCopying</span><span class="o">&gt;</span>
+
+<span class="k">@end</span>
+
+<span class="k">@implementation</span> <span class="nc">PKPerson</span>
+
+<span class="c1">// 实例变量，当前类
+</span><span class="c1"></span><span class="k">static</span> <span class="kt">id</span> <span class="n">_instance</span><span class="p">;</span>
+
+<span class="c1">// 重写allocWithZone方法
+</span><span class="c1"></span><span class="p">+</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">allocWithZone:</span><span class="p">(</span><span class="k">struct</span> <span class="n">_NSZone</span> <span class="o">*</span><span class="p">)</span><span class="nv">zone</span><span class="p">{</span>
+
+    <span class="k">static</span> <span class="n">dispatch_once_t</span> <span class="n">onceToken</span><span class="p">;</span>
+
+    <span class="c1">// 该方法整个应用程序只调用一次
+</span><span class="c1"></span>    <span class="n">dispatch_once</span><span class="p">(</span><span class="o">&amp;</span><span class="n">onceToken</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="n">_instance</span> <span class="o">=</span> <span class="p">[</span><span class="nb">super</span> <span class="nl">allocWithZone</span><span class="p">:</span><span class="n">zone</span><span class="p">];</span>
+    <span class="p">});</span>
+    <span class="k">return</span> <span class="n">_instance</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">+</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">sharedInstance</span><span class="p">{</span>
+    <span class="k">static</span> <span class="n">dispatch_once_t</span> <span class="n">onceToken</span><span class="p">;</span>
+    <span class="n">dispatch_once</span><span class="p">(</span><span class="o">&amp;</span><span class="n">onceToken</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="n">_instance</span> <span class="o">=</span> <span class="p">[[</span><span class="nb">self</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="p">});</span>
+    <span class="k">return</span> <span class="n">_instance</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 保证每复制一个对象也是同一内存空间
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">copyWithZone:</span><span class="p">(</span><span class="n">NSZone</span> <span class="o">*</span><span class="p">)</span><span class="nv">zone</span><span class="p">{</span>
+    <span class="k">return</span> <span class="n">_instance</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">@end</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="2宏定义封装gcd单粒设计模式">2.宏定义封装GCD单粒设计模式</h4>
+<p>通常当多个类之间有相同的属性和方法时，我们会考虑将相同的部分抽取出来，封装到父类中，但单粒模式不可以这样做，因为单粒模式采用继承方式的话，所有的类会共享一份内存。所以一般采取宏定义封装GCD单粒设计模式。注意，每行的结尾需要添加 &ldquo;&quot;。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// .h文件
+</span><span class="c1"></span><span class="cp">#define PKSingletonH + (instancetype)sharedInstance;
+</span><span class="cp"></span>
+<span class="c1">// .m文件
+</span><span class="c1"></span><span class="cp">#define PKSingletonH \
+</span><span class="cp">static id _instace; \
+</span><span class="cp"> \
+</span><span class="cp">+ (instancetype)allocWithZone:(struct _NSZone *)zone \
+</span><span class="cp">{ \
+</span><span class="cp">    static dispatch_once_t onceToken; \
+</span><span class="cp">    dispatch_once(&amp;onceToken, ^{ \
+</span><span class="cp">        _instace = [super allocWithZone:zone]; \
+</span><span class="cp">    }); \
+</span><span class="cp">    return _instace; \
+</span><span class="cp">} \
+</span><span class="cp"> \
+</span><span class="cp">+ (instancetype)sharedInstance \
+</span><span class="cp">{ \
+</span><span class="cp">    static dispatch_once_t onceToken; \
+</span><span class="cp">    dispatch_once(&amp;onceToken, ^{ \
+</span><span class="cp">        _instace = [[self alloc] init]; \
+</span><span class="cp">    }); \
+</span><span class="cp">    return _instace; \
+</span><span class="cp">} \
+</span><span class="cp"> \
+</span><span class="cp">- (id)copyWithZone:(NSZone *)zone \
+</span><span class="cp">{ \
+</span><span class="cp">    return _instace; \
+</span><span class="cp">}
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="3非gcd实现设计模式">3.非GCD实现设计模式</h4>
+<p>类的.h文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">PKPerson</span> : <span class="nc">NSObject</span>
+
+<span class="p">+</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">sharedInstance</span><span class="p">;</span>
+
+<span class="k">@end</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>类的.m文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#import &#34;PKPerson.h&#34;
+</span><span class="cp"></span>
+<span class="k">@interface</span> <span class="nc">PKPerson</span><span class="p">()</span>
+
+<span class="k">@end</span>
+
+<span class="k">@implementation</span> <span class="nc">PKPerson</span>
+
+<span class="k">static</span> <span class="kt">id</span> <span class="n">_instance</span><span class="p">;</span>
+
+<span class="p">+</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">allocWithZone:</span><span class="p">(</span><span class="k">struct</span> <span class="n">_NSZone</span> <span class="o">*</span><span class="p">)</span><span class="nv">zone</span>
+<span class="p">{</span>
+	<span class="c1">// 同步锁，防止多线程同时进入
+</span><span class="c1"></span>    <span class="k">@synchronized</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">_instance</span> <span class="o">==</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">_instance</span> <span class="o">=</span> <span class="p">[</span><span class="nb">super</span> <span class="nl">allocWithZone</span><span class="p">:</span><span class="n">zone</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">_instance</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">+</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">sharedInstance</span>
+<span class="p">{</span>
+    <span class="k">@synchronized</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">_instance</span> <span class="o">==</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">_instance</span> <span class="o">=</span> <span class="p">[[</span><span class="nb">self</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">_instance</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">copyWithZone:</span><span class="p">(</span><span class="n">NSZone</span> <span class="o">*</span><span class="p">)</span><span class="nv">zone</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="n">_instance</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">@end</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="四gcd定时器">四、GCD定时器</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">ViewController</span> <span class="p">()</span>
+<span class="cm">/** 定时器(这里不用带*，因为dispatch_source_t就是个类，内部已经包含了*) */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">nonatomic</span><span class="p">,</span> <span class="k">strong</span><span class="p">)</span> <span class="n">dispatch_source_t</span> <span class="n">timer</span><span class="p">;</span>
+<span class="k">@end</span>
+
+<span class="k">@implementation</span> <span class="nc">ViewController</span>
+
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">touchesBegan:</span><span class="p">(</span><span class="n">NSSet</span> <span class="o">*</span><span class="p">)</span><span class="nv">touches</span> <span class="nf">withEvent:</span><span class="p">(</span><span class="n">UIEvent</span> <span class="o">*</span><span class="p">)</span><span class="nv">event</span>
+<span class="p">{</span>
+    <span class="c1">// 获得队列
+</span><span class="c1"></span>    <span class="n">dispatch_queue_t</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">dispatch_get_main_queue</span><span class="p">();</span>
+    
+    <span class="c1">// 创建一个定时器(dispatch_source_t本质还是个OC对象)
+</span><span class="c1"></span>    <span class="nb">self</span><span class="p">.</span><span class="n">timer</span> <span class="o">=</span> <span class="n">dispatch_source_create</span><span class="p">(</span><span class="n">DISPATCH_SOURCE_TYPE_TIMER</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">queue</span><span class="p">);</span>
+    
+    <span class="c1">// GCD的时间参数一般是纳秒（1秒 == 10的9次方纳秒）
+</span><span class="c1"></span>    <span class="n">dispatch_time_t</span> <span class="n">start</span> <span class="o">=</span> <span class="n">dispatch_time</span><span class="p">(</span><span class="n">DISPATCH_TIME_NOW</span><span class="p">,</span> <span class="p">(</span><span class="n">int64_t</span><span class="p">)(</span><span class="mf">1.0</span> <span class="o">*</span> <span class="n">NSEC_PER_SEC</span><span class="p">));</span>
+    <span class="n">uint64_t</span> <span class="n">interval</span> <span class="o">=</span> <span class="p">(</span><span class="n">uint64_t</span><span class="p">)(</span><span class="mf">1.0</span> <span class="o">*</span> <span class="n">NSEC_PER_SEC</span><span class="p">);</span>
+    <span class="n">dispatch_source_set_timer</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">timer</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">interval</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    
+    <span class="c1">// 设置回调
+</span><span class="c1"></span>    <span class="n">dispatch_source_set_event_handler</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">timer</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;------%@-------&#34;</span><span class="p">,</span> <span class="p">[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]);</span>
+    <span class="p">});</span>
+    
+    <span class="c1">// 启动定时器
+</span><span class="c1"></span>    <span class="n">dispatch_resume</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">timer</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<p><em>三种多线程编程都说完了，代码有些多，不过希望朋友们有所收获，另外再补充一些关于线程间通信的。。。</em></p>
+<h2 id="五ios开发之多线程-线程间的通信">（五）iOS开发之多线程 线程间的通信</h2>
+<h3 id="一简单介绍">一、简单介绍</h3>
+<p>在一个进程中，线程往往不是孤立存在的，多个线程之间需要经常进行通信。以下是线程之间进行通信的方法:</p>
+<h3 id="二常用方法">二、常用方法:</h3>
+<h4 id="代码1performselector">代码1:performSelector</h4>
+<p>performSelector常用方法的常用方法主要有以下几种:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">//在主线程上执行操作
+</span><span class="c1"></span><span class="p">[</span><span class="nb">self</span> <span class="nl">performSelectorOnMainThread</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">run</span><span class="p">)</span> <span class="nl">withObject</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">waitUntilDone</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>  
+
+<span class="c1">//在当前线程执行操作
+</span><span class="c1"></span><span class="p">[</span><span class="nb">self</span> <span class="nl">performSelector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">run</span><span class="p">)</span> <span class="nl">withObject</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>  
+
+<span class="c1">//在指定线程上执行操作
+</span><span class="c1"></span><span class="p">[</span><span class="nb">self</span> <span class="nl">performSelector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">run</span><span class="p">)</span> <span class="nl">onThread</span><span class="p">:</span><span class="kr">thread</span> <span class="nl">withObject</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">waitUntilDone</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>具体代码:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">//点击屏幕开始执行以下方法
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">touchesBegan:</span><span class="p">(</span><span class="n">NSSet</span> <span class="o">*</span><span class="p">)</span><span class="nv">touches</span> <span class="nf">withEvent:</span><span class="p">(</span><span class="n">UIEvent</span> <span class="o">*</span><span class="p">)</span><span class="nv">event</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nb">self</span> <span class="nl">performSelectorInBackground</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="n">download</span><span class="p">)</span> <span class="nl">withObject</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">download</span>
+<span class="p">{</span>
+    <span class="c1">// 图片的网络路径
+</span><span class="c1"></span>    <span class="n">NSURL</span> <span class="o">*</span><span class="n">url</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34;http://img.lanrentuku.com/img/allimg/1310/13822295641903.jpg&#34;</span><span class="p">];</span>
+    
+    <span class="c1">// 根据地址加载图片
+</span><span class="c1"></span>    <span class="n">NSData</span> <span class="o">*</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSData</span> <span class="nl">dataWithContentsOfURL</span><span class="p">:</span><span class="n">url</span><span class="p">];</span> <span class="c1">//耗时操作
+</span><span class="c1"></span>    
+    <span class="c1">// 生成图片
+</span><span class="c1"></span>    <span class="n">UIImage</span> <span class="o">*</span><span class="n">image</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageWithData</span><span class="p">:</span><span class="n">data</span><span class="p">];</span>
+    
+    <span class="c1">// 回到主线程，刷新UI界面
+</span><span class="c1"></span>    <span class="c1">//方式一
+</span><span class="c1"></span>    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">imageView</span> <span class="nl">performSelector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">setImage</span><span class="p">:)</span> <span class="nl">onThread</span><span class="p">:[</span><span class="n">NSThread</span> <span class="n">mainThread</span><span class="p">]</span> <span class="nl">withObject</span><span class="p">:</span><span class="n">image</span> <span class="nl">waitUntilDone</span><span class="p">:</span><span class="nb">NO</span><span class="p">];</span>
+    
+    <span class="c1">//方式二
+</span><span class="c1">//    [self.imageView performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:NO];
+</span><span class="c1"></span>
+    <span class="c1">//方式三
+</span><span class="c1">//    [self performSelectorOnMainThread:@selector(showImage:) withObject:image waitUntilDone:NO];
+</span><span class="c1"></span><span class="p">}</span>
+
+<span class="c1">//显示图片(如果performSelector调用的是setImage:方法，会直接调用系统的方法)
+</span><span class="c1">//- (void)showImage:(UIImage *)image
+</span><span class="c1">//{
+</span><span class="c1">//    self.imageView.image = image;
+</span><span class="c1">//}
+</span></code></pre></td></tr></table>
+</div>
+</div><h4 id="代码2nsoperationqueue方式">代码2:NSOperationQueue方式</h4>
+<p>一个NSOperation对象可以通过调用start方法来执行任务,默认是同步执行的.也可以将NSOperation添加到一个NSOperationQueue中去执行,而且是异步执行的.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#pragma mark - NSOperation实现线程间的通信
+</span><span class="cp"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">NSOperationTest</span> <span class="p">{</span>
+	 <span class="p">[[[</span><span class="n">NSOperationQueue</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">]</span> <span class="nl">addOperationWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+        <span class="n">NSData</span> <span class="o">*</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSData</span> <span class="nl">dataWithContentsOfURL</span><span class="p">:[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34;http://img.lanrentuku.com/img/allimg/1310/13822295641903.jpg&#34;</span><span class="p">]];</span>
+        <span class="n">UIImage</span> <span class="o">*</span><span class="n">image</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageWithData</span><span class="p">:</span><span class="n">data</span><span class="p">];</span>
+        <span class="p">[[</span><span class="n">NSOperationQueue</span> <span class="n">mainQueue</span><span class="p">]</span> <span class="nl">addOperationWithBlock</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">imageView</span><span class="p">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="p">;</span>
+        <span class="p">}];</span>
+    <span class="p">}];</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="代码3gcd方式">代码3:GCD方式</h4>
+<p>GCD，全称Grand Central Dispath，是苹果开发的一种支持并行操作的机制。它的主要部件是一个FIFO队列和一个线程池，前者用来添加任务，后者用来执行任务。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">dispatch_async</span><span class="p">(</span><span class="n">dispatch_get_global_queue</span><span class="p">(</span><span class="n">DISPATCH_QUEUE_PRIORITY_DEFAULT</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="o">^</span><span class="p">{</span>
+
+ <span class="c1">// 图片的网络路径
+</span><span class="c1"></span>        <span class="n">NSURL</span> <span class="o">*</span><span class="n">url</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&#34;http://img.lanrentuku.com/img/allimg/1310/13822295641903.jpg&#34;</span><span class="p">];</span>
+        
+ <span class="c1">// 加载图片
+</span><span class="c1"></span>        <span class="n">NSData</span> <span class="o">*</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSData</span> <span class="nl">dataWithContentsOfURL</span><span class="p">:</span><span class="n">url</span><span class="p">];</span>
+        
+ <span class="c1">// 生成图片
+</span><span class="c1"></span>        <span class="n">UIImage</span> <span class="o">*</span><span class="n">image</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIImage</span> <span class="nl">imageWithData</span><span class="p">:</span><span class="n">data</span><span class="p">];</span>
+        
+ <span class="c1">// 回到主线程显示图片
+</span><span class="c1"></span>        <span class="n">dispatch_async</span><span class="p">(</span><span class="n">dispatch_get_main_queue</span><span class="p">(),</span> <span class="o">^</span><span class="p">{</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">imageView</span><span class="p">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="p">;</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="三nsport方法">三、NSPort方法:</h3>
+<p>NSPort有3个子类，NSSocketPort、NSMessagePort、NSMachPort，但在iOS下只有NSMachPort可用。代码如下:</p>
+<p>UIViewController中的代码:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#import &#34;ViewController.h&#34;
+</span><span class="cp">#import &#34;MyPort.h&#34;
+</span><span class="cp"></span>
+<span class="k">@interface</span> <span class="nc">ViewController</span> <span class="p">()</span> <span class="o">&lt;</span><span class="n">NSPortDelegate</span><span class="o">&gt;</span>
+<span class="k">@end</span>
+
+<span class="k">@implementation</span> <span class="nc">ViewController</span>
+
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
+    <span class="c1">//创建主线程的port
+</span><span class="c1"></span>    <span class="n">NSPort</span> <span class="o">*</span><span class="n">myPort</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSPort</span> <span class="n">port</span><span class="p">];</span>
+    
+    <span class="c1">//设置代理
+</span><span class="c1"></span>    <span class="n">myPort</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
+    
+    <span class="c1">//把port加入runloop
+</span><span class="c1"></span>    <span class="p">[[</span><span class="n">NSRunLoop</span> <span class="n">currentRunLoop</span><span class="p">]</span> <span class="nl">addPort</span><span class="p">:</span><span class="n">myPort</span> <span class="nl">forMode</span><span class="p">:</span><span class="n">NSDefaultRunLoopMode</span><span class="p">];</span>
+    
+    <span class="c1">//启动子线程,并传入主线程的port
+</span><span class="c1"></span>    <span class="n">MyPort</span> <span class="o">*</span><span class="n">work</span> <span class="o">=</span> <span class="p">[[</span><span class="n">MyPort</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    
+    <span class="p">[</span><span class="n">NSThread</span> <span class="nl">detachNewThreadSelector</span><span class="p">:</span><span class="k">@selector</span><span class="p">(</span><span class="nl">launchThreadWithPort</span><span class="p">:)</span>
+                             <span class="nl">toTarget</span><span class="p">:</span><span class="n">work</span>
+                           <span class="nl">withObject</span><span class="p">:</span><span class="n">myPort</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">handlePortMessage:</span><span class="p">(</span><span class="n">NSMessagePort</span><span class="o">*</span><span class="p">)</span><span class="nv">message</span><span class="p">{</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;已接到子线程的消息 --- %@&#34;</span><span class="p">,</span> <span class="n">message</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">@end</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>MyPort中的代码:</p>
+<p>.h文件:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#import &lt;Foundation/Foundation.h&gt;
+</span><span class="cp"></span>
+<span class="k">@interface</span> <span class="nc">MyPort</span> : <span class="nc">NSPort</span>
+
+<span class="k">@end</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>.m文件:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#import &#34;MyPort.h&#34;
+</span><span class="cp">#define PKMessage 10
+</span><span class="cp"></span>
+<span class="k">@interface</span> <span class="nc">MyPort</span> <span class="p">()</span><span class="o">&lt;</span><span class="n">NSMachPortDelegate</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="n">NSPort</span> <span class="o">*</span><span class="n">firstPort</span><span class="p">;</span>
+    <span class="n">NSPort</span> <span class="o">*</span><span class="n">secondPort</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">@end</span>
+
+<span class="k">@implementation</span> <span class="nc">MyPort</span>
+
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">launchThreadWithPort:</span><span class="p">(</span><span class="n">NSPort</span> <span class="o">*</span><span class="p">)</span><span class="nv">port</span> <span class="p">{</span>
+    <span class="k">@autoreleasepool</span> <span class="p">{</span>
+    
+        <span class="c1">//接收主线程传入的port
+</span><span class="c1"></span>
+        <span class="c1">//设置子线程名字
+</span><span class="c1"></span>        <span class="p">[[</span><span class="n">NSThread</span> <span class="n">currentThread</span><span class="p">]</span> <span class="nl">setName</span><span class="p">:</span><span class="s">@&#34;MyThread&#34;</span><span class="p">];</span>
+        
+        <span class="c1">//开启runloop
+</span><span class="c1"></span>        <span class="p">[[</span><span class="n">NSRunLoop</span> <span class="n">currentRunLoop</span><span class="p">]</span> <span class="n">run</span><span class="p">];</span>
+        
+        <span class="c1">//创建自己port
+</span><span class="c1"></span>        <span class="n">secondPort</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSPort</span> <span class="n">port</span><span class="p">];</span>
+        <span class="n">secondPort</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
+        
+        <span class="c1">//将自己的port添加到runloop,防止runloop执行完毕之后退出,接收主线程发送过来的port消息
+</span><span class="c1"></span>        <span class="p">[[</span><span class="n">NSRunLoop</span> <span class="n">currentRunLoop</span><span class="p">]</span> <span class="nl">addPort</span><span class="p">:</span><span class="n">secondPort</span> <span class="nl">forMode</span><span class="p">:</span><span class="n">NSDefaultRunLoopMode</span><span class="p">];</span>
+        
+        <span class="c1">//完成向主线程发送消息
+</span><span class="c1"></span>        <span class="p">[</span><span class="nb">self</span> <span class="n">sendPortMessage</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="cm">/**
+</span><span class="cm"> *   完成向主线程发送消息
+</span><span class="cm"> */</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendPortMessage</span> <span class="p">{</span>
+    <span class="c1">//发送消息到主线程
+</span><span class="c1"></span>    <span class="p">[</span><span class="n">firstPort</span> <span class="nl">sendBeforeDate</span><span class="p">:[</span><span class="n">NSDate</span> <span class="n">date</span><span class="p">]</span>
+                         <span class="nl">msgid</span><span class="p">:</span><span class="n">PKMessage</span>
+                    <span class="nl">components</span><span class="p">:</span><span class="nb">nil</span>
+                          <span class="nl">from</span><span class="p">:</span><span class="n">secondPort</span>
+                      <span class="nl">reserved</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>提示:通常来说, NSPort可以做的事情通过performSelector也同样可以搞定，因此线程间通信完全可以通过performSelector来实现。
+<strong><!-- raw HTML omitted --></strong></p>
+<hr>
+<p><strong>结束语：以上是多线程相关的知识总结，本人也是小白级别，如果有写错的地方，还请朋友们能够指出来，谢谢！</strong></p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">liupengkun</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2018-01-02
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://liupengkun1993.github.io/tags/ios/">iOS</a>
+          <a href="http://liupengkun1993.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">iOS开发之 - 微信支付</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%A5%BD%E7%8E%A9%E7%9A%84%E5%AF%8C%E6%96%87%E6%9C%AC/">
+            <span class="next-text nav-default">iOS开发之 - 好玩的富文本</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:pengkun1011@gmail.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/LiuPengKun1993" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://weibo.com/u/3828401985?is_all=1" rel="me noopener" class="iconfont"
+      title="weibo"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M385.714286 733.714286q12-19.428571 6.285714-39.428571t-25.714286-28.571429q-19.428571-8-41.714286-0.571429t-34.285714 26.285714q-12.571429 19.428571-7.428571 39.142857t24.571429 28.857143 42.571429 1.428571 35.714286-27.142857zm53.714286-69.142857q4.571429-7.428571 2-15.142857t-10-10.571429q-8-2.857143-16.285714 2.857143t-12.285714 10.571429q-9.714286 17.714286 7.428571 25.714286 8 2.857143 16.571429 2.857143t12.571429-10.571429zm99.428571 61.142857q-25.714286 58.285714-90.285714 85.714286t-128 6.857143q-61.142857-19.428571-84.285714-72.285714t3.714286-107.142857q26.857143-53.142857 86.571429-79.428571t120.285714-10.857143q63.428571 16.571429 90.571429 68.285714t1.428571 108.857143zm178.285714-91.428571q-5.142857-54.857143-50.857143-97.142857t-119.142857-62.285714-156.857143-12q-127.428571 13.142857-211.142857 80.857143t-75.714286 151.142857q5.142857 54.857143 50.857143 97.142857t119.142857 62.285714 156.857143 12q127.428571-13.142857 211.142857-80.857143t75.714286-151.142857zm176 2.285714q0 38.857143-21.142857 79.714286t-62.285714 78.285714-96.285714 67.142857-129.142857 47.428571-154.571429 17.714286-157.142857-19.142857-137.428571-53.142857-98-86.285714-37.142857-114q0-65.714286 39.714286-140t112.857143-147.428571q96.571429-96.571429 195.142857-134.857143t140.857143 4q37.142857 36.571429 11.428571 119.428571-2.285714 8-0.571429 11.428571t5.714286 4 8.285714 2.857143 7.714286-2l3.428571-1.142857q79.428571-33.714286 140.571429-33.714286t87.428571 34.857143q25.714286 36 0 101.714286-1.142857 7.428571-2.571429 11.428571t2.571429 7.142857 6.857143 4.285714 9.714286 3.428571q32.571429 10.285714 58.857143 26.857143t45.714286 46.571429 19.428571 66.571429zm-42.285714-356.571429q24 26.857143 31.142857 62t-3.714286 67.142857q-4.571429 13.142857-16.857143 19.428571t-25.428571 2.285714q-13.142857-4.571429-19.428571-16.857143t-2.285714-25.428571q11.428571-36-13.714286-63.428571t-61.142857-20q-13.714286 2.857143-25.714286-4.571429t-14.285714-21.142857q-2.857143-13.714286 4.571429-25.428571t21.142857-14.571429q34.285714-7.428571 68 3.142857t57.714286 37.428571zm103.428571-93.142857q49.714286 54.857143 64.285714 127.142857t-7.714286 138q-5.142857 15.428571-19.428571 22.857143t-29.714286 2.285714-22.857143-19.428571-2.857143-29.714286q16-46.857143 5.714286-98.285714t-45.714286-90.285714q-35.428571-39.428571-84.571429-54.571429t-98.857143-4.857143q-16 3.428571-29.714286-5.428571t-17.142857-24.857143 5.428571-29.428571 24.857143-16.857143q70.285714-14.857143 139.428571 6.571429t118.857143 76.857143z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://www.zhihu.com/people/liu-peng-kun-74-8" rel="me noopener" class="iconfont"
+      title="zhihu"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M351.791182 562.469462l192.945407 0c0-45.367257-21.3871-71.939449-21.3871-71.939449L355.897709 490.530013c3.977591-82.182744 7.541767-187.659007 8.816806-226.835262l159.282726 0c0 0-0.86367-67.402109-18.578124-67.402109s-279.979646 0-279.979646 0 16.850783-88.141456 39.318494-127.053698c0 0-83.60514-4.510734-112.121614 106.962104S81.344656 355.077018 76.80834 367.390461c-4.536316 12.313443 24.62791 5.832845 36.941354 0 12.313443-5.832845 68.050885-25.924439 84.252893-103.69571l86.570681 0c1.165546 49.28652 4.596691 200.335724 3.515057 226.835262L109.86113 490.530013c-25.275663 18.147312-33.701566 71.939449-33.701566 71.939449L279.868105 562.469462c-8.497535 56.255235-23.417339 128.763642-44.275389 167.210279-33.05279 60.921511-50.55235 116.65793-169.802314 212.576513 0 0-19.442818 14.257725 40.829917 9.073656 60.273758-5.185093 117.305683-20.739347 156.840094-99.807147 20.553105-41.107233 41.805128-93.250824 58.386782-146.138358l-0.055259 0.185218 167.855986 193.263655c0 0 22.035876-51.847855 5.832845-108.880803L371.045711 650.610918l-42.1244 31.157627-0.045025 0.151449c11.69946-41.020252 20.11206-81.5749 22.726607-116.858498C351.665315 564.212152 351.72876 563.345412 351.791182 562.469462z"></path>
+  <path d="M584.918753 182.033893l0 668.840094 70.318532 0 28.807093 80.512708 121.875768-80.512708 153.600307 0L959.520453 182.033893 584.918753 182.033893zM887.150192 778.934538l-79.837326 0-99.578949 65.782216-23.537066-65.782216-24.855084 0L659.341766 256.673847l227.807403 0L887.149169 778.934538z"></path>
+</svg>
+
+    </a>
+
+
+<a href="http://liupengkun1993.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2016 -
+    2020
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        liupengkun
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

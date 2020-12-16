@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>加密 on liupengkun</title>
+    <link>http://liupengkun1993.github.io/tags/%E5%8A%A0%E5%AF%86/</link>
+    <description>Recent content in 加密 on liupengkun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>liupengkun</copyright>
+    <lastBuildDate>Wed, 26 Oct 2016 15:43:48 +0800</lastBuildDate><atom:link href="http://liupengkun1993.github.io/tags/%E5%8A%A0%E5%AF%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iOS开发之 - MD5加密</title>
+      <link>http://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-md5%E5%8A%A0%E5%AF%86/</link>
+      <pubDate>Wed, 26 Oct 2016 15:43:48 +0800</pubDate>
+      
+      <guid>http://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-md5%E5%8A%A0%E5%AF%86/</guid>
+      <description>MD5（消息摘要算法第五版）是计算机安全领域广泛使用的一种散列函数，用以提供消息的完整性保护。 MD5特点： 1、压缩性：任意长度的数据，算出的</description>
+    </item>
+    
+  </channel>
+</rss>

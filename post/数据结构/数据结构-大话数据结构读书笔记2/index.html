@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>数据结构 -《大话数据结构》读书笔记(2) - liupengkun</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="liupengkun" />
+  <meta name="description" content="文章共分为三篇 第一篇：数据结构 -《大话数据结构》读书笔记(1) 一、数据结构绪论 二、算法 三、线性表 第二篇：数据结构 -《大话数据结构》读书笔记(" />
+
+  <meta name="keywords" content="Hugo, theme, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0" />
+
+
+<link rel="canonical" href="http://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.f1e506a781bf25d33ffc18aa6b4e972a965c58049d27d4f92b7db2e9bf28e4bf.css" integrity="sha256-8eUGp4G/JdM//Biqa06XKpZcWASdJ9T5K32y6b8o5L8=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="数据结构 -《大话数据结构》读书笔记(2)" />
+<meta property="og:description" content="文章共分为三篇 第一篇：数据结构 -《大话数据结构》读书笔记(1) 一、数据结构绪论 二、算法 三、线性表 第二篇：数据结构 -《大话数据结构》读书笔记(" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/" />
+<meta property="article:published_time" content="2018-01-08T15:43:48+08:00" />
+<meta property="article:modified_time" content="2018-01-31T15:43:48+08:00" />
+<meta itemprop="name" content="数据结构 -《大话数据结构》读书笔记(2)">
+<meta itemprop="description" content="文章共分为三篇 第一篇：数据结构 -《大话数据结构》读书笔记(1) 一、数据结构绪论 二、算法 三、线性表 第二篇：数据结构 -《大话数据结构》读书笔记(">
+<meta itemprop="datePublished" content="2018-01-08T15:43:48+08:00" />
+<meta itemprop="dateModified" content="2018-01-31T15:43:48+08:00" />
+<meta itemprop="wordCount" content="4920">
+
+
+
+<meta itemprop="keywords" content="读书笔记,数据结构," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="数据结构 -《大话数据结构》读书笔记(2)"/>
+<meta name="twitter:description" content="文章共分为三篇 第一篇：数据结构 -《大话数据结构》读书笔记(1) 一、数据结构绪论 二、算法 三、线性表 第二篇：数据结构 -《大话数据结构》读书笔记("/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">liupengkun'Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://liupengkun1993.github.io/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://liupengkun1993.github.io/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://liupengkun1993.github.io/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://liupengkun1993.github.io/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://liupengkun1993.github.io/about/">关于</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      liupengkun'Blog
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://liupengkun1993.github.io/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://liupengkun1993.github.io/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://liupengkun1993.github.io/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://liupengkun1993.github.io/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="http://liupengkun1993.github.io/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">数据结构 -《大话数据结构》读书笔记(2)</h1>
+      
+      <div class="post-meta">
+        <time datetime="2018-01-08" class="post-time">
+          2018-01-08
+        </time>
+        <div class="post-category">
+            <a href="http://liupengkun1993.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"> 数据结构 </a>
+            
+          </div>
+        <span class="more-meta"> 4920 words </span>
+          <span class="more-meta"> 10 min read </span>
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#四栈与队列">四、栈与队列</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#五串">五、串</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#六树">六、树</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#七图">七、图</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h5 id="文章共分为三篇">文章共分为三篇</h5>
+<h5 id="第一篇数据结构--大话数据结构读书笔记1httpsgithubcomliuzhongningarticlesblobmastercontentspreviouscontents数据结构20-大话数据结构读书笔记1md"><a href="https://github.com/liuzhongning/Articles/blob/master/contents/previousContents/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%20-%E3%80%8A%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0(1).md">第一篇：数据结构 -《大话数据结构》读书笔记(1)</a></h5>
+<p>一、数据结构绪论</p>
+<p>二、算法</p>
+<p>三、线性表</p>
+<h5 id="第二篇数据结构--大话数据结构读书笔记2httpsgithubcomliuzhongningarticlesblobmastercontentspreviouscontents数据结构20-大话数据结构读书笔记2md"><a href="https://github.com/liuzhongning/Articles/blob/master/contents/previousContents/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%20-%E3%80%8A%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0(2).md">第二篇：数据结构 -《大话数据结构》读书笔记(2)</a></h5>
+<p>四、栈与队列</p>
+<p>五、串</p>
+<p>六、树</p>
+<p>七、图</p>
+<h5 id="第三篇数据结构--大话数据结构读书笔记3httpsgithubcomliuzhongningarticlesblobmastercontentspreviouscontents数据结构20-大话数据结构读书笔记3md"><a href="https://github.com/liuzhongning/Articles/blob/master/contents/previousContents/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%20-%E3%80%8A%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0(3).md">第三篇：数据结构 -《大话数据结构》读书笔记(3)</a></h5>
+<p>八、查找</p>
+<p>九、排序</p>
+<hr>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="四栈与队列">四、栈与队列</h2>
+<h4 id="41-栈的定义">4.1 栈的定义</h4>
+<ul>
+<li>栈
+<strong>栈是限定仅在表尾进行插入和删除操作的线性表。</strong></li>
+</ul>
+<p>我们把允许插入和删除的一端称为 <strong>栈顶</strong>，另一端称为 <strong>栈底</strong>，不含任何数据元素的栈称为 <strong>空栈</strong>。栈又称为后进先出的 <strong>线性表</strong>，简称 LIFO 结构。</p>
+<p>栈的特殊之处在于它限制了这个线性表的插入和删除位置，它始终<code>只在栈顶进行</code>。</p>
+<ul>
+<li>
+<p>栈的插入操作，叫作<code>进栈</code>，也称<code>压栈</code>、<code>入栈</code>。
+<img src="http://upload-images.jianshu.io/upload_images/2665449-2f76b70624c4771e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="进栈"></p>
+</li>
+<li>
+<p>栈的删除操作，叫作<code>出栈</code>，也有的叫作<code>弹栈</code>。
+<img src="http://upload-images.jianshu.io/upload_images/2665449-c38b3028a8515947.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="出栈"></p>
+</li>
+</ul>
+<h4 id="42-栈的应用">4.2 栈的应用</h4>
+<p><strong>栈的引入简化了程序设计的问题，划分了不同关注层次，使得思考范围缩小，更加聚焦于我们要解决的问题核心。反之，像数组等，因为要分散精力去考虑数组的下标增减等细节问题，反而掩盖了问题的本质。</strong></p>
+<p>所以现在很多高级语言，比如 Java、C#等都有对栈结构的封装，你可以不用关注它的实现细节，就可以直接使用 Stack 的 push 和 pop 方法，非常方便。</p>
+<h5 id="栈的应用递归">栈的应用——递归</h5>
+<p><strong>在高级语言中，调用自己和其它函数没有本质的不同。我们把一个直接用自己或通过一系列的调用语句间接地调用自己的函数，称作递归函数。</strong></p>
+<p>每个递归函数必须至少有一个条件，满足时递归不再执行，即不再引用自身而是返回值退出。</p>
+<p><strong>递归和迭代的区别是</strong>：迭代使用的是<code>循环结构</code>，递归使用的是<code>选择结构</code>。 递归能使程序的结构<code>更清晰、更简洁、更容易让人理解，从而减少读懂代码的时间</code>。但是大量的递归调用会建立函数的副本，<code>会耗费大量的时间和内存</code>。迭代则不需要反复调用函数和占用额外的内存。因此我们应该视不同情况选择不同的代码实现方式。</p>
+<p>在前行阶段，对于每一层递归，函数的局部变量、参数值以及返回地址都被压入栈中。在退回阶段，位于栈顶的局部变量、参数值和返回地址被弹出，用于返回调用层次中执行代码的其余部分，也就是恢复了调用的状态。</p>
+<h4 id="43-队列定义">4.3 队列定义</h4>
+<ul>
+<li>队列
+<strong>队列是只允许在一端进行插入操作、而在另一端进行删除操作的线性表。</strong></li>
+</ul>
+<p><strong>队列是一种先进先出的线性表，简称 FIFO。允许插入的一端称为队尾，允许删除的一端称为队头。</strong> 假设队列是 q = (a1, a2, ……, an)，那么 a1 就是队头元素，而 an 就是队尾元素。我们在删除时，总是从 a1 开始；插入时，列在最后。如下图：
+<img src="http://upload-images.jianshu.io/upload_images/2665449-6353d498dd8fcca7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="队列"></p>
+<p>同样是线性表，队列也有类似线性表的各种操作，不同的就是<code>插入数据只能在队尾</code>进行，<code>删除数据只能在队头</code>进行。</p>
+<h6 id="431--循环队列">4.3.1  循环队列</h6>
+<p>解决假溢出的办法就是后面满了，就再从头开始，也就是头尾相接的循环。<strong>我们把队列的这种头尾相接的顺序存储结构称为循环队列。</strong></p>
+<h6 id="432-队列的链式存储结构及实现">4.3.2 队列的链式存储结构及实现</h6>
+<p><strong>队列的链式存储结构，其实就是线性表的单链表，只不过它只能尾进头出而已，我们把它简称为链队列。</strong>
+队列的链式存储结构——<code>入队操作</code>
+入队操作时，其实就是在<code>链表尾部</code>插入结点。
+队列的链式存储结构——<code>出队操作</code>
+出队操作时，就是<code>头结点的后继结点出队</code>，将<code>头结点的后继改为它后面的结点</code>，若链表除头结点外只剩一个元素时，则需将 rear 指向头结点。</p>
+<h6 id="433-循环队列与链队列的对比">4.3.3 循环队列与链队列的对比</h6>
+<p><strong>对比</strong>：时间上，基本操作都是常数时间，都为 <code>O(1)</code> 的，不过循环队列是事先申请好空间，使用期间不释放，而对于链队列，每次申请和释放结点也会存在一些时间开销，如果入队出队频繁，则两者还是有细微差异。空间上，循环队列必须有一个固定的长度，所以就有了存储元素个数和空间浪费的问题。而链队列不存在这个问题，尽管它需要一个指针域，会产生一些空间上的开销，但也可以接收。所以在空间上，链队列更加灵活。</p>
+<p><strong>总的来说，在可以确定队列长度最大值的情况下，建议用循环队列，如果你无法预估队列的长度时，则用链队列。</strong></p>
+<h2 id="五串">五、串</h2>
+<h4 id="51-串的定义">5.1 串的定义：</h4>
+<p><strong>串是由零个或多个字符组成的有限序列，又叫字符串。</strong></p>
+<p>一般记为 s=“a1a2……an”(n&gt;=0)，其中，s 是串的名字，用双引号括起来的字符序列是串的值，双引号不属于串的内容。a1 可以是字母、数字或其他字符，i 就是该字符在串中的位置。<strong>串中的字符数目 n 称为串的长度</strong>，定义中谈到“有限”，指的是长度 n 是一个有限的数值。零个字符的串称为空串，它的长度为零。所谓序列，说明串的相邻字符之间具有前驱和后继的关系。</p>
+<p><code>空格串</code>，是只包含空格的串。空格串与空串不同，空格串是有长度的，而且可以不止一个空格。
+<code>子串</code>和<code>主串</code>，串中任意个数的连续字符组成的子序列称为该串的子串，相应的，包含子串的串称为主串。
+子串在主串中的位置就是子串的第一个字符在主串中的序号。</p>
+<h4 id="52-串的比较">5.2 串的比较</h4>
+<p><strong>串的比较是通过组成串的字符之间的编码来进行的，而字符的编码指的是字符在对应字符集中的序号。</strong></p>
+<p>C 语言中，比较两个串是否相等，必须是它们的串是否相等，必须是它们串的长度以及它们对应位置的字符都相等时，才算是相等。即给定两个串：s=“a1a2……an”，t=“b1b2……bm”，当且仅当 n = m，且 a1 = b1 ，a2 = b2，……，an=bm 时，我们认为 s=t。</p>
+<h4 id="53-串的存储结构">5.3 串的存储结构</h4>
+<p>串的存储结构与线性表相同，分为两种。</p>
+<h5 id="531-串的顺序存储结构">5.3.1 串的顺序存储结构</h5>
+<p><strong>串的顺序存储结构是用一组地址连续的存储单元来存储串中的字符序列的。按照预定义的大小，为每个定义的串变量分配一个固定长度的存储区。一般是用定长数组来定义。</strong></p>
+<h5 id="532-串的链式存储结构">5.3.2 串的链式存储结构</h5>
+<p><strong>对于串的链式存储结构，与线性表是相似的，但由于串结构的特殊性，结构中的每个元素数据是一个字符，如果也简单的应用链表存储串值，一个结点对应一个字符，就会存在很大的空间浪费。</strong> 因此，一个结点可以存放一个字符，也可以考虑存放多个字符，最后一个结点若是未被栈占满时，可以用“#”或其他非串值字符补全，如下图：
+<img src="http://upload-images.jianshu.io/upload_images/2665449-3a1c0ee15aa92630.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="">
+这里一个结点存多少字符才合适就变得很重要，这会直接影响着串处理的效率，需要根据实际情况做出选择。</p>
+<p><strong>但串的链式存储结构除了在连接串与串操作时有一定方便之外，总的来说不如顺序存储灵活，性能也不如顺序存储结构好。</strong></p>
+<h2 id="六树">六、树</h2>
+<h4 id="61-树的定义">6.1 树的定义</h4>
+<p><strong>树是 n (n &gt;= 0) 个结点的有限集。n=0 时称为空树。在任意一棵非空树种：（1）有且仅有一个特定的称为根的结点；（2）当 n&gt;1 时，其余结点可分为 m (m &gt; 0) 个互不相交的有限集，其中每一个集合本身又是一棵树，并且称为根的子树。</strong> 如下图所示：
+<img src="http://upload-images.jianshu.io/upload_images/2665449-5a655ef8ac83dc0e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="树"></p>
+<h5 id="611-结点分类">6.1.1 结点分类</h5>
+<p><strong>树的结点包含一个数据元素及若干指向子树的分支。结点拥有的子树称为结点的度。度为 0 的结点称为叶节点或终端结点；度不为 0 的结点称为非终端结点或分支结点。除根结点之外，分支结点也成为内部结点。树的度是树内各结点的度的最大值。</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-e4d9f87bdc6bf1e8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="">
+如上图，这棵树结点的度的最大值是结点 D 的度，为 3，所以树的度也为 3。</p>
+<h5 id="612-结点间关系">6.1.2 结点间关系</h5>
+<p><strong>结点的子树的根称为该结点的孩子，相应的，该结点称为孩子的双亲。同一个双亲的孩子之间互称兄弟。结点的祖先是从根到该结点所经分支上的所有结点。</strong></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-60024b167326428c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>如上图，对于 H 来说，D、B、A 都是它的祖先。反之，<strong>以某结点为根的子树中的任一结点都称为该结点的子孙。</strong> B 的子孙有 D、G、H、I。</p>
+<h5 id="613-树的其它相关概念">6.1.3 树的其它相关概念</h5>
+<p><strong>结点的层次从根开始定义起，根为第一层，根的孩子为第二层。<strong>若某结点在第 i 层，则其子树的根就在第 i + 1 层。其</strong>双亲在同一层的结点互为堂兄弟</strong>。
+<img src="http://upload-images.jianshu.io/upload_images/2665449-05c7bf711e42ab95.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>在上图中，D、E、F 是堂兄弟，G、H、I、J 也是。<strong>树中结点的最大层次称为树的深度或高度</strong>，当期树的深度为 4。</p>
+<p><strong>如果将树中结点的各子树看成从左至右是有次序的，不能互换的，则称该树为有序树，否则为无序树。</strong></p>
+<p><strong>森林是 m (m&gt;=0) 棵互不相交的树的集合。</strong> 对树中每个结点而言，其子树的集合即为森林。
+对比线性表与树的结构，它们有很大的不同，如下图：
+<img src="http://upload-images.jianshu.io/upload_images/2665449-83ddf429606042c9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="62-二叉树">6.2 二叉树</h4>
+<h5 id="621-二叉树定义">6.2.1 二叉树定义</h5>
+<p><strong>二叉树是 n (n&gt;=0) 个结点的有限集合，该集合或者为空集（称为空二叉树），或者由一个根节点和两棵互不相交的、分别称为根结点的左子树和右子树的二叉树组成。</strong>
+<img src="http://upload-images.jianshu.io/upload_images/2665449-1131ac10a03084a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="二叉树"></p>
+<h5 id="622-二叉树特点">6.2.2 二叉树特点：</h5>
+<ul>
+<li>每个结点最多有两棵子树，所以二叉树不存在度大于 2 的结点。注意不是只有两棵子树，而是最多有。没有子树或者有一颗子树都是可以的。</li>
+<li>左子树和右子树是有顺序的，次序不能任意颠倒。</li>
+<li>即使树中某结点只有一棵子树，也要区分它是左子树还是右子树。</li>
+</ul>
+<h5 id="623-二叉树具有五种基本形态">6.2.3 二叉树具有五种基本形态：</h5>
+<ul>
+<li>空二叉树</li>
+<li>只有一个根结点</li>
+<li>根结点只有左子树</li>
+<li>根结点只有右子树</li>
+<li>根结点既有左子树又有右子树</li>
+</ul>
+<h5 id="624-特殊二叉树">6.2.4 特殊二叉树</h5>
+<ul>
+<li>
+<ol>
+<li>斜树
+所有的结点都只有左子树的二叉树叫左斜树。所有结点都只有右子树的二叉树叫右斜树。</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>满二叉树
+在一棵二叉树中，如果所有分支结点都存在左子树和右子树，并且所有叶子都在同一层上，这样的二叉树称为满二叉树。
+<img src="http://upload-images.jianshu.io/upload_images/2665449-701a90b549f0e4ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="满二叉树"></li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>完全二叉树
+对一棵具有 n 个结点的二叉树按层序编号，如果编号为 i (1 &lt;= i &lt;= n) 的结点与同样深度的满二叉树中编号为 i 的结点在二叉树中位置完全相同，则这棵二叉树称为完全二叉树。
+<img src="http://upload-images.jianshu.io/upload_images/2665449-b5c5d63cc2e64d09.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="完全二叉树"></li>
+</ol>
+</li>
+</ul>
+<h4 id="63-遍历二叉树">6.3 遍历二叉树</h4>
+<p><strong>二叉树的遍历是指从根结点出发，按照某种<code>次序</code>依次<code>访问</code>二叉树所有结点，使得每个结点被访问一次且仅被访问一次。</strong></p>
+<h5 id="二叉树遍历方法">二叉树遍历方法</h5>
+<ul>
+<li>前序遍历
+若二叉树为空，则空操作返回，否则先访问根结点，然后前序遍历左子树，再前序遍历右子树。
+<img src="http://upload-images.jianshu.io/upload_images/2665449-875aee89b8c25022.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+</ul>
+<p>前序遍历次序：ABDGHCEIF</p>
+<ul>
+<li>中序遍历
+若二叉树为空，则空操作返回，否则从根结点开始（注意并不是先访问根结点），中序遍历根结点的左子树，然后访问根结点，最后中序遍历右子树。</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-b59c9776915baece.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>中序遍历次序：GDHBAEICF</p>
+<ul>
+<li>后序遍历
+若二叉树为空，则空操作返回，否则从左到右先叶子后结点的方式遍历访问左右子树，最后是访问根结点。</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-3bd4db95a7047a2e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>后序遍历次序：GHDBIEFCA</p>
+<ul>
+<li>层次遍历
+若二叉树为空，则空操作返回，否则从树的第一层，</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-00f2e056c0d449da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>层次遍历次序：ABCDEFGHI</p>
+<h2 id="七图">七、图</h2>
+<h4 id="71-图的定义">7.1 图的定义</h4>
+<p><strong>图是由顶点的有穷非空集和顶点之间边的集合，通常表示为：G(V. E)，其中，G 表示一个图，V 是图 G 中顶点的集合，E 是图 G 中边的集合。</strong></p>
+<ul>
+<li>在线性表中，数据元素之间是被串起来的，仅有线性关系，每个数据元素只有一个直接前驱和一个直接后继。</li>
+<li>在树形结构中，数据元素之间有着明显的层次关系，并且每一层上的数据元素可能和下一层中多个元素相关，但只能和上一层中一个元素相关。</li>
+<li>图是一种较线性表和树更加复杂的数据结构，在图结构中，节点之间的关系可以是任意的，图中任意两个数据元素之间都可能相关。</li>
+</ul>
+<p>线性表中我们把数据元素叫元素；树种将数据元素叫结点；<strong>在图中数据元素，我们称之为顶点。</strong></p>
+<p>线性表中可以没有数据元素，称为空表；树种可以没有结点，叫做空树；但<strong>在图结构中，不允许没有顶点。在定义中，若 V 是顶点的集合，则顶点集合 V 有穷非空。</strong></p>
+<p>线性表中，相邻的元素之间具有线性关系；树结构中，相邻两层的结点具有层次关系；而<strong>图中，任意两个顶点之间都可能有关系，顶点之间的逻辑关系用边来表示，边集可以是空的。</strong></p>
+<h4 id="72-各种图定义">7.2 各种图定义</h4>
+<ul>
+<li>
+<p>无向边：若顶点 V1 到 V2 之间的边没有方向，则称这条边为无向边，用无序偶对来表示。如果途中任意两个顶点之间都是无向边，则称该图为无向图。如下图：
+<img src="http://upload-images.jianshu.io/upload_images/2665449-a77da36aac3034a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="无向图">
+由于是无方向的，连接顶点 A 与 D 的边，可以表示成无序对 (A，D)，也可以表示成 (D，A)。</p>
+</li>
+<li>
+<p>有向边：若顶点 V1 到 V2 的边有方向，则称这条边为有向边，也称为弧。用有序偶&lt;Vi, Vj&gt; 来表示，Vi 称为弧尾，Vj 称为弧头。如果图中任意两个顶点之间的边都是有向边，则称该图为有向图。如下图：
+<img src="http://upload-images.jianshu.io/upload_images/2665449-b5c8c88da82a9709.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="有向图"></p>
+</li>
+<li>
+<p>连接顶点 A 到 D 的有向边就是弧，A 是弧尾，D 是弧头，&lt;A, D&gt; 表示弧，注意不能写成&lt;D, A&gt;。</p>
+</li>
+</ul>
+<p><strong>在无向图中，如果任意两个顶点之间都存在边，则称该图为无向完全图。</strong> 含有 n 个顶点的无向完全图有 n * (n - 1) / 2 条边。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-4fb6bb09ca3bdf99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="无向完全图"></p>
+<p><strong>在有向图中，如果任意两个顶点之间都存在方向互为相反的两条弧，则称该图为有向完全图。</strong> 含有 n 个顶点的有向完全图有 n * (n - 1) 条边。
+<img src="http://upload-images.jianshu.io/upload_images/2665449-06f8eccca0abfd94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="有向完全图"></p>
+<p><strong>从这里可以得出结论，对于具有 n 个顶点和 e 条边数的图，无向图 0&lt;= e &lt;= n(n-1)/2，有向图 0 &lt;= e &lt;= n(n-1)。</strong></p>
+<h4 id="73-图的遍历">7.3 图的遍历</h4>
+<p><strong>从图中某一顶点出发访遍图中其余顶点，且使每一个顶点仅被访问一次，这一过程就叫做图的遍历。</strong></p>
+<h5 id="731-深度优先遍历">7.3.1 深度优先遍历</h5>
+<p><strong>深度优先遍历，也有称为深度优先搜索，简称 DFS。它从图中某个顶点 V 出发，访问此顶点，然后从 V 的未被访问的邻接点出发深度优先遍历图，直至图中所有和 V 有路径相通的顶点都被访问到。</strong></p>
+<h5 id="732-广度优先遍历">7.3.2 广度优先遍历</h5>
+<p><strong>广度优先遍历，又称为广度优先搜索，简称 BFS。</strong></p>
+<p>对比图的深度优先遍历和广度优先遍历算法，它们在时间复杂度上是一样的，不同之处仅仅在于对顶点访问的顺序不同。可见两者在全图遍历上是没有优劣之分的，只是视不同的情况选择不同的算法。</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<hr>
+<h5 id="下一篇数据结构--大话数据结构读书笔记3httpsgithubcomliuzhongningarticlesblobmastercontentspreviouscontents数据结构20-大话数据结构读书笔记3md">下一篇：<a href="https://github.com/liuzhongning/Articles/blob/master/contents/previousContents/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%20-%E3%80%8A%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0(3).md">数据结构 -《大话数据结构》读书笔记(3)</a></h5>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">liupengkun</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2018-01-31
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="http://liupengkun1993.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+          <a href="http://liupengkun1993.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">数据结构 -《大话数据结构》读书笔记(3)</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-wkwebview-vs-uiwebview/">
+            <span class="next-text nav-default">iOS开发之 - WKWebView VS UIWebView</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:pengkun1011@gmail.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/LiuPengKun1993" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://weibo.com/u/3828401985?is_all=1" rel="me noopener" class="iconfont"
+      title="weibo"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M385.714286 733.714286q12-19.428571 6.285714-39.428571t-25.714286-28.571429q-19.428571-8-41.714286-0.571429t-34.285714 26.285714q-12.571429 19.428571-7.428571 39.142857t24.571429 28.857143 42.571429 1.428571 35.714286-27.142857zm53.714286-69.142857q4.571429-7.428571 2-15.142857t-10-10.571429q-8-2.857143-16.285714 2.857143t-12.285714 10.571429q-9.714286 17.714286 7.428571 25.714286 8 2.857143 16.571429 2.857143t12.571429-10.571429zm99.428571 61.142857q-25.714286 58.285714-90.285714 85.714286t-128 6.857143q-61.142857-19.428571-84.285714-72.285714t3.714286-107.142857q26.857143-53.142857 86.571429-79.428571t120.285714-10.857143q63.428571 16.571429 90.571429 68.285714t1.428571 108.857143zm178.285714-91.428571q-5.142857-54.857143-50.857143-97.142857t-119.142857-62.285714-156.857143-12q-127.428571 13.142857-211.142857 80.857143t-75.714286 151.142857q5.142857 54.857143 50.857143 97.142857t119.142857 62.285714 156.857143 12q127.428571-13.142857 211.142857-80.857143t75.714286-151.142857zm176 2.285714q0 38.857143-21.142857 79.714286t-62.285714 78.285714-96.285714 67.142857-129.142857 47.428571-154.571429 17.714286-157.142857-19.142857-137.428571-53.142857-98-86.285714-37.142857-114q0-65.714286 39.714286-140t112.857143-147.428571q96.571429-96.571429 195.142857-134.857143t140.857143 4q37.142857 36.571429 11.428571 119.428571-2.285714 8-0.571429 11.428571t5.714286 4 8.285714 2.857143 7.714286-2l3.428571-1.142857q79.428571-33.714286 140.571429-33.714286t87.428571 34.857143q25.714286 36 0 101.714286-1.142857 7.428571-2.571429 11.428571t2.571429 7.142857 6.857143 4.285714 9.714286 3.428571q32.571429 10.285714 58.857143 26.857143t45.714286 46.571429 19.428571 66.571429zm-42.285714-356.571429q24 26.857143 31.142857 62t-3.714286 67.142857q-4.571429 13.142857-16.857143 19.428571t-25.428571 2.285714q-13.142857-4.571429-19.428571-16.857143t-2.285714-25.428571q11.428571-36-13.714286-63.428571t-61.142857-20q-13.714286 2.857143-25.714286-4.571429t-14.285714-21.142857q-2.857143-13.714286 4.571429-25.428571t21.142857-14.571429q34.285714-7.428571 68 3.142857t57.714286 37.428571zm103.428571-93.142857q49.714286 54.857143 64.285714 127.142857t-7.714286 138q-5.142857 15.428571-19.428571 22.857143t-29.714286 2.285714-22.857143-19.428571-2.857143-29.714286q16-46.857143 5.714286-98.285714t-45.714286-90.285714q-35.428571-39.428571-84.571429-54.571429t-98.857143-4.857143q-16 3.428571-29.714286-5.428571t-17.142857-24.857143 5.428571-29.428571 24.857143-16.857143q70.285714-14.857143 139.428571 6.571429t118.857143 76.857143z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://www.zhihu.com/people/liu-peng-kun-74-8" rel="me noopener" class="iconfont"
+      title="zhihu"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M351.791182 562.469462l192.945407 0c0-45.367257-21.3871-71.939449-21.3871-71.939449L355.897709 490.530013c3.977591-82.182744 7.541767-187.659007 8.816806-226.835262l159.282726 0c0 0-0.86367-67.402109-18.578124-67.402109s-279.979646 0-279.979646 0 16.850783-88.141456 39.318494-127.053698c0 0-83.60514-4.510734-112.121614 106.962104S81.344656 355.077018 76.80834 367.390461c-4.536316 12.313443 24.62791 5.832845 36.941354 0 12.313443-5.832845 68.050885-25.924439 84.252893-103.69571l86.570681 0c1.165546 49.28652 4.596691 200.335724 3.515057 226.835262L109.86113 490.530013c-25.275663 18.147312-33.701566 71.939449-33.701566 71.939449L279.868105 562.469462c-8.497535 56.255235-23.417339 128.763642-44.275389 167.210279-33.05279 60.921511-50.55235 116.65793-169.802314 212.576513 0 0-19.442818 14.257725 40.829917 9.073656 60.273758-5.185093 117.305683-20.739347 156.840094-99.807147 20.553105-41.107233 41.805128-93.250824 58.386782-146.138358l-0.055259 0.185218 167.855986 193.263655c0 0 22.035876-51.847855 5.832845-108.880803L371.045711 650.610918l-42.1244 31.157627-0.045025 0.151449c11.69946-41.020252 20.11206-81.5749 22.726607-116.858498C351.665315 564.212152 351.72876 563.345412 351.791182 562.469462z"></path>
+  <path d="M584.918753 182.033893l0 668.840094 70.318532 0 28.807093 80.512708 121.875768-80.512708 153.600307 0L959.520453 182.033893 584.918753 182.033893zM887.150192 778.934538l-79.837326 0-99.578949 65.782216-23.537066-65.782216-24.855084 0L659.341766 256.673847l227.807403 0L887.149169 778.934538z"></path>
+</svg>
+
+    </a>
+
+
+<a href="http://liupengkun1993.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2016 -
+    2020
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        liupengkun
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>设计模式 on liupengkun</title>
+    <link>http://liupengkun1993.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+    <description>Recent content in 设计模式 on liupengkun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>liupengkun</copyright>
+    <lastBuildDate>Wed, 10 Jan 2018 15:43:48 +0800</lastBuildDate><atom:link href="http://liupengkun1993.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>设计模式-《重构》读书笔记及 APP 重构心得</title>
+      <link>http://liupengkun1993.github.io/post/ios/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%87%8D%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%8F%8A-app-%E9%87%8D%E6%9E%84%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Wed, 10 Jan 2018 15:43:48 +0800</pubDate>
+      
+      <guid>http://liupengkun1993.github.io/post/ios/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%87%8D%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%8F%8A-app-%E9%87%8D%E6%9E%84%E5%BF%83%E5%BE%97/</guid>
+      <description>前段时间和一同事一起重构了两个 APP，正好想写一些重构心得，前天又在知乎上看到一前辈推荐《重构》这本书，据说是程序员的必读书籍，于是就粗略的</description>
+    </item>
+    
+  </channel>
+</rss>

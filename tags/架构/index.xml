@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>架构 on liupengkun</title>
+    <link>http://liupengkun1993.github.io/tags/%E6%9E%B6%E6%9E%84/</link>
+    <description>Recent content in 架构 on liupengkun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>liupengkun</copyright>
+    <lastBuildDate>Thu, 30 Mar 2017 15:43:48 +0800</lastBuildDate><atom:link href="http://liupengkun1993.github.io/tags/%E6%9E%B6%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>模块化与解耦</title>
+      <link>http://liupengkun1993.github.io/post/ios/%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E8%A7%A3%E8%80%A6/</link>
+      <pubDate>Thu, 30 Mar 2017 15:43:48 +0800</pubDate>
+      
+      <guid>http://liupengkun1993.github.io/post/ios/%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E8%A7%A3%E8%80%A6/</guid>
+      <description>读了一篇很不错的 iOS 架构方面的文章，这里和大家分享一下！这里是原文 模块化与解耦 简述 本文主要讲述了在iOS开发过程中，模块化工程架构的一种组织方</description>
+    </item>
+    
+  </channel>
+</rss>

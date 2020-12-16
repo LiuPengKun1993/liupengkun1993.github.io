@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>工具 on liupengkun</title>
+    <link>http://liupengkun1993.github.io/tags/%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in 工具 on liupengkun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>liupengkun</copyright>
+    <lastBuildDate>Mon, 31 Jul 2017 15:43:48 +0800</lastBuildDate><atom:link href="http://liupengkun1993.github.io/tags/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iOS开发 - 随机图片验证码封装</title>
+      <link>http://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E9%9A%8F%E6%9C%BA%E5%9B%BE%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81%E5%B0%81%E8%A3%85/</link>
+      <pubDate>Mon, 31 Jul 2017 15:43:48 +0800</pubDate>
+      
+      <guid>http://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E9%9A%8F%E6%9C%BA%E5%9B%BE%E7%89%87%E9%AA%8C%E8%AF%81%E7%A0%81%E5%B0%81%E8%A3%85/</guid>
+      <description>在 iOS 开发中，为了防止短信验证码的恶意获取，注册时需要图片验证，比如某共享单车 APP 在注册时就用了图片验证码，如下图： 图片验证码封装思路： 第一眼看</description>
+    </item>
+    
+    <item>
+      <title>iOS开发 - 圆形验证码(或密码)输入框的封装</title>
+      <link>http://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E5%9C%86%E5%BD%A2%E9%AA%8C%E8%AF%81%E7%A0%81%E6%88%96%E5%AF%86%E7%A0%81%E8%BE%93%E5%85%A5%E6%A1%86%E7%9A%84%E5%B0%81%E8%A3%85/</link>
+      <pubDate>Mon, 17 Jul 2017 15:43:48 +0800</pubDate>
+      
+      <guid>http://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E5%9C%86%E5%BD%A2%E9%AA%8C%E8%AF%81%E7%A0%81%E6%88%96%E5%AF%86%E7%A0%81%E8%BE%93%E5%85%A5%E6%A1%86%E7%9A%84%E5%B0%81%E8%A3%85/</guid>
+      <description>项目中用到了圆形验证码输入框，输入框之间要求有一定的距离，UI图如下： 上面的UI图主要有以下几个要求： 输入框为圆形 输入框之间有适当距离 输入框</description>
+    </item>
+    
+  </channel>
+</rss>
