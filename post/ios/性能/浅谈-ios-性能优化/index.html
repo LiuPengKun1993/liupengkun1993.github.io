@@ -351,16 +351,16 @@
 <li>CPU（Central Processing Unit，中央处理器），负责对象的创建和销毁，对象属性的调整，布局计算，文本的计算和排版，图片的格式转换和解码，图像的绘制。</li>
 <li>GPU（Graphics Processing Unit，图形处理器），负责纹理的渲染。GPU 是一个专门为图形高并发计算而量身定做的处理单元，比 CPU 使用更少的电来完成工作并且 GPU 的浮点计算能力要超出 CPU 很多。GPU 的渲染性能要比 CPU 高效很多，同时对系统的负载和消耗也更低一些，所以在开发中，我们应该尽量让 <strong>CPU 负责主线程的 UI 调动，把图形显示相关的工作交给 GPU 来处理</strong>。</li>
 </ul>
-<p><img src="https://github.com/liuzhongning/Articles/blob/master/resources/Performance-Optimization-01.jpg" alt=""></p>
+<p><img src="/image/iOS/iOS_Performance/Performance-01.jpg" alt=""></p>
 <h2 id="ios-缓冲机制">iOS 缓冲机制</h2>
 <p>iOS 使用的是双缓冲机制。即 GPU 会预先渲染好一帧放入一个缓冲区内（前帧缓存），让视频控制器读取，当下一帧渲染好后，GPU 会直接把视频控制器的指针指向第二个缓冲器（后帧缓存）。当你视频控制器已经读完一帧，准备读下一帧的时候，GPU 会等待显示器的 VSync 信号发出后，前帧缓存和后帧缓存会瞬间切换，后帧缓存会变成新的前帧缓存，同时旧的前帧缓存会变成新的后帧缓存。</p>
 <h2 id="屏幕成像原理">屏幕成像原理</h2>
 <p>时钟信号：垂直同步信号V-Sync / 水平同步信号H-Sync。</p>
 <p>屏幕成像就是垂直同步信号和水平同步信号一直发送。发出垂直同步信号（VSync）时，即将显示一页的数据。水平同步信号（HSync）发出时，就一行一行的显示。</p>
-<p><img src="https://github.com/liuzhongning/Articles/blob/master/resources/Performance-Optimization-02.jpg" alt=""></p>
+<p><img src="/image/iOS/iOS_Performance/Performance-02.jpg" alt=""></p>
 <p>按照60FPS的刷帧率，每隔16ms就会有一次VSync信号。出现卡顿的原因就是发送VSync信号间隔时间过大。</p>
 <h2 id="屏幕内容是怎么显示到屏幕上的">屏幕内容是怎么显示到屏幕上的？</h2>
-<p><img src="https://github.com/liuzhongning/Articles/blob/master/resources/Performance-Optimization-03.jpg" alt=""></p>
+<p><img src="/image/iOS/iOS_Performance/Performance-03.jpg" alt=""></p>
 <p>在 VSync 信号到来后，系统图形服务会通过 CADisplayLink 等机制通知 App，App 主线程开始在 CPU 中计算显示内容，比如视图的创建、布局计算、图片解码、文本绘制等。随后 CPU 会将计算好的内容提交到 GPU 去，由 GPU 进行变换、合成、渲染。随后 GPU 会把渲染结果提交到帧缓冲区去，等待下一次 VSync 信号到来时显示到屏幕上。由于垂直同步的机制，如果在一个 VSync 时间内，CPU 或者 GPU 没有完成内容提交，则那一帧就会被丢弃，等待下一次机会再显示，而这时显示屏会保留之前的内容不变。这就是界面卡顿的原因。</p>
 <blockquote>
 <p>上面一段内容出自 <a href="https://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/">iOS 保持界面流畅的技巧</a>，你可以在上述文章中对卡顿的原因做更深入的了解。</p>

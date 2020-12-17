@@ -364,7 +364,7 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 </div>
 </div><h4 id="4改完之后关闭-bash_profile-文件执行-source-bash_profile-更新配置环境变量">4.改完之后，关闭 bash_profile 文件，执行 <code>source ~/.bash_profile</code> 更新配置环境变量。</h4>
 <h4 id="5接着终端执行-flutter-doctor-检测环境报了以下问题">5.接着终端执行 <code>flutter doctor</code> 检测环境，报了以下问题：</h4>
-<p><img src="https://github.com/liuzhongning/Articles/blob/master/resources/Flutter/flutter_01.jpg" alt=""></p>
+<p><img src="/image/Flutter/flutter_01.jpg" alt=""></p>
 <p>每个人的环境不太一样，因此 flutter doctor 检测出来的问题也会有差异。因为我电脑之前使用过 Xcode、 Android Studio、VSCode，所以报的问题相对较少，IntelliJ IDEA 倒是用的不多。</p>
 <p>接下来开始解决报的问题：</p>
 <div class="highlight"><div class="chroma">
@@ -389,10 +389,10 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 </code></pre></td></tr></table>
 </div>
 </div><p>这个意思也很清楚，打开 AS，在 configure 里安装 Flutter 以及 Dart 插件：</p>
-<p><img src="https://github.com/liuzhongning/Articles/blob/master/resources/Flutter/flutter_02.jpg" alt=""></p>
+<p><img src="/image/Flutter/flutter_02.jpg" alt=""></p>
 <p>关于 <code>! No devices available</code> 的问题后面会讲到。</p>
 <p>接着重新在终端执行 flutter doctor：</p>
-<p><img src="https://github.com/liuzhongning/Articles/blob/master/resources/Flutter/flutter_03.jpg" alt=""></p>
+<p><img src="/image/Flutter/flutter_03.jpg" alt=""></p>
 <p>发现刚刚的两个问题已经好了，关于 IntelliJ IDEA，暂时我这边很少用到 IntelliJ IDEA，先搁置，其实想解决也很简单，在 IntelliJ IDEA 里安装 Flutter 以及 Dart 插件就可以了。</p>
 <h4 id="6创建-flutter-项目并运行">6.创建 Flutter 项目并运行</h4>
 <p>cd 到存放项目的文件夹，然后执行命令：</p>
@@ -405,11 +405,11 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 </code></pre></td></tr></table>
 </div>
 </div><p>稍等一会儿，项目就构建成功了：</p>
-<p><img src="https://github.com/liuzhongning/Articles/blob/master/resources/Flutter/flutter_04.jpg" alt=""></p>
+<p><img src="/image/Flutter/flutter_04.jpg" alt=""></p>
 <p>打开上图 ios 或 android 项目，并运行。</p>
-<p><img src="https://github.com/liuzhongning/Articles/blob/master/resources/Flutter/flutter_05.jpg" alt=""></p>
+<p><img src="/image/Flutter/flutter_05.jpg" alt=""></p>
 <p>关于 <code>! No devices available</code> 的问题，我这里测试的结论是，用模拟器运行的话是没作用的，只有真机运行，才会有改变：</p>
-<p><img src="https://github.com/liuzhongning/Articles/blob/master/resources/Flutter/flutter_06.jpg" alt=""></p>
+<p><img src="/image/Flutter/flutter_06.jpg" alt=""></p>
 <hr>
 <ul>
 <li>2020.04.08 更新

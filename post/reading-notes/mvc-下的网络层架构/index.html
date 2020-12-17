@@ -340,7 +340,7 @@
 
     
     <div class="post-content">
-      <p><img src="https://github.com/liuzhongning/Articles/blob/master/resources/App-MVC-01.jpg" alt=""></p>
+      <p><img src="/image/iOS/iOS_Architecture/App-MVC-01.jpg" alt=""></p>
 <p>此系列文章是《App架构》的读书笔记及心得。</p>
 <h3 id="前言">前言</h3>
 <blockquote>
@@ -354,7 +354,7 @@
 <p>让 controller 拥有网络，是为一个 app 添加网络支持的很容易的“临时”方案，它能快速给我们结果。虽然我们一般还是建议尽量小心不要使用这种方式，不过在 controller 中写网络确实有一些正确的使用场景，而且它在很多代码库中都很流行。几乎所有的开发者都或多或少写过这样的代码。</p>
 <p>Controller 持有网络时，我们 app 中所有数据都是暂态的，也就是说，当 app 退出时它们不会被保存下来。保存数据的任务被完全外包给了服务器。所以，对数据的更改现在是一个通过网络执行的异步任务。</p>
 <p>数据更改流程图：
-<img src="https://github.com/liuzhongning/Articles/blob/master/resources/App-Network-01.jpg" alt=""></p>
+<img src="/image/iOS/iOS_Architecture/App-Network-01.jpg" alt=""></p>
 <p>总体上不推荐使用 controller 拥有网络的方式。不过，为了理解在哪些特定情况下 controller 拥有网络的方式可行，在哪些情况下它不可行，需要再深入讨论一下这种方式中的权衡。结论：如果通过 view controller 加载的任何网络数据需要被 app 中其他部分所共享的话，我们需要重新引入 model 层。如果这些数据只是在本地使用的话，那么，原则上来说，我们可以使用 controller 拥有网络的方式，不需要 model 层也能构建 app。</p>
 <h3 id="model-持有网络">Model 持有网络</h3>
 <p>View controller 中所添加的唯一的职责是开始加载数据 (比如下拉刷新或者当导航至一个新的画面时)。然而，和上面 controller 拥有网络的方式不同，view controller 不负责处理网络返回的数据。这些数据被插入到 store 中，和处理本地变更的方式一样，view controller 通过监听 model 变更通知来接收这些变更。</p>

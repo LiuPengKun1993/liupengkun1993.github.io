@@ -354,9 +354,9 @@
 <hr>
 <h4 id="column-size-is-not-match-问题">column size is not match 问题</h4>
 <p>见下图：</p>
-<p><img src="https://github.com/liuzhongning/Articles/blob/master/resources/BigData/DataWorks-canal-errors-01.jpg" alt=""></p>
+<p><img src="/image/BigData/Canal/Canal-errors-01.jpg" alt=""></p>
 <p>原因是 ddl 变更，导致列不匹配，报了 <code>column size is not match for table: xx , 12 vs 13</code> 的错误。解决方案是，删除 <code>conf/实例名</code> 目录下的 <code>h2.mv.db</code> 文件，如果没有 <code>h2.mv.db</code> 文件，删除 <code>meta.dat</code> 文件。<code>meta.dat</code> 文件内容如下图：</p>
-<p><img src="https://github.com/liuzhongning/Articles/blob/master/resources/BigData/DataWorks-canal-errors-02.jpg" alt=""></p>
+<p><img src="/image/BigData/Canal/Canal-errors-02.jpg" alt=""></p>
 <ul>
 <li>参考文档：
 <ul>
@@ -368,7 +368,7 @@
 <hr>
 <h4 id="caused-by-javaioioexception-errorpacket-errornumber1142-fieldcount-1-messageshow-command-denied-to-user--问题">Caused by: java.io.IOException: ErrorPacket [errorNumber=1142, fieldCount=-1, message=SHOW command denied to user  问题</h4>
 <p>见下图：</p>
-<p><img src="https://github.com/liuzhongning/Articles/blob/master/resources/BigData/DataWorks-canal-errors-03.jpg" alt=""></p>
+<p><img src="/image/BigData/Canal/Canal-errors-03.jpg" alt=""></p>
 <p>原因是因为没有这个表的权限, 订阅时过滤掉，或者加权限即可。</p>
 <hr>
 

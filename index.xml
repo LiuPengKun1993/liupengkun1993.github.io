@@ -54,7 +54,7 @@
 &lt;p&gt;&lt;a href=&#34;https://github.com/alibaba/DataX#download-datax%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80&#34;&gt;DataX 下载地址&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;2配置任务-json&#34;&gt;2.配置任务 Json&lt;/h3&gt;
 &lt;p&gt;下载的 DataX 的目录：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/liuzhongning/Articles/blob/master/resources/BigData/datax/datax2.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/BigData/datax/datax2.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;配置 &lt;code&gt;datax/job&lt;/code&gt; 文件夹下的 Json：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -295,9 +295,9 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;命令行 cd 到 &lt;code&gt;datax/bin&lt;/code&gt; 目录下，执行 &lt;code&gt;python datax.py ../job/mysqltomysql.json&lt;/code&gt;：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/liuzhongning/Articles/blob/master/resources/BigData/datax/datax0.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/BigData/datax/datax0.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;然后看到 school_test 表的数据：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/liuzhongning/Articles/blob/master/resources/BigData/datax/datax1.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/BigData/datax/datax1.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;到此已经成功了。&lt;/p&gt;
 </description>
       
@@ -490,6 +490,8 @@
 &lt;li&gt;若必须使用则拆分到单独的表&lt;/li&gt;
 &lt;li&gt;举例:&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -504,15 +506,7 @@
 &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ENGINE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;InnoDB&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;   
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
+&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;不在数据库里存图片&lt;/p&gt;
 &lt;/li&gt;
@@ -562,19 +556,19 @@
 &lt;/li&gt;
 &lt;li&gt;字符字段必须建前缀索引&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pinyin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;varchar&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;DEFAULT&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;NULL&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;COMMENT&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;小区拼音&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;KEY&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;idx_pinyin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pinyin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)),&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ENGINE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;InnoDB&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;) ENGINE=InnoDB
-```&lt;/p&gt;
-&lt;ul&gt;
+&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;不在索引列做运算&lt;/p&gt;
 &lt;ul&gt;
@@ -1599,15 +1593,15 @@
 &lt;p&gt;此时 Java UDF 函数已自定义完毕，接着需要在 MaxCompute 的资源函数里添加 JAR 包。&lt;/p&gt;
 &lt;h2 id=&#34;5-新建资源&#34;&gt;5. 新建资源&lt;/h2&gt;
 &lt;p&gt;在 MaxCompute 里新建资源，并把刚刚导出的 JAR 包导入。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://upload-images.jianshu.io/upload_images/2665449-d09f67f66713ab97.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/BigData/maxcompute/maxcompute01.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;6-注册函数&#34;&gt;6. 注册函数&lt;/h2&gt;
 &lt;p&gt;在 MaxCompute 里注册函数，类名里面填写 package 以及类名，资源列表里填写刚刚导入的 JAR 包名称。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://upload-images.jianshu.io/upload_images/2665449-940a2da1c6552c50.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/BigData/maxcompute/maxcompute02.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;7提交发布&#34;&gt;7.提交发布&lt;/h2&gt;
 &lt;p&gt;将刚刚创建的资源和函数都提交，并发布。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://upload-images.jianshu.io/upload_images/2665449-527c5e9ea8ae520c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/BigData/maxcompute/maxcompute03.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;发布成功之后就可以直接调用了，直接根据定义的函数名称调用即可：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://upload-images.jianshu.io/upload_images/2665449-db4e333f65f47651.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/BigData/maxcompute/maxcompute04.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;参考：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://help.aliyun.com/document_detail/27867.html?spm=a2c4g.11186623.6.723.1ccd612dbrlNl7&#34;&gt;Java UDF&lt;/a&gt;&lt;/li&gt;
@@ -1758,7 +1752,7 @@
 &lt;h2 id=&#34;维度建模的三种模式&#34;&gt;维度建模的三种模式&lt;/h2&gt;
 &lt;h3 id=&#34;星形模式&#34;&gt;星形模式&lt;/h3&gt;
 &lt;p&gt;星形模式(Star Schema)是最常用的维度建模方式，下图展示了使用星形模式进行维度建模的关系结构：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://upload-images.jianshu.io/upload_images/2665449-3bdd86afc6aaf992.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/BigData/model/model01.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;可以看出，星形模式的维度建模由一个事实表和一组维表成，且具有以下特点：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;维表只和事实表关联，维表之间没有关联；&lt;/li&gt;
@@ -1767,11 +1761,11 @@
 &lt;/ul&gt;
 &lt;h3 id=&#34;雪花模式&#34;&gt;雪花模式&lt;/h3&gt;
 &lt;p&gt;雪花模式(Snowflake Schema)是对星形模式的扩展，每个维表可继续向外连接多个子维表。下图为使用雪花模式进行维度建模的关系结构：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://upload-images.jianshu.io/upload_images/2665449-c85cfe05d1e8e4f5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/BigData/model/model02.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;星形模式中的维表相对雪花模式来说要大，而且不满足规范化设计。雪花模型相当于将星形模式的大维表拆分成小维表，满足了规范化设计。然而这种模式在实际应用中很少见，因为这样做会导致开发难度增大，而数据冗余问题在数据仓库里并不严重。&lt;/p&gt;
 &lt;h3 id=&#34;星座模式&#34;&gt;星座模式&lt;/h3&gt;
 &lt;p&gt;星座模式(Fact Constellations Schema)也是星型模式的扩展。基于这种思想就有了星座模式：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://upload-images.jianshu.io/upload_images/2665449-308743c8f219e50d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/BigData/model/model03.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;前面介绍的两种维度建模方法都是多维表对应单事实表，但在很多时候维度空间内的事实表不止一个，而一个维表也可能被多个事实表用到。在业务发展后期，绝大部分维度建模都采用的是星座模式。&lt;/p&gt;
 </description>
       
@@ -2362,7 +2356,7 @@ Caused by: java.net.ConnectException: Connection refused
 &lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;报错原因&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/liuzhongning/Articles/blob/master/resources/BigData/DataWorks-errors-01.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/BigData/DataWorks/DataWorks-errors-01.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;由上图可知，数据源有问题，链接 polardb 失败，导致无法导数据到 polardb，解决方法是，找运维连通数据源，然后重跑报错脚本。&lt;/p&gt;
 &lt;hr&gt;
 &lt;ul&gt;
@@ -2473,9 +2467,9 @@ grant Select on table test11 to role access_deny_test_table_developers privilege
 &lt;hr&gt;
 &lt;h4 id=&#34;column-size-is-not-match-问题&#34;&gt;column size is not match 问题&lt;/h4&gt;
 &lt;p&gt;见下图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/liuzhongning/Articles/blob/master/resources/BigData/DataWorks-canal-errors-01.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/BigData/Canal/Canal-errors-01.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;原因是 ddl 变更，导致列不匹配，报了 &lt;code&gt;column size is not match for table: xx , 12 vs 13&lt;/code&gt; 的错误。解决方案是，删除 &lt;code&gt;conf/实例名&lt;/code&gt; 目录下的 &lt;code&gt;h2.mv.db&lt;/code&gt; 文件，如果没有 &lt;code&gt;h2.mv.db&lt;/code&gt; 文件，删除 &lt;code&gt;meta.dat&lt;/code&gt; 文件。&lt;code&gt;meta.dat&lt;/code&gt; 文件内容如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/liuzhongning/Articles/blob/master/resources/BigData/DataWorks-canal-errors-02.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/BigData/Canal/Canal-errors-02.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;参考文档：
 &lt;ul&gt;
@@ -2487,7 +2481,7 @@ grant Select on table test11 to role access_deny_test_table_developers privilege
 &lt;hr&gt;
 &lt;h4 id=&#34;caused-by-javaioioexception-errorpacket-errornumber1142-fieldcount-1-messageshow-command-denied-to-user--问题&#34;&gt;Caused by: java.io.IOException: ErrorPacket [errorNumber=1142, fieldCount=-1, message=SHOW command denied to user  问题&lt;/h4&gt;
 &lt;p&gt;见下图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/liuzhongning/Articles/blob/master/resources/BigData/DataWorks-canal-errors-03.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/BigData/Canal/Canal-errors-03.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;原因是因为没有这个表的权限, 订阅时过滤掉，或者加权限即可。&lt;/p&gt;
 &lt;hr&gt;
 </description>
@@ -2701,7 +2695,7 @@ grant Select on table test11 to role access_deny_test_table_developers privilege
       
       <guid>https://liupengkun1993.github.io/post/reading-notes/%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
       
-        <description>&lt;p&gt;&lt;img src=&#34;https://github.com/liuzhongning/Articles/blob/master/resources/Clean%20Code/CleanCode.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_Clean_Code/CleanCode.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;有意义的命名&#34;&gt;有意义的命名&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;命名语意化：有意义的命名能够替代注释&lt;/li&gt;
@@ -3262,7 +3256,7 @@ Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级�
 &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;sudo docker images&lt;span class=&#34;err&#34;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://github.com/liuzhongning/Articles/blob/master/resources/Docker/docker01.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/Docker/docker01.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -3341,7 +3335,7 @@ Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级�
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;code&gt;docker images&lt;/code&gt; 会查看所有的镜像；&lt;code&gt;grep &amp;quot;none&amp;quot;&lt;/code&gt; 命令会筛选所有名字包括 &lt;code&gt;none&lt;/code&gt; 以及标签为 &lt;code&gt;none&lt;/code&gt; 的镜像；&lt;code&gt;awk &#39;{print $3}&#39;&lt;/code&gt; 会处理筛选后的文本，打印所有镜像 &lt;code&gt;id&lt;/code&gt; 的内容。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/liuzhongning/Articles/blob/master/resources/Docker/docker02.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/Docker/docker02.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;删除容器及镜像详细&#34;&gt;删除容器及镜像详细&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;杀死所有正在运行的容器&lt;/li&gt;
@@ -3431,7 +3425,7 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 &lt;/div&gt;
 &lt;/div&gt;&lt;h4 id=&#34;4改完之后关闭-bash_profile-文件执行-source-bash_profile-更新配置环境变量&#34;&gt;4.改完之后，关闭 bash_profile 文件，执行 &lt;code&gt;source ~/.bash_profile&lt;/code&gt; 更新配置环境变量。&lt;/h4&gt;
 &lt;h4 id=&#34;5接着终端执行-flutter-doctor-检测环境报了以下问题&#34;&gt;5.接着终端执行 &lt;code&gt;flutter doctor&lt;/code&gt; 检测环境，报了以下问题：&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/liuzhongning/Articles/blob/master/resources/Flutter/flutter_01.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/Flutter/flutter_01.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;每个人的环境不太一样，因此 flutter doctor 检测出来的问题也会有差异。因为我电脑之前使用过 Xcode、 Android Studio、VSCode，所以报的问题相对较少，IntelliJ IDEA 倒是用的不多。&lt;/p&gt;
 &lt;p&gt;接下来开始解决报的问题：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -3456,10 +3450,10 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;这个意思也很清楚，打开 AS，在 configure 里安装 Flutter 以及 Dart 插件：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/liuzhongning/Articles/blob/master/resources/Flutter/flutter_02.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/Flutter/flutter_02.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;关于 &lt;code&gt;! No devices available&lt;/code&gt; 的问题后面会讲到。&lt;/p&gt;
 &lt;p&gt;接着重新在终端执行 flutter doctor：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/liuzhongning/Articles/blob/master/resources/Flutter/flutter_03.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/Flutter/flutter_03.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;发现刚刚的两个问题已经好了，关于 IntelliJ IDEA，暂时我这边很少用到 IntelliJ IDEA，先搁置，其实想解决也很简单，在 IntelliJ IDEA 里安装 Flutter 以及 Dart 插件就可以了。&lt;/p&gt;
 &lt;h4 id=&#34;6创建-flutter-项目并运行&#34;&gt;6.创建 Flutter 项目并运行&lt;/h4&gt;
 &lt;p&gt;cd 到存放项目的文件夹，然后执行命令：&lt;/p&gt;
@@ -3472,11 +3466,11 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;稍等一会儿，项目就构建成功了：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/liuzhongning/Articles/blob/master/resources/Flutter/flutter_04.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/Flutter/flutter_04.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;打开上图 ios 或 android 项目，并运行。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/liuzhongning/Articles/blob/master/resources/Flutter/flutter_05.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/Flutter/flutter_05.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;关于 &lt;code&gt;! No devices available&lt;/code&gt; 的问题，我这里测试的结论是，用模拟器运行的话是没作用的，只有真机运行，才会有改变：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/liuzhongning/Articles/blob/master/resources/Flutter/flutter_06.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/Flutter/flutter_06.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;ul&gt;
 &lt;li&gt;2020.04.08 更新
@@ -3502,7 +3496,7 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 &lt;blockquote&gt;
 &lt;p&gt;《高性能iOS应用开发》是一本质量很高的 iOS 书籍，我从此书中系统的学到了很多东西。这篇博客是《高性能iOS应用开发》一书第三部分“iOS性能”的读书笔记，因为我对 APP 性能比较感兴趣，所以就先从第三部分“iOS性能”开始了。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/liuzhongning/Articles/blob/master/resources/High-performance-iOS-application-development/01.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_High_Performance/01.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;1-应用启动&#34;&gt;1. 应用启动&lt;/h2&gt;
 &lt;p&gt;iOS 应用在启动时会调用 &lt;code&gt;UIApplicationMain&lt;/code&gt; 方法，并传入 &lt;code&gt;UIApplicationDelegate&lt;/code&gt; 类的引用。委托接收应用范围的事件，并且有明确的生命周期，&lt;code&gt;application:didFinishLaunchingWithOptions:&lt;/code&gt; 方法表明应用已经启动。&lt;/p&gt;
 &lt;p&gt;应用的窗口有一个 rootViewController，对应的 UIViewController 对象同样具有明确的生命周期。UIViewController 的方法&lt;code&gt;viewDidAppear:&lt;/code&gt;执行时，说明启动已完成。&lt;/p&gt;
@@ -3996,7 +3990,7 @@ URI)，其链接到移动应用内的特定位置，而不是简单地启动应�
         <description>&lt;blockquote&gt;
 &lt;p&gt;此篇博客是《高性能iOS应用开发》一书第二部分“核心优化”的读书笔记，主要包括“内存管理”、“能耗(电量消耗)”、“并发编程”这三方面。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/liuzhongning/Articles/blob/master/resources/High-performance-iOS-application-development/03.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_High_Performance/03.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;1-内存管理&#34;&gt;1. 内存管理&lt;/h2&gt;
 &lt;p&gt;iPhone 和 iPad 设备的内存资源非常有限。如果某个应用的内存使用量超过了单个进程的上限，那么它就会被操作系统终止使用。正是由于这个原因，成功的内存管理在 iOS 应用的实现过程中扮演着核心的角色。&lt;/p&gt;
 &lt;p&gt;与(基于垃圾回收的)Java 运行时不同，Objective-C 和 Swift 的 iOS 运行时使用引用计数。使用引用计数的负面影响在于，如果开发人员不够小心，那么可能会出现重复的内存释放和循环引用的情况。&lt;/p&gt;
@@ -4095,7 +4089,7 @@ URI)，其链接到移动应用内的特定位置，而不是简单地启动应�
 &lt;p&gt;通常情况下，当引用计数降为 0 时对象会立即被释放，但这使得调试变得困难。如果开启了僵尸对象，那么对象就不会立即释放内存，而是被标记为僵尸。任何试图对其进行访问的行为都会被日志记录，因而你可以在对象的生命周期中跟踪对象在代码中被使用的位置。&lt;/p&gt;
 &lt;p&gt;NSZombieEnabled 是一个环境变量，可以控制 Core Foundation 的运行时是否将使用僵尸对象。不应长期保留 NSZombieEnabled，因为默认情况下不会有对象被真正析构，这会导致应用使用大量的内存。特别说明一点，在发布的构建包中一定要禁用 NSZombieEnabled。&lt;/p&gt;
 &lt;p&gt;要想设置 NSZombieEnabled 环境变量，需要进入 Product → Scheme → Edit Scheme。选择 左侧的 Run，然后在右侧选取 Diagnostics 标签页。选中 Zombie Objects 选项，如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://github.com/liuzhongning/Articles/blob/master/resources/High-performance-iOS-application-development/02.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/iOS/iOS_High_Performance/02.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;17-循环引用&#34;&gt;1.7 循环引用&lt;/h3&gt;
 &lt;p&gt;引用计数的最大陷阱在于，它不能处理环状的引用关系，即 Objective-C 的循环引用。&lt;/p&gt;
 &lt;h4 id=&#34;171-避免循环引用的规则&#34;&gt;1.7.1 避免循环引用的规则&lt;/h4&gt;

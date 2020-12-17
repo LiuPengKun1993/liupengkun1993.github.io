@@ -372,7 +372,7 @@
 <blockquote>
 <p>《高性能iOS应用开发》是一本质量很高的 iOS 书籍，我从此书中系统的学到了很多东西。这篇博客是《高性能iOS应用开发》一书第三部分“iOS性能”的读书笔记，因为我对 APP 性能比较感兴趣，所以就先从第三部分“iOS性能”开始了。</p>
 </blockquote>
-<p><img src="https://github.com/liuzhongning/Articles/blob/master/resources/High-performance-iOS-application-development/01.jpg" alt=""></p>
+<p><img src="/image/iOS/iOS_High_Performance/01.jpg" alt=""></p>
 <h2 id="1-应用启动">1. 应用启动</h2>
 <p>iOS 应用在启动时会调用 <code>UIApplicationMain</code> 方法，并传入 <code>UIApplicationDelegate</code> 类的引用。委托接收应用范围的事件，并且有明确的生命周期，<code>application:didFinishLaunchingWithOptions:</code> 方法表明应用已经启动。</p>
 <p>应用的窗口有一个 rootViewController，对应的 UIViewController 对象同样具有明确的生命周期。UIViewController 的方法<code>viewDidAppear:</code>执行时，说明启动已完成。</p>

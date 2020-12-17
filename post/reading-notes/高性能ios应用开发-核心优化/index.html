@@ -369,7 +369,7 @@
       <blockquote>
 <p>此篇博客是《高性能iOS应用开发》一书第二部分“核心优化”的读书笔记，主要包括“内存管理”、“能耗(电量消耗)”、“并发编程”这三方面。</p>
 </blockquote>
-<p><img src="https://github.com/liuzhongning/Articles/blob/master/resources/High-performance-iOS-application-development/03.jpg" alt=""></p>
+<p><img src="/image/iOS/iOS_High_Performance/03.jpg" alt=""></p>
 <h2 id="1-内存管理">1. 内存管理</h2>
 <p>iPhone 和 iPad 设备的内存资源非常有限。如果某个应用的内存使用量超过了单个进程的上限，那么它就会被操作系统终止使用。正是由于这个原因，成功的内存管理在 iOS 应用的实现过程中扮演着核心的角色。</p>
 <p>与(基于垃圾回收的)Java 运行时不同，Objective-C 和 Swift 的 iOS 运行时使用引用计数。使用引用计数的负面影响在于，如果开发人员不够小心，那么可能会出现重复的内存释放和循环引用的情况。</p>
@@ -468,7 +468,7 @@
 <p>通常情况下，当引用计数降为 0 时对象会立即被释放，但这使得调试变得困难。如果开启了僵尸对象，那么对象就不会立即释放内存，而是被标记为僵尸。任何试图对其进行访问的行为都会被日志记录，因而你可以在对象的生命周期中跟踪对象在代码中被使用的位置。</p>
 <p>NSZombieEnabled 是一个环境变量，可以控制 Core Foundation 的运行时是否将使用僵尸对象。不应长期保留 NSZombieEnabled，因为默认情况下不会有对象被真正析构，这会导致应用使用大量的内存。特别说明一点，在发布的构建包中一定要禁用 NSZombieEnabled。</p>
 <p>要想设置 NSZombieEnabled 环境变量，需要进入 Product → Scheme → Edit Scheme。选择 左侧的 Run，然后在右侧选取 Diagnostics 标签页。选中 Zombie Objects 选项，如下图：</p>
-<p><img src="https://github.com/liuzhongning/Articles/blob/master/resources/High-performance-iOS-application-development/02.jpg" alt=""></p>
+<p><img src="/image/iOS/iOS_High_Performance/02.jpg" alt=""></p>
 <h3 id="17-循环引用">1.7 循环引用</h3>
 <p>引用计数的最大陷阱在于，它不能处理环状的引用关系，即 Objective-C 的循环引用。</p>
 <h4 id="171-避免循环引用的规则">1.7.1 避免循环引用的规则</h4>
