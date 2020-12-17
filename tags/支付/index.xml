@@ -10,28 +10,28 @@
     <lastBuildDate>Wed, 02 Nov 2016 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/%E6%94%AF%E4%BB%98/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>iOS开发之 - 支付宝支付</title>
-      <link>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%AF%E4%BB%98/</link>
+      <link>https://liupengkun1993.github.io/post/ios/pay/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%AF%E4%BB%98/</link>
       <pubDate>Wed, 02 Nov 2016 15:43:48 +0800</pubDate>
       
-      <guid>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%AF%E4%BB%98/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/pay/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%AF%E4%BB%98/</guid>
       <description>在开发中，很多时候我们都会用到支付宝支付和微信支付，前段时间已经总结过微信支付流程，这里再说下支付宝支付（相对来说觉得支付宝有点坑），先说下</description>
     </item>
     
     <item>
       <title>iOS开发之 - 银联支付</title>
-      <link>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E9%93%B6%E8%81%94%E6%94%AF%E4%BB%98/</link>
+      <link>https://liupengkun1993.github.io/post/ios/pay/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E9%93%B6%E8%81%94%E6%94%AF%E4%BB%98/</link>
       <pubDate>Wed, 02 Nov 2016 15:43:48 +0800</pubDate>
       
-      <guid>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E9%93%B6%E8%81%94%E6%94%AF%E4%BB%98/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/pay/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E9%93%B6%E8%81%94%E6%94%AF%E4%BB%98/</guid>
       <description>前阵子看了很多篇博客，有很多朋友吐槽说银联支付怎么怎么坑，所以集成的时候小心翼翼，但集成完银联支付之后，觉得相对于支付宝支付微信支付而言，银</description>
     </item>
     
     <item>
       <title>iOS开发之 - 微信支付</title>
-      <link>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/</link>
+      <link>https://liupengkun1993.github.io/post/ios/pay/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/</link>
       <pubDate>Sat, 22 Oct 2016 15:43:48 +0800</pubDate>
       
-      <guid>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/pay/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/</guid>
       <description>作为 iOS 开发者，支付无疑是很重要的，特别是这两年几乎到处都是微信支付、支付宝支付。相比支付宝支付，觉得微信支付还算简单，但还是建议预先看下文档</description>
     </item>
     

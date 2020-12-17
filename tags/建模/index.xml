@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>建模 on liupengkun</title>
+    <link>https://liupengkun1993.github.io/tags/%E5%BB%BA%E6%A8%A1/</link>
+    <description>Recent content in 建模 on liupengkun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>liupengkun</copyright>
+    <lastBuildDate>Sat, 19 Sep 2020 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/%E5%BB%BA%E6%A8%A1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数据仓库建模——维度建模</title>
+      <link>https://liupengkun1993.github.io/post/bigdata/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%BB%BA%E6%A8%A1%E7%BB%B4%E5%BA%A6%E5%BB%BA%E6%A8%A1/</link>
+      <pubDate>Sat, 19 Sep 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/bigdata/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%BB%BA%E6%A8%A1%E7%BB%B4%E5%BA%A6%E5%BB%BA%E6%A8%A1/</guid>
+      <description>数据仓库的建模方法有很多种，常见的有维度建模法、范式建模法、实体建模法等，下面主要介绍一下维度建模法。 维度建模的基本概念 维度建模(dimen</description>
+    </item>
+    
+  </channel>
+</rss>

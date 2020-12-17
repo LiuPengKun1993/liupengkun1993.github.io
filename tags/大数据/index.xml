@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>大数据 on liupengkun</title>
+    <link>https://liupengkun1993.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</link>
+    <description>Recent content in 大数据 on liupengkun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>liupengkun</copyright>
+    <lastBuildDate>Sun, 27 Sep 2020 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DataX 的配置及使用</title>
+      <link>https://liupengkun1993.github.io/post/bigdata/datax-%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sun, 27 Sep 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/bigdata/datax-%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BD%BF%E7%94%A8/</guid>
+      <description>DataX 是阿里巴巴集团内被广泛使用的离线数据同步工具/平台，实现包括 MySQL、SQL Server、Oracle、PostgreSQL、HDFS、</description>
+    </item>
+    
+    <item>
+      <title>MySQL 数据库开发军规</title>
+      <link>https://liupengkun1993.github.io/post/bigdata/mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E5%8F%91%E5%86%9B%E8%A7%84/</link>
+      <pubDate>Sun, 27 Sep 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/bigdata/mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E5%8F%91%E5%86%9B%E8%A7%84/</guid>
+      <description>本篇记录的是 MySQL 数据库开发注意要点，是 [MySQL数据库开发的三十六条军规——石展@赶集]的学习笔记。 核心军规 尽量不在数据库做运算 复杂运算移到</description>
+    </item>
+    
+    <item>
+      <title>HIVE 调优—— hive.fetch.task.conversion</title>
+      <link>https://liupengkun1993.github.io/post/bigdata/hive-%E8%B0%83%E4%BC%98-hive.fetch.task.conversion/</link>
+      <pubDate>Sun, 20 Sep 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/bigdata/hive-%E8%B0%83%E4%BC%98-hive.fetch.task.conversion/</guid>
+      <description>Fetch 抓取是指，Hive 中对某些情况的查询可以不必使用 MapReduce 计算。 启用 MapReduce Job 是会消耗系统开销的。对于这个问题，从 Hive0.10.0 版本开始，对于简单的不需要聚合的类似</description>
+    </item>
+    
+    <item>
+      <title>MaxCompute 自定义 Java UDF</title>
+      <link>https://liupengkun1993.github.io/post/bigdata/maxcompute-%E8%87%AA%E5%AE%9A%E4%B9%89-java-udf/</link>
+      <pubDate>Sat, 19 Sep 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/bigdata/maxcompute-%E8%87%AA%E5%AE%9A%E4%B9%89-java-udf/</guid>
+      <description>公司大数据开发使用的是阿里云的 MaxCompute，MaxCompute 自身提供了很多 Hive SQL 函数，能够满足大部分需求，但是总有一些 Hive SQL 函数无法</description>
+    </item>
+    
+    <item>
+      <title>数据仓库建模——维度建模</title>
+      <link>https://liupengkun1993.github.io/post/bigdata/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%BB%BA%E6%A8%A1%E7%BB%B4%E5%BA%A6%E5%BB%BA%E6%A8%A1/</link>
+      <pubDate>Sat, 19 Sep 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/bigdata/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%BB%BA%E6%A8%A1%E7%BB%B4%E5%BA%A6%E5%BB%BA%E6%A8%A1/</guid>
+      <description>数据仓库的建模方法有很多种，常见的有维度建模法、范式建模法、实体建模法等，下面主要介绍一下维度建模法。 维度建模的基本概念 维度建模(dimen</description>
+    </item>
+    
+    <item>
+      <title>浅谈 Hive 性能优化</title>
+      <link>https://liupengkun1993.github.io/post/bigdata/%E6%B5%85%E8%B0%88-hive-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Sat, 19 Sep 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/bigdata/%E6%B5%85%E8%B0%88-hive-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</guid>
+      <description>总结了 Hive 的常用优化手段。 列裁剪及分区裁剪 这是最基本的操作。所谓列裁剪就是在查询时只读取需要的列，分区裁剪就是只读取需要的分区。 比如当列很多或</description>
+    </item>
+    
+    <item>
+      <title>DataWorks 错误汇总</title>
+      <link>https://liupengkun1993.github.io/post/bigdata/dataworks-%E9%94%99%E8%AF%AF%E6%B1%87%E6%80%BB/</link>
+      <pubDate>Tue, 11 Aug 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/bigdata/dataworks-%E9%94%99%E8%AF%AF%E6%B1%87%E6%80%BB/</guid>
+      <description>报错日志 1 FAILED: ODPS-0420095: Access Denied - Authorization Failed [4093], You have NO privilege to do the restricted operation on {acs:odps:*:projects/***}. Access Mode is AllDenied. Context ID:afd84055-ef3c-4d8c-86ee-ff3695c15a34. 报错原因 线上脚本报以上错误，大多是欠费的原因，续费就好了，注意已报错的脚本需要重</description>
+    </item>
+    
+    <item>
+      <title>Canal 问题汇总</title>
+      <link>https://liupengkun1993.github.io/post/bigdata/canal-%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</link>
+      <pubDate>Wed, 05 Aug 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/bigdata/canal-%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</guid>
+      <description>简介 canal 是阿里开源的 MySQL binlog 增量订阅&amp;amp;消费组件，基于 java 实现，整体已经在很多大型的互联网项目生产环境中使用，包括阿里、美团等都有广泛的应用，</description>
+    </item>
+    
+    <item>
+      <title>QuickBI 问题汇总</title>
+      <link>https://liupengkun1993.github.io/post/bigdata/quickbi-%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</link>
+      <pubDate>Wed, 03 Jun 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/bigdata/quickbi-%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</guid>
+      <description>Quick BI 连接 MaxCompute 数据报错： Quick BI 连接 MaxCompute 数据源，参考了阿里云文档：云数据源MaxCompute，检查了参数，但还是连接不通。 1 2 3 显示名称：**** 数</description>
+    </item>
+    
+    <item>
+      <title>Fluentd 读写 OSS</title>
+      <link>https://liupengkun1993.github.io/post/bigdata/fluentd-%E8%AF%BB%E5%86%99-oss/</link>
+      <pubDate>Mon, 17 Feb 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/bigdata/fluentd-%E8%AF%BB%E5%86%99-oss/</guid>
+      <description>一、前言 最近在数据开发中，使用到了 Fluentd，具体情况是：移动端上传到 OSS 的日志文件，每个文件大概几 k，但有上千万之多，导致 MaxCompute 在运行的时候</description>
+    </item>
+    
+  </channel>
+</rss>

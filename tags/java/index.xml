@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java on liupengkun</title>
+    <link>https://liupengkun1993.github.io/tags/java/</link>
+    <description>Recent content in Java on liupengkun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>liupengkun</copyright>
+    <lastBuildDate>Sat, 19 Sep 2020 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java 实现 RSA 加密解密</title>
+      <link>https://liupengkun1993.github.io/post/bigdata/java-%E5%AE%9E%E7%8E%B0-rsa-%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/</link>
+      <pubDate>Sat, 19 Sep 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/bigdata/java-%E5%AE%9E%E7%8E%B0-rsa-%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86/</guid>
+      <description>RSA 加密在编程中很常见，iOS 安卓要用，Java 也要用，最近因为大数据的项目要用到，就写了一份，这里备份一下，也希望能帮到要用的朋友们。 以下是</description>
+    </item>
+    
+    <item>
+      <title>MaxCompute 自定义 Java UDF</title>
+      <link>https://liupengkun1993.github.io/post/bigdata/maxcompute-%E8%87%AA%E5%AE%9A%E4%B9%89-java-udf/</link>
+      <pubDate>Sat, 19 Sep 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/bigdata/maxcompute-%E8%87%AA%E5%AE%9A%E4%B9%89-java-udf/</guid>
+      <description>公司大数据开发使用的是阿里云的 MaxCompute，MaxCompute 自身提供了很多 Hive SQL 函数，能够满足大部分需求，但是总有一些 Hive SQL 函数无法</description>
+    </item>
+    
+  </channel>
+</rss>

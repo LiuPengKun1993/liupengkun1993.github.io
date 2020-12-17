@@ -10,10 +10,10 @@
     <lastBuildDate>Sat, 22 Oct 2016 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/runloop/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>iOS开发之 - RunLoop</title>
-      <link>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-runloop/</link>
+      <link>https://liupengkun1993.github.io/post/ios/%E5%A4%9A%E7%BA%BF%E7%A8%8B/ios%E5%BC%80%E5%8F%91%E4%B9%8B-runloop/</link>
       <pubDate>Sat, 22 Oct 2016 15:43:48 +0800</pubDate>
       
-      <guid>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-runloop/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/%E5%A4%9A%E7%BA%BF%E7%A8%8B/ios%E5%BC%80%E5%8F%91%E4%B9%8B-runloop/</guid>
       <description>以下是 RunLoop 相关的内容，前半部分是理论知识，后半部分是代码。。。 一、RunLoop 基础知识 1.1 RunLoop 简介 一般来说，一个线程只能执行一个任务，执行完就会</description>
     </item>
     

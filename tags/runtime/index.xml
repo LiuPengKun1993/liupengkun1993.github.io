@@ -10,28 +10,28 @@
     <lastBuildDate>Sun, 15 Jul 2018 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/runtime/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>iOS 开发中 Runtime 常用的几种方法</title>
-      <link>https://liupengkun1993.github.io/post/ios/ios-%E5%BC%80%E5%8F%91%E4%B8%AD-runtime-%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</link>
+      <link>https://liupengkun1993.github.io/post/ios/runtime/ios-%E5%BC%80%E5%8F%91%E4%B8%AD-runtime-%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</link>
       <pubDate>Sun, 15 Jul 2018 15:43:48 +0800</pubDate>
       
-      <guid>https://liupengkun1993.github.io/post/ios/ios-%E5%BC%80%E5%8F%91%E4%B8%AD-runtime-%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/runtime/ios-%E5%BC%80%E5%8F%91%E4%B8%AD-runtime-%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</guid>
       <description>公司项目中用了一些 runtime 相关的知识, 初看时有些蒙, 虽然用的并不多, 但还是想着系统的把 runtime 相关的常用方法整理一下, 自己以后用着方便, 也希望对看到的朋</description>
     </item>
     
     <item>
       <title>用 RunTime 为 UITextView 设置占位文本并实时改变文本框占位文本的颜色</title>
-      <link>https://liupengkun1993.github.io/post/ios/%E7%94%A8-runtime-%E4%B8%BA-uitextview-%E8%AE%BE%E7%BD%AE%E5%8D%A0%E4%BD%8D%E6%96%87%E6%9C%AC%E5%B9%B6%E5%AE%9E%E6%97%B6%E6%94%B9%E5%8F%98%E6%96%87%E6%9C%AC%E6%A1%86%E5%8D%A0%E4%BD%8D%E6%96%87%E6%9C%AC%E7%9A%84%E9%A2%9C%E8%89%B2/</link>
+      <link>https://liupengkun1993.github.io/post/ios/runtime/%E7%94%A8-runtime-%E4%B8%BA-uitextview-%E8%AE%BE%E7%BD%AE%E5%8D%A0%E4%BD%8D%E6%96%87%E6%9C%AC%E5%B9%B6%E5%AE%9E%E6%97%B6%E6%94%B9%E5%8F%98%E6%96%87%E6%9C%AC%E6%A1%86%E5%8D%A0%E4%BD%8D%E6%96%87%E6%9C%AC%E7%9A%84%E9%A2%9C%E8%89%B2/</link>
       <pubDate>Sun, 19 Mar 2017 15:43:48 +0800</pubDate>
       
-      <guid>https://liupengkun1993.github.io/post/ios/%E7%94%A8-runtime-%E4%B8%BA-uitextview-%E8%AE%BE%E7%BD%AE%E5%8D%A0%E4%BD%8D%E6%96%87%E6%9C%AC%E5%B9%B6%E5%AE%9E%E6%97%B6%E6%94%B9%E5%8F%98%E6%96%87%E6%9C%AC%E6%A1%86%E5%8D%A0%E4%BD%8D%E6%96%87%E6%9C%AC%E7%9A%84%E9%A2%9C%E8%89%B2/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/runtime/%E7%94%A8-runtime-%E4%B8%BA-uitextview-%E8%AE%BE%E7%BD%AE%E5%8D%A0%E4%BD%8D%E6%96%87%E6%9C%AC%E5%B9%B6%E5%AE%9E%E6%97%B6%E6%94%B9%E5%8F%98%E6%96%87%E6%9C%AC%E6%A1%86%E5%8D%A0%E4%BD%8D%E6%96%87%E6%9C%AC%E7%9A%84%E9%A2%9C%E8%89%B2/</guid>
       <description>UITextView 实现占位文本的方式有很多种，网上一搜一大把，，这里只介绍 最简单 的一种，如标题所述：用 RunTime 为 UITextView 设置占位文本并实时改变文本框占位文本的颜色。 对 RunTime</description>
     </item>
     
     <item>
       <title>iOS开发之 - Runtime</title>
-      <link>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-runtime/</link>
+      <link>https://liupengkun1993.github.io/post/ios/runtime/ios%E5%BC%80%E5%8F%91%E4%B9%8B-runtime/</link>
       <pubDate>Sat, 22 Oct 2016 15:43:48 +0800</pubDate>
       
-      <guid>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-runtime/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/runtime/ios%E5%BC%80%E5%8F%91%E4%B9%8B-runtime/</guid>
       <description>想总结 Runtime 不是一天两天了，前几天利用空闲时间已经打好文稿，但觉得还有需要改进的地方，现在已经改过来了，这里贴出来与大家分享下（如果还有什么小问</description>
     </item>
     

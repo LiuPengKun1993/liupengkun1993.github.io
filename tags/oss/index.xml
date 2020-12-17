@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OSS on liupengkun</title>
+    <link>https://liupengkun1993.github.io/tags/oss/</link>
+    <description>Recent content in OSS on liupengkun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>liupengkun</copyright>
+    <lastBuildDate>Mon, 17 Feb 2020 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/oss/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fluentd 读写 OSS</title>
+      <link>https://liupengkun1993.github.io/post/bigdata/fluentd-%E8%AF%BB%E5%86%99-oss/</link>
+      <pubDate>Mon, 17 Feb 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/bigdata/fluentd-%E8%AF%BB%E5%86%99-oss/</guid>
+      <description>一、前言 最近在数据开发中，使用到了 Fluentd，具体情况是：移动端上传到 OSS 的日志文件，每个文件大概几 k，但有上千万之多，导致 MaxCompute 在运行的时候</description>
+    </item>
+    
+  </channel>
+</rss>

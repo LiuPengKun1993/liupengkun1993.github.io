@@ -10,10 +10,10 @@
     <lastBuildDate>Wed, 15 Mar 2017 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/%E9%93%BE%E5%BC%8F%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>iOS开发 - 链式编程思想</title>
-      <link>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E9%93%BE%E5%BC%8F%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/</link>
+      <link>https://liupengkun1993.github.io/post/ios/tips/ios%E5%BC%80%E5%8F%91-%E9%93%BE%E5%BC%8F%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/</link>
       <pubDate>Wed, 15 Mar 2017 15:43:48 +0800</pubDate>
       
-      <guid>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91-%E9%93%BE%E5%BC%8F%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/tips/ios%E5%BC%80%E5%8F%91-%E9%93%BE%E5%BC%8F%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/</guid>
       <description>因为有 Masory 以及 Snapkit 这些知名开源库的存在，相信很多 iOS 开发者对链式编程都不会太陌生，先来看下面这句代码： 1 2 3 [imageView mas_makeConstraints:^(MASConstraintMaker *make) { make.top.bottom.left.right.equalTo(self.view).insets(UIEdgeInsetsMake(250, 100, 250, 100)); }]; 这句代码就属于链式编</description>
     </item>
     

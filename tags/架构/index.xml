@@ -7,13 +7,49 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>liupengkun</copyright>
-    <lastBuildDate>Thu, 30 Mar 2017 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/%E6%9E%B6%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 Feb 2020 18:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/%E6%9E%B6%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Model-View-ViewModel&#43;协调器 (MVVM-C)</title>
+      <link>https://liupengkun1993.github.io/post/reading-notes/model-view-viewmodel&#43;%E5%8D%8F%E8%B0%83%E5%99%A8-mvvm-c/</link>
+      <pubDate>Tue, 25 Feb 2020 18:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/reading-notes/model-view-viewmodel&#43;%E5%8D%8F%E8%B0%83%E5%99%A8-mvvm-c/</guid>
+      <description>此系列文章是《App架构》的读书笔记及心得。 前言 没有哪个单独的模式能在所有情景下都能做到最好。我们在开发中需要具体情况具体分析，最好的模式就</description>
+    </item>
+    
+    <item>
+      <title>Model-View-Controller (MVC)</title>
+      <link>https://liupengkun1993.github.io/post/reading-notes/model-view-controller-mvc/</link>
+      <pubDate>Mon, 24 Feb 2020 18:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/reading-notes/model-view-controller-mvc/</guid>
+      <description>此系列文章是《App架构》的读书笔记及心得。 前言 没有哪个单独的模式能在所有情景下都能做到最好。我们在开发中需要具体情况具体分析，最好的模式就</description>
+    </item>
+    
+    <item>
+      <title>MVC 下的网络层架构</title>
+      <link>https://liupengkun1993.github.io/post/reading-notes/mvc-%E4%B8%8B%E7%9A%84%E7%BD%91%E7%BB%9C%E5%B1%82%E6%9E%B6%E6%9E%84/</link>
+      <pubDate>Mon, 24 Feb 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/reading-notes/mvc-%E4%B8%8B%E7%9A%84%E7%BD%91%E7%BB%9C%E5%B1%82%E6%9E%B6%E6%9E%84/</guid>
+      <description>此系列文章是《App架构》的读书笔记及心得。 前言 没有哪个单独的模式能在所有情景下都能做到最好。我们在开发中需要具体情况具体分析，最好的模式就</description>
+    </item>
+    
+    <item>
+      <title>设计模式-《重构》读书笔记及 APP 重构心得</title>
+      <link>https://liupengkun1993.github.io/post/reading-notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%87%8D%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%8F%8A-app-%E9%87%8D%E6%9E%84%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Wed, 10 Jan 2018 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/reading-notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%87%8D%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%8F%8A-app-%E9%87%8D%E6%9E%84%E5%BF%83%E5%BE%97/</guid>
+      <description>前段时间和一同事一起重构了两个 APP，正好想写一些重构心得，前天又在知乎上看到一前辈推荐《重构》这本书，据说是程序员的必读书籍，于是就粗略的</description>
+    </item>
+    
     <item>
       <title>模块化与解耦</title>
-      <link>https://liupengkun1993.github.io/post/ios/%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E8%A7%A3%E8%80%A6/</link>
+      <link>https://liupengkun1993.github.io/post/ios/%E6%9E%B6%E6%9E%84/%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E8%A7%A3%E8%80%A6/</link>
       <pubDate>Thu, 30 Mar 2017 15:43:48 +0800</pubDate>
       
-      <guid>https://liupengkun1993.github.io/post/ios/%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E8%A7%A3%E8%80%A6/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/%E6%9E%B6%E6%9E%84/%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E8%A7%A3%E8%80%A6/</guid>
       <description>读了一篇很不错的 iOS 架构方面的文章，和大家分享一下！原文地址 模块化与解耦 简述 本文主要讲述了在iOS开发过程中，模块化工程架构的一种组织方式，本</description>
     </item>
     

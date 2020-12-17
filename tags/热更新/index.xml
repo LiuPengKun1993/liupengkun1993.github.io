@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>热更新 on liupengkun</title>
+    <link>https://liupengkun1993.github.io/tags/%E7%83%AD%E6%9B%B4%E6%96%B0/</link>
+    <description>Recent content in 热更新 on liupengkun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>liupengkun</copyright>
+    <lastBuildDate>Tue, 10 Mar 2020 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/%E7%83%AD%E6%9B%B4%E6%96%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cordova 使用 App Center 进行热更新</title>
+      <link>https://liupengkun1993.github.io/post/cordova/cordova-%E4%BD%BF%E7%94%A8-app-center-%E8%BF%9B%E8%A1%8C%E7%83%AD%E6%9B%B4%E6%96%B0/</link>
+      <pubDate>Tue, 10 Mar 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/cordova/cordova-%E4%BD%BF%E7%94%A8-app-center-%E8%BF%9B%E8%A1%8C%E7%83%AD%E6%9B%B4%E6%96%B0/</guid>
+      <description>App Center 是微软开发的云服务器，通过它开发者可以直接在用户的设备上部署手机应用更新。 使用方法：首先注册一个 App Center 帐户，或通过 https://appcenter.ms 登录到现有的 App Center 帐户，</description>
+    </item>
+    
+  </channel>
+</rss>

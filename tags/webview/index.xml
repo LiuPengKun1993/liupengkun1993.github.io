@@ -10,10 +10,10 @@
     <lastBuildDate>Thu, 13 Oct 2016 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/webview/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>iOS开发之 - WKWebView VS UIWebView</title>
-      <link>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-wkwebview-vs-uiwebview/</link>
+      <link>https://liupengkun1993.github.io/post/ios/tips/ios%E5%BC%80%E5%8F%91%E4%B9%8B-wkwebview-vs-uiwebview/</link>
       <pubDate>Thu, 13 Oct 2016 15:43:48 +0800</pubDate>
       
-      <guid>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-wkwebview-vs-uiwebview/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/tips/ios%E5%BC%80%E5%8F%91%E4%B9%8B-wkwebview-vs-uiwebview/</guid>
       <description>WKWebView是苹果在 iOS 8 中推出的新框架，相比UIWebView来说，WKWebView 性能好，速度快，内存小，功能多，且支持了更多的 HTML5</description>
     </item>
     

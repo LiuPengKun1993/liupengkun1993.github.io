@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DataWorks on liupengkun</title>
+    <link>https://liupengkun1993.github.io/tags/dataworks/</link>
+    <description>Recent content in DataWorks on liupengkun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>liupengkun</copyright>
+    <lastBuildDate>Tue, 11 Aug 2020 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/dataworks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DataWorks 错误汇总</title>
+      <link>https://liupengkun1993.github.io/post/bigdata/dataworks-%E9%94%99%E8%AF%AF%E6%B1%87%E6%80%BB/</link>
+      <pubDate>Tue, 11 Aug 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/bigdata/dataworks-%E9%94%99%E8%AF%AF%E6%B1%87%E6%80%BB/</guid>
+      <description>报错日志 1 FAILED: ODPS-0420095: Access Denied - Authorization Failed [4093], You have NO privilege to do the restricted operation on {acs:odps:*:projects/***}. Access Mode is AllDenied. Context ID:afd84055-ef3c-4d8c-86ee-ff3695c15a34. 报错原因 线上脚本报以上错误，大多是欠费的原因，续费就好了，注意已报错的脚本需要重</description>
+    </item>
+    
+  </channel>
+</rss>

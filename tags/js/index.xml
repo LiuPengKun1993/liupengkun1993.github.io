@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JS on liupengkun</title>
+    <link>https://liupengkun1993.github.io/tags/js/</link>
+    <description>Recent content in JS on liupengkun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>liupengkun</copyright>
+    <lastBuildDate>Wed, 18 Mar 2020 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/js/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JS 表单格式直传 OSS</title>
+      <link>https://liupengkun1993.github.io/post/js/js-%E8%A1%A8%E5%8D%95%E6%A0%BC%E5%BC%8F%E7%9B%B4%E4%BC%A0-oss/</link>
+      <pubDate>Wed, 18 Mar 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/js/js-%E8%A1%A8%E5%8D%95%E6%A0%BC%E5%BC%8F%E7%9B%B4%E4%BC%A0-oss/</guid>
+      <description>公司的几个 APP 是使用 cordova+angularjs+ionic 的模式开发的，因此要有一套 JS 端的埋点 SDK，这里主要说一下 JS 表单格式上传 OSS。 和移动端整体思想一样，首先调取服务端接口</description>
+    </item>
+    
+  </channel>
+</rss>

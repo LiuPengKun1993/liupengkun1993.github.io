@@ -7,13 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>liupengkun</copyright>
-    <lastBuildDate>Sat, 07 Jan 2017 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/categories/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 18 Mar 2020 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/categories/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JS 表单格式直传 OSS</title>
+      <link>https://liupengkun1993.github.io/post/js/js-%E8%A1%A8%E5%8D%95%E6%A0%BC%E5%BC%8F%E7%9B%B4%E4%BC%A0-oss/</link>
+      <pubDate>Wed, 18 Mar 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/js/js-%E8%A1%A8%E5%8D%95%E6%A0%BC%E5%BC%8F%E7%9B%B4%E4%BC%A0-oss/</guid>
+      <description>公司的几个 APP 是使用 cordova+angularjs+ionic 的模式开发的，因此要有一套 JS 端的埋点 SDK，这里主要说一下 JS 表单格式上传 OSS。 和移动端整体思想一样，首先调取服务端接口</description>
+    </item>
+    
     <item>
       <title>前端笔记 - HTML 特殊标签实现文字滚动</title>
-      <link>https://liupengkun1993.github.io/post/ios/-%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0-html-%E7%89%B9%E6%AE%8A%E6%A0%87%E7%AD%BE%E5%AE%9E%E7%8E%B0%E6%96%87%E5%AD%97%E6%BB%9A%E5%8A%A8/</link>
+      <link>https://liupengkun1993.github.io/post/js/-%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0-html-%E7%89%B9%E6%AE%8A%E6%A0%87%E7%AD%BE%E5%AE%9E%E7%8E%B0%E6%96%87%E5%AD%97%E6%BB%9A%E5%8A%A8/</link>
       <pubDate>Sat, 07 Jan 2017 15:43:48 +0800</pubDate>
       
-      <guid>https://liupengkun1993.github.io/post/ios/-%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0-html-%E7%89%B9%E6%AE%8A%E6%A0%87%E7%AD%BE%E5%AE%9E%E7%8E%B0%E6%96%87%E5%AD%97%E6%BB%9A%E5%8A%A8/</guid>
+      <guid>https://liupengkun1993.github.io/post/js/-%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0-html-%E7%89%B9%E6%AE%8A%E6%A0%87%E7%AD%BE%E5%AE%9E%E7%8E%B0%E6%96%87%E5%AD%97%E6%BB%9A%E5%8A%A8/</guid>
       <description>想用 HTML 做个文字滚动效果，可以用特殊标签 marquee 实现，当然也可以用 JS 实现， 今天试了下用特殊标签 marquee 实现文字滚动。先声明下本人从事于 iOS 开发，之前零零星星</description>
     </item>
     

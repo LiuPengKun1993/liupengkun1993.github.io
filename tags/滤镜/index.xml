@@ -10,10 +10,10 @@
     <lastBuildDate>Wed, 26 Oct 2016 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/%E6%BB%A4%E9%95%9C/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>iOS开发之 - 毛玻璃&amp;模糊视图&amp;滤镜</title>
-      <link>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E6%AF%9B%E7%8E%BB%E7%92%83%E6%A8%A1%E7%B3%8A%E8%A7%86%E5%9B%BE%E6%BB%A4%E9%95%9C/</link>
+      <link>https://liupengkun1993.github.io/post/ios/tips/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E6%AF%9B%E7%8E%BB%E7%92%83%E6%A8%A1%E7%B3%8A%E8%A7%86%E5%9B%BE%E6%BB%A4%E9%95%9C/</link>
       <pubDate>Wed, 26 Oct 2016 15:43:48 +0800</pubDate>
       
-      <guid>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E6%AF%9B%E7%8E%BB%E7%92%83%E6%A8%A1%E7%B3%8A%E8%A7%86%E5%9B%BE%E6%BB%A4%E9%95%9C/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/tips/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E6%AF%9B%E7%8E%BB%E7%92%83%E6%A8%A1%E7%B3%8A%E8%A7%86%E5%9B%BE%E6%BB%A4%E9%95%9C/</guid>
       <description>为了让界面更加美观，有时候我们需要将图片设置成模糊，比如下边这张图片： 这篇文章主要演示了三种模糊效果，如下： 一、简单的毛玻璃效果： 原图 毛玻璃</description>
     </item>
     

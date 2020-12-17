@@ -7,67 +7,130 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>liupengkun</copyright>
-    <lastBuildDate>Wed, 31 Jan 2018 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Jun 2020 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>《Objective-C高级编程iOS与OS X多线程和内存管理》读书笔记</title>
+      <link>https://liupengkun1993.github.io/post/reading-notes/objective-c%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8Bios%E4%B8%8Eos-x%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 08 Jun 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/reading-notes/objective-c%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8Bios%E4%B8%8Eos-x%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
+      <description>这两天重读了《Objective-C高级编程 iOS与OS X多线程和内存管理》，此书主要详细讲解了“自动引用计数”“Blocks”“GCD”这</description>
+    </item>
+    
+    <item>
+      <title>《代码整洁之道》读书笔记</title>
+      <link>https://liupengkun1993.github.io/post/reading-notes/%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 08 Jun 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/reading-notes/%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</guid>
+      <description>有意义的命名 命名语意化：有意义的命名能够替代注释 类名和对象名应该是名词或名词短语 方法名应该是动词或动词短语 不要害怕名称过长 命名要避免误导 多使</description>
+    </item>
+    
+    <item>
+      <title>高性能iOS应用开发 - iOS性能</title>
+      <link>https://liupengkun1993.github.io/post/reading-notes/%E9%AB%98%E6%80%A7%E8%83%BDios%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91-ios%E6%80%A7%E8%83%BD/</link>
+      <pubDate>Tue, 31 Mar 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/reading-notes/%E9%AB%98%E6%80%A7%E8%83%BDios%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91-ios%E6%80%A7%E8%83%BD/</guid>
+      <description>高性能iOS应用开发 - iOS性能 《高性能iOS应用开发》是一本质量很高的 iOS 书籍，我从此书中系统的学到了很多东西。这篇博客是《高性能iOS应用</description>
+    </item>
+    
+    <item>
+      <title>高性能iOS应用开发 - 核心优化</title>
+      <link>https://liupengkun1993.github.io/post/reading-notes/%E9%AB%98%E6%80%A7%E8%83%BDios%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91-%E6%A0%B8%E5%BF%83%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Tue, 31 Mar 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/reading-notes/%E9%AB%98%E6%80%A7%E8%83%BDios%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91-%E6%A0%B8%E5%BF%83%E4%BC%98%E5%8C%96/</guid>
+      <description>此篇博客是《高性能iOS应用开发》一书第二部分“核心优化”的读书笔记，主要包括“内存管理”、“能耗(电量消耗)”、“并发编程”这三方面。 1. 内</description>
+    </item>
+    
+    <item>
+      <title>Model-View-ViewModel&#43;协调器 (MVVM-C)</title>
+      <link>https://liupengkun1993.github.io/post/reading-notes/model-view-viewmodel&#43;%E5%8D%8F%E8%B0%83%E5%99%A8-mvvm-c/</link>
+      <pubDate>Tue, 25 Feb 2020 18:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/reading-notes/model-view-viewmodel&#43;%E5%8D%8F%E8%B0%83%E5%99%A8-mvvm-c/</guid>
+      <description>此系列文章是《App架构》的读书笔记及心得。 前言 没有哪个单独的模式能在所有情景下都能做到最好。我们在开发中需要具体情况具体分析，最好的模式就</description>
+    </item>
+    
+    <item>
+      <title>Model-View-Controller (MVC)</title>
+      <link>https://liupengkun1993.github.io/post/reading-notes/model-view-controller-mvc/</link>
+      <pubDate>Mon, 24 Feb 2020 18:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/reading-notes/model-view-controller-mvc/</guid>
+      <description>此系列文章是《App架构》的读书笔记及心得。 前言 没有哪个单独的模式能在所有情景下都能做到最好。我们在开发中需要具体情况具体分析，最好的模式就</description>
+    </item>
+    
+    <item>
+      <title>MVC 下的网络层架构</title>
+      <link>https://liupengkun1993.github.io/post/reading-notes/mvc-%E4%B8%8B%E7%9A%84%E7%BD%91%E7%BB%9C%E5%B1%82%E6%9E%B6%E6%9E%84/</link>
+      <pubDate>Mon, 24 Feb 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/reading-notes/mvc-%E4%B8%8B%E7%9A%84%E7%BD%91%E7%BB%9C%E5%B1%82%E6%9E%B6%E6%9E%84/</guid>
+      <description>此系列文章是《App架构》的读书笔记及心得。 前言 没有哪个单独的模式能在所有情景下都能做到最好。我们在开发中需要具体情况具体分析，最好的模式就</description>
+    </item>
+    
     <item>
       <title>iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(3)</title>
-      <link>https://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/</link>
+      <link>https://liupengkun1993.github.io/post/reading-notes/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/</link>
       <pubDate>Wed, 31 Jan 2018 15:43:48 +0800</pubDate>
       
-      <guid>https://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/</guid>
+      <guid>https://liupengkun1993.github.io/post/reading-notes/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/</guid>
       <description>前言 文章共分为三篇： 第一篇：iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1) 第二篇：iOS 开发</description>
     </item>
     
     <item>
       <title>iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)</title>
-      <link>https://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/</link>
+      <link>https://liupengkun1993.github.io/post/reading-notes/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/</link>
       <pubDate>Wed, 24 Jan 2018 10:43:48 +0800</pubDate>
       
-      <guid>https://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/</guid>
+      <guid>https://liupengkun1993.github.io/post/reading-notes/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/</guid>
       <description>前言 文章共分为三篇： 第一篇：iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1) 第二篇：iOS 开发</description>
     </item>
     
     <item>
       <title>iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1)</title>
-      <link>https://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/</link>
+      <link>https://liupengkun1993.github.io/post/reading-notes/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/</link>
       <pubDate>Tue, 16 Jan 2018 15:43:48 +0800</pubDate>
       
-      <guid>https://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/</guid>
+      <guid>https://liupengkun1993.github.io/post/reading-notes/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/</guid>
       <description>《Effective Objective-C 2.0: 编写高质量 iOS 与 OS X 代码的 52 个有效方法》是一本非常经典的 OC 书籍。这本书从语法、接口与 API 设计、内存管理、框架等 7 大方面总</description>
     </item>
     
     <item>
       <title>设计模式-《重构》读书笔记及 APP 重构心得</title>
-      <link>https://liupengkun1993.github.io/post/ios/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%87%8D%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%8F%8A-app-%E9%87%8D%E6%9E%84%E5%BF%83%E5%BE%97/</link>
+      <link>https://liupengkun1993.github.io/post/reading-notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%87%8D%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%8F%8A-app-%E9%87%8D%E6%9E%84%E5%BF%83%E5%BE%97/</link>
       <pubDate>Wed, 10 Jan 2018 15:43:48 +0800</pubDate>
       
-      <guid>https://liupengkun1993.github.io/post/ios/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%87%8D%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%8F%8A-app-%E9%87%8D%E6%9E%84%E5%BF%83%E5%BE%97/</guid>
+      <guid>https://liupengkun1993.github.io/post/reading-notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%87%8D%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%8F%8A-app-%E9%87%8D%E6%9E%84%E5%BF%83%E5%BE%97/</guid>
       <description>前段时间和一同事一起重构了两个 APP，正好想写一些重构心得，前天又在知乎上看到一前辈推荐《重构》这本书，据说是程序员的必读书籍，于是就粗略的</description>
     </item>
     
     <item>
       <title>数据结构 -《大话数据结构》读书笔记(3)</title>
-      <link>https://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/</link>
+      <link>https://liupengkun1993.github.io/post/reading-notes/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/</link>
       <pubDate>Mon, 08 Jan 2018 18:43:48 +0800</pubDate>
       
-      <guid>https://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/</guid>
+      <guid>https://liupengkun1993.github.io/post/reading-notes/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/</guid>
       <description>前言 文章共分为三篇 第一篇：数据结构 -《大话数据结构》读书笔记(1) 一、数据结构绪论 二、算法 三、线性表 第二篇：数据结构 -《大话数据结构》读书笔</description>
     </item>
     
     <item>
       <title>数据结构 -《大话数据结构》读书笔记(2)</title>
-      <link>https://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/</link>
+      <link>https://liupengkun1993.github.io/post/reading-notes/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/</link>
       <pubDate>Mon, 08 Jan 2018 15:43:48 +0800</pubDate>
       
-      <guid>https://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/</guid>
+      <guid>https://liupengkun1993.github.io/post/reading-notes/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/</guid>
       <description>前言 文章共分为三篇 第一篇：数据结构 -《大话数据结构》读书笔记(1) 一、数据结构绪论 二、算法 三、线性表 第二篇：数据结构 -《大话数据结构》读书笔</description>
     </item>
     
     <item>
       <title>数据结构 -《大话数据结构》读书笔记(1)</title>
-      <link>https://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/</link>
+      <link>https://liupengkun1993.github.io/post/reading-notes/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/</link>
       <pubDate>Tue, 02 Jan 2018 15:43:48 +0800</pubDate>
       
-      <guid>https://liupengkun1993.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/</guid>
+      <guid>https://liupengkun1993.github.io/post/reading-notes/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/</guid>
       <description>公司的经理大哥建议过我，说趁年轻要深入学习算法与数据结构，设计模式， APP 架构，当然也包括 iOS 底层的一些知识&amp;hellip;&amp;hellip;半年多</description>
     </item>
     

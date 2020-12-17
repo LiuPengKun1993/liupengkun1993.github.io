@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hive on liupengkun</title>
+    <link>https://liupengkun1993.github.io/tags/hive/</link>
+    <description>Recent content in Hive on liupengkun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>liupengkun</copyright>
+    <lastBuildDate>Sun, 20 Sep 2020 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/hive/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HIVE 调优—— hive.fetch.task.conversion</title>
+      <link>https://liupengkun1993.github.io/post/bigdata/hive-%E8%B0%83%E4%BC%98-hive.fetch.task.conversion/</link>
+      <pubDate>Sun, 20 Sep 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/bigdata/hive-%E8%B0%83%E4%BC%98-hive.fetch.task.conversion/</guid>
+      <description>Fetch 抓取是指，Hive 中对某些情况的查询可以不必使用 MapReduce 计算。 启用 MapReduce Job 是会消耗系统开销的。对于这个问题，从 Hive0.10.0 版本开始，对于简单的不需要聚合的类似</description>
+    </item>
+    
+    <item>
+      <title>浅谈 Hive 性能优化</title>
+      <link>https://liupengkun1993.github.io/post/bigdata/%E6%B5%85%E8%B0%88-hive-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Sat, 19 Sep 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/bigdata/%E6%B5%85%E8%B0%88-hive-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</guid>
+      <description>总结了 Hive 的常用优化手段。 列裁剪及分区裁剪 这是最基本的操作。所谓列裁剪就是在查询时只读取需要的列，分区裁剪就是只读取需要的分区。 比如当列很多或</description>
+    </item>
+    
+  </channel>
+</rss>

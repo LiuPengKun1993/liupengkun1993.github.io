@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>高性能iOS应用开发 - 核心优化 - liupengkun</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="liupengkun" />
+  <meta name="description" content="此篇博客是《高性能iOS应用开发》一书第二部分“核心优化”的读书笔记，主要包括“内存管理”、“能耗(电量消耗)”、“并发编程”这三方面。 1. 内" />
+
+  <meta name="keywords" content="Hugo, theme, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0" />
+
+
+<link rel="canonical" href="https://liupengkun1993.github.io/post/reading-notes/%E9%AB%98%E6%80%A7%E8%83%BDios%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91-%E6%A0%B8%E5%BF%83%E4%BC%98%E5%8C%96/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.f1e506a781bf25d33ffc18aa6b4e972a965c58049d27d4f92b7db2e9bf28e4bf.css" integrity="sha256-8eUGp4G/JdM//Biqa06XKpZcWASdJ9T5K32y6b8o5L8=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="高性能iOS应用开发 - 核心优化" />
+<meta property="og:description" content="此篇博客是《高性能iOS应用开发》一书第二部分“核心优化”的读书笔记，主要包括“内存管理”、“能耗(电量消耗)”、“并发编程”这三方面。 1. 内" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://liupengkun1993.github.io/post/reading-notes/%E9%AB%98%E6%80%A7%E8%83%BDios%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91-%E6%A0%B8%E5%BF%83%E4%BC%98%E5%8C%96/" />
+<meta property="article:published_time" content="2020-03-31T15:43:48+08:00" />
+<meta property="article:modified_time" content="2020-03-31T15:43:48+08:00" />
+<meta itemprop="name" content="高性能iOS应用开发 - 核心优化">
+<meta itemprop="description" content="此篇博客是《高性能iOS应用开发》一书第二部分“核心优化”的读书笔记，主要包括“内存管理”、“能耗(电量消耗)”、“并发编程”这三方面。 1. 内">
+<meta itemprop="datePublished" content="2020-03-31T15:43:48+08:00" />
+<meta itemprop="dateModified" content="2020-03-31T15:43:48+08:00" />
+<meta itemprop="wordCount" content="11969">
+
+
+
+<meta itemprop="keywords" content="读书笔记,iOS,性能," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="高性能iOS应用开发 - 核心优化"/>
+<meta name="twitter:description" content="此篇博客是《高性能iOS应用开发》一书第二部分“核心优化”的读书笔记，主要包括“内存管理”、“能耗(电量消耗)”、“并发编程”这三方面。 1. 内"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">liupengkun'Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://liupengkun1993.github.io/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://liupengkun1993.github.io/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://liupengkun1993.github.io/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://liupengkun1993.github.io/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://liupengkun1993.github.io/about/">关于</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      liupengkun'Blog
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://liupengkun1993.github.io/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://liupengkun1993.github.io/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://liupengkun1993.github.io/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://liupengkun1993.github.io/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://liupengkun1993.github.io/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">高性能iOS应用开发 - 核心优化</h1>
+      
+      <div class="post-meta">
+        <time datetime="2020-03-31" class="post-time">
+          2020-03-31
+        </time>
+        <div class="post-category">
+            <a href="https://liupengkun1993.github.io/categories/ios/"> iOS </a>
+            
+          </div>
+        <span class="more-meta"> 11969 words </span>
+          <span class="more-meta"> 24 min read </span>
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-内存管理">1. 内存管理</a>
+      <ul>
+        <li><a href="#11-内存消耗">1.1 内存消耗</a></li>
+        <li><a href="#12-内存管理模型">1.2 内存管理模型</a></li>
+        <li><a href="#13-自动释放池块">1.3 自动释放池块</a></li>
+        <li><a href="#14-自动引用计数">1.4 自动引用计数</a></li>
+        <li><a href="#15-引用类型">1.5 引用类型</a></li>
+        <li><a href="#16-僵尸对象">1.6 僵尸对象</a></li>
+        <li><a href="#17-循环引用">1.7 循环引用</a></li>
+        <li><a href="#18-对象寿命与泄漏">1.8 对象寿命与泄漏</a></li>
+        <li><a href="#19-单例">1.9 单例</a></li>
+        <li><a href="#110-最佳实践">1.10 最佳实践</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-能耗">2. 能耗</a>
+      <ul>
+        <li><a href="#21-cpu">2.1 CPU</a></li>
+        <li><a href="#22-网络">2.2 网络</a></li>
+        <li><a href="#23-定位管理器和gps">2.3 定位管理器和GPS</a></li>
+        <li><a href="#24-屏幕">2.4 屏幕</a></li>
+        <li><a href="#25-其他硬件">2.5 其他硬件</a></li>
+        <li><a href="#26-电池电量与代码感知">2.6 电池电量与代码感知</a></li>
+        <li><a href="#27-分析电量使用">2.7 分析电量使用</a></li>
+        <li><a href="#28-最佳实践">2.8 最佳实践</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-并发编程">3. 并发编程</a>
+      <ul>
+        <li><a href="#31-线程">3.1 线程</a></li>
+        <li><a href="#32-线程开销">3.2 线程开销</a></li>
+        <li><a href="#33-gcd">3.3 GCD</a></li>
+        <li><a href="#34-操作与队列">3.4 操作与队列</a></li>
+        <li><a href="#35-线程安全的代码">3.5 线程安全的代码</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <blockquote>
+<p>此篇博客是《高性能iOS应用开发》一书第二部分“核心优化”的读书笔记，主要包括“内存管理”、“能耗(电量消耗)”、“并发编程”这三方面。</p>
+</blockquote>
+<p><img src="https://github.com/liuzhongning/Articles/blob/master/resources/High-performance-iOS-application-development/03.jpg" alt=""></p>
+<h2 id="1-内存管理">1. 内存管理</h2>
+<p>iPhone 和 iPad 设备的内存资源非常有限。如果某个应用的内存使用量超过了单个进程的上限，那么它就会被操作系统终止使用。正是由于这个原因，成功的内存管理在 iOS 应用的实现过程中扮演着核心的角色。</p>
+<p>与(基于垃圾回收的)Java 运行时不同，Objective-C 和 Swift 的 iOS 运行时使用引用计数。使用引用计数的负面影响在于，如果开发人员不够小心，那么可能会出现重复的内存释放和循环引用的情况。</p>
+<p>因此，理解 iOS 的内存管理是十分重要的。</p>
+<h3 id="11-内存消耗">1.1 内存消耗</h3>
+<p>内存消耗指的是应用消耗的 RAM。</p>
+<p>iOS 的虚拟内存模型并不包含交换内存，与桌面应用不同，这意味着磁盘不会被用来分页内存。最终的结果是应用只能使用有限的 RAM。这些 RAM 的使用者不仅包括在前台运行的应用，还包括操作系统服务，甚至还包括其他应用所执行的后台任务。</p>
+<p>应用中的内存消耗分为两部分:栈大小和堆大小。</p>
+<h4 id="111-栈大小">1.1.1 栈大小</h4>
+<p>应用中新创建的每个线程都有专用的栈空间，该空间由保留的内存和初始提交的内存组成。栈可以在线程存在期间自由使用。线程的最大栈空间很小，这就决定了以下的限制。</p>
+<ul>
+<li>可被递归调用的最大方法数。每个方法都有其自己的栈帧，并会消耗整体的栈空间。</li>
+<li>一个方法中最多可以使用的变量个数。所有的变量都会载入方法的栈帧中，并消耗一定的栈空间。</li>
+<li>视图层级中可以嵌入的最大视图深度。渲染复合视图将在整个视图层级树中递归地调用 layoutSubViews 和 drawRect 方法。如果层级过深，可能会导致栈溢出。</li>
+</ul>
+<h4 id="112-堆大小">1.1.2 堆大小</h4>
+<p>每个进程的所有线程共享同一个堆。一个应用可以使用的堆大小通常远远小于设备的 RAM 值。</p>
+<p>应用并不能控制分配给它的堆。只有操作系统才能管理堆。</p>
+<p>使用 NSString、载入图片、创建或使用 JSON/XML 数据、使用视图等都会消耗大量的堆内存。如果你的应用大量使用图片(与 Flickr 和 Instagram 应用类似)，那么你需要格外关注平均值和峰值内存使用的最小化。</p>
+<blockquote>
+<p>保持应用的内存需求总是处于 RAM 的较低占比是一个非常好的主意。虽然没有强制规定，但强烈建议使用量不要超过 80%~85%，要给操作系统的核心服务留下足够多的内存。不要忽视 didReceiveMemoryWarning 信号。</p>
+</blockquote>
+<h3 id="12-内存管理模型">1.2 内存管理模型</h3>
+<p>内存管理模型基于持有关系的概念。当一个对象创建于某个方法的内部时，那该方法就持有这个对象了。如果一个对象正处于被持有状态，那它占用的内存就不能被回收。</p>
+<p>一旦与某个对象相关的任务全部完成，那么就是放弃了持有关系。这一过程没有转移持有关系，而是分别增加或减少了持有者的数量。当持有者的数量降为零时，对象会被释放。</p>
+<p>这种持有关系计数通常被正式称为引用计数。</p>
+<h3 id="13-自动释放池块">1.3 自动释放池块</h3>
+<p>自动释放池块是允许你放弃对一个对象的持有关系、但可避免它立即被回收的一个工具。当从方法返回对象时，这种功能非常有用。</p>
+<p>它还能确保在块内创建的对象会在块完成时被回收。这在创建了多个对象的场景中非常有用。本地的块可以用来尽早地释放其中的对象，从而使内存用量保持在较低的水平。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="n">NSString</span> <span class="o">*</span> <span class="n">appDelegateClassName</span><span class="p">;</span>
+    <span class="k">@autoreleasepool</span> <span class="p">{</span>
+        <span class="c1">// Setup code that might create autoreleased objects goes here.
+</span><span class="c1"></span>        <span class="n">appDelegateClassName</span> <span class="o">=</span> <span class="n">NSStringFromClass</span><span class="p">([</span><span class="n">AppDelegate</span> <span class="k">class</span><span class="p">]);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">UIApplicationMain</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="nb">nil</span><span class="p">,</span> <span class="n">appDelegateClassName</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>以上代码是 main.m 中的 @autoreleasepool 块，块中收到过 autorelease 消息的所有对象都会在 autoreleasepool 块结束时收到 release 消息。更加重要的是，每个 autorelease 调用都会发送一个 release 消息。这意味着如果一个对象收到了不止一次的 autorelease 消息，那它也会多次收到 release 消息。这一点很棒，因为这能保证对象的引用计数下降到使用 autoreleasepool 块之前的值。如果计数为 0，则对象将被回收，从而保持较低的内存使用率。</p>
+<p>看了 main 方法的代码后，你会发现整个应用都在一个 autoreleasepool 块中，这意味着所有的 autorelease 对象最后都会被回收，不会导致内存泄漏。</p>
+<h3 id="14-自动引用计数">1.4 自动引用计数</h3>
+<p>ARC 是一种编译器特性。它评估了对象在代码中的生命周期，并在编译时自动注入适合的内存管理调用。编译器还会生成适合的 dealloc 方法。这意味着与跟踪内存使用(如确保对象被及时回收了)有关的最大难题被解决了。</p>
+<ul>
+<li>ARC的规则
+<ul>
+<li>不能实现或调用 retain、release、autorelease 或 retainCount 方法。这一限制不仅针对对象，对选择器同样有效。因此，[obj release]或@selector(retain)是编译时的错误。</li>
+<li>可以实现 dealloc 方法，但不能调用它们。不仅不能调用其他对象的 dealloc 方法，也不能调用超类。[super dealloc] 是编译时的错误。但你仍然可以对 Core Foundation 类型的对象调用 CFRetain、CFRelease 等相关方法。</li>
+<li>不能调用 NSAllocateObject 和 NSDeallocateObject 方法。应使用 alloc 方法创建对象， 运行时负责回收对象。</li>
+<li>不能在 C 语言的结构体内使用对象指针。</li>
+<li>不能在 id 类型和 void * 类型之间自动转换。如果需要，那么你必须做显示转换。</li>
+<li>不能使用 NSAutoreleasePool，要替换使用 autoreleasepool 块。</li>
+<li>不能使用 NSZone 内存区域。</li>
+<li>属性的访问器名称不能以 new 开头，以确保与 MRC 的互操作性。</li>
+</ul>
+</li>
+</ul>
+<h3 id="15-引用类型">1.5 引用类型</h3>
+<p>ARC 带来了新的引用类型:弱引用。深入理解这些引用类型对内存管理非常重要。支持的类型包括以下两种。</p>
+<ul>
+<li>强引用。强引用是默认的引用类型。被强引用指向的内存不会被释放。强引用会对引用计数加 1，从而扩展对象的生命周期。</li>
+<li>弱引用。弱引用是一种特殊的引用类型。它不会增加引用计数，因而不会扩展对象的生命周期。在启用了 ARC 的 Objective-C 编程中，弱引用格外重要。</li>
+</ul>
+<h4 id="151-变量限定符">1.5.1 变量限定符</h4>
+<p>ARC 为变量供了四种生命周期限定符。</p>
+<ul>
+<li><code>__strong</code> 这是默认的限定符，无需显示引入。只要有强引用指向，对象就会长时间驻留在内存中。可以将 <code>__strong</code> 理解为 retain 调用的 ARC 版本。</li>
+<li><code>__weak</code> 这表明引用不会保持被引用对象的存活。当没有强引用指向对象时，弱引用会被置为 nil。可将 <code>__weak</code> 看作是 assign 操作符的 ARC 版本，只是对象被回收时，<code>__weak</code> 具有安全性——指针将自动被设置为 nil。</li>
+<li><code>__unsafe_unretained</code> 与 <code>__weak</code> 类似，只是当没有强引用指向对象时，<code>__unsafe_unretained</code> 不会被置为 nil。可将其看作 assign 操作符的 ARC 版本。</li>
+<li><code>__autoreleasing</code>。<code>__autoreleasing</code> 用于由引用使用id *传递的消息参数。它预期了autorelease方法会在传递参数的方法中被调用。</li>
+</ul>
+<h4 id="152-属性限定符">1.5.2 属性限定符</h4>
+<p>属性声明有两个新的持有关系限定符:strong 和 weak。此外，assign 限定符的语义也被更新了。一言以蔽之，现在共有六个限定符。</p>
+<ul>
+<li>strong。默认符，指定了 __strong 关系。</li>
+<li>weak。指定了 __weak 关系。</li>
+<li>assign。这不是新的限定符，但其含义发生了改变。在 ARC 之前，assign 是默认的持有关系限 定符。在启用 ARC 之后，assign 表示了 __unsafe_unretained 关系。</li>
+<li>copy。暗指了 __strong 关系。此外，它还暗示了 setter 中的复制语义的常规行为。</li>
+<li>retain。指定了 __strong 关系。</li>
+<li>unsafe_unretained。指定了 __unsafe_unretained 关系。</li>
+</ul>
+<h3 id="16-僵尸对象">1.6 僵尸对象</h3>
+<p>僵尸对象是用于捕捉内存错误的调试功能。</p>
+<p>通常情况下，当引用计数降为 0 时对象会立即被释放，但这使得调试变得困难。如果开启了僵尸对象，那么对象就不会立即释放内存，而是被标记为僵尸。任何试图对其进行访问的行为都会被日志记录，因而你可以在对象的生命周期中跟踪对象在代码中被使用的位置。</p>
+<p>NSZombieEnabled 是一个环境变量，可以控制 Core Foundation 的运行时是否将使用僵尸对象。不应长期保留 NSZombieEnabled，因为默认情况下不会有对象被真正析构，这会导致应用使用大量的内存。特别说明一点，在发布的构建包中一定要禁用 NSZombieEnabled。</p>
+<p>要想设置 NSZombieEnabled 环境变量，需要进入 Product → Scheme → Edit Scheme。选择 左侧的 Run，然后在右侧选取 Diagnostics 标签页。选中 Zombie Objects 选项，如下图：</p>
+<p><img src="https://github.com/liuzhongning/Articles/blob/master/resources/High-performance-iOS-application-development/02.jpg" alt=""></p>
+<h3 id="17-循环引用">1.7 循环引用</h3>
+<p>引用计数的最大陷阱在于，它不能处理环状的引用关系，即 Objective-C 的循环引用。</p>
+<h4 id="171-避免循环引用的规则">1.7.1 避免循环引用的规则</h4>
+<ul>
+<li>对象不应该持有它的父对象，应该用 weak 引用指向它的父对象。</li>
+<li>作为必然的结果，一个层级体系中的子对象应该保留祖先对象。</li>
+<li>连接对象不应持有它们的目标对象。目标对象的角色是持有者。连接对象包括以下几种。
+<ul>
+<li>使用委托的对象。委托应该被当作目标对象，即持有者。</li>
+<li>包含目标和 action 的对象，这是由上一条规则推理得到的。例如，UIButton 会调用它的目标对象上的 action 方法。按钮不应该保留它的目标。</li>
+<li>观察者模式中被观察的对象。观察者就是持有者，并会观察发生在被观察对象上的变化。</li>
+</ul>
+</li>
+<li>使用专用的销毁方法中断循环引用。双向链表中存在循环引用，环形链表中也存在循环引用。在这类情况下，一旦明确对象不会再被使用时(当链表的表头超出作用范围)，你要编写代码以打破链表的链接。创建一个方法切断其自身与链表中下一个节点的链接。通过访问者模式递归地执行这一过程，从而避免无限递归。</li>
+</ul>
+<h4 id="172-循环引用的常见场景">1.7.2 循环引用的常见场景</h4>
+<p>大把的常见场景会导致循环引用。例如，使用线程、计时器、简单的块方法或委托都可能会导致循环引用。接下来我们将逐步探索这些场景，并给出避免循环引用的步骤。</p>
+<h5 id="1-委托">1. 委托</h5>
+<p>委托很可能是引入循环引用的最常见的地方。在应用启动时，从服务器获取最新的数据并更新 UI 是常见的事情。当用户点击刷新按钮时也会触发类似的刷新逻辑。</p>
+<p>解决方案是在委托中建立对操作的强引用，并在操作中建立对委托的弱引用。</p>
+<h5 id="2-block">2. block</h5>
+<p>与不正确地使用委托对象导致的问题类似，在使用 block 时，捕获外部变量也是导致循环引用的原因。</p>
+<p>解决方案是通过弱引用获得强引用，类似于 <code>__weak typeof(self) weakSelf = self;</code>。</p>
+<h5 id="3-线程与计时器">3. 线程与计时器</h5>
+<p>不正确地使用 NSThread 和 NSTimer 对象也可能会导致循环引用。运行异步操作的典型步骤如下。</p>
+<ul>
+<li>如果没有编写更高级的代码来管理自定义的队列，则在全局队列上使用 dispatch_async 方法。</li>
+<li>在需要的时间和地点用 NSThread 开启异步执行。</li>
+<li>使用 NSTimer 周期性地执行一段代码。</li>
+</ul>
+<p>解决方案：NSTimer 在主线程中不会造成循环引用，但是子线程会造成循环引用，问题应该是出在子线程问题上。在定时器释放时必须要调用 invalidate 方法，这个方法会做一些释放 self、block、RunLoop 等释放资源的工作，而且释放 RunLoop 只能释放和定时器同一个线程的 RunLoop。</p>
+<h4 id="173-观察者">1.7.3 观察者</h4>
+<h5 id="1-键-值观察">1. 键-值观察</h5>
+<p>Objective-C 允许用 addObserver:forKeyPath:options:context: 方法在任何 NSObject 子类的 对象上添加观察者。观察者会通过 observeValueForKeyPath:ofObject:change:context: 方法得到通知。removeObserver:forKeyPath:context: 方法用于解除注册或移除观察者。这就是众所周知的键 - 值观察。</p>
+<p>这是一个极为有用的特性，尤其是在以调试为目的跟踪某些共享于应用多个部分(如用户接口、业务逻辑、持久化以及网络)的对象时。</p>
+<p>键 - 值观察在双向数据绑定中也非常有用。视图可以关联委托来响应那些会导致模型更新的用户交互。键 - 值观察可以用于反向的绑定，以便在模型发生变化时更新 UI。</p>
+<p>这意味着观察者需要有足够长的生命周期才能够持续地监控变化。你需要额外关注观察者的生命周期，而且要持续到所观察的内存被废弃之后。</p>
+<p>当你为目标对象添加键 - 值观察者时，目标对象的生命周期至少应该和观察者一样长，因为只有这样才有可能从目标对象移除观察者。这可能会导致目标对象的生命周期比预期要长，也是你需要额外小心的地方。</p>
+<h5 id="2-通知中心">2. 通知中心</h5>
+<p>一个对象可以注册为通知中心(NSNotificationCenter 对象)的观察者，并接收 NSNotification 对象。与键 - 值观察者相似，通知中心不会对观察者持有强引用。这意味着开发人员得到了解放，无需为观察者的析构过早或过晚而操心。</p>
+<h3 id="18-对象寿命与泄漏">1.8 对象寿命与泄漏</h3>
+<p>对象在内存中活动的时间越长，内存不能被清理的可能性就越大。所以应当尽可能地避免出现长寿命的对象。当然，你需要保留代码中关键操作对象的引用，为的是不必每次都浪费时间来创建它们。尽量在使用这些对象时完成对它们的引用。</p>
+<p>长寿命对象的常见形式是单例。日志器是典型的例子——只创建一次，从不销毁。</p>
+<p>另一个方案是使用全局变量。全局变量在程序开发中是可怕的东西。</p>
+<p>要想合理地使用全局变量，必须满足以下条件:</p>
+<ul>
+<li>没有被其他对象所持有;</li>
+<li>不是常量;</li>
+<li>整个应用中只有一个，而不是每个组件一个。</li>
+</ul>
+<p>如果某个变量不符合这些要求，那么它不应该被用作全局变量。</p>
+<p>复杂的对象图使得回收内存的机会变得更少，同时增加了应用因内存耗尽而崩溃的风险。如果主线程总是被迫等待子线程的操作(如网络或数据库存取)，那么应用的响应性能会变得很差。</p>
+<h3 id="19-单例">1.9 单例</h3>
+<p>单例模式是限制一个类只初始化一个对象的一种设计模式。在实践中，初始化常常在应用启动不久后执行，而且这些对象不会被销毁。</p>
+<p>让一个对象有着与应用一样长的生命周期可不是什么好主意。如果这个对象是其他对象的源头(如一个服务定位器)，若定位器的实现不正确则有可能造成内存风险。</p>
+<p>毫无疑问，单例是必要的。但单例的实现对其使用方式有重要影响。</p>
+<p>在充分讨论单例引入的问题之前，我们不妨先更好地理解单例，了解一下为什么确实需要使用单例。</p>
+<p>单例极为有用，尤其是在某个系统确定只需要一个对象实例时。应该在以下情形中使用单例:</p>
+<ul>
+<li>队列操作(如日志和埋点)</li>
+<li>访问共享资源(如缓存)</li>
+<li>资源池(如线程池或连接池)</li>
+</ul>
+<p>一旦创建，单例会一直存活到应用关闭。日志器、埋点服务以及缓存都是使用单例的合理场景。</p>
+<p>更重要的是，单例通常会在应用启动时进行初始化，打算使用单例的组件需要等它们准备得当。这会增加应用的启动时间。</p>
+<p>你可以使用以下的指导原则。</p>
+<ul>
+<li>尽可能地避免使用单例。</li>
+<li>识别需要内存的部分，如用于埋点的内存缓冲区(在尚未将数据同步到服务器前使用)。寻求减少内存的方法。注意，你需要将减少内存与其他事情做权衡。减小缓冲区意味着更多的服务器通信。</li>
+<li>尽量避免对象级的属性，因为它们会与对象共存亡。尽量使用本地变量。</li>
+</ul>
+<h3 id="110-最佳实践">1.10 最佳实践</h3>
+<p>通过遵循这些最佳实践，你将很大程度上避免许多麻烦，如内存泄漏、循环引用和较大内
+存消耗。</p>
+<ul>
+<li>避免大量的单例。具体来说，不要出现上帝对象(如职责特别多或状态信息特别多的对象)。这是一个反模式，指代一种常见解决方案的设计模式，但很快产生了不良效果。日志器、埋点服务和任务队列这样的辅助单例都是很不错的，但全局状态对象不可取。</li>
+<li>对子对象使用 __strong。</li>
+<li>对父对象使用 __weak。</li>
+<li>对使引用图闭合的对象(如委托)使用 __weak。</li>
+<li>对数值属性(NSInteger、SEL、CGFloat 等)而言，使用 assign 限定符。</li>
+<li>对于块属性，使用 copy 限定符。</li>
+<li>当声明使用<code>NSError **</code> 参数的方法时，需要使用 <code>__autoreleasing</code>，并要注意用正确的 语法: <code>NSError * __autoreleasing *</code>。</li>
+<li>避免在块内直接引用外部的变量。在块外面将它们 weakify，并在块内再将它们 strongify。 参见 <a href="https://github.com/jspahrsummers/libextobjc">libextobjc 库</a> 来了解 @weakify 和 @strongify。</li>
+<li>进行必要清理时遵循以下准则:
+<ul>
+<li>销毁计时器</li>
+<li>移除观察者(具体来说，移除对通知的注册)</li>
+<li>解除回调(具体来说，将强引用的委托设置为 nil)</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-能耗">2. 能耗</h2>
+<p>设备中的每个硬件模块都会消耗电量。电量的最大消费者是 CPU，但这只是系统的一个方面。一个编写良好的应用需要谨慎地使用电能。用户往往会删除耗电量大的应用。</p>
+<p>除 CPU 外，耗电量高、值得关注的硬件模块还包括:网络硬件、蓝牙、GPS、麦克风、加 速计、摄像头、扬声器和屏幕。</p>
+<h3 id="21-cpu">2.1 CPU</h3>
+<p>不论用户是否正在直接使用，CPU 都是应用所使用的主要硬件。在后台操作和处理推送通知时，应用仍会消耗 CPU 资源。</p>
+<p>应用计算得越多，消耗的电量就越多。在完成相同的基本操作时，老一代的设备会消耗更多的电量。计算量的消耗取决于不同的因素。</p>
+<ul>
+<li>对数据的处理(例如，对文本进行格式化)。</li>
+<li>待处理的数据大小——更大的显示屏允许软件在单个视图中展示更多的信息，但这也意味着要处理更多的数据。</li>
+<li>处理数据的算法和数据结构。</li>
+<li>执行更新的次数，尤其是在数据更新后，触发应用的状态或 UI 进行更新(应用收到的推送通知也会导致数据更新，如果此时用户正在使用应用，你还需要更新 UI)。</li>
+</ul>
+<p>没有单一规则可以减少设备中的执行次数。很多规则都取决于操作的本质。以下是一些可以在应用中投入使用的最佳实践。</p>
+<ul>
+<li>针对不同的情况选择优化的算法。例如，当你在排序时，如果列表少于 43 个实例，则插入排序优于归并排序，但实例多于 286 个时，应当使用快速排序。要优先使用双枢轴快速排序而不是传统的单枢轴快速排序。</li>
+<li>如果应用从服务器接收数据，尽量减少需要在客户端进行的处理例如，如果一段文字需要在客户端进行渲染，尽可能在服务器将数据清理干净。</li>
+<li>优化静态编译(ahead-of-time，AOT)处理。动态编译(just-in-time，JIT)处理的缺点在于它会强制用户等待操作完成。但是激进的 AOT 处理则会导致计算资源的浪费。需要根据应用和设备选择精确定量的 AOT 处理。</li>
+<li>分析电量消耗。测量目标用户的所有设备上的电量消耗。找到高能耗的区域并想办法降低能耗。</li>
+</ul>
+<h3 id="22-网络">2.2 网络</h3>
+<p>智能的网络访问管理可以让应用响应得更快，并有助于延长电池寿命。在无法访问网络时，应当推迟后续的网络请求，直到网络连接恢复为止。</p>
+<p>此外，应避免在没有连接 WiFi 的情况下进行高带宽消耗的操作，比如视频流。众所周知，蜂窝无线系统(LTE、4G、3G 等)对电量的消耗远大于 WiFi 信号。根源在于 LTE 设备基于多输入、多输出技术，使用多个并发信号以维护两端的 LTE 链接。类似地，所有的蜂窝数据连接都会定期扫描以寻找更强的信号。</p>
+<p>因此，我们需要:</p>
+<ul>
+<li>在进行任何网络操作之前，先检查合适的网络连接是否可用;</li>
+<li>持续监视网络的可用性，并在连接状态发生变化时给予适当的反馈。</li>
+</ul>
+<h3 id="23-定位管理器和gps">2.3 定位管理器和GPS</h3>
+<p>了解定位服务包括 GPS(或 GLONASS)和 WiFi 硬件这一点很重要，同时要知道定位服务需要大量的电量。</p>
+<p>使用 GPS 计算坐标需要确定两点信息。</p>
+<ul>
+<li>时间锁
+<ul>
+<li>每个 GPS 卫星每毫秒广播唯一一个 1023 位随机数，因而数据传播速率是 1.024Mbit/s。 GPS 的接收芯片必须正确地与卫星的时间锁槽对齐。</li>
+</ul>
+</li>
+<li>频率锁
+<ul>
+<li>GPS 接收器必须计算由接收器与卫星的相对运动导致的多普勒偏移带来的信号误差。</li>
+</ul>
+</li>
+</ul>
+<p>计算坐标会不断地使用 CPU 和 GPS 的硬件资源，因此它们会迅速地消耗电池电量。</p>
+<h4 id="231-最佳的初始化">2.3.1 最佳的初始化</h4>
+<p>CLLocationManager的常用操作和属性</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="c1">// 开始用户定位
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">startUpdatingLocation</span><span class="p">;</span>
+<span class="c1">// 停止用户定位
+</span><span class="c1"></span><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">stopUpdatingLocation</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>说明：当调用了 startUpdatingLocation 方法后，就开始不断地定位用户的位置，中途会频繁地调用代理的下面方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">locationManager:</span><span class="p">(</span><span class="n">CLLocationManager</span> <span class="o">*</span><span class="p">)</span><span class="nv">manager</span> <span class="nf">didUpdateLocations:</span><span class="p">(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nv">locations</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在调用 startUpdatingLocation 方法时，两个参数起着非常重要的作用。</p>
+<ul>
+<li>distanceFilter
+<ul>
+<li>只要设备的移动超过了最小距离，距离过滤器就会导致管理器对委托对象的 locationManager:didUpdateLocations: 事件通知发生变化。该距离使用公制单位(米)。这并不会有助于减少 GPS 接收器的使用，但会影响应用的处理速度，从而直接减少 CPU 的使用。</li>
+</ul>
+</li>
+<li>desiredAccuracy
+<ul>
+<li>精度参数的使用直接影响了使用天线的个数，进而影响了对电池的消耗。精度级别的选取取决于应用的具体用途。按照降序排列，精度由以下常量定义。
+<ul>
+<li>kCLLocationAccuracyBestForNavigation 用于导航的最佳精度级别。</li>
+<li>kCLLocationAccuracyBest 设备可能达到的最佳精度级别。</li>
+<li>kCLLocationAccuracyNearestTenMeters 精度接近 10 米。如果对用户所走的每一米并不感兴趣，不妨使用这个值(例如，可 在测量大块距离时使用)。</li>
+<li>kCLLocationAccuracyHundredMeters 精度接近 100 米。</li>
+<li>kCLLocationAccuracyKilometer 精度在千米范围。这在粗略测量两个距离数百千米的兴趣点时非常有用。</li>
+<li>kCLLocationAccuracyThreeKilometers 精度在 3 千米范围。在距离真的很远时使用这个值。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="232-关闭无关紧要的特性">2.3.2 关闭无关紧要的特性</h4>
+<p>判断何时需要跟踪位置的变化。在需要跟踪时调用 startUpdatingLocation 方法，无需跟踪时调用 stopUpdatingLocation 方法。</p>
+<p>假设用户需要用一个消息类的应用与朋友分享位置。如果该应用只是发送城市的名称，则只需要一次性地获取位置信息，然后就可以通过调用 stopUpdatingLocation 关闭位置跟踪。</p>
+<h4 id="233-只在必要时使用网络">2.3.3 只在必要时使用网络</h4>
+<p>为了提高电量的使用效率，iOS 总是尽可能地保持无线网络关闭。当应用需要建立网络连接时，iOS 会利用这个机会向后台应用分享网络会话，以便一些低优先级的事件能够被处理，如推送通知、收取电子邮件等。</p>
+<p>关键在于每当应用建立网络连接时，网络硬件都会在连接完成后多维持几秒的活动时间。每次集中的网络通信都会消耗大量的电量。</p>
+<p>要想减轻这个问题带来的危害，你的软件需要有所保留地使用网络。应该定期集中短暂地使用网络，而不是持续地保持着活动的数据流。只有这样，网络硬件才有机会被关闭。</p>
+<h4 id="234-后台定位服务">2.3.4 后台定位服务</h4>
+<p>CLLocationManager 提供了一个替代的方法来监听位置的更新。startMonitoringSigni-ficantLocationChanges 可以帮助你在更远的距离跟踪运动。精确的值由内部决定，且与 distanceFilter 无关。</p>
+<p>使用这一模式可以在应用进入后台后继续跟踪运动。(除非应用是导航类应用，且你想在锁屏期间也获得很好的细节。)典型的做法是在应用进入后台时执行 startMonitoringSigni-ficantLocationChanges 方法，而当应用回到前台时执行 startUpdatingLocation。</p>
+<h4 id="235-nstimernsthread和定位服务">2.3.5 NSTimer、NSThread和定位服务</h4>
+<p>当应用位于后台时，任何定时器或线程都会挂起。但如果你在应用位于后台状态时申请了定位，那么应用会在每次收到更新后被短暂唤醒。在此期间，线程和计时器都会被唤醒。</p>
+<p>可怕之处在于，如果你在这段时间做了任何网络操作，则会启动所有相关的天线(如 WiFi 和 LTE/4G/3G)。</p>
+<p>想要控制这种状况往往非常棘手。最佳的选择是使用 NSURLSession 类。</p>
+<h3 id="24-屏幕">2.4 屏幕</h3>
+<p>屏幕非常耗电。屏幕越大就越费电。当然，如果你的应用在前台运行且与用户进行交互，则势必会使用屏幕并消耗电量。</p>
+<p>然而，仍然有一些方案可以优化屏幕的使用。</p>
+<h4 id="241-动画">2.4.1 动画</h4>
+<p>你可以遵守一个简单的规则:当应用在前台时使用动画，一旦应用进入后台则立即暂停动 画。通常来说，你可以通过监听 UIApplicationWillResignActiveNotification 或 UIApplic ationDidEnterBackgroundNotification 的通知事件来暂停或停止动画，也可以通过监听 UI ApplicationDidBecomeActiveNotification 的通知事件来恢复动画。</p>
+<h4 id="242-视频播放">2.4.2 视频播放</h4>
+<p>在视频播放期间，最好强制保持屏幕常亮。可以使用 UIApplication 对象的 idleTimerDisabled 属性来实现这个目的。一旦设置为 YES，它会阻止屏幕休眠，从而实现常亮。与动画类似，你可以通过响应应用的通知来释放和获取锁。</p>
+<h3 id="25-其他硬件">2.5 其他硬件</h3>
+<p>当应用进入后台时，应该释放对这些硬件的锁定:</p>
+<ul>
+<li>蓝牙</li>
+<li>相机</li>
+<li>扬声器，除非应用是音乐类的</li>
+<li>麦克风</li>
+</ul>
+<p>我们并不会在这里讨论这些硬件的特性，但是基本规则是一致的——只有当应用处于前台时才与这些硬件进行交互，应用处于后台时应停止交互。</p>
+<p>扬声器和无线蓝牙可能是例外。如果你正在开发音乐、收音机或其他的音频类应用，则需要在应用进入后台后继续使用扬声器。不要让屏幕仅仅为音频播放的目的而保持常亮。类似地，若应用还有未完成的数据传输，则需要在应用进入后台后持续使用无线蓝牙，例如，与其他设备传输文件。</p>
+<h3 id="26-电池电量与代码感知">2.6 电池电量与代码感知</h3>
+<p>一个智能的应用会考虑到电池的电量和自身的状态，从而决定是否要真正执行资源密集消耗型的操作。另外一个有价值的点是对充电的判断，确定设备是否处于充电状态。</p>
+<p>使用 UIDevice 实例可以获取 batteryLevel 和 batteryState(充电状态)。</p>
+<blockquote>
+<p>当剩余电量较低时提示用户，并请求用户授权执行电源密集型的操作——当然，只在用户同意的前提下执行。总是用一个指示符显示长时间任务的进度，包括设备上即将完成的计算或者只是下载一些内容。向用户提供完成进度的估算，以帮助他们决定是否需要为设备充电。</p>
+</blockquote>
+<h3 id="27-分析电量使用">2.7 分析电量使用</h3>
+<p>利用 Xcode Instruments 的 Energy Log。</p>
+<ul>
+<li>打开手机设置，点击 &ldquo;开发者&rdquo;，选中 Logging。</li>
+<li>iOS 设置中的 Instruments 勾选 Energy，并点击startRecording。然后打开你的 APP 跑起来。操作五分钟左右 (具体看你的需要) ，再进入手机设置点击 stopRecording。</li>
+<li>接着，把 iOS 设备连接 Xcode，并打开 Instruments 中的 Energy Log(Xcode &ndash;&gt; Open Developer Tool &ndash;&gt; Instruments &ndash;&gt; Energy Log)，点击工具栏中 Import Logged Data from Device。导入我们 iOS 性能优化中能耗的数据。</li>
+<li>Instruments 中可以看到你的 APP 的功耗。</li>
+</ul>
+<h3 id="28-最佳实践">2.8 最佳实践</h3>
+<p>以下的最佳实践可以确保对电量的谨慎使用。遵循以下要点，应用可以实现对电量的高效使用。</p>
+<ul>
+<li>最小化硬件使用。换句话说，尽可能晚地与硬件打交道，并且一旦完成任务立即结束使用。</li>
+<li>在进行密集型任务前，检查电池电量和充电状态。</li>
+<li>在电量低时，提示用户是否确定要执行任务，并在用户同意后再执行。</li>
+<li>或提供设置的选项，允许用户定义电量的阈值，以便在执行密集型操作前提示用户。</li>
+</ul>
+<h2 id="3-并发编程">3. 并发编程</h2>
+<h3 id="31-线程">3.1 线程</h3>
+<p>线程是运行时执行的一组指令序列。</p>
+<p>每个进程至少应包含一个线程。在 iOS 中，进程启动时的主要线程通常被称作主线程。所有的 UI 元素都需要在主线程中创建和管理。与用户交互相关的所有中断最终都会分发到 UI 线程，处理代码会在这些地方执行——IBAction 方法的代码都会在主线程中执行。</p>
+<p>Cocoa 编程不允许其他线程更新 UI 元素。这意味着，无论何时应用在后台线程执行了耗时操作，比如网络或其他处理，代码都必须将上下文切换到主线程再更新 UI——例如，进度条指示任务进度或标签展示处理结果。</p>
+<h3 id="32-线程开销">3.2 线程开销</h3>
+<p>虽然应用有多个线程看起来非常赞，但每个线程都有一定的开销，从而影响到应用的性能。线程不仅仅有创建时的时间开销，还会消耗内核的内存，即应用的内存空间。</p>
+<h4 id="321-内核数据结构">3.2.1 内核数据结构</h4>
+<p>每个线程大约消耗 1KB 的内核内存空间。这块内存用于存储与线程有关的数据结构和属性。这块内存是联动内存(wired memory)，无法被分页。</p>
+<h4 id="322-栈空间">3.2.2 栈空间</h4>
+<p>主线程的栈空间大小为 1M，而且无法修改。所有的二级线程默认分配 512KB 的栈空间。注意，完整的栈并不会立即被创建出来。实际的栈空间大小会随着使用而增长。因此，即使主线程有 1MB 的栈空间，某个时间点的实际栈空间很可能要小很多。</p>
+<p>在线程启动前，栈空间的大小可以被改变。栈空间的最小值是 16KB，而且其数值必须是 4KB 的倍数。</p>
+<h4 id="323-创建耗时">3.2.3 创建耗时</h4>
+<p>创建线程后启动线程的耗时区间为 5~100 毫秒，平均大约在 29 毫秒。这是很大的时间开销，若在应用启动时开启多个线程，则尤为明显。</p>
+<p>线程的启动时间之所以如此之长，是因为多次的上下文切换所带来的开销。</p>
+<h3 id="33-gcd">3.3 GCD</h3>
+<p>GCD 提供的功能列表。</p>
+<ul>
+<li>任务或分发队列，允许主线程中的执行、并行执行和串行执行。</li>
+<li>分发组，实现对一组任务执行情况的跟踪，而与这些任务所基于的队列无关。</li>
+<li>信号量。</li>
+<li>屏障，允许在并行分发队列中创建同步的点。</li>
+<li>分发对象和管理源，实现更为底层的管理和监控。</li>
+<li>异步 I/O，使用文件描述符或管道。</li>
+</ul>
+<p>GCD 同样解决了线程的创建与管理。它帮助我们跟踪应用中线程的总数，且不会造成任何的泄漏。</p>
+<blockquote>
+<p>大多数情况下，应用单独使用 GCD 就可以很好地工作，但仍有特定的情况需要考虑使用 NSThread 或 NSOperationQueue。当应用中有多个长耗时的任务需要并行执行时，最好对线程的创建过程加以控制。如果代码执行的时间过长，很有可能达到线程的限制 64 个，即 GCD 的线程池上限。 应该避免浪费地使用 dispatch_async 和 dispatch_sync，因为那会导致应用 崩溃 4。虽然 64 个线程对移动应用来说是个很高的合理值，但不加控制的应 用迟早会超出这个限制。</p>
+</blockquote>
+<p>关于 GCD 线程池上限，可以参考这个文档：<a href="https://stackoverflow.com/questions/7213845/number-of-threads-created-by-gcd">stackoverflow.com:number-of-threads-created-by-gcd</a>。</p>
+<h3 id="34-操作与队列">3.4 操作与队列</h3>
+<p>操作和操作队列是 iOS 编程中和任务管理有关的又一个重要概念。</p>
+<p>NSOperation 封装了一个任务以及和任务相关的数据和代码，而 NSOperationQueue 以先入先出的顺序控制了一个或多个这类任务的执行。</p>
+<p>NSOperation 和 NSOperationQueue 都提供控制线程个数的能力。可用 maxConcurrentOpera-tionCount 属性控制队列的个数，也可以控制每个队列的线程个数。</p>
+<p>以下是对 NSThread、NSOperationQueue 和 GCD API 的一个快速比较。</p>
+<ul>
+<li>
+<p>GCD</p>
+<ul>
+<li>抽象程度最高。</li>
+<li>两种队列开箱即用:main 和 global。</li>
+<li>可以创建更多的队列(使用 dispatch_queue_create)。</li>
+<li>可以请求独占访问(使用 dispatch_barrier_sync 和 dispatch_barrier_async)。</li>
+<li>基于线程管理。</li>
+<li>硬性限制创建 64 个线程。</li>
+</ul>
+</li>
+<li>
+<p>NSOperationQueue</p>
+<ul>
+<li>无默认队列。</li>
+<li>应用管理自己创建的队列。</li>
+<li>队列是优先级队列。</li>
+<li>操作可以有不同的优先级(使用 queuePriority 属性)。</li>
+<li>使用 cancel 消息可以取消操作。注意，cancel 仅仅是个标记。如果操作已经开始执行，则可能会继续执行下去。</li>
+<li>可以等待某个操作执行完毕(使用 waitUntilFinished 消息)。</li>
+</ul>
+</li>
+<li>
+<p>NSThread</p>
+<ul>
+<li>低级别构造，最大化控制。</li>
+<li>应用创建并管理线程。</li>
+<li>应用创建并管理线程池。</li>
+<li>应用启动线程。</li>
+<li>线程可以拥有优先级，操作系统会根据优先级调度它们的执行。</li>
+<li>无直接 API 用于等待线程完成。需要使用互斥量(如 NSLock)和自定义代码。</li>
+</ul>
+</li>
+</ul>
+<h3 id="35-线程安全的代码">3.5 线程安全的代码</h3>
+<h4 id="351-原子属性">3.5.1 原子属性</h4>
+<p>原子属性是实现应用状态线程安全的一个良好开始。如果一个属性是 atomic，则修改和读取肯定都是原子的。</p>
+<p>这一点很重要，因为这样可以阻止两个线程同时更新一个值，反之则有可能导致错误的状态。正在修改属性的线程必须处理完毕后，其他线程才能开始处理。</p>
+<p>所有的属性默认都是原子性的。作为最佳实践，在需要时应该显式地使用 atomic。否则使 用 nonatomic 标记属性。</p>
+<p>因为原子属性存在开销，所以过度使用它们并不明智。例如，如果能够保证某个属性在任何时刻都不会被多个线程访问，那最好还是将其标记为 nonatomic。</p>
+<h4 id="352-锁">3.5.2 锁</h4>
+<p>锁是进入临界区的基础构件。atomic 属性和 @synchronized 块是为了实现便捷实用的高级
+别抽象。</p>
+<p>以下是三种可用的锁。</p>
+<ul>
+<li>
+<p>NSLock</p>
+<ul>
+<li>这是一种低级别的锁。一旦获取了锁，执行则进入临界区，且不会允许超过一个线程并行执行。释放锁则标记着临界区的结束。</li>
+<li>NSLock 必须在锁定的线程中进行解锁。</li>
+</ul>
+</li>
+<li>
+<p>NSRecursiveLock</p>
+<ul>
+<li>NSRecursiveLock 允许在被解锁前锁定多次。如果解锁的次数与锁定的次数相匹配，则 认为锁被释放，其他线程可以获取锁。</li>
+</ul>
+</li>
+<li>
+<p>NSCondition</p>
+<ul>
+<li>有些情况需要协调线程之间的执行。例如，一个线程可能需要等待其他线程返回结果。NSCondition 可以原子性地释放锁，从而使得其他等待的线程可以获取锁，而初始的线程继续等待。一个线程会等待释放锁的条件变量。另一个线程会通知条件变量释放该锁，并唤醒等待中的线程。</li>
+</ul>
+</li>
+</ul>
+<h4 id="353-将读写锁应用于并发读写">3.5.3 将读写锁应用于并发读写</h4>
+<p>有这么一个情况：如果有多个线程试图读取一个属性，同步的代码在同一时刻只允许单个线程进行访问。使用上文提到的 atomic 属性会拖慢应用的性能。</p>
+<p>读写锁允许并行访问只读操作，而写操作需要互斥访问。这意味着多个线程可以并行地读取数据，但是修改数据时需要一个互斥锁。</p>
+<p>GCD 屏障允许在并行分发队列上创建一个同步的点。当遇到屏障时，GCD 会延迟执行提交的代码块，直到队列中所有在屏障之前提交的代码块都执行完毕。随后，通过屏障提交的代码块会单独地执行。我们将这个代码块称为屏障块。待其完成后，队列会按照原有行为继续执行。</p>
+<p>要想实现这一行为，我们需要遵循以下步骤。</p>
+<ul>
+<li>创建一个并行队列。</li>
+<li>在这个队列上使用 dispatch_sync 执行所有的读操作。</li>
+<li>在相同的队列上使用 dispatch_barrier_sync 执行所有的写操作。</li>
+</ul>
+<h4 id="354-使用不可变实体">3.5.4 使用不可变实体</h4>
+<p>如果需要访问一个正在修改的状态，那将会怎么样呢？例如，如果缓存被清空，但因为用户执行了一个交互，其中部分状态要求立即被使用，情况将会是怎样的呢?是否存在更有效的机制以管理状态，而不是多个组件试图同时更新状态?</p>
+<p>你的团队应该遵循以下的最佳实践。</p>
+<ul>
+<li>使用不可变实体。</li>
+<li>通过更新子系统提供支持。</li>
+<li>允许观察者接收有关数据变化的通知。</li>
+</ul>
+<h4 id="355-异步优于同步">3.5.5 异步优于同步</h4>
+<p>要想实现线程安全、不死锁且易于维护的代码，强烈建议使用异步风格。能放到异步处理的，就放到异步。</p>
+<hr>
+<p>相关文章：<a href="https://github.com/liuzhongning/Articles/blob/master/contents/High-performance-iOS-application-development/%E9%AB%98%E6%80%A7%E8%83%BDiOS%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%20-%20iOS%E6%80%A7%E8%83%BD.md">高性能iOS应用开发 - iOS性能</a></p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">liupengkun</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2020-03-31
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://liupengkun1993.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+          <a href="https://liupengkun1993.github.io/tags/ios/">iOS</a>
+          <a href="https://liupengkun1993.github.io/tags/%E6%80%A7%E8%83%BD/">性能</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/reading-notes/%E9%AB%98%E6%80%A7%E8%83%BDios%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91-ios%E6%80%A7%E8%83%BD/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">高性能iOS应用开发 - iOS性能</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/reading-notes/ios%E5%BC%80%E5%8F%91%E9%AB%98%E6%89%8B%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+            <span class="next-text nav-default">《iOS开发高手课》学习笔记</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:pengkun1011@gmail.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/LiuPengKun1993" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://weibo.com/u/3828401985?is_all=1" rel="me noopener" class="iconfont"
+      title="weibo"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M385.714286 733.714286q12-19.428571 6.285714-39.428571t-25.714286-28.571429q-19.428571-8-41.714286-0.571429t-34.285714 26.285714q-12.571429 19.428571-7.428571 39.142857t24.571429 28.857143 42.571429 1.428571 35.714286-27.142857zm53.714286-69.142857q4.571429-7.428571 2-15.142857t-10-10.571429q-8-2.857143-16.285714 2.857143t-12.285714 10.571429q-9.714286 17.714286 7.428571 25.714286 8 2.857143 16.571429 2.857143t12.571429-10.571429zm99.428571 61.142857q-25.714286 58.285714-90.285714 85.714286t-128 6.857143q-61.142857-19.428571-84.285714-72.285714t3.714286-107.142857q26.857143-53.142857 86.571429-79.428571t120.285714-10.857143q63.428571 16.571429 90.571429 68.285714t1.428571 108.857143zm178.285714-91.428571q-5.142857-54.857143-50.857143-97.142857t-119.142857-62.285714-156.857143-12q-127.428571 13.142857-211.142857 80.857143t-75.714286 151.142857q5.142857 54.857143 50.857143 97.142857t119.142857 62.285714 156.857143 12q127.428571-13.142857 211.142857-80.857143t75.714286-151.142857zm176 2.285714q0 38.857143-21.142857 79.714286t-62.285714 78.285714-96.285714 67.142857-129.142857 47.428571-154.571429 17.714286-157.142857-19.142857-137.428571-53.142857-98-86.285714-37.142857-114q0-65.714286 39.714286-140t112.857143-147.428571q96.571429-96.571429 195.142857-134.857143t140.857143 4q37.142857 36.571429 11.428571 119.428571-2.285714 8-0.571429 11.428571t5.714286 4 8.285714 2.857143 7.714286-2l3.428571-1.142857q79.428571-33.714286 140.571429-33.714286t87.428571 34.857143q25.714286 36 0 101.714286-1.142857 7.428571-2.571429 11.428571t2.571429 7.142857 6.857143 4.285714 9.714286 3.428571q32.571429 10.285714 58.857143 26.857143t45.714286 46.571429 19.428571 66.571429zm-42.285714-356.571429q24 26.857143 31.142857 62t-3.714286 67.142857q-4.571429 13.142857-16.857143 19.428571t-25.428571 2.285714q-13.142857-4.571429-19.428571-16.857143t-2.285714-25.428571q11.428571-36-13.714286-63.428571t-61.142857-20q-13.714286 2.857143-25.714286-4.571429t-14.285714-21.142857q-2.857143-13.714286 4.571429-25.428571t21.142857-14.571429q34.285714-7.428571 68 3.142857t57.714286 37.428571zm103.428571-93.142857q49.714286 54.857143 64.285714 127.142857t-7.714286 138q-5.142857 15.428571-19.428571 22.857143t-29.714286 2.285714-22.857143-19.428571-2.857143-29.714286q16-46.857143 5.714286-98.285714t-45.714286-90.285714q-35.428571-39.428571-84.571429-54.571429t-98.857143-4.857143q-16 3.428571-29.714286-5.428571t-17.142857-24.857143 5.428571-29.428571 24.857143-16.857143q70.285714-14.857143 139.428571 6.571429t118.857143 76.857143z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://www.zhihu.com/people/liu-peng-kun-74-8" rel="me noopener" class="iconfont"
+      title="zhihu"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M351.791182 562.469462l192.945407 0c0-45.367257-21.3871-71.939449-21.3871-71.939449L355.897709 490.530013c3.977591-82.182744 7.541767-187.659007 8.816806-226.835262l159.282726 0c0 0-0.86367-67.402109-18.578124-67.402109s-279.979646 0-279.979646 0 16.850783-88.141456 39.318494-127.053698c0 0-83.60514-4.510734-112.121614 106.962104S81.344656 355.077018 76.80834 367.390461c-4.536316 12.313443 24.62791 5.832845 36.941354 0 12.313443-5.832845 68.050885-25.924439 84.252893-103.69571l86.570681 0c1.165546 49.28652 4.596691 200.335724 3.515057 226.835262L109.86113 490.530013c-25.275663 18.147312-33.701566 71.939449-33.701566 71.939449L279.868105 562.469462c-8.497535 56.255235-23.417339 128.763642-44.275389 167.210279-33.05279 60.921511-50.55235 116.65793-169.802314 212.576513 0 0-19.442818 14.257725 40.829917 9.073656 60.273758-5.185093 117.305683-20.739347 156.840094-99.807147 20.553105-41.107233 41.805128-93.250824 58.386782-146.138358l-0.055259 0.185218 167.855986 193.263655c0 0 22.035876-51.847855 5.832845-108.880803L371.045711 650.610918l-42.1244 31.157627-0.045025 0.151449c11.69946-41.020252 20.11206-81.5749 22.726607-116.858498C351.665315 564.212152 351.72876 563.345412 351.791182 562.469462z"></path>
+  <path d="M584.918753 182.033893l0 668.840094 70.318532 0 28.807093 80.512708 121.875768-80.512708 153.600307 0L959.520453 182.033893 584.918753 182.033893zM887.150192 778.934538l-79.837326 0-99.578949 65.782216-23.537066-65.782216-24.855084 0L659.341766 256.673847l227.807403 0L887.149169 778.934538z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://liupengkun1993.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2016 -
+    2020
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        liupengkun
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on liupengkun</title>
+    <link>https://liupengkun1993.github.io/tags/docker/</link>
+    <description>Recent content in Docker on liupengkun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>liupengkun</copyright>
+    <lastBuildDate>Tue, 28 Apr 2020 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker 用法</title>
+      <link>https://liupengkun1993.github.io/post/docker/docker-%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Tue, 28 Apr 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/docker/docker-%E7%94%A8%E6%B3%95/</guid>
+      <description>Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从 Apache2.0 协议开源。 Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流</description>
+    </item>
+    
+    <item>
+      <title>Dockerfile 指令详解</title>
+      <link>https://liupengkun1993.github.io/post/docker/dockerfile-%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/</link>
+      <pubDate>Sat, 28 Mar 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/docker/dockerfile-%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/</guid>
+      <description>Dockerfile 是一个文本文件，用来快速创建自定义的 Docker 镜像。其内包含了一条条的指令(Instruction)，每一条指令构建一层，因此每一条指令的内容，就</description>
+    </item>
+    
+  </channel>
+</rss>

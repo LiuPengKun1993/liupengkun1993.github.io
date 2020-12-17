@@ -10,19 +10,19 @@
     <lastBuildDate>Sat, 11 Aug 2018 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/%E5%8A%A8%E7%94%BB/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>iOS 动画 - UIView Animation</title>
-      <link>https://liupengkun1993.github.io/post/ios/ios-%E5%8A%A8%E7%94%BB-uiview-animation/</link>
+      <link>https://liupengkun1993.github.io/post/ios/animation/ios-%E5%8A%A8%E7%94%BB-uiview-animation/</link>
       <pubDate>Sat, 11 Aug 2018 15:43:48 +0800</pubDate>
       
-      <guid>https://liupengkun1993.github.io/post/ios/ios-%E5%8A%A8%E7%94%BB-uiview-animation/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/animation/ios-%E5%8A%A8%E7%94%BB-uiview-animation/</guid>
       <description>优美的动画效果能够很大程度上提高 App 的用户体验。这两天玩了不少 App，基本上都是 AppStore 排名 top200 的（免费榜），发现这些 App 的体验都相当好&amp;hellip;</description>
     </item>
     
     <item>
       <title>iOS开发之 - CADisplayLink 实现酷炫动画</title>
-      <link>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-cadisplaylink-%E5%AE%9E%E7%8E%B0%E9%85%B7%E7%82%AB%E5%8A%A8%E7%94%BB/</link>
+      <link>https://liupengkun1993.github.io/post/ios/animation/ios%E5%BC%80%E5%8F%91%E4%B9%8B-cadisplaylink-%E5%AE%9E%E7%8E%B0%E9%85%B7%E7%82%AB%E5%8A%A8%E7%94%BB/</link>
       <pubDate>Wed, 04 Jan 2017 15:43:48 +0800</pubDate>
       
-      <guid>https://liupengkun1993.github.io/post/ios/ios%E5%BC%80%E5%8F%91%E4%B9%8B-cadisplaylink-%E5%AE%9E%E7%8E%B0%E9%85%B7%E7%82%AB%E5%8A%A8%E7%94%BB/</guid>
+      <guid>https://liupengkun1993.github.io/post/ios/animation/ios%E5%BC%80%E5%8F%91%E4%B9%8B-cadisplaylink-%E5%AE%9E%E7%8E%B0%E9%85%B7%E7%82%AB%E5%8A%A8%E7%94%BB/</guid>
       <description>偶然发现了一个好玩的类， CADisplayLink，出于好奇所以就尝试了一下，用 CADisplayLink 做了个类似云飘的效果。看效果图先—— 核心代码如下： 一、创建</description>
     </item>
     

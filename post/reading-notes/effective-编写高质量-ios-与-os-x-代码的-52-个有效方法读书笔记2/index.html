@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2) - liupengkun</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="liupengkun" />
+  <meta name="description" content="前言 文章共分为三篇： 第一篇：iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1) 第二篇：iOS 开发" />
+
+  <meta name="keywords" content="Hugo, theme, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0" />
+
+
+<link rel="canonical" href="https://liupengkun1993.github.io/post/reading-notes/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.f1e506a781bf25d33ffc18aa6b4e972a965c58049d27d4f92b7db2e9bf28e4bf.css" integrity="sha256-8eUGp4G/JdM//Biqa06XKpZcWASdJ9T5K32y6b8o5L8=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)" />
+<meta property="og:description" content="前言 文章共分为三篇： 第一篇：iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1) 第二篇：iOS 开发" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://liupengkun1993.github.io/post/reading-notes/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/" />
+<meta property="article:published_time" content="2018-01-24T10:43:48+08:00" />
+<meta property="article:modified_time" content="2018-01-31T15:43:48+08:00" />
+<meta itemprop="name" content="iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)">
+<meta itemprop="description" content="前言 文章共分为三篇： 第一篇：iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1) 第二篇：iOS 开发">
+<meta itemprop="datePublished" content="2018-01-24T10:43:48+08:00" />
+<meta itemprop="dateModified" content="2018-01-31T15:43:48+08:00" />
+<meta itemprop="wordCount" content="4073">
+
+
+
+<meta itemprop="keywords" content="读书笔记,iOS," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)"/>
+<meta name="twitter:description" content="前言 文章共分为三篇： 第一篇：iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1) 第二篇：iOS 开发"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">liupengkun'Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://liupengkun1993.github.io/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://liupengkun1993.github.io/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://liupengkun1993.github.io/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://liupengkun1993.github.io/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://liupengkun1993.github.io/about/">关于</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      liupengkun'Blog
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://liupengkun1993.github.io/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://liupengkun1993.github.io/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://liupengkun1993.github.io/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://liupengkun1993.github.io/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://liupengkun1993.github.io/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)</h1>
+      
+      <div class="post-meta">
+        <time datetime="2018-01-24" class="post-time">
+          2018-01-24
+        </time>
+        <div class="post-category">
+            <a href="https://liupengkun1993.github.io/categories/ios/"> iOS </a>
+            
+          </div>
+        <span class="more-meta"> 4073 words </span>
+          <span class="more-meta"> 9 min read </span>
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#第-3-章接口与-api-设计">第 3 章：接口与 API 设计</a>
+      <ul>
+        <li><a href="#第-13-条用前缀避免命名空间冲突">第 13 条：用前缀避免命名空间冲突</a></li>
+        <li><a href="#第-14-条提供全能初始化方法">第 14 条：提供“全能初始化方法”</a></li>
+        <li><a href="#第-15-条实现-description-方法">第 15 条：实现 description 方法</a></li>
+        <li><a href="#第-16-条尽量使用不可变对象">第 16 条：尽量使用不可变对象</a></li>
+        <li><a href="#第-17-条使用清晰而协调的命名方式">第 17 条：使用清晰而协调的命名方式</a></li>
+        <li><a href="#第-18-条为私有方法名加前缀">第 18 条：为私有方法名加前缀</a></li>
+        <li><a href="#第-19-条理解-objective-c-错误模型">第 19 条：理解 Objective-C 错误模型</a></li>
+        <li><a href="#第-20-条理解-nscopying-协议">第 20 条：理解 NSCopying 协议</a></li>
+      </ul>
+    </li>
+    <li><a href="#第-4-章协议与分类">第 4 章：协议与分类</a>
+      <ul>
+        <li><a href="#第-21-条通过委托与数据源协议进行对象间通信">第 21 条：通过委托与数据源协议进行对象间通信</a></li>
+        <li><a href="#第-22-条将类的实现代码分散到便于管理的数个分类之中">第 22 条：将类的实现代码分散到便于管理的数个分类之中</a></li>
+        <li><a href="#第-23-条总是为第三方类的分类名称加前缀">第 23 条：总是为第三方类的分类名称加前缀</a></li>
+        <li><a href="#第-24-条勿在分类中声明属性">第 24 条：勿在分类中声明属性</a></li>
+        <li><a href="#第-25-条使用-class-continuation分类-隐藏实现细节">第 25 条：使用 “Class-continuation分类” 隐藏实现细节</a></li>
+        <li><a href="#第-26-条通过协议提供匿名对象">第 26 条：通过协议提供匿名对象</a></li>
+      </ul>
+    </li>
+    <li><a href="#第-5-章内存管理">第 5 章：内存管理</a>
+      <ul>
+        <li><a href="#第-27-条理解引用计数">第 27 条：理解引用计数</a></li>
+        <li><a href="#第-28-条以-arc-简化引用计数">第 28 条：以 ARC 简化引用计数</a></li>
+        <li><a href="#第-29-条在-dealloc-方法中只释放引用并解除监听">第 29 条：在 dealloc 方法中只释放引用并解除监听</a></li>
+        <li><a href="#第-30-条编写-异常安全代码-时留意内存管理问题">第 30 条：编写 “异常安全代码” 时留意内存管理问题</a></li>
+        <li><a href="#第-31-条以弱引用避免保留环">第 31 条：以弱引用避免保留环</a></li>
+        <li><a href="#第-32-条以自动释放池块降低内存峰值">第 32 条：以“自动释放池块”降低内存峰值</a></li>
+        <li><a href="#第-33-条用僵尸对象调试内存管理问题">第 33 条：用“僵尸对象”调试内存管理问题</a></li>
+        <li><a href="#第-34-条不要使用-retaincount">第 34 条：不要使用 retainCount</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h2 id="前言">前言</h2>
+<ul>
+<li>文章共分为三篇：
+<ul>
+<li>第一篇：<a href="https://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1)</a></li>
+<li>第二篇：<a href="https://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)</a></li>
+<li>第三篇：<a href="https://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(3)</a></li>
+</ul>
+</li>
+</ul>
+<p>接上篇：<a href="https://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1)</a></p>
+<hr>
+<h2 id="第-3-章接口与-api-设计">第 3 章：接口与 API 设计</h2>
+<h3 id="第-13-条用前缀避免命名空间冲突">第 13 条：用前缀避免命名空间冲突</h3>
+<p><code>OC</code>没有其他语言那种内置的命名空间机制。因此我们起名时要设法避免潜在的命名冲突，否则很容易重名，引发命名冲突<code>（naming clash）</code>。避免此问题的唯一方法就是变相实现命名空间：为所有名称都加上适当前缀。所选前缀可以是与公司、应用程序或二者皆有关联之名。另外，<code>Apple</code>宣称其保留使用所有“两字母前缀”，所以我们一般还是三个字母开头比较好。</p>
+<h3 id="第-14-条提供全能初始化方法">第 14 条：提供“全能初始化方法”</h3>
+<p><strong>能够为对象提供必要信息以便其完成工作的初始化方法叫做“全能初始化方法”。</strong></p>
+<p>如果创建类实例的方式不止一种，那么这个类就会有多个初始化方法。这当然很好，不过仍然要在其中选定一个作为全能初始化方法，令其它初始化方法都来调用它。这样的话，当底层数据存储机制改变时，只需修改此方法的代码就好，无须改动其他初始化方法。</p>
+<p><code>NSDate</code>就是一个例子，其初始化方法如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">init</span> <span class="n">NS_DESIGNATED_INITIALIZER</span><span class="p">;</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">initWithTimeIntervalSinceReferenceDate:</span><span class="p">(</span><span class="n">NSTimeInterval</span><span class="p">)</span><span class="nv">ti</span> <span class="n">NS_DESIGNATED_INITIALIZER</span><span class="p">;</span>
+<span class="p">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="kt">instancetype</span><span class="p">)</span><span class="nf">initWithCoder:</span><span class="p">(</span><span class="n">NSCoder</span> <span class="o">*</span><span class="p">)</span><span class="nv">aDecoder</span> <span class="n">NS_DESIGNATED_INITIALIZER</span><span class="p">;</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">initWithTimeIntervalSinceNow:</span><span class="p">(</span><span class="n">NSTimeInterval</span><span class="p">)</span><span class="nv">secs</span><span class="p">;</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">initWithTimeIntervalSince1970:</span><span class="p">(</span><span class="n">NSTimeInterval</span><span class="p">)</span><span class="nv">secs</span><span class="p">;</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">initWithTimeInterval:</span><span class="p">(</span><span class="n">NSTimeInterval</span><span class="p">)</span><span class="nv">secsToBeAdded</span> <span class="nf">sinceDate:</span><span class="p">(</span><span class="n">NSDate</span> <span class="o">*</span><span class="p">)</span><span class="nv">date</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在上面几个初始化方法中，<code>initWithTimeIntervalSinceReferenceDate:</code>是全能初始化方法，也就是说，其余的初始化方法都要调用它。只有在全能初始化方法中，才会存储内部数据。</p>
+<h3 id="第-15-条实现-description-方法">第 15 条：实现 description 方法</h3>
+<p>调试程序时，经常需要打印并查看对象信息。一种办法是编写代码把对象的全部属性都输出到日志中。不过最常用的做法还是像下面这样：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;object = %@&#34;</span><span class="p">,</span> <span class="n">object</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这样直接打印我们的对象它会输出 <code>&lt;Object:0x*****&gt;</code>，这并不是我们想要的，所以当我们重写<code>description </code>的时候才可能满足我们调试的需求。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">description</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">NSString</span> <span class="nl">stringWithFormat</span><span class="p">:</span><span class="s">@&#34;%@ : %@, %@&#34;</span><span class="p">,</span> <span class="p">[</span><span class="nb">self</span> <span class="k">class</span><span class="p">],</span> <span class="nb">self</span><span class="p">,</span> <span class="s">@&#34;你需要的属性&#34;</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>若想在调试时打印出更详尽的对象描述信息，则应实现 <code>- (NSString *)debugDescription;</code>方法，再与<code>po</code>命令一起使用配合调试。</p>
+<h3 id="第-16-条尽量使用不可变对象">第 16 条：尽量使用不可变对象</h3>
+<p>这条主要讲的是，尽量使用不可变的对象。简单来说，我们设计出来一个类，其实是不希望别人更改其属性的，因此应该尽量把对外公布出来的属性设置为只读，而且只在确有必要时才将属性对外公布。</p>
+<h3 id="第-17-条使用清晰而协调的命名方式">第 17 条：使用清晰而协调的命名方式</h3>
+<p>类、方法及变量的命名是 <code>OC</code> 编程的重要环节。这点就不用多说了，具体可以看下官方的命名规则：<a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html#//apple_ref/doc/uid/10000146-SW1">Coding Guidelines for Cocoa</a></p>
+<h3 id="第-18-条为私有方法名加前缀">第 18 条：为私有方法名加前缀</h3>
+<p>这样有助于调试，也很容易让我们将公共方法和私有方法区分开，另外便于修改方法名。但是要注意不要但用一个下划线做私有方法的前缀，因为这种做法是预留给苹果公司的。</p>
+<h3 id="第-19-条理解-objective-c-错误模型">第 19 条：理解 Objective-C 错误模型</h3>
+<p>当前很多种编程语言都有异常处理机制，<code>OC</code>也不例外。在<code>OC</code>中异常只用于处理<code>严重错误(fatal error)</code>，出现<code>“不那么严重的错误(nonfatal error)”</code>时，OC语言的处理方式是：令方法返回 <code>nil/0</code>，或者使用<code>NSError</code>，以表明有错误发生。</p>
+<h3 id="第-20-条理解-nscopying-协议">第 20 条：理解 NSCopying 协议</h3>
+<p>在  <code>OC</code> 中，拷贝对象通过<code>copy</code>方法完成，如果想令自己的类支持拷贝操作，那就要实现<code>NSCopying</code>协议，该协议只有一个方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">copyWithZone:</span><span class="p">(</span><span class="n">NSZone</span><span class="o">*</span><span class="p">)</span><span class="nv">zone</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>当然如果要求返回对象是可变的类型就要用到<code>NSMutableCopying</code>协议，相应方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">mutableCopyWithZone:</span><span class="p">(</span><span class="n">NSZone</span> <span class="o">*</span><span class="p">)</span><span class="nv">zone</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>在拷贝对象时，需要注意拷贝执行的是深拷贝还是浅拷贝。</p>
+<ul>
+<li>深拷贝的意思就是：在拷贝对象自身时，会将对象的底层数据也进行复制。</li>
+<li>浅拷贝是只拷贝容器对象本身，而不拷贝其中数据。<code>Foundation</code> 框架中所有的<code>collection</code> 类在默认情况下都执行浅拷贝。</li>
+</ul>
+</li>
+<li>
+<p>要点：</p>
+<ul>
+<li>若想令自己所写的对象具有拷贝功能，则需实现<code>NSCopying</code>协议。</li>
+<li>如果自定义的对象分为可变版本与不可变版本，那么就要同时实现<code>NSCopying</code>与<code>NSMutableCopying</code>协议。</li>
+<li>复制对象时需决定采用浅拷贝还是深拷贝，一般情况下应该尽量执行浅拷贝。</li>
+<li>如果你所写的对象需要深拷贝，那么可考虑新增一个专门执行深拷贝的方法。</li>
+</ul>
+</li>
+</ul>
+<h2 id="第-4-章协议与分类">第 4 章：协议与分类</h2>
+<h3 id="第-21-条通过委托与数据源协议进行对象间通信">第 21 条：通过委托与数据源协议进行对象间通信</h3>
+<p>简单来说，这条讲的是使用<code>delegate</code>，<code>protocal</code>进行数据传递。此模式可将数据与业务逻辑解耦。需要注意的是：修饰<code>delegate</code>的属性一定要定义成<code>weak</code>，而非<code>strong</code>，因为两者之间必须为“非拥有关系”。</p>
+<h3 id="第-22-条将类的实现代码分散到便于管理的数个分类之中">第 22 条：将类的实现代码分散到便于管理的数个分类之中</h3>
+<p>这条讲的是使用分类。类中经常容易填满各种方法，而这些方法的代码则全部堆在一个巨大的实现文件里。有时这么做是合理的，因为即便通过重构把这个类打散，效果也不会更好。在此情况下，可以通过<code>OC</code>的“分类”机制，将类代码按逻辑划入几个分区中，这对开发与调试都有好处。</p>
+<h3 id="第-23-条总是为第三方类的分类名称加前缀">第 23 条：总是为第三方类的分类名称加前缀</h3>
+<p>这条也很容易理解，就是给分类名加前缀，比如<code>NSString</code>分类，</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">NSString</span> <span class="nl">(HTTP)</span>
+
+<span class="k">@end</span>
+
+<span class="c1">// 加前缀
+</span><span class="c1"></span><span class="k">@interface</span> <span class="nc">NSString</span> <span class="nl">(ABC_HTTP)</span>
+
+<span class="k">@end</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>给分类加上前缀，易于区分，并且能避免不必要的错误。</p>
+<h3 id="第-24-条勿在分类中声明属性">第 24 条：勿在分类中声明属性</h3>
+<p>除了 <code>Class-continuation</code>分类，其他分类无法向类中新增实例变量，这样就无法把实现属性所需要的实例变量合成出来，即无法生成实例变量，如下图：</p>
+<p><img src="/image/iOS/iOS_Effective/iOS_Effective04.png" alt=""></p>
+<h3 id="第-25-条使用-class-continuation分类-隐藏实现细节">第 25 条：使用 “Class-continuation分类” 隐藏实现细节</h3>
+<p><code>Class-continuation</code>分类和普通的分类不同，它必须定义在其所接续的那个类的实现文件里。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="cp">#import &#34;NNTestClass.h&#34;
+</span><span class="cp"></span>
+<span class="k">@interface</span> <span class="nc">NNTestClass</span> <span class="p">()</span>
+<span class="c1">// 写你所需要的私有变量或方法
+</span><span class="c1"></span><span class="k">@end</span>
+
+<span class="k">@implementation</span> <span class="nc">NNTestClass</span>
+<span class="c1">// 实现
+</span><span class="c1"></span><span class="k">@end</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这条和之前的描述也有点类似，总之就是在说尽量不要在公共接口中暴露太多内容，隐藏其实现细节。</p>
+<h3 id="第-26-条通过协议提供匿名对象">第 26 条：通过协议提供匿名对象</h3>
+<ul>
+<li>协议可以在某种程度上提供匿名对象，例如<code>id&lt;someProtocal&gt; object</code>。<code>object</code>对象的类型不限，只要能遵从这个协议即可，在这个协议里面定义了这个对象所应该实现的方法。</li>
+<li>使用匿名对象来隐藏类型名称（或类名）。</li>
+<li>如果具体类型不重要，重要的是对象能否处理好一些特定的方法，那么就可以使用这种协议匿名对象来完成。</li>
+</ul>
+<h2 id="第-5-章内存管理">第 5 章：内存管理</h2>
+<h3 id="第-27-条理解引用计数">第 27 条：理解引用计数</h3>
+<p><code>OC</code> 使用引用计数器来管理内存，每个对象都有个可以递增或递减的计数器。对象创建好之后，其保留计数至少为<code>1</code>，若保留计数为正，则对象继续存活，当保留计数降为<code>0</code>时，对象被销毁。
+在对象的生命周期中，其余对象通过引用来保留或释放此对象。保留或释放操作分别会递增或递减保留计数。</p>
+<p>注意<code>retain</code>,<code>release</code>,<code>autorelease</code>,这三个方法操作计数器。</p>
+<ul>
+<li><code>retain</code>递增保留计数。</li>
+<li><code>release</code>递减保留计数。</li>
+<li><code>autorelease</code>待稍后清理“自动释放池”时，再递减保留计数。</li>
+</ul>
+<h3 id="第-28-条以-arc-简化引用计数">第 28 条：以 ARC 简化引用计数</h3>
+<p><code>ARC</code>，即自动管理计数器，理解起来很容易。
+<code>ARC</code>会自动执行<code>retain</code>,<code>release</code>,<code>autorelease</code>等操作，所以直接在<code>ARC</code>中调用这些内存管理方法是非法的。具体来说，<code>ARC</code>不能调用以下方法:</p>
+<ul>
+<li>retain</li>
+<li>release</li>
+<li>autorelease</li>
+<li>dealloc</li>
+</ul>
+<p>在<code>ARC</code>中，变量的内存管理语义可以通过修饰符指明，而原来则需手工执行”保留“及释放操作;(<code>__strong</code>,<code>__weak</code>,一个保留值，一个不保留值)。
+注意的是<code>ARC</code>只负责管理<code>OC</code>对象的内存。注意：<code>CoreFoundation</code>对象不归<code>ARC</code>管理，必须适时调用<code>CFRetain/CFRelease</code>。</p>
+<h3 id="第-29-条在-dealloc-方法中只释放引用并解除监听">第 29 条：在 dealloc 方法中只释放引用并解除监听</h3>
+<p>不要在<code>delloc</code>方法中调用其它方法，尤其是需要异步执行某些任务又要回调的方法，这样是很危险的行为，很可能异步执行完回调的时候该对象已经被销毁了，<code>crash</code>了。</p>
+<p>在<code>delloc</code>方法里，应该做的事情就是释放指向其他对象的引用，并取消原来订阅的键值观测（<code>KVO</code>）或<code>NSNotificationCenter</code>等通知，不要做其它事情。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">dealloc</span> <span class="p">{</span>
+    <span class="p">[[</span><span class="n">NSNotificationCenter</span> <span class="n">defaultCenter</span><span class="p">]</span> <span class="nl">removeObserver</span><span class="p">:</span><span class="nb">self</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="第-30-条编写-异常安全代码-时留意内存管理问题">第 30 条：编写 “异常安全代码” 时留意内存管理问题</h3>
+<p>这条也和上面说过的类似，有两点需要注意：</p>
+<ul>
+<li>捕获异常时，一定要注意将<code>try</code>块内所创立的对象清理干净。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="k">@try</span> <span class="p">{</span> <span class="c1">// 可能会出现崩溃的代码
+</span><span class="c1"></span>    <span class="p">}</span>
+    <span class="k">@catch</span> <span class="p">(</span><span class="n">NSException</span> <span class="o">*</span><span class="n">exception</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 捕获到的异常 exception
+</span><span class="c1"></span>    <span class="p">}</span>
+    <span class="k">@finally</span> <span class="p">{</span> <span class="c1">// 结果处理,也可以去掉
+</span><span class="c1"></span>    <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>在默认情况下，<code>ARC</code> 不生成安全处理异常所需的清理代码。开启编译器标志后，可生成这种代码，不过会导致应用程序变大，而且会降低运行效率。</li>
+</ul>
+<h3 id="第-31-条以弱引用避免保留环">第 31 条：以弱引用避免保留环</h3>
+<p>这个也很容易理解，保留环就是我们常说的循环引用。就是有时候我们需要将某些引用设为<code>weak</code>，避免出现“保留环”。</p>
+<h3 id="第-32-条以自动释放池块降低内存峰值">第 32 条：以“自动释放池块”降低内存峰值</h3>
+<p><strong>合理运用自动释放池，可降低应用程序的内存峰值。</strong></p>
+<ul>
+<li>请看下面几行代码：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="n">NSArray</span> <span class="o">*</span><span class="n">dataArray</span> <span class="o">=</span> <span class="cm">/*****/</span><span class="p">;</span>
+    <span class="n">NSMutableArray</span> <span class="o">*</span><span class="n">testArray</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSMutableArray</span> <span class="n">array</span><span class="p">];</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="n">recordDic</span> <span class="k">in</span> <span class="n">dataArray</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">TestPerson</span> <span class="o">*</span><span class="n">person</span> <span class="o">=</span> <span class="p">[[</span><span class="n">TestPerson</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithRecord</span><span class="p">:</span><span class="n">recordDic</span><span class="p">];</span>
+        <span class="p">[</span><span class="n">testArray</span> <span class="nl">addObject</span><span class="p">:</span><span class="n">person</span><span class="p">];</span>
+    <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>当循环长度无法预估，需要创建很多对象时，上面代码会创造数量无法预估的临时对象，即内存中会出现很多不必要的临时对象，他们本该提早回收的。这时我们可以给这段代码增加一个释放池：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="n">NSArray</span> <span class="o">*</span><span class="n">dataArray</span> <span class="o">=</span> <span class="cm">/*****/</span><span class="p">;</span>
+    <span class="n">NSMutableArray</span> <span class="o">*</span><span class="n">testArray</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSMutableArray</span> <span class="n">array</span><span class="p">];</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="n">recordDic</span> <span class="k">in</span> <span class="n">dataArray</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">@autoreleasepool</span> <span class="p">{</span>
+        <span class="n">TestPerson</span> <span class="o">*</span><span class="n">person</span> <span class="o">=</span> <span class="p">[[</span><span class="n">TestPerson</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithRecord</span><span class="p">:</span><span class="n">recordDic</span><span class="p">];</span>
+        <span class="p">[</span><span class="n">testArray</span> <span class="nl">addObject</span><span class="p">:</span><span class="n">person</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这样临时对象就可以及时回收了，有一点需要注意：<strong>不要把<code>for</code>循环放到释放池里面，特别是循环长度特别长的时候。</strong></p>
+<h3 id="第-33-条用僵尸对象调试内存管理问题">第 33 条：用“僵尸对象”调试内存管理问题</h3>
+<p><img src="/image/iOS/iOS_Effective/iOS_Effective05.png" alt="僵尸对象"></p>
+<p>如上图，启动这项调试功能之后，运行期系统在回收对象时，会把它的<code>isa</code>指针指向特殊的僵尸类，而不是真正的回收他们。系统会修改对象的<code>isa</code>指针，令其指向特殊的僵尸类，从而使该对象变为僵尸对象。僵尸类能够响应所有的选择子，响应方式为：打印一条包含消息内容以及其接收者的消息，然后终止应用程序。</p>
+<h3 id="第-34-条不要使用-retaincount">第 34 条：不要使用 retainCount</h3>
+<p><code>retainCount</code>，对象的保留计数，<code>ARC</code>环境下已经正式废弃，在<code>MRC</code>下还可以正常使用。</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<hr>
+<p>下一篇：<a href="https://liupengkun1993.github.io/post/ios/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(3)</a></p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">liupengkun</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2018-01-31
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://liupengkun1993.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>
+          <a href="https://liupengkun1993.github.io/tags/ios/">iOS</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/reading-notes/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(3)</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/reading-notes/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/">
+            <span class="next-text nav-default">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1)</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="mailto:pengkun1011@gmail.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://github.com/LiuPengKun1993" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://weibo.com/u/3828401985?is_all=1" rel="me noopener" class="iconfont"
+      title="weibo"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M385.714286 733.714286q12-19.428571 6.285714-39.428571t-25.714286-28.571429q-19.428571-8-41.714286-0.571429t-34.285714 26.285714q-12.571429 19.428571-7.428571 39.142857t24.571429 28.857143 42.571429 1.428571 35.714286-27.142857zm53.714286-69.142857q4.571429-7.428571 2-15.142857t-10-10.571429q-8-2.857143-16.285714 2.857143t-12.285714 10.571429q-9.714286 17.714286 7.428571 25.714286 8 2.857143 16.571429 2.857143t12.571429-10.571429zm99.428571 61.142857q-25.714286 58.285714-90.285714 85.714286t-128 6.857143q-61.142857-19.428571-84.285714-72.285714t3.714286-107.142857q26.857143-53.142857 86.571429-79.428571t120.285714-10.857143q63.428571 16.571429 90.571429 68.285714t1.428571 108.857143zm178.285714-91.428571q-5.142857-54.857143-50.857143-97.142857t-119.142857-62.285714-156.857143-12q-127.428571 13.142857-211.142857 80.857143t-75.714286 151.142857q5.142857 54.857143 50.857143 97.142857t119.142857 62.285714 156.857143 12q127.428571-13.142857 211.142857-80.857143t75.714286-151.142857zm176 2.285714q0 38.857143-21.142857 79.714286t-62.285714 78.285714-96.285714 67.142857-129.142857 47.428571-154.571429 17.714286-157.142857-19.142857-137.428571-53.142857-98-86.285714-37.142857-114q0-65.714286 39.714286-140t112.857143-147.428571q96.571429-96.571429 195.142857-134.857143t140.857143 4q37.142857 36.571429 11.428571 119.428571-2.285714 8-0.571429 11.428571t5.714286 4 8.285714 2.857143 7.714286-2l3.428571-1.142857q79.428571-33.714286 140.571429-33.714286t87.428571 34.857143q25.714286 36 0 101.714286-1.142857 7.428571-2.571429 11.428571t2.571429 7.142857 6.857143 4.285714 9.714286 3.428571q32.571429 10.285714 58.857143 26.857143t45.714286 46.571429 19.428571 66.571429zm-42.285714-356.571429q24 26.857143 31.142857 62t-3.714286 67.142857q-4.571429 13.142857-16.857143 19.428571t-25.428571 2.285714q-13.142857-4.571429-19.428571-16.857143t-2.285714-25.428571q11.428571-36-13.714286-63.428571t-61.142857-20q-13.714286 2.857143-25.714286-4.571429t-14.285714-21.142857q-2.857143-13.714286 4.571429-25.428571t21.142857-14.571429q34.285714-7.428571 68 3.142857t57.714286 37.428571zm103.428571-93.142857q49.714286 54.857143 64.285714 127.142857t-7.714286 138q-5.142857 15.428571-19.428571 22.857143t-29.714286 2.285714-22.857143-19.428571-2.857143-29.714286q16-46.857143 5.714286-98.285714t-45.714286-90.285714q-35.428571-39.428571-84.571429-54.571429t-98.857143-4.857143q-16 3.428571-29.714286-5.428571t-17.142857-24.857143 5.428571-29.428571 24.857143-16.857143q70.285714-14.857143 139.428571 6.571429t118.857143 76.857143z"></path>
+</svg>
+
+    </a>
+  
+    <a href="https://www.zhihu.com/people/liu-peng-kun-74-8" rel="me noopener" class="iconfont"
+      title="zhihu"  target="_blank"
+      >
+      <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M351.791182 562.469462l192.945407 0c0-45.367257-21.3871-71.939449-21.3871-71.939449L355.897709 490.530013c3.977591-82.182744 7.541767-187.659007 8.816806-226.835262l159.282726 0c0 0-0.86367-67.402109-18.578124-67.402109s-279.979646 0-279.979646 0 16.850783-88.141456 39.318494-127.053698c0 0-83.60514-4.510734-112.121614 106.962104S81.344656 355.077018 76.80834 367.390461c-4.536316 12.313443 24.62791 5.832845 36.941354 0 12.313443-5.832845 68.050885-25.924439 84.252893-103.69571l86.570681 0c1.165546 49.28652 4.596691 200.335724 3.515057 226.835262L109.86113 490.530013c-25.275663 18.147312-33.701566 71.939449-33.701566 71.939449L279.868105 562.469462c-8.497535 56.255235-23.417339 128.763642-44.275389 167.210279-33.05279 60.921511-50.55235 116.65793-169.802314 212.576513 0 0-19.442818 14.257725 40.829917 9.073656 60.273758-5.185093 117.305683-20.739347 156.840094-99.807147 20.553105-41.107233 41.805128-93.250824 58.386782-146.138358l-0.055259 0.185218 167.855986 193.263655c0 0 22.035876-51.847855 5.832845-108.880803L371.045711 650.610918l-42.1244 31.157627-0.045025 0.151449c11.69946-41.020252 20.11206-81.5749 22.726607-116.858498C351.665315 564.212152 351.72876 563.345412 351.791182 562.469462z"></path>
+  <path d="M584.918753 182.033893l0 668.840094 70.318532 0 28.807093 80.512708 121.875768-80.512708 153.600307 0L959.520453 182.033893 584.918753 182.033893zM887.150192 778.934538l-79.837326 0-99.578949 65.782216-23.537066-65.782216-24.855084 0L659.341766 256.673847l227.807403 0L887.149169 778.934538z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://liupengkun1993.github.io/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    
+      2016 -
+    2020
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        liupengkun
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

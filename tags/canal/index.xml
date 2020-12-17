@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Canal on liupengkun</title>
+    <link>https://liupengkun1993.github.io/tags/canal/</link>
+    <description>Recent content in Canal on liupengkun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>liupengkun</copyright>
+    <lastBuildDate>Wed, 05 Aug 2020 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/canal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Canal 问题汇总</title>
+      <link>https://liupengkun1993.github.io/post/bigdata/canal-%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</link>
+      <pubDate>Wed, 05 Aug 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/bigdata/canal-%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</guid>
+      <description>简介 canal 是阿里开源的 MySQL binlog 增量订阅&amp;amp;消费组件，基于 java 实现，整体已经在很多大型的互联网项目生产环境中使用，包括阿里、美团等都有广泛的应用，</description>
+    </item>
+    
+  </channel>
+</rss>

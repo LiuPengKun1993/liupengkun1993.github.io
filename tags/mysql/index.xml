@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MySQL on liupengkun</title>
+    <link>https://liupengkun1993.github.io/tags/mysql/</link>
+    <description>Recent content in MySQL on liupengkun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>liupengkun</copyright>
+    <lastBuildDate>Sun, 27 Sep 2020 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySQL 数据库开发军规</title>
+      <link>https://liupengkun1993.github.io/post/bigdata/mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E5%8F%91%E5%86%9B%E8%A7%84/</link>
+      <pubDate>Sun, 27 Sep 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/bigdata/mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E5%8F%91%E5%86%9B%E8%A7%84/</guid>
+      <description>本篇记录的是 MySQL 数据库开发注意要点，是 [MySQL数据库开发的三十六条军规——石展@赶集]的学习笔记。 核心军规 尽量不在数据库做运算 复杂运算移到</description>
+    </item>
+    
+  </channel>
+</rss>

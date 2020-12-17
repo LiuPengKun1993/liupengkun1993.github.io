@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DataX on liupengkun</title>
+    <link>https://liupengkun1993.github.io/tags/datax/</link>
+    <description>Recent content in DataX on liupengkun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>liupengkun</copyright>
+    <lastBuildDate>Sun, 27 Sep 2020 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/datax/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DataX 的配置及使用</title>
+      <link>https://liupengkun1993.github.io/post/bigdata/datax-%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sun, 27 Sep 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/bigdata/datax-%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BD%BF%E7%94%A8/</guid>
+      <description>DataX 是阿里巴巴集团内被广泛使用的离线数据同步工具/平台，实现包括 MySQL、SQL Server、Oracle、PostgreSQL、HDFS、</description>
+    </item>
+    
+  </channel>
+</rss>

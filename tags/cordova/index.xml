@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cordova on liupengkun</title>
+    <link>https://liupengkun1993.github.io/tags/cordova/</link>
+    <description>Recent content in Cordova on liupengkun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>liupengkun</copyright>
+    <lastBuildDate>Tue, 10 Mar 2020 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/cordova/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cordova 使用 App Center 进行热更新</title>
+      <link>https://liupengkun1993.github.io/post/cordova/cordova-%E4%BD%BF%E7%94%A8-app-center-%E8%BF%9B%E8%A1%8C%E7%83%AD%E6%9B%B4%E6%96%B0/</link>
+      <pubDate>Tue, 10 Mar 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/cordova/cordova-%E4%BD%BF%E7%94%A8-app-center-%E8%BF%9B%E8%A1%8C%E7%83%AD%E6%9B%B4%E6%96%B0/</guid>
+      <description>App Center 是微软开发的云服务器，通过它开发者可以直接在用户的设备上部署手机应用更新。 使用方法：首先注册一个 App Center 帐户，或通过 https://appcenter.ms 登录到现有的 App Center 帐户，</description>
+    </item>
+    
+    <item>
+      <title>混合开发 Cordova&#43;Ionic&#43;Angular 创建 iOS 及安卓项目</title>
+      <link>https://liupengkun1993.github.io/post/cordova/%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91-cordova&#43;ionic&#43;angular-%E5%88%9B%E5%BB%BA-ios-%E5%8F%8A%E5%AE%89%E5%8D%93%E9%A1%B9%E7%9B%AE/</link>
+      <pubDate>Tue, 10 Mar 2020 15:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/cordova/%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91-cordova&#43;ionic&#43;angular-%E5%88%9B%E5%BB%BA-ios-%E5%8F%8A%E5%AE%89%E5%8D%93%E9%A1%B9%E7%9B%AE/</guid>
+      <description>前言 公司有项目是使用混合开发 Cordova+Ionic+Angular 模式编写的，因为我们部门接手了这个项目，因此不得不熟悉一下 Cordova+Ionic+Angular 模式。 先简单谈一下混合开发，我最早是在2016年年</description>
+    </item>
+    
+  </channel>
+</rss>
