@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>liupengkun</copyright>
-    <lastBuildDate>Sun, 27 Sep 2020 15:43:48 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 31 Dec 2020 11:43:48 +0800</lastBuildDate>
     
         <atom:link href="https://liupengkun1993.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -34,6 +34,228 @@
 &lt;ul&gt;
 &lt;li&gt;北京-海淀&lt;/li&gt;
 &lt;/ul&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>2020 年终总结</title>
+      <link>https://liupengkun1993.github.io/post/2020%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Thu, 31 Dec 2020 11:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/2020%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</guid>
+      
+        <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;2020 是很特殊的一年，年初暴发的疫情，一直持续到年尾还没有结束，看态势必定会蔓延到 2021 了。&lt;/p&gt;
+&lt;p&gt;这场疫情对每个人的生活及工作影响都很大，因此疫情是 2020 年度个人总结绕不过的一个话题。因为这场疫情，几乎每座城每个村都封闭或者半封闭了一段时间，这是我三月份去上班时在地铁上拍的一张照片，本该人挤人的地铁上只有寥寥数人，当时的感想是很怀念人挤人的时刻。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/2020/subway.jpg&#34; alt=&#34;地铁 8 号线 2020.03.15&#34;&gt;&lt;/p&gt;
+&lt;p&gt;疫情影响了工作和生活，但工作和生活还是要继续。接下来我会分几个方面总结一下即将过去的 2020。&lt;/p&gt;
+&lt;h2 id=&#34;工作&#34;&gt;工作&lt;/h2&gt;
+&lt;p&gt;今年一直待在七天网络这家教育公司，由于种种原因我们部门没有移动端的业务（本来是要做移动端项目的，但由于疫情原因，北京这边的部门被取消了招人计划，移动端业务终究还是没有迁过来），所以我主要时间做的不再是 iOS 开发，而是大数据开发。&lt;/p&gt;
+&lt;p&gt;关于大数据开发的工作内容，后面会在【技术-大数据】这个话题下着重介绍。&lt;/p&gt;
+&lt;h2 id=&#34;技术&#34;&gt;技术&lt;/h2&gt;
+&lt;p&gt;接下来总结一下 2020 接触过的技术。&lt;/p&gt;
+&lt;h3 id=&#34;ios-开发&#34;&gt;iOS 开发&lt;/h3&gt;
+&lt;p&gt;工作上已经一年不怎么写 iOS 项目了，甚是怀念，毕竟之前几年一直在做 iOS 开发，现在只能偶尔和几个 iOS 朋友同事聚聚，另外自己几乎每星期都会写写 iOS，忙的时候只是写个简单的方法，或者用 Swift 练习算法，聊以抒怀🤣。&lt;/p&gt;
+&lt;p&gt;今年读了几本 iOS 相关的书，有几本写了读书笔记：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://liupengkun1993.github.io/post/reading-notes/objective-c%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8Bios%E4%B8%8Eos-x%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/&#34;&gt;《Objective-C高级编程iOS与OS X多线程和内存管理》读书笔记&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://liupengkun1993.github.io/post/reading-notes/%E9%AB%98%E6%80%A7%E8%83%BDios%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91-%E6%A0%B8%E5%BF%83%E4%BC%98%E5%8C%96/&#34;&gt;高性能iOS应用开发 - 核心优化&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://liupengkun1993.github.io/post/reading-notes/%E9%AB%98%E6%80%A7%E8%83%BDios%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91-ios%E6%80%A7%E8%83%BD/&#34;&gt;高性能iOS应用开发 - iOS性能&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://liupengkun1993.github.io/post/reading-notes/model-view-viewmodel+%E5%8D%8F%E8%B0%83%E5%99%A8-mvvm-c/&#34;&gt;Model-View-ViewModel+协调器 (MVVM-C)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://liupengkun1993.github.io/post/reading-notes/model-view-controller-mvc/&#34;&gt;Model-View-Controller (MVC)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://liupengkun1993.github.io/post/reading-notes/mvc-%E4%B8%8B%E7%9A%84%E7%BD%91%E7%BB%9C%E5%B1%82%E6%9E%B6%E6%9E%84/&#34;&gt;MVC 下的网络层架构&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://liupengkun1993.github.io/post/reading-notes/%E4%BB%A3%E7%A0%81%E6%95%B4%E6%B4%81%E4%B9%8B%E9%81%93%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/&#34;&gt;《代码整洁之道》读书笔记&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这些读书笔记基本上都是性能与架构方面的，因为自己想往精深方向发展，所以啃了这几本厚书。&lt;/p&gt;
+&lt;p&gt;另外还学习了戴铭老师的 &lt;a href=&#34;https://time.geekbang.org/column/intro/161?code=PbktFs%2Fw7EHB9TJpCcw1bc9KoCR%2FYLnpUmqrB0uOruk%3D&#34;&gt;iOS开发高手课&lt;/a&gt;，很推荐，这里是我做的课堂笔记：&lt;a href=&#34;https://liupengkun1993.github.io/post/reading-notes/ios%E5%BC%80%E5%8F%91%E9%AB%98%E6%89%8B%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&#34;&gt;《iOS开发高手课》学习笔记&lt;/a&gt;。戴铭老师的课程非常底层非常深入，我从这个课程里学习到了很多知识。&lt;/p&gt;
+&lt;p&gt;另外我还使用 Swift 在 LeetCode 刷了 60 道算法题：&lt;a href=&#34;https://github.com/LiuPengKun1993/Algorithm&#34;&gt;Algorithm&lt;/a&gt;。最近刷算法的一些感悟：必须每道题都消化透了，达到能够手写算法的水平，不用刷的非常多，只要各种类型的都懂一些，搞明白算法逻辑就可以，类似数学题，一通百通。&lt;/p&gt;
+&lt;p&gt;设计模式也是使用 Swift 练习了二十来个：&lt;a href=&#34;https://github.com/LiuPengKun1993/Design-Patterns&#34;&gt;设计模式（Design-Patterns）&lt;/a&gt;，这几乎是 iOS 业界常用的一些设计模式了。&lt;/p&gt;
+&lt;p&gt;还有年初的时候计划用 Swift 写 30 个小项目，但后来因为一些原因（其实是因为懒）暂停了，只完成了 12 个，这里是项目地址：&lt;a href=&#34;https://github.com/LiuPengKun1993/Swift30&#34;&gt;Swift30&lt;/a&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;flutter&#34;&gt;Flutter&lt;/h3&gt;
+&lt;p&gt;另外我还试着学习了 Flutter，Flutter 配置环境还是很简单的，这是我学习过程中总结的博客：&lt;a href=&#34;https://liupengkun1993.github.io/post/flutter/mac-%E9%85%8D%E7%BD%AE-flutter-%E7%8E%AF%E5%A2%83%E8%BF%90%E8%A1%8C-ios-android-%E4%B8%A4%E7%AB%AF/&#34;&gt;Mac 配置 Flutter 环境，运行 iOS Android 两端&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;还试着写了两个简单的 Demo：&lt;a href=&#34;https://github.com/LiuPengKun1993/hello_flutter&#34;&gt;hello_flutter&lt;/a&gt; 与 &lt;a href=&#34;https://github.com/LiuPengKun1993/flutter_shop&#34;&gt;flutter_shop&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/2020/flutter_list.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;总体上 Flutter 给我的感觉还是很好的。比如它的优点：一份代码多处运行、性能接近原生、体验好等；但也有让我感觉不是很好的地方，比如：套娃式的代码嵌套、环境不稳定，有时需要执行 &lt;code&gt;source ~./zprofile&lt;/code&gt; 命令（这个只是我作为初级 Flutter 的使用感受，也许不对）。总之还是很看好 Flutter 的未来的，列出几个不错的 Flutter 学习资料：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://flutter.io/&#34;&gt;官网&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://flutterchina.club/&#34;&gt;Flutter 中文网&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://book.flutterchina.club&#34;&gt;Flutter 实战&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.cndartlang.com/&#34;&gt;Dart 语言中文论坛&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这里再多说一些关于跨平台开发，我们公司有几个项目使用的也是跨平台开发，但使用的方案是 &lt;code&gt;Cordova+Ionic+Angular&lt;/code&gt;，我个人不是很看好这种模式，业界用这种跨平台方案的公司也不多，但因为年初技术总监说要把 APP 接到我们部门来做，所以也简单学习了这种跨平台模式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://liupengkun1993.github.io/post/cordova/%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91-cordova+ionic+angular-%E5%88%9B%E5%BB%BA-ios-%E5%8F%8A%E5%AE%89%E5%8D%93%E9%A1%B9%E7%9B%AE/&#34;&gt;混合开发 Cordova+Ionic+Angular 创建 iOS 及安卓项目&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://liupengkun1993.github.io/post/cordova/cordova-%E4%BD%BF%E7%94%A8-app-center-%E8%BF%9B%E8%A1%8C%E7%83%AD%E6%9B%B4%E6%96%B0/&#34;&gt;Cordova 使用 App Center 进行热更新&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;总体感觉不是很好，性能、体验、可查资料等各方面都落后于 Flutter 、RN 这些。&lt;/p&gt;
+&lt;h3 id=&#34;js--vue--nodejs&#34;&gt;JS / Vue / Node.js&lt;/h3&gt;
+&lt;p&gt;众所周知，大前端这个概念在业界早已普及了，每个移动端开发人员多多少少都会接触一些前端开发的知识，另外还有些前端人员也在学习移动端。比如我认识的一些 iOSer，他们很多都接触过一些前端领域的知识，有的是工作中用到的，有的是自己抽空学习的。还有我目前公司的前端开发，之前也一直想着学习 iOS。大前端必然是未来的一个重要走向，当然我们要学习的不只是前端，还包括后端等领域。&lt;/p&gt;
+&lt;p&gt;在工作中，刚入职七天网络时我负责埋点 SDK 的开发工作，包括前端、移动端、后端，当然这些在 2019 年度就已经基本开发完毕了。只是偶尔需要维护，期间我总结了一些 JS/Node.js 相关的技术，简单记录了一下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://liupengkun1993.github.io/post/js/js-%E8%A1%A8%E5%8D%95%E6%A0%BC%E5%BC%8F%E7%9B%B4%E4%BC%A0-oss/&#34;&gt;JS 表单格式直传 OSS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://liupengkun1993.github.io/post/%E5%90%8E%E7%AB%AF/node.js-oss-%E5%90%8E%E7%AB%AF%E7%AD%BE%E5%90%8D/&#34;&gt;Node.js OSS 后端签名&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;另外我在年初还基于 Node.js 实现了一些常见接口：&lt;a href=&#34;https://github.com/LiuPengKun1993/PracticeService&#34;&gt;PracticeService&lt;/a&gt;，算是对 Node.js 学习的巩固。&lt;/p&gt;
+&lt;p&gt;除此之外我还学习了 Vue，使用 Vue 做了一个网站，代码放到了 GitHub：&lt;a href=&#34;https://github.com/LiuPengKun1993/vue_shop&#34;&gt;Vue实战项目：后台电商管理系统&lt;/a&gt;。主要使用的技术栈有：&lt;code&gt;Vue&lt;/code&gt;、&lt;code&gt;Vue-router&lt;/code&gt;、&lt;code&gt;Element-UI&lt;/code&gt;、&lt;code&gt;Axios&lt;/code&gt;、&lt;code&gt;Echarts&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/2020/vue_shop01.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;大数据&#34;&gt;大数据&lt;/h3&gt;
+&lt;p&gt;接下来就说说大数据了，毕竟将近一年时间都在和数据开发打交道。iOS 开发和大数据开发这两个领域差别很大，我为什么会做大数据开发呢？去年的年终总结上有提到原因：&lt;a href=&#34;https://liupengkun1993.github.io/post/2019%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/&#34;&gt;2019 年终总结&lt;/a&gt;。说到底还是因为“救火”，结果把自己送到了一片全新的领域了。&lt;/p&gt;
+&lt;p&gt;当然做大数据开发也有好处，毕竟接触了新的技术领域，开拓了技术栈，涨了见识，对数据端认识的更清晰了。&lt;/p&gt;
+&lt;p&gt;接着说说我在大数据开发中主要负责的工作。&lt;/p&gt;
+&lt;p&gt;因为数据部门前期人员较少，所以我一个人负责埋点项目的所有层的数据开发，包括 ODS、DWD、DWS、ADS 这四层，目前埋点项目稳定运行，涵盖了公司十几个项目，每天新增的数据量有上千万条，高峰时期一天的数据量将近 8000 万。&lt;/p&gt;
+&lt;p&gt;后来随着业务的扩展，帮忙招了几个数据开发，另外随着埋点项目的日益稳定，我逐渐很少再关注埋点相关的数据开发，开始转向业务数据、数仓分层设计、数据建模、探索新技术等，并根据当时使用的技术栈做了简单的记录：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://liupengkun1993.github.io/post/bigdata/mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BC%80%E5%8F%91%E5%86%9B%E8%A7%84/&#34;&gt;MySQL 数据库开发军规&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://liupengkun1993.github.io/post/bigdata/datax-%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BD%BF%E7%94%A8/&#34;&gt;DataX 的配置及使用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://liupengkun1993.github.io/post/bigdata/hive-%E8%B0%83%E4%BC%98-hive.fetch.task.conversion/&#34;&gt;HIVE 调优—— hive.fetch.task.conversion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://liupengkun1993.github.io/post/bigdata/%E6%B5%85%E8%B0%88-hive-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/&#34;&gt;浅谈 Hive 性能优化&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://liupengkun1993.github.io/post/bigdata/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%BB%BA%E6%A8%A1%E7%BB%B4%E5%BA%A6%E5%BB%BA%E6%A8%A1/&#34;&gt;数据仓库建模——维度建模&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://liupengkun1993.github.io/post/bigdata/maxcompute-%E8%87%AA%E5%AE%9A%E4%B9%89-java-udf/&#34;&gt;MaxCompute 自定义 Java UDF&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://liupengkun1993.github.io/post/bigdata/dataworks-%E9%94%99%E8%AF%AF%E6%B1%87%E6%80%BB/&#34;&gt;DataWorks 错误汇总&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://liupengkun1993.github.io/post/bigdata/canal-%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/&#34;&gt;Canal 问题汇总&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://liupengkun1993.github.io/post/bigdata/quickbi-%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/&#34;&gt;QuickBI 问题汇总&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://liupengkun1993.github.io/post/bigdata/fluentd-%E8%AF%BB%E5%86%99-oss/&#34;&gt;Fluentd 读写 OSS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其实做数据开发，很多时候都是在写 Hive，数据建模数仓分层这些就类似于 iOS 里面的设计模式，一旦定好规则，很多时候还是写代码，写脚本，所以数据开发者很多时候自嘲是 SQLBoy。&lt;/p&gt;
+&lt;p&gt;关于这将近一年的数据开发，以前的我肯定想不到自己会有这样的际遇，很感谢公司给与这样的机会。但我还是想回归 iOS，大数据的同事说数据职位工资高，我深入思考过，大数据的技术栈我懂的并不多，目前我的大数据技术只能满足于公司日常工作，而且做大数据几乎是抛弃了自己积累了几年的大前端经验（大数据领域很少能用到大前端技术栈）。因此考虑再三，我还是决定回归 iOS。&lt;/p&gt;
+&lt;h2 id=&#34;生活&#34;&gt;生活&lt;/h2&gt;
+&lt;h3 id=&#34;居家办公&#34;&gt;居家办公&lt;/h3&gt;
+&lt;p&gt;年后担心北京封城，我和媳妇儿初五便往北京赶，紧接着开始屯面粉、米、油、以及各种能长期存放的蔬菜等，这期间也被动的学会了做各种“大餐”🤣。我们公司一直到五一假期之后的 05.06 号才结束远程办公，因此在家办公的这几个月一直在租的小屋里待着，只有晚上人少的时候才和媳妇儿一起去楼下跳跳绳，出来透透气。&lt;/p&gt;
+&lt;h3 id=&#34;国庆节带爸妈北京游&#34;&gt;国庆节带爸妈北京游&lt;/h3&gt;
+&lt;p&gt;国内的疫情控制的很好，入夏之后，出游人数逐日增多。想着来北京工作几年了，却还没带爸妈来北京玩过，就给他们买了高铁票，好说歹说把二老劝过来了。带爸妈以及小外甥去看了天安门、故宫、长城、动物园等地方，还带他们去吃了他们平时舍不得吃的各种“美食”。但也有一点遗憾，就是当时预约了毛主席纪念堂，但不知什么原因，网站上明明显示预约成功，现场扫二维码的时候却说我们没有预约上，很大一批游客都是这样，最后只能望而止步了，这里不得不吐槽毛主席纪念堂的预约网站。总体上还是很好的，毕竟爸妈第一次来北京，希望下一次能带他们去更远的地方去游玩。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://liupengkun1993.github.io/image/2020/tiananmen.jpg&#34; alt=&#34;天安门升国旗 2020.10.06&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;阅读&#34;&gt;阅读&lt;/h3&gt;
+&lt;p&gt;今年一共读了 19 本书，其中包括 6 本技术书籍，13 本非技术书籍。技术书籍一般都写了读书笔记，放在了博客里面；非技术书籍有些也写了读书心得，存在了个人的印象笔记里。下面列出 2020 书单（带✨越多越推荐）：&lt;/p&gt;
+&lt;h4 id=&#34;技术书籍&#34;&gt;技术书籍&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;《高性能iOS应用开发》✨✨✨&lt;/li&gt;
+&lt;li&gt;《App架构》✨&lt;/li&gt;
+&lt;li&gt;《Docker-从入门到实践》✨&lt;/li&gt;
+&lt;li&gt;《JavaScript 语言入门教程》✨&lt;/li&gt;
+&lt;li&gt;《代码整洁之道》✨&lt;/li&gt;
+&lt;li&gt;《Objective-C高级编程：iOS与OS X多线程和内存管理》✨✨&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;非技术书籍&#34;&gt;非技术书籍&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;《肖申克的救赎》✨&lt;/li&gt;
+&lt;li&gt;《时间的玫瑰》✨✨✨&lt;/li&gt;
+&lt;li&gt;《悟空传》✨&lt;/li&gt;
+&lt;li&gt;《飞狐外传》✨&lt;/li&gt;
+&lt;li&gt;《人间有味是清欢》✨&lt;/li&gt;
+&lt;li&gt;《中央帝国的财政密码》 ✨✨✨&lt;/li&gt;
+&lt;li&gt;《挪威的森林》&lt;/li&gt;
+&lt;li&gt;《亲爱的安德烈》&lt;/li&gt;
+&lt;li&gt;《显微镜下的大明》&lt;/li&gt;
+&lt;li&gt;《中央帝国的军事密码》   ✨✨&lt;/li&gt;
+&lt;li&gt;《富爸爸财富自由之路》   ✨✨&lt;/li&gt;
+&lt;li&gt;《投资中最简单的事》 ✨✨&lt;/li&gt;
+&lt;li&gt;《中国近代史》 ✨✨&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注：有些不带✨或✨比较少的，并不完全代表作品不好，比如《挪威的森林》，我大学时候读过感觉不错，也曾向几位朋友推荐过，但如今再读就没有那么深的感触了。估计是不太合我现在的胃口了哈哈哈😆。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;徒步爬山&#34;&gt;徒步爬山&lt;/h3&gt;
+&lt;p&gt;我个人是比较喜欢徒步爬山的，去年定的是徒步爬山 6 次，但由于疫情原因，只出去了 2 次，其中还有一次无疾而终。因此真正上的徒步，今年只有 1 次。那就是 08 月 29 号，与媳妇儿一起走了京郊古道，全程 15.41 km。初级徒步，虽然很累，但感觉是很好的。&lt;/p&gt;
+&lt;h3 id=&#34;健身&#34;&gt;健身&lt;/h3&gt;
+&lt;p&gt;今年没怎么健身，身体素质完全是在吃老本。2021 要对这一指标进行加强。&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
+&lt;p&gt;最后回顾一下 2020，展望一下 2021。&lt;/p&gt;
+&lt;h3 id=&#34;回顾-2020&#34;&gt;回顾 2020&lt;/h3&gt;
+&lt;p&gt;O1：技术&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;KR&lt;/th&gt;
+&lt;th&gt;完成进度&lt;/th&gt;
+&lt;th&gt;总结&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;6本技术书籍&lt;/td&gt;
+&lt;td&gt;100%&lt;/td&gt;
+&lt;td&gt;完成&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;算法&lt;/td&gt;
+&lt;td&gt;80%&lt;/td&gt;
+&lt;td&gt;截止最后一天，刷了 60 道 LeetCode 算法题&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;iOS 进阶&lt;/td&gt;
+&lt;td&gt;80%&lt;/td&gt;
+&lt;td&gt;三本 iOS 相关的书籍、学习戴铭老师的课程等&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;设计模式&lt;/td&gt;
+&lt;td&gt;80%&lt;/td&gt;
+&lt;td&gt;使用 Swift 练习了一些设计模式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Flutter&lt;/td&gt;
+&lt;td&gt;50%&lt;/td&gt;
+&lt;td&gt;简单试用，目前水平应该能写简单项目，开发经验不足&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;JS / Vue / Node.js&lt;/td&gt;
+&lt;td&gt;50%&lt;/td&gt;
+&lt;td&gt;简单试用，目前水平应该能写简单项目，开发经验不足&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Swift 30 个项目&lt;/td&gt;
+&lt;td&gt;40%&lt;/td&gt;
+&lt;td&gt;只写了 12 个，后来放弃了&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;O2：生活&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;KR&lt;/th&gt;
+&lt;th&gt;完成进度&lt;/th&gt;
+&lt;th&gt;总结&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;20本非技术书籍&lt;/td&gt;
+&lt;td&gt;65%&lt;/td&gt;
+&lt;td&gt;只读了13本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;带父母游北京&lt;/td&gt;
+&lt;td&gt;100%&lt;/td&gt;
+&lt;td&gt;虽有小遗憾，但总体上还算不错&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;徒步爬山&lt;/td&gt;
+&lt;td&gt;25%&lt;/td&gt;
+&lt;td&gt;只走了 1.5 次，当时定的是 6 次&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;健身&lt;/td&gt;
+&lt;td&gt;5%&lt;/td&gt;
+&lt;td&gt;只记得奥森跑了两次，偶尔室内锻炼，总之今年很少锻炼&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;展望-2021&#34;&gt;展望 2021&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;KR1: 阅读 21 本书，其中 6 本技术书籍，15 本非技术书籍&lt;/li&gt;
+&lt;li&gt;KR2: 输出 15 篇技术博客&lt;/li&gt;
+&lt;li&gt;KR3: 跳槽回归 iOS&lt;/li&gt;
+&lt;li&gt;KR4: LeetCode 刷算法 50+&lt;/li&gt;
+&lt;li&gt;KR5: iOS 深入学习，研究至少两个三方库或苹果底层库&lt;/li&gt;
+&lt;li&gt;KR6: GitHub Contributions 300+&lt;/li&gt;
+&lt;li&gt;KR7: 跑步 200 km&lt;/li&gt;
+&lt;li&gt;KR8: 爬山徒步 5 次&lt;/li&gt;
+&lt;li&gt;KR9: 拍 1000 照片&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注：目前能想到的计划只有这些，可能会有补充，也可能会做适当调整。&lt;/p&gt;
+&lt;/blockquote&gt;
 </description>
       
     </item>
@@ -4447,66 +4669,6 @@ URI)，其链接到移动应用内的特定位置，而不是简单地启动应�
 &lt;p&gt;要想实现线程安全、不死锁且易于维护的代码，强烈建议使用异步风格。能放到异步处理的，就放到异步。&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;相关文章：&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/High-performance-iOS-application-development/%E9%AB%98%E6%80%A7%E8%83%BDiOS%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%20-%20iOS%E6%80%A7%E8%83%BD.md&#34;&gt;高性能iOS应用开发 - iOS性能&lt;/a&gt;&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
-      <title>《iOS开发高手课》学习笔记</title>
-      <link>https://liupengkun1993.github.io/post/reading-notes/ios%E5%BC%80%E5%8F%91%E9%AB%98%E6%89%8B%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Mon, 30 Mar 2020 15:43:48 +0800</pubDate>
-      
-      <guid>https://liupengkun1993.github.io/post/reading-notes/ios%E5%BC%80%E5%8F%91%E9%AB%98%E6%89%8B%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
-      
-        <description>&lt;blockquote&gt;
-&lt;p&gt;在学习戴铭老师的《iOS开发高手课》，这里是学习笔记。&lt;/p&gt;
-&lt;p&gt;课程链接： &lt;a href=&#34;https://time.geekbang.org/column/intro/161?code=PbktFs%2Fw7EHB9TJpCcw1bc9KoCR%2FYLnpUmqrB0uOruk%3D&#34;&gt;《iOS开发高手课》&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;戴铭老师的 GitHub：&lt;a href=&#34;https://github.com/ming1016&#34;&gt;ming1016&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&#34;学习笔记目录&#34;&gt;学习笔记目录：&lt;/h1&gt;
-&lt;h2 id=&#34;基础篇&#34;&gt;基础篇&lt;/h2&gt;
-&lt;h3 id=&#34;02-app-启动速度怎么做优化与监控httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming0220app20启动速度怎么做优化与监控md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/02%20App%20%E5%90%AF%E5%8A%A8%E9%80%9F%E5%BA%A6%E6%80%8E%E4%B9%88%E5%81%9A%E4%BC%98%E5%8C%96%E4%B8%8E%E7%9B%91%E6%8E%A7%EF%BC%9F.md&#34;&gt;02 App 启动速度怎么做优化与监控？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;03-auto-layout-是怎么进行自动布局的性能如何httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming0320auto20layout20是怎么进行自动布局的性能如何md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/03%20Auto%20Layout%20%E6%98%AF%E6%80%8E%E4%B9%88%E8%BF%9B%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%B8%83%E5%B1%80%E7%9A%84%EF%BC%8C%E6%80%A7%E8%83%BD%E5%A6%82%E4%BD%95%EF%BC%9F.md&#34;&gt;03 Auto Layout 是怎么进行自动布局的，性能如何？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;04-项目大了人员多了架构怎么设计更合理httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming0420项目大了人员多了架构怎么设计更合理md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/04%20%E9%A1%B9%E7%9B%AE%E5%A4%A7%E4%BA%86%E4%BA%BA%E5%91%98%E5%A4%9A%E4%BA%86%EF%BC%8C%E6%9E%B6%E6%9E%84%E6%80%8E%E4%B9%88%E8%AE%BE%E8%AE%A1%E6%9B%B4%E5%90%88%E7%90%86%EF%BC%9F.md&#34;&gt;04 项目大了人员多了，架构怎么设计更合理？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;05-链接器符号是怎么绑定到地址上的httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming0520链接器符号是怎么绑定到地址上的md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/05%20%E9%93%BE%E6%8E%A5%E5%99%A8%EF%BC%9A%E7%AC%A6%E5%8F%B7%E6%98%AF%E6%80%8E%E4%B9%88%E7%BB%91%E5%AE%9A%E5%88%B0%E5%9C%B0%E5%9D%80%E4%B8%8A%E7%9A%84%EF%BC%9F.md&#34;&gt;05 链接器：符号是怎么绑定到地址上的？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;06-app-如何通过注入动态库的方式实现极速编译调试httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming0620app20如何通过注入动态库的方式实现极速编译调试md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/06%20App%20%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87%E6%B3%A8%E5%85%A5%E5%8A%A8%E6%80%81%E5%BA%93%E7%9A%84%E6%96%B9%E5%BC%8F%E5%AE%9E%E7%8E%B0%E6%9E%81%E9%80%9F%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95%EF%BC%9F.md&#34;&gt;06 App 如何通过注入动态库的方式实现极速编译调试？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;07-clanginfer-和-oclint-我们应该使用谁来做静态分析httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming0720clanginfer20和20oclint20我们应该使用谁来做静态分析md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/07%20Clang%E3%80%81Infer%20%E5%92%8C%20OCLint%20%EF%BC%8C%E6%88%91%E4%BB%AC%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8%E8%B0%81%E6%9D%A5%E5%81%9A%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90%EF%BC%9F.md&#34;&gt;07 Clang、Infer 和 OCLint ，我们应该使用谁来做静态分析？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;08-如何利用-clang-为-app-提质httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming0820如何利用20clang20为20app20提质md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/08%20%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%20Clang%20%E4%B8%BA%20App%20%E6%8F%90%E8%B4%A8%EF%BC%9F.md&#34;&gt;08 如何利用 Clang 为 App 提质？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;09-无侵入的埋点方案如何实现httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming0920无侵入的埋点方案如何实现md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/09%20%E6%97%A0%E4%BE%B5%E5%85%A5%E7%9A%84%E5%9F%8B%E7%82%B9%E6%96%B9%E6%A1%88%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%EF%BC%9F.md&#34;&gt;09 无侵入的埋点方案如何实现？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;10-包大小如何从资源和代码层面实现全方位瘦身httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming1020包大小如何从资源和代码层面实现全方位瘦身md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/10%20%E5%8C%85%E5%A4%A7%E5%B0%8F%EF%BC%9A%E5%A6%82%E4%BD%95%E4%BB%8E%E8%B5%84%E6%BA%90%E5%92%8C%E4%BB%A3%E7%A0%81%E5%B1%82%E9%9D%A2%E5%AE%9E%E7%8E%B0%E5%85%A8%E6%96%B9%E4%BD%8D%E7%98%A6%E8%BA%AB.md&#34;&gt;10 包大小：如何从资源和代码层面实现全方位瘦身&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;11-热点问题答疑一基础模块问题答疑httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming1120热点问题答疑一基础模块问题答疑md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/11%20%E7%83%AD%E7%82%B9%E9%97%AE%E9%A2%98%E7%AD%94%E7%96%91%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9D%97%E9%97%AE%E9%A2%98%E7%AD%94%E7%96%91.md&#34;&gt;11 热点问题答疑（一）：基础模块问题答疑&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;12-ios崩溃千奇百怪如何全面监控httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming1220ios崩溃千奇百怪如何全面监控md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/12%20iOS%E5%B4%A9%E6%BA%83%E5%8D%83%E5%A5%87%E7%99%BE%E6%80%AA%EF%BC%8C%E5%A6%82%E4%BD%95%E5%85%A8%E9%9D%A2%E7%9B%91%E6%8E%A7%EF%BC%9F.md&#34;&gt;12 iOS崩溃千奇百怪，如何全面监控？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;13-如何利用-runloop-原理去监控卡顿httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming1320如何利用20runloop20原理去监控卡顿md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/13%20%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%20RunLoop%20%E5%8E%9F%E7%90%86%E5%8E%BB%E7%9B%91%E6%8E%A7%E5%8D%A1%E9%A1%BF%EF%BC%9F.md&#34;&gt;13 如何利用 RunLoop 原理去监控卡顿？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;14-临近oom如何获取详细内存分配信息分析内存问题httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming1420临近oom如何获取详细内存分配信息分析内存问题md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/14%20%E4%B8%B4%E8%BF%91OOM%EF%BC%8C%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E8%AF%A6%E7%BB%86%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E4%BF%A1%E6%81%AF%EF%BC%8C%E5%88%86%E6%9E%90%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98.md&#34;&gt;14 临近OOM，如何获取详细内存分配信息，分析内存问题&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;15-日志监控怎样获取app中的全量日志httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming1520日志监控怎样获取app中的全量日志md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/15%20%E6%97%A5%E5%BF%97%E7%9B%91%E6%8E%A7%EF%BC%9A%E6%80%8E%E6%A0%B7%E8%8E%B7%E5%8F%96App%E4%B8%AD%E7%9A%84%E5%85%A8%E9%87%8F%E6%97%A5%E5%BF%97%EF%BC%9F.md&#34;&gt;15 日志监控：怎样获取App中的全量日志？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;16-性能监控衡量app质量的那把尺httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming1620性能监控衡量app质量的那把尺md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/16%20%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%EF%BC%9A%E8%A1%A1%E9%87%8FApp%E8%B4%A8%E9%87%8F%E7%9A%84%E9%82%A3%E6%8A%8A%E5%B0%BA.md&#34;&gt;16 性能监控：衡量App质量的那把尺&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;17-远超你想象的多线程的那些坑httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming1720远超你想象的多线程的那些坑md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/17%20%E8%BF%9C%E8%B6%85%E4%BD%A0%E6%83%B3%E8%B1%A1%E7%9A%84%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91.md&#34;&gt;17 远超你想象的多线程的那些坑&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;18-怎么减少app电量消耗httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming1820怎么减少app电量消耗md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/18%20%E6%80%8E%E4%B9%88%E5%87%8F%E5%B0%91App%E7%94%B5%E9%87%8F%E6%B6%88%E8%80%97%EF%BC%9F.md&#34;&gt;18 怎么减少App电量消耗？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;19-热点问题答疑二基础模块问题答疑httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming1920热点问题答疑二基础模块问题答疑md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/19%20%E7%83%AD%E7%82%B9%E9%97%AE%E9%A2%98%E7%AD%94%E7%96%91%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9A%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9D%97%E9%97%AE%E9%A2%98%E7%AD%94%E7%96%91.md&#34;&gt;19 热点问题答疑（二）：基础模块问题答疑&lt;/a&gt;&lt;/h3&gt;
-&lt;h2 id=&#34;应用开发&#34;&gt;应用开发&lt;/h2&gt;
-&lt;h3 id=&#34;21-除了cocoaios还可以用哪些gui框架开发httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming2120除了cocoaios还可以用哪些gui框架开发md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/21%20%E9%99%A4%E4%BA%86Cocoa%EF%BC%8CiOS%E8%BF%98%E5%8F%AF%E4%BB%A5%E7%94%A8%E5%93%AA%E4%BA%9BGUI%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91%EF%BC%9F.md&#34;&gt;21 除了Cocoa，iOS还可以用哪些GUI框架开发？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;22-细说ios响应式框架变迁哪些思想可以为我所用httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming2220细说ios响应式框架变迁哪些思想可以为我所用md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/22%20%E7%BB%86%E8%AF%B4iOS%E5%93%8D%E5%BA%94%E5%BC%8F%E6%A1%86%E6%9E%B6%E5%8F%98%E8%BF%81%EF%BC%8C%E5%93%AA%E4%BA%9B%E6%80%9D%E6%83%B3%E5%8F%AF%E4%BB%A5%E4%B8%BA%E6%88%91%E6%89%80%E7%94%A8%EF%BC%9F.md&#34;&gt;22 细说iOS响应式框架变迁，哪些思想可以为我所用？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;23-如何构造酷炫的物理效果和过场动画效果httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming2320如何构造酷炫的物理效果和过场动画效果md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/23%20%E5%A6%82%E4%BD%95%E6%9E%84%E9%80%A0%E9%85%B7%E7%82%AB%E7%9A%84%E7%89%A9%E7%90%86%E6%95%88%E6%9E%9C%E5%92%8C%E8%BF%87%E5%9C%BA%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C%EF%BC%9F.md&#34;&gt;23 如何构造酷炫的物理效果和过场动画效果？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;24-ab测试-验证决策效果的利器httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming2420ab测试-验证决策效果的利器md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/24%20AB%E6%B5%8B%E8%AF%95-%E9%AA%8C%E8%AF%81%E5%86%B3%E7%AD%96%E6%95%88%E6%9E%9C%E7%9A%84%E5%88%A9%E5%99%A8.md&#34;&gt;24 AB测试-验证决策效果的利器&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;25-怎样构建底层的发布和订阅事件总线httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming2520怎样构建底层的发布和订阅事件总线md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/25%20%E6%80%8E%E6%A0%B7%E6%9E%84%E5%BB%BA%E5%BA%95%E5%B1%82%E7%9A%84%E5%8F%91%E5%B8%83%E5%92%8C%E8%AE%A2%E9%98%85%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF%EF%BC%9F.md&#34;&gt;25 怎样构建底层的发布和订阅事件总线？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;26-如何提高json解析的性能httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming2620如何提高json解析的性能md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/26%20%E5%A6%82%E4%BD%95%E6%8F%90%E9%AB%98JSON%E8%A7%A3%E6%9E%90%E7%9A%84%E6%80%A7%E8%83%BD%EF%BC%9F.md&#34;&gt;26 如何提高JSON解析的性能？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;27-如何用flexbox思路开发跟自动布局比flexbox好在哪httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming2720如何用flexbox思路开发跟自动布局比flexbox好在哪md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/27%20%E5%A6%82%E4%BD%95%E7%94%A8Flexbox%E6%80%9D%E8%B7%AF%E5%BC%80%E5%8F%91%EF%BC%9F%E8%B7%9F%E8%87%AA%E5%8A%A8%E5%B8%83%E5%B1%80%E6%AF%94%EF%BC%8CFlexbox%E5%A5%BD%E5%9C%A8%E5%93%AA%EF%BC%9F.md&#34;&gt;27 如何用Flexbox思路开发？跟自动布局比，Flexbox好在哪？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;28-怎么应对各种富文本表现需求httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming2820怎么应对各种富文本表现需求md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/28%20%E6%80%8E%E4%B9%88%E5%BA%94%E5%AF%B9%E5%90%84%E7%A7%8D%E5%AF%8C%E6%96%87%E6%9C%AC%E8%A1%A8%E7%8E%B0%E9%9C%80%E6%B1%82%EF%BC%9F.md&#34;&gt;28 怎么应对各种富文本表现需求？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;29-如何在ios中进行面向测试驱动开发和面向行为驱动开发httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming2920如何在ios中进行面向测试驱动开发和面向行为驱动开发md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/29%20%E5%A6%82%E4%BD%95%E5%9C%A8iOS%E4%B8%AD%E8%BF%9B%E8%A1%8C%E9%9D%A2%E5%90%91%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91%E5%92%8C%E9%9D%A2%E5%90%91%E8%A1%8C%E4%B8%BA%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91%EF%BC%9F.md&#34;&gt;29 如何在iOS中进行面向测试驱动开发和面向行为驱动开发？&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;30-如何制定一套适合自己团队的ios编码规范httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming3020如何制定一套适合自己团队的ios编码规范3fmd&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/30%20%E5%A6%82%E4%BD%95%E5%88%B6%E5%AE%9A%E4%B8%80%E5%A5%97%E9%80%82%E5%90%88%E8%87%AA%E5%B7%B1%E5%9B%A2%E9%98%9F%E7%9A%84iOS%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83%3F.md&#34;&gt;30 如何制定一套适合自己团队的iOS编码规范?&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;31-ios开发学习资料和书单推荐httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming3120ios开发学习资料和书单推荐md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/31%20iOS%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E5%92%8C%E4%B9%A6%E5%8D%95%E6%8E%A8%E8%8D%90.md&#34;&gt;31 iOS开发学习资料和书单推荐&lt;/a&gt;&lt;/h3&gt;
-&lt;h2 id=&#34;原理篇&#34;&gt;原理篇&lt;/h2&gt;
-&lt;h3 id=&#34;33-ios系统内核xnu-app如何加载httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming3320ios系统内核xnu-app如何加载3fmd&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/33%20iOS%E7%B3%BB%E7%BB%9F%E5%86%85%E6%A0%B8XNU-App%E5%A6%82%E4%BD%95%E5%8A%A0%E8%BD%BD%3F.md&#34;&gt;33 iOS系统内核XNU-App如何加载?&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;34-ios黑魔法runtimemethodswizzling背后的原理httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming3420ios黑魔法runtimemethodswizzling背后的原理md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/34%20iOS%E9%BB%91%E9%AD%94%E6%B3%95RuntimeMethodSwizzling%E8%83%8C%E5%90%8E%E7%9A%84%E5%8E%9F%E7%90%86.md&#34;&gt;34 iOS黑魔法RuntimeMethodSwizzling背后的原理&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;35-libffi动态调用和定义c函数httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming3520libffi动态调用和定义c函数md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/35%20libffi%E5%8A%A8%E6%80%81%E8%B0%83%E7%94%A8%E5%92%8C%E5%AE%9A%E4%B9%89C%E5%87%BD%E6%95%B0.md&#34;&gt;35 libffi动态调用和定义C函数&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;36-ios是怎么管理内存的httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming3620ios是怎么管理内存的3fmd&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/36%20iOS%E6%98%AF%E6%80%8E%E4%B9%88%E7%AE%A1%E7%90%86%E5%86%85%E5%AD%98%E7%9A%84%3F.md&#34;&gt;36 iOS是怎么管理内存的?&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;37-如何编写clang插件httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming3720如何编写clang插件3fmd&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/37%20%E5%A6%82%E4%BD%95%E7%BC%96%E5%86%99Clang%E6%8F%92%E4%BB%B6%3F.md&#34;&gt;37 如何编写Clang插件?&lt;/a&gt;&lt;/h3&gt;
-&lt;h2 id=&#34;原生与前端共舞&#34;&gt;原生与前端共舞&lt;/h2&gt;
-&lt;h3 id=&#34;39-打通前端与原生的桥梁-javascriptcore能干哪些事情httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming3920打通前端与原生的桥梁-javascriptcore能干哪些事情3fmd&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/39%20%E6%89%93%E9%80%9A%E5%89%8D%E7%AB%AF%E4%B8%8E%E5%8E%9F%E7%94%9F%E7%9A%84%E6%A1%A5%E6%A2%81-JavaScriptCore%E8%83%BD%E5%B9%B2%E5%93%AA%E4%BA%9B%E4%BA%8B%E6%83%85%3F.md&#34;&gt;39 打通前端与原生的桥梁-JavaScriptCore能干哪些事情?&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;40-reactnativeflutter等这些跨端方案怎么选httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming4020reactnativeflutter等这些跨端方案怎么选3fmd&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/40%20ReactNative%E3%80%81Flutter%E7%AD%89%EF%BC%8C%E8%BF%99%E4%BA%9B%E8%B7%A8%E7%AB%AF%E6%96%B9%E6%A1%88%E6%80%8E%E4%B9%88%E9%80%89%3F.md&#34;&gt;40 ReactNative、Flutter等，这些跨端方案怎么选?&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;41-原生布局转到前端布局开发思路有哪些转变httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming4120原生布局转到前端布局开发思路有哪些转变3fmd&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/41%20%E5%8E%9F%E7%94%9F%E5%B8%83%E5%B1%80%E8%BD%AC%E5%88%B0%E5%89%8D%E7%AB%AF%E5%B8%83%E5%B1%80%EF%BC%8C%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF%E6%9C%89%E5%93%AA%E4%BA%9B%E8%BD%AC%E5%8F%98%3F.md&#34;&gt;41 原生布局转到前端布局，开发思路有哪些转变?&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;42-ios原生大前端和flutter分别是怎么渲染的httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming4220ios原生大前端和flutter分别是怎么渲染的3fmd&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/42%20iOS%E5%8E%9F%E7%94%9F%E3%80%81%E5%A4%A7%E5%89%8D%E7%AB%AF%E5%92%8CFlutter%E5%88%86%E5%88%AB%E6%98%AF%E6%80%8E%E4%B9%88%E6%B8%B2%E6%9F%93%E7%9A%84%3F.md&#34;&gt;42 iOS原生、大前端和Flutter分别是怎么渲染的?&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;43-剖析使app具有动态化和热更新能力的方案httpsgithubcomliuzhongningarticlesblobmastercontentsstudy_ming4320剖析使app具有动态化和热更新能力的方案md&#34;&gt;&lt;a href=&#34;https://github.com/liuzhongning/Articles/blob/master/contents/study_ming/43%20%E5%89%96%E6%9E%90%E4%BD%BFApp%E5%85%B7%E6%9C%89%E5%8A%A8%E6%80%81%E5%8C%96%E5%92%8C%E7%83%AD%E6%9B%B4%E6%96%B0%E8%83%BD%E5%8A%9B%E7%9A%84%E6%96%B9%E6%A1%88.md&#34;&gt;43 剖析使App具有动态化和热更新能力的方案&lt;/a&gt;&lt;/h3&gt;
 </description>
       
     </item>

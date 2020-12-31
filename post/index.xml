@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>liupengkun</copyright>
-    <lastBuildDate>Sun, 27 Sep 2020 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 31 Dec 2020 11:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2020 年终总结</title>
+      <link>https://liupengkun1993.github.io/post/2020%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Thu, 31 Dec 2020 11:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/2020%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</guid>
+      <description>前言 2020 是很特殊的一年，年初暴发的疫情，一直持续到年尾还没有结束，看态势必定会蔓延到 2021 了。 这场疫情对每个人的生活及工作影响都很大，因此疫情是 2020</description>
+    </item>
+    
     <item>
       <title>DataX 的配置及使用</title>
       <link>https://liupengkun1993.github.io/post/bigdata/datax-%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
@@ -177,15 +186,6 @@
       
       <guid>https://liupengkun1993.github.io/post/reading-notes/ios%E5%BC%80%E5%8F%91%E9%AB%98%E6%89%8B%E8%AF%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
       <description>在学习戴铭老师的《iOS开发高手课》，这里是学习笔记。 课程链接： 《iOS开发高手课》 戴铭老师的 GitHub：ming1016 学习笔记目录： 基</description>
-    </item>
-    
-    <item>
-      <title>Dockerfile 指令详解</title>
-      <link>https://liupengkun1993.github.io/post/docker/dockerfile-%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/</link>
-      <pubDate>Sat, 28 Mar 2020 15:43:48 +0800</pubDate>
-      
-      <guid>https://liupengkun1993.github.io/post/docker/dockerfile-%E6%8C%87%E4%BB%A4%E8%AF%A6%E8%A7%A3/</guid>
-      <description>Dockerfile 是一个文本文件，用来快速创建自定义的 Docker 镜像。其内包含了一条条的指令(Instruction)，每一条指令构建一层，因此每一条指令的内容，就</description>
     </item>
     
   </channel>
