@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>liupengkun</copyright>
-    <lastBuildDate>Mon, 08 Jun 2020 15:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 Mar 2021 20:13:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iOS 开发 - iconfont 矢量图使用</title>
+      <link>https://liupengkun1993.github.io/post/ios/tips/ios-%E5%BC%80%E5%8F%91-iconfont-%E7%9F%A2%E9%87%8F%E5%9B%BE%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 29 Mar 2021 20:13:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/ios/tips/ios-%E5%BC%80%E5%8F%91-iconfont-%E7%9F%A2%E9%87%8F%E5%9B%BE%E4%BD%BF%E7%94%A8/</guid>
+      <description>引子 组件化项目可能会存在这样的问题：不同组件引用相同的图片，这种情况怎么处理？相同的图片是存储一份还是存储多份？ 方案1 存储一份，比如我们可以</description>
+    </item>
+    
     <item>
       <title>《Objective-C高级编程iOS与OS X多线程和内存管理》读书笔记</title>
       <link>https://liupengkun1993.github.io/post/reading-notes/objective-c%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8Bios%E4%B8%8Eos-x%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
@@ -177,15 +186,6 @@
       
       <guid>https://liupengkun1993.github.io/post/reading-notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%87%8D%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%8F%8A-app-%E9%87%8D%E6%9E%84%E5%BF%83%E5%BE%97/</guid>
       <description>前段时间和一同事一起重构了两个 APP，正好想写一些重构心得，前天又在知乎上看到一前辈推荐《重构》这本书，据说是程序员的必读书籍，于是就粗略的</description>
-    </item>
-    
-    <item>
-      <title>iOS 开发 - Swift 全面系统的学习</title>
-      <link>https://liupengkun1993.github.io/post/ios/swift/ios-%E5%BC%80%E5%8F%91-swift-%E5%85%A8%E9%9D%A2%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AD%A6%E4%B9%A0/</link>
-      <pubDate>Tue, 22 Aug 2017 15:43:48 +0800</pubDate>
-      
-      <guid>https://liupengkun1993.github.io/post/ios/swift/ios-%E5%BC%80%E5%8F%91-swift-%E5%85%A8%E9%9D%A2%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AD%A6%E4%B9%A0/</guid>
-      <description>最近项目不算紧，于是就学了学 Swift ，看了一大神写的项目https://github.com/hrscy/DanTang，很受益，感谢开源！另外自</description>
     </item>
     
   </channel>

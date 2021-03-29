@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>liupengkun</copyright>
-    <lastBuildDate>Thu, 31 Dec 2020 11:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 Mar 2021 20:13:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iOS</title>
+      <link>https://liupengkun1993.github.io/categories/ios/</link>
+      <pubDate>Mon, 29 Mar 2021 20:13:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/categories/ios/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>杂记</title>
       <link>https://liupengkun1993.github.io/categories/%E6%9D%82%E8%AE%B0/</link>
@@ -32,15 +41,6 @@
       <pubDate>Sat, 19 Sep 2020 15:43:48 +0800</pubDate>
       
       <guid>https://liupengkun1993.github.io/categories/%E5%90%8E%E7%AB%AF/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>iOS</title>
-      <link>https://liupengkun1993.github.io/categories/ios/</link>
-      <pubDate>Mon, 08 Jun 2020 15:43:48 +0800</pubDate>
-      
-      <guid>https://liupengkun1993.github.io/categories/ios/</guid>
       <description></description>
     </item>
     

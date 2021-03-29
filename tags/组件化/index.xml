@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>组件化 on liupengkun</title>
+    <link>https://liupengkun1993.github.io/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/</link>
+    <description>Recent content in 组件化 on liupengkun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>liupengkun</copyright>
+    <lastBuildDate>Mon, 29 Mar 2021 20:13:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iOS 开发 - iconfont 矢量图使用</title>
+      <link>https://liupengkun1993.github.io/post/ios/tips/ios-%E5%BC%80%E5%8F%91-iconfont-%E7%9F%A2%E9%87%8F%E5%9B%BE%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 29 Mar 2021 20:13:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/ios/tips/ios-%E5%BC%80%E5%8F%91-iconfont-%E7%9F%A2%E9%87%8F%E5%9B%BE%E4%BD%BF%E7%94%A8/</guid>
+      <description>引子 组件化项目可能会存在这样的问题：不同组件引用相同的图片，这种情况怎么处理？相同的图片是存储一份还是存储多份？ 方案1 存储一份，比如我们可以</description>
+    </item>
+    
+  </channel>
+</rss>
