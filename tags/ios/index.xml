@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>liupengkun</copyright>
-    <lastBuildDate>Mon, 29 Mar 2021 20:13:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Apr 2021 20:13:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iOS 开发 - JSON 处理命令 jq</title>
+      <link>https://liupengkun1993.github.io/post/ios/tips/ios-%E5%BC%80%E5%8F%91-json-%E5%A4%84%E7%90%86%E5%91%BD%E4%BB%A4-jq/</link>
+      <pubDate>Thu, 01 Apr 2021 20:13:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/ios/tips/ios-%E5%BC%80%E5%8F%91-json-%E5%A4%84%E7%90%86%E5%91%BD%E4%BB%A4-jq/</guid>
+      <description>前言 看到公司大佬用命令行操作 JSON，着实很秀，想起自己操作 JSON 要么用在线文档，要么用本地工具，非常之 low。 一个真实案例：有一个比较大的 JSON 数</description>
+    </item>
+    
     <item>
       <title>iOS 开发 - iconfont 矢量图使用</title>
       <link>https://liupengkun1993.github.io/post/ios/tips/ios-%E5%BC%80%E5%8F%91-iconfont-%E7%9F%A2%E9%87%8F%E5%9B%BE%E4%BD%BF%E7%94%A8/</link>
@@ -177,15 +186,6 @@
       
       <guid>https://liupengkun1993.github.io/post/reading-notes/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/</guid>
       <description>《Effective Objective-C 2.0: 编写高质量 iOS 与 OS X 代码的 52 个有效方法》是一本非常经典的 OC 书籍。这本书从语法、接口与 API 设计、内存管理、框架等 7 大方面总</description>
-    </item>
-    
-    <item>
-      <title>设计模式-《重构》读书笔记及 APP 重构心得</title>
-      <link>https://liupengkun1993.github.io/post/reading-notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%87%8D%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%8F%8A-app-%E9%87%8D%E6%9E%84%E5%BF%83%E5%BE%97/</link>
-      <pubDate>Wed, 10 Jan 2018 15:43:48 +0800</pubDate>
-      
-      <guid>https://liupengkun1993.github.io/post/reading-notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E9%87%8D%E6%9E%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%8F%8A-app-%E9%87%8D%E6%9E%84%E5%BF%83%E5%BE%97/</guid>
-      <description>前段时间和一同事一起重构了两个 APP，正好想写一些重构心得，前天又在知乎上看到一前辈推荐《重构》这本书，据说是程序员的必读书籍，于是就粗略的</description>
     </item>
     
   </channel>

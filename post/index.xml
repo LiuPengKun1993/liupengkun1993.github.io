@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>liupengkun</copyright>
-    <lastBuildDate>Mon, 29 Mar 2021 20:13:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Apr 2021 20:13:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iOS 开发 - JSON 处理命令 jq</title>
+      <link>https://liupengkun1993.github.io/post/ios/tips/ios-%E5%BC%80%E5%8F%91-json-%E5%A4%84%E7%90%86%E5%91%BD%E4%BB%A4-jq/</link>
+      <pubDate>Thu, 01 Apr 2021 20:13:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/ios/tips/ios-%E5%BC%80%E5%8F%91-json-%E5%A4%84%E7%90%86%E5%91%BD%E4%BB%A4-jq/</guid>
+      <description>前言 看到公司大佬用命令行操作 JSON，着实很秀，想起自己操作 JSON 要么用在线文档，要么用本地工具，非常之 low。 一个真实案例：有一个比较大的 JSON 数</description>
+    </item>
+    
     <item>
       <title>iOS 开发 - iconfont 矢量图使用</title>
       <link>https://liupengkun1993.github.io/post/ios/tips/ios-%E5%BC%80%E5%8F%91-iconfont-%E7%9F%A2%E9%87%8F%E5%9B%BE%E4%BD%BF%E7%94%A8/</link>
@@ -177,15 +186,6 @@
       
       <guid>https://liupengkun1993.github.io/post/reading-notes/%E9%AB%98%E6%80%A7%E8%83%BDios%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91-ios%E6%80%A7%E8%83%BD/</guid>
       <description>高性能iOS应用开发 - iOS性能 《高性能iOS应用开发》是一本质量很高的 iOS 书籍，我从此书中系统的学到了很多东西。这篇博客是《高性能iOS应用</description>
-    </item>
-    
-    <item>
-      <title>高性能iOS应用开发 - 核心优化</title>
-      <link>https://liupengkun1993.github.io/post/reading-notes/%E9%AB%98%E6%80%A7%E8%83%BDios%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91-%E6%A0%B8%E5%BF%83%E4%BC%98%E5%8C%96/</link>
-      <pubDate>Tue, 31 Mar 2020 15:43:48 +0800</pubDate>
-      
-      <guid>https://liupengkun1993.github.io/post/reading-notes/%E9%AB%98%E6%80%A7%E8%83%BDios%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91-%E6%A0%B8%E5%BF%83%E4%BC%98%E5%8C%96/</guid>
-      <description>此篇博客是《高性能iOS应用开发》一书第二部分“核心优化”的读书笔记，主要包括“内存管理”、“能耗(电量消耗)”、“并发编程”这三方面。 1. 内</description>
     </item>
     
   </channel>
