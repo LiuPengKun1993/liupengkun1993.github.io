@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>liupengkun</title>
+  <title>NSPointerArray &amp; NSMapTable &amp; NSHashTable - liupengkun</title>
   
 
 <meta name="renderer" content="webkit" />
@@ -23,7 +23,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="liupengkun" />
-  <meta name="description" content="个人学习笔记" />
+  <meta name="description" content="简介 开发中经常使用的集合类型有 NSArray、NSDictionary、NSSet，这三种集合类型可以解决大部分需求场景，但如果涉及到弱引用" />
+
   <meta name="keywords" content="学习, iOS, Coding" />
 
 
@@ -34,8 +35,8 @@
 <meta name="generator" content="Hugo 0.79.0" />
 
 
-<link rel="canonical" href="https://liupengkun1993.github.io/" />
-<link href="/index.xml" rel="alternate" type="application/rss+xml" title="liupengkun" />
+<link rel="canonical" href="https://liupengkun1993.github.io/post/ios/tips/nspointerarray-nsmaptable-nshashtable/" />
+
 
 
 
@@ -58,16 +59,24 @@
 
 
 
-<meta property="og:title" content="liupengkun" />
-<meta property="og:description" content="个人学习笔记" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://liupengkun1993.github.io/" />
-<meta property="og:updated_time" content="2021-04-03T21:43:48+08:00" />
-<meta itemprop="name" content="liupengkun">
-<meta itemprop="description" content="个人学习笔记">
+<meta property="og:title" content="NSPointerArray &amp; NSMapTable &amp; NSHashTable" />
+<meta property="og:description" content="简介 开发中经常使用的集合类型有 NSArray、NSDictionary、NSSet，这三种集合类型可以解决大部分需求场景，但如果涉及到弱引用" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://liupengkun1993.github.io/post/ios/tips/nspointerarray-nsmaptable-nshashtable/" />
+<meta property="article:published_time" content="2021-04-03T21:43:48+08:00" />
+<meta property="article:modified_time" content="2021-04-03T21:43:48+08:00" />
+<meta itemprop="name" content="NSPointerArray &amp; NSMapTable &amp; NSHashTable">
+<meta itemprop="description" content="简介 开发中经常使用的集合类型有 NSArray、NSDictionary、NSSet，这三种集合类型可以解决大部分需求场景，但如果涉及到弱引用">
+<meta itemprop="datePublished" content="2021-04-03T21:43:48+08:00" />
+<meta itemprop="dateModified" content="2021-04-03T21:43:48+08:00" />
+<meta itemprop="wordCount" content="1609">
+
+
+
+<meta itemprop="keywords" content="iOS," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="liupengkun"/>
-<meta name="twitter:description" content="个人学习笔记"/>
+<meta name="twitter:title" content="NSPointerArray &amp; NSMapTable &amp; NSHashTable"/>
+<meta name="twitter:description" content="简介 开发中经常使用的集合类型有 NSArray、NSDictionary、NSSet，这三种集合类型可以解决大部分需求场景，但如果涉及到弱引用"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -215,7 +224,7 @@
   <ul id="menu" class="menu">
     
     
-        <li class="menu-item active">
+        <li class="menu-item">
         
           
           
@@ -284,264 +293,344 @@
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-<section id="posts" class="posts">
-  
-  
+          <article class="post bg-white">
     
-  
-  
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
+    <header class="post-header">
+      <h1 class="post-title">NSPointerArray &amp; NSMapTable &amp; NSHashTable</h1>
       
-      <a class="post-link" href="/post/ios/%E4%B8%89%E6%96%B9%E5%BA%93/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%88%B7%E6%96%B0%E6%A1%86%E6%9E%B6-mjrefresh-%E7%9A%84%E4%BD%BF%E7%94%A8/">iOS开发之 - 刷新框架 MJRefresh 的使用</a>
-    </h1>
+      <div class="post-meta">
+        <time datetime="2021-04-03" class="post-time">
+          2021-04-03
+        </time>
+        <div class="post-category">
+            <a href="https://liupengkun1993.github.io/categories/ios/"> iOS </a>
+            
+          </div>
+        <span class="more-meta"> 1609 words </span>
+          <span class="more-meta"> 4 min read </span>
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
     
-    <div class="post-meta">
-      <time datetime="2016-10-15" class="post-time">
-        2016-10-15
-      </time>
-      <div class="post-category">
-          <a href="https://liupengkun1993.github.io/categories/ios/"> iOS </a>
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Table of Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#简介">简介</a></li>
+        <li><a href="#对应关系">对应关系</a></li>
+        <li><a href="#特点">特点</a></li>
+        <li><a href="#总结">总结</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h3 id="简介">简介</h3>
+<p>开发中经常使用的集合类型有 NSArray、NSDictionary、NSSet，这三种集合类型可以解决大部分需求场景，但如果涉及到弱引用集合类、NSCopying 相关问题，则对应可以使用 NSPointerArray、NSMapTable、NSHashTable。</p>
+<h3 id="对应关系">对应关系</h3>
+<p>NSPointerArray 对应 NSArray、NSMutebleArray</p>
+<p>NSMapTable 对应 NSDictionary、NSMutebleDictionary</p>
+<p>NSHashTable 对应 NSSet、NSMutebleSet</p>
+<h3 id="特点">特点</h3>
+<h5 id="1nspointerarraynsmaptablenshashtable-三者都是可变类型没有不可变的父类">1.NSPointerArray、NSMapTable、NSHashTable 三者都是可变类型，没有不可变的父类</h5>
+<h5 id="2在添加元素时无须判空可以直接添加-nullnil-等空值见下方示例代码">2.在添加元素时，无须判空，可以直接添加 NULL、nil 等空值，见下方示例代码：</h5>
+<p>示例代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">    NSPointerArray *pointerArray = [[NSPointerArray alloc] init];
+    [pointerArray addPointer:nil];
+    [pointerArray addPointer:NULL];
+
+    NSMapTable *mapTable = [[NSMapTable alloc] init];
+    [mapTable setObject:NULL forKey:NULL];
+
+    NSHashTable *hashTable = [[NSHashTable alloc] init];
+    [hashTable addObject:NULL];
+    
+    NSLog(@&#34;\n\npointerArray = %@count = %ld\n\nmapTable = %@count = %ld\n\nhashTable = %@count = %ld&#34;, pointerArray,pointerArray.count, mapTable,mapTable.count, hashTable, hashTable.count);
+</code></pre></td></tr></table>
+</div>
+</div><p>打印：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">pointerArray = &lt;NSConcretePointerArray: 0x600001d50460&gt;count = 2
+
+mapTable = NSMapTable {
+}
+count = 0
+
+hashTable = NSHashTable {
+}
+count = 0
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="3三者都拥有初始化方法---instancetypeinitwithoptionsnspointerfunctionsoptionsoptions参数-options-代表其所支持的放入对象的指针管理选项">3.三者都拥有初始化方法 <code>- (instancetype)initWithOptions:(NSPointerFunctionsOptions)options</code>，参数 options 代表其所支持的放入对象的指针管理选项：</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">    NSPointerArray *pointerArray = [[NSPointerArray alloc] initWithOptions:&lt;#(NSPointerFunctionsOptions)#&gt;];
+    NSMapTable *mapTable = [[NSMapTable alloc] initWithKeyOptions:&lt;#(NSPointerFunctionsOptions)#&gt; valueOptions:&lt;#(NSPointerFunctionsOptions)#&gt; capacity:&lt;#(NSUInteger)#&gt;];
+    NSHashTable *hashTable = [[NSHashTable alloc] initWithOptions:&lt;#(NSPointerFunctionsOptions)#&gt; capacity:&lt;#(NSUInteger)#&gt;];
+</code></pre></td></tr></table>
+</div>
+</div><p>options 值：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">typedef NS_OPTIONS(NSUInteger, NSPointerFunctionsOptions) {
+	// 每种类别的选项互斥，只能每种类别选择一个
+    // Memory Options（内存语义管理选项）
+    NSPointerFunctionsStrongMemory, // 和 strong 一样，默认
+    NSPointerFunctionsZeroingWeakMemory, // 已废弃，在 GC 下，弱引用指针，防止悬挂指针
+    NSPointerFunctionsOpaqueMemory, // 在指针去除时不做任何动作
+    NSPointerFunctionsMallocMemory, // 去除时调用 free() , 加入时 calloc()
+    NSPointerFunctionsMachVirtualMemory, // 使用可执行文件的虚拟内存
+    NSPointerFunctionsWeakMemory, // 和 weak 一样
+    
+    // Personaility Options(对象处理选项-如何进行哈希算法，判定等同性，描述)
+    NSPointerFunctionsObjectPersonality, // 使用 NSObject 的 hash、isEqual、description，默认
+    NSPointerFunctionsOpaquePersonality, // 使用偏移后指针，进行 hash 和直接比较等同性
+    NSPointerFunctionsObjectPointerPersonality, // 和上一个相同，多了 description 方法
+    NSPointerFunctionsCStringPersonality, // 使用 c 字符串的 hash 和 strcmp 比较，%s 作为 decription
+    NSPointerFunctionsStructPersonality, // 使用内存的 hash 和 memcmp
+    NSPointerFunctionsIntegerPersonality, // 使用偏移量作为 hash 和等同性判断
+
+    // Copy Options（对象拷贝选项）
+    NSPointerFunctionsCopyIn, // 通过 NSCopying 方法，复制后存入
+};
+</code></pre></td></tr></table>
+</div>
+</div><p>由上述可知，当我们选择 <code>NSPointerFunctionsWeakMemory</code> 时，属于弱引用。</p>
+<h5 id="4nsmaptable-的-key-无须遵守-nscopying-协议">4.NSMapTable 的 key 无须遵守 NSCopying 协议</h5>
+<p>我们在使用 NSDcitionary 时，可以看到 key 的类型遵守了 NSCopying 协议，因为 value 是根据 key 值来查找的，因此 key 值不可改变，为了保证这个特性所以使用了 NSCopying 协议。总结来说，NSDcitionary 的映射关系是 <code>object : string</code>，而 NSMapTabTable 的映射关系是 <code>object : object </code>。</p>
+<p>可以看个例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">NSObject *a1 = [[NSObject alloc] init];
+    NSObject *a2 = [[NSObject alloc] init];
+    
+    NSObject *b1 = [[NSObject alloc] init];
+    NSObject *b2 = [[NSObject alloc] init];
+
+    NSDictionary *dict = @{a1:b1,a2:b2};
+    NSLog(@&#34;%@&#34;, dict);
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">NSDictionary dictionaryWithObject:&lt;#(nonnull ObjectType)#&gt; forKey:&lt;#(nonnull id&lt;NSCopying&gt;)#&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p>上述代码会报错：<code>-[NSObject copyWithZone:]: unrecognized selector sent to instance 0x600000998180</code>，因为它的 key 是
+NSObject 类型，没有遵守 NSCopying 协议；</p>
+<p>而我们使用 NSMapTabTable 来处理这种场景时，就不会有什么问题：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">    NSObject *a1 = [[NSObject alloc] init];
+    NSObject *a2 = [[NSObject alloc] init];
+    
+    NSObject *b1 = [[NSObject alloc] init];
+    NSObject *b2 = [[NSObject alloc] init];
+
+    NSMapTable *table = [[NSMapTable alloc] initWithKeyOptions:NSPointerFunctionsWeakMemory valueOptions:NSPointerFunctionsWeakMemory capacity:2];
+    [table setObject:b1 forKey:a1];
+    [table setObject:b2 forKey:a2];
+    NSLog(@&#34;table:%@&#34;, table);
+</code></pre></td></tr></table>
+</div>
+</div><p>打印结果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">table:NSMapTable {
+[10] &lt;NSObject: 0x600001fe4180&gt; -&gt; &lt;NSObject: 0x600001fe41f0&gt;
+[11] &lt;NSObject: 0x600001fe4200&gt; -&gt; &lt;NSObject: 0x600001fe41e0&gt;
+}
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="5nspointerarraynsmaptablenshashtable-在-add-时性能欠佳">5.NSPointerArray、NSMapTable、NSHashTable 在 <code>add..</code> 时性能欠佳</h5>
+<p>具体可以参考 <a href="https://www.objc.io/issues/7-foundation/collections/">NSArray, NSSet, NSOrderedSet, and NSDictionary</a>。</p>
+<h5 id="6api-提供相对较少">6.API 提供相对较少</h5>
+<p>这个可以直接到相关 API 中去查看，比如 NSPointerArray 并没有提供 sort、contain 等 API。</p>
+<h3 id="总结">总结</h3>
+<p>基于 NSPointerArray、NSMapTable、NSHashTable 三者的特点，可以做一些 NSArray、NSDictionary、NSSet 无法做到的事情，比如弱引用、或者存储键值对 key 值非 string 类型的对象等等，但鉴于三者在 add 元素时性能较差，以及相对可用的 API 也相对较少，还是要谨慎使用。我目前了解到的是一般第三方库会使用的较多，比如 SDWebImage、IGListKit、YYText 等等，当然项目里也会使用，但使用相对较少，主要还是使用 NSArray、NSDictionary、NSSet 这些。</p>
+<p>参考文献：</p>
+<ul>
+<li><a href="https://nshipster.com/nshashtable-and-nsmaptable/">NSHash​Table &amp; NSMap​Table</a></li>
+<li><a href="https://www.objc.io/issues/7-foundation/collections/">NSArray, NSSet, NSOrderedSet, and NSDictionary</a></li>
+<li><a href="https://developer.apple.com/documentation/foundation/nsmaptable?language=occ">NSMapTable</a></li>
+<li><a href="https://developer.apple.com/documentation/foundation/nshashtable">NSHashTable</a></li>
+<li><a href="https://developer.apple.com/documentation/foundation/nspointerarray?language=occ">NSPointerArray</a></li>
+</ul>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">liupengkun</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+      2021-04-03
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://liupengkun1993.github.io/tags/ios/">iOS</a>
           
         </div>
-      <span class="more-meta"> 2344 words </span>
-      <span class="more-meta"> 5 min read </span>
+
       
-      
-      
-    </div>
-  </header>
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/ios/tips/ios-%E5%BC%80%E5%8F%91-json-%E5%A4%84%E7%90%86%E5%91%BD%E4%BB%A4-jq/">
+            <span class="next-text nav-default">iOS 开发 - JSON 处理命令 jq</span>
+            <span class="prev-text nav-mobile">Next</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
   
-  <div class="post-content">
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
     
-    <div class="post-summary">
-      下拉刷新控件目前比较火的有好几种，此前用过MJRefresh 和SVPullToRefresh，相对而言，还是觉得 MJRefresh 更好用！因此抽了些时间整理
-    </div>
-    <div class="read-more">
-      <a href="/post/ios/%E4%B8%89%E6%96%B9%E5%BA%93/ios%E5%BC%80%E5%8F%91%E4%B9%8B-%E5%88%B7%E6%96%B0%E6%A1%86%E6%9E%B6-mjrefresh-%E7%9A%84%E4%BD%BF%E7%94%A8/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
 
   
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/ios/tips/ios%E5%BC%80%E5%8F%91%E4%B9%8B-wkwebview-vs-uiwebview/">iOS开发之 - WKWebView VS UIWebView</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2016-10-13" class="post-time">
-        2016-10-13
-      </time>
-      <div class="post-category">
-          <a href="https://liupengkun1993.github.io/categories/ios/"> iOS </a>
-          
-        </div>
-      <span class="more-meta"> 1983 words </span>
-      <span class="more-meta"> 4 min read </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      WKWebView是苹果在 iOS 8 中推出的新框架，相比UIWebView来说，WKWebView 性能好，速度快，内存小，功能多，且支持了更多的 HTML5
-    </div>
-    <div class="read-more">
-      <a href="/post/ios/tips/ios%E5%BC%80%E5%8F%91%E4%B9%8B-wkwebview-vs-uiwebview/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/ios/%E4%B8%89%E6%96%B9%E5%BA%93/ios%E5%BC%80%E5%8F%91%E4%B9%8B-sdwebimage-%E7%9A%84%E4%BD%BF%E7%94%A8/">iOS开发之 - SDWebImage 的使用</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2016-10-09" class="post-time">
-        2016-10-09
-      </time>
-      <div class="post-category">
-          <a href="https://liupengkun1993.github.io/categories/ios/"> iOS </a>
-          
-        </div>
-      <span class="more-meta"> 1874 words </span>
-      <span class="more-meta"> 4 min read </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      SDWebImage 是一个开源的第三方库，在我们 iOS 开发中用到 SDWebImage 的地方有很多，比如在 tableView 中，在 collectionView 中&hellip;&hellip;不然它也不会高达 16000+ 这么多的 Star 了😄
-    </div>
-    <div class="read-more">
-      <a href="/post/ios/%E4%B8%89%E6%96%B9%E5%BA%93/ios%E5%BC%80%E5%8F%91%E4%B9%8B-sdwebimage-%E7%9A%84%E4%BD%BF%E7%94%A8/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/ios/%E4%B8%89%E6%96%B9%E5%BA%93/ios%E5%BC%80%E5%8F%91%E4%B9%8B-afnetworking-%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%E7%BD%91%E7%BB%9C%E7%9B%91%E5%90%AC/">iOS开发之 - AFNetworking - 上传、下载、网络监听</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2016-10-08" class="post-time">
-        2016-10-08
-      </time>
-      <div class="post-category">
-          <a href="https://liupengkun1993.github.io/categories/ios/"> iOS </a>
-          
-        </div>
-      <span class="more-meta"> 1073 words </span>
-      <span class="more-meta"> 3 min read </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      这一篇是接着上一篇总结的，如果有朋友需要了解网络请求的内容，可以到这里。和上篇一样，先说下这篇文章的大概内容，以便朋友们能够快速找到自己需要
-    </div>
-    <div class="read-more">
-      <a href="/post/ios/%E4%B8%89%E6%96%B9%E5%BA%93/ios%E5%BC%80%E5%8F%91%E4%B9%8B-afnetworking-%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD%E7%BD%91%E7%BB%9C%E7%9B%91%E5%90%AC/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-    <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/post/ios/%E4%B8%89%E6%96%B9%E5%BA%93/ios%E5%BC%80%E5%8F%91%E4%B9%8B-afnetworking-%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/">iOS开发之 - AFNetworking - 网络请求</a>
-    </h1>
-    
-    <div class="post-meta">
-      <time datetime="2016-10-08" class="post-time">
-        2016-10-08
-      </time>
-      <div class="post-category">
-          <a href="https://liupengkun1993.github.io/categories/ios/"> iOS </a>
-          
-        </div>
-      <span class="more-meta"> 1349 words </span>
-      <span class="more-meta"> 3 min read </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      最近一直很忙也没有时间写博客，今天正好有点空闲时间，所以就对 AFNetworking 做了一些简单的总结，特地记录下来，以便遇到的朋友们看看！！！ 先说下这篇文章的大
-    </div>
-    <div class="read-more">
-      <a href="/post/ios/%E4%B8%89%E6%96%B9%E5%BA%93/ios%E5%BC%80%E5%8F%91%E4%B9%8B-afnetworking-%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/" class="read-more-link">Read more</a>
-    </div>
-    
-  </div>
-</article>
-
-  
-</section>
-
-
-
-
-
-
-  
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-  <nav class="pagination">
-    <ul>
-      
-      <li >
-        <a href="/">1</a>
-      </li>
-      
-      <li >
-        <a href="/page/2/">2</a>
-      </li>
-      
-      <li >
-        <a href="/page/3/">3</a>
-      </li>
-      
-      <li >
-        <a href="/page/4/">4</a>
-      </li>
-      
-      <li >
-        <a href="/page/5/">5</a>
-      </li>
-      
-      <li >
-        <a href="/page/6/">6</a>
-      </li>
-      
-      <li >
-        <a href="/page/7/">7</a>
-      </li>
-      
-      <li >
-        <a href="/page/8/">8</a>
-      </li>
-      
-      <li  class="active" >
-        <a href="/page/9/">9</a>
-      </li>
-      
-    </ul>
-  </nav>
-
-  
-  
-
-
-
-
 
         </div>
       </div>

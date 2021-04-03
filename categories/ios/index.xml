@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>liupengkun</copyright>
-    <lastBuildDate>Thu, 01 Apr 2021 20:13:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/categories/ios/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Apr 2021 21:43:48 +0800</lastBuildDate><atom:link href="https://liupengkun1993.github.io/categories/ios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NSPointerArray &amp; NSMapTable &amp; NSHashTable</title>
+      <link>https://liupengkun1993.github.io/post/ios/tips/nspointerarray-nsmaptable-nshashtable/</link>
+      <pubDate>Sat, 03 Apr 2021 21:43:48 +0800</pubDate>
+      
+      <guid>https://liupengkun1993.github.io/post/ios/tips/nspointerarray-nsmaptable-nshashtable/</guid>
+      <description>简介 开发中经常使用的集合类型有 NSArray、NSDictionary、NSSet，这三种集合类型可以解决大部分需求场景，但如果涉及到弱引用</description>
+    </item>
+    
     <item>
       <title>iOS 开发 - JSON 处理命令 jq</title>
       <link>https://liupengkun1993.github.io/post/ios/tips/ios-%E5%BC%80%E5%8F%91-json-%E5%A4%84%E7%90%86%E5%91%BD%E4%BB%A4-jq/</link>
@@ -177,15 +186,6 @@
       
       <guid>https://liupengkun1993.github.io/post/reading-notes/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/</guid>
       <description>前言 文章共分为三篇： 第一篇：iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1) 第二篇：iOS 开发</description>
-    </item>
-    
-    <item>
-      <title>iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1)</title>
-      <link>https://liupengkun1993.github.io/post/reading-notes/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/</link>
-      <pubDate>Tue, 16 Jan 2018 15:43:48 +0800</pubDate>
-      
-      <guid>https://liupengkun1993.github.io/post/reading-notes/effective-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F-ios-%E4%B8%8E-os-x-%E4%BB%A3%E7%A0%81%E7%9A%84-52-%E4%B8%AA%E6%9C%89%E6%95%88%E6%96%B9%E6%B3%95%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/</guid>
-      <description>《Effective Objective-C 2.0: 编写高质量 iOS 与 OS X 代码的 52 个有效方法》是一本非常经典的 OC 书籍。这本书从语法、接口与 API 设计、内存管理、框架等 7 大方面总</description>
     </item>
     
   </channel>
