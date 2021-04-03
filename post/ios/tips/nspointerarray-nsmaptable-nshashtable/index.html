@@ -364,17 +364,17 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    NSPointerArray *pointerArray = [[NSPointerArray alloc] init];
-    [pointerArray addPointer:nil];
-    [pointerArray addPointer:NULL];
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="n">NSPointerArray</span> <span class="o">*</span><span class="n">pointerArray</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSPointerArray</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">pointerArray</span> <span class="nl">addPointer</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">pointerArray</span> <span class="nl">addPointer</span><span class="p">:</span><span class="nb">NULL</span><span class="p">];</span>
 
-    NSMapTable *mapTable = [[NSMapTable alloc] init];
-    [mapTable setObject:NULL forKey:NULL];
+    <span class="n">NSMapTable</span> <span class="o">*</span><span class="n">mapTable</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSMapTable</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">mapTable</span> <span class="nl">setObject</span><span class="p">:</span><span class="nb">NULL</span> <span class="nl">forKey</span><span class="p">:</span><span class="nb">NULL</span><span class="p">];</span>
 
-    NSHashTable *hashTable = [[NSHashTable alloc] init];
-    [hashTable addObject:NULL];
+    <span class="n">NSHashTable</span> <span class="o">*</span><span class="n">hashTable</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSHashTable</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">hashTable</span> <span class="nl">addObject</span><span class="p">:</span><span class="nb">NULL</span><span class="p">];</span>
     
-    NSLog(@&#34;\n\npointerArray = %@count = %ld\n\nmapTable = %@count = %ld\n\nhashTable = %@count = %ld&#34;, pointerArray,pointerArray.count, mapTable,mapTable.count, hashTable, hashTable.count);
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;</span><span class="se">\n\n</span><span class="s">pointerArray = %@count = %ld</span><span class="se">\n\n</span><span class="s">mapTable = %@count = %ld</span><span class="se">\n\n</span><span class="s">hashTable = %@count = %ld&#34;</span><span class="p">,</span> <span class="n">pointerArray</span><span class="p">,</span><span class="n">pointerArray</span><span class="p">.</span><span class="n">count</span><span class="p">,</span> <span class="n">mapTable</span><span class="p">,</span><span class="n">mapTable</span><span class="p">.</span><span class="n">count</span><span class="p">,</span> <span class="n">hashTable</span><span class="p">,</span> <span class="n">hashTable</span><span class="p">.</span><span class="n">count</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>打印：</p>
@@ -391,15 +391,15 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">pointerArray = &lt;NSConcretePointerArray: 0x600001d50460&gt;count = 2
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">pointerArray</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nl">NSConcretePointerArray</span><span class="p">:</span> <span class="mh">0x600001d50460</span><span class="o">&gt;</span><span class="n">count</span> <span class="o">=</span> <span class="mi">2</span>
 
-mapTable = NSMapTable {
-}
-count = 0
+<span class="n">mapTable</span> <span class="o">=</span> <span class="n">NSMapTable</span> <span class="p">{</span>
+<span class="p">}</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 
-hashTable = NSHashTable {
-}
-count = 0
+<span class="n">hashTable</span> <span class="o">=</span> <span class="n">NSHashTable</span> <span class="p">{</span>
+<span class="p">}</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 </code></pre></td></tr></table>
 </div>
 </div><h5 id="3三者都拥有初始化方法---instancetypeinitwithoptionsnspointerfunctionsoptionsoptions参数-options-代表其所支持的放入对象的指针管理选项">3.三者都拥有初始化方法 <code>- (instancetype)initWithOptions:(NSPointerFunctionsOptions)options</code>，参数 options 代表其所支持的放入对象的指针管理选项：</h5>
@@ -410,9 +410,9 @@ count = 0
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    NSPointerArray *pointerArray = [[NSPointerArray alloc] initWithOptions:&lt;#(NSPointerFunctionsOptions)#&gt;];
-    NSMapTable *mapTable = [[NSMapTable alloc] initWithKeyOptions:&lt;#(NSPointerFunctionsOptions)#&gt; valueOptions:&lt;#(NSPointerFunctionsOptions)#&gt; capacity:&lt;#(NSUInteger)#&gt;];
-    NSHashTable *hashTable = [[NSHashTable alloc] initWithOptions:&lt;#(NSPointerFunctionsOptions)#&gt; capacity:&lt;#(NSUInteger)#&gt;];
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="n">NSPointerArray</span> <span class="o">*</span><span class="n">pointerArray</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSPointerArray</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithOptions</span><span class="p">:</span><span class="o">&lt;</span><span class="err">#</span><span class="p">(</span><span class="n">NSPointerFunctionsOptions</span><span class="p">)</span><span class="err">#</span><span class="o">&gt;</span><span class="p">];</span>
+    <span class="n">NSMapTable</span> <span class="o">*</span><span class="n">mapTable</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSMapTable</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithKeyOptions</span><span class="p">:</span><span class="o">&lt;</span><span class="err">#</span><span class="p">(</span><span class="n">NSPointerFunctionsOptions</span><span class="p">)</span><span class="err">#</span><span class="o">&gt;</span> <span class="nl">valueOptions</span><span class="p">:</span><span class="o">&lt;</span><span class="err">#</span><span class="p">(</span><span class="n">NSPointerFunctionsOptions</span><span class="p">)</span><span class="err">#</span><span class="o">&gt;</span> <span class="nl">capacity</span><span class="p">:</span><span class="o">&lt;</span><span class="err">#</span><span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="err">#</span><span class="o">&gt;</span><span class="p">];</span>
+    <span class="n">NSHashTable</span> <span class="o">*</span><span class="n">hashTable</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSHashTable</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithOptions</span><span class="p">:</span><span class="o">&lt;</span><span class="err">#</span><span class="p">(</span><span class="n">NSPointerFunctionsOptions</span><span class="p">)</span><span class="err">#</span><span class="o">&gt;</span> <span class="nl">capacity</span><span class="p">:</span><span class="o">&lt;</span><span class="err">#</span><span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="err">#</span><span class="o">&gt;</span><span class="p">];</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>options 值：</p>
@@ -441,33 +441,41 @@ count = 0
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">typedef NS_OPTIONS(NSUInteger, NSPointerFunctionsOptions) {
-	// 每种类别的选项互斥，只能每种类别选择一个
-    // Memory Options（内存语义管理选项）
-    NSPointerFunctionsStrongMemory, // 和 strong 一样，默认
-    NSPointerFunctionsZeroingWeakMemory, // 已废弃，在 GC 下，弱引用指针，防止悬挂指针
-    NSPointerFunctionsOpaqueMemory, // 在指针去除时不做任何动作
-    NSPointerFunctionsMallocMemory, // 去除时调用 free() , 加入时 calloc()
-    NSPointerFunctionsMachVirtualMemory, // 使用可执行文件的虚拟内存
-    NSPointerFunctionsWeakMemory, // 和 weak 一样
-    
-    // Personaility Options(对象处理选项-如何进行哈希算法，判定等同性，描述)
-    NSPointerFunctionsObjectPersonality, // 使用 NSObject 的 hash、isEqual、description，默认
-    NSPointerFunctionsOpaquePersonality, // 使用偏移后指针，进行 hash 和直接比较等同性
-    NSPointerFunctionsObjectPointerPersonality, // 和上一个相同，多了 description 方法
-    NSPointerFunctionsCStringPersonality, // 使用 c 字符串的 hash 和 strcmp 比较，%s 作为 decription
-    NSPointerFunctionsStructPersonality, // 使用内存的 hash 和 memcmp
-    NSPointerFunctionsIntegerPersonality, // 使用偏移量作为 hash 和等同性判断
-
-    // Copy Options（对象拷贝选项）
-    NSPointerFunctionsCopyIn, // 通过 NSCopying 方法，复制后存入
-};
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="k">typedef</span> <span class="nf">NS_OPTIONS</span><span class="p">(</span><span class="n">NSUInteger</span><span class="p">,</span> <span class="n">NSPointerFunctionsOptions</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">// 每种类别的选项互斥，只能每种类别选择一个
+</span><span class="c1"></span>    <span class="c1">// Memory Options（内存语义管理选项）
+</span><span class="c1"></span>    <span class="n">NSPointerFunctionsStrongMemory</span><span class="p">,</span> <span class="c1">// 和 strong 一样，默认
+</span><span class="c1"></span>    <span class="n">NSPointerFunctionsZeroingWeakMemory</span><span class="p">,</span> <span class="c1">// 已废弃，在 GC 下，弱引用指针，防止悬挂指针
+</span><span class="c1"></span>    <span class="n">NSPointerFunctionsOpaqueMemory</span><span class="p">,</span> <span class="c1">// 在指针去除时不做任何动作
+</span><span class="c1"></span>    <span class="n">NSPointerFunctionsMallocMemory</span><span class="p">,</span> <span class="c1">// 去除时调用 free() , 加入时 calloc()
+</span><span class="c1"></span>    <span class="n">NSPointerFunctionsMachVirtualMemory</span><span class="p">,</span> <span class="c1">// 使用可执行文件的虚拟内存
+</span><span class="c1"></span>    <span class="n">NSPointerFunctionsWeakMemory</span><span class="p">,</span> <span class="c1">// 和 weak 一样
+</span><span class="c1"></span>    
+    <span class="c1">// Personaility Options(对象处理选项-如何进行哈希算法，判定等同性，描述)
+</span><span class="c1"></span>    <span class="n">NSPointerFunctionsObjectPersonality</span><span class="p">,</span> <span class="c1">// 使用 NSObject 的 hash、isEqual、description，默认
+</span><span class="c1"></span>    <span class="n">NSPointerFunctionsOpaquePersonality</span><span class="p">,</span> <span class="c1">// 使用偏移后指针，进行 hash 和直接比较等同性
+</span><span class="c1"></span>    <span class="n">NSPointerFunctionsObjectPointerPersonality</span><span class="p">,</span> <span class="c1">// 和上一个相同，多了 description 方法
+</span><span class="c1"></span>    <span class="n">NSPointerFunctionsCStringPersonality</span><span class="p">,</span> <span class="c1">// 使用 c 字符串的 hash 和 strcmp 比较，%s 作为 decription
+</span><span class="c1"></span>    <span class="n">NSPointerFunctionsStructPersonality</span><span class="p">,</span> <span class="c1">// 使用内存的 hash 和 memcmp
+</span><span class="c1"></span>    <span class="n">NSPointerFunctionsIntegerPersonality</span><span class="p">,</span> <span class="c1">// 使用偏移量作为 hash 和等同性判断
+</span><span class="c1"></span>
+    <span class="c1">// Copy Options（对象拷贝选项）
+</span><span class="c1"></span>    <span class="n">NSPointerFunctionsCopyIn</span><span class="p">,</span> <span class="c1">// 通过 NSCopying 方法，复制后存入
+</span><span class="c1"></span><span class="p">};</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>由上述可知，当我们选择 <code>NSPointerFunctionsWeakMemory</code> 时，属于弱引用。</p>
 <h5 id="4nsmaptable-的-key-无须遵守-nscopying-协议">4.NSMapTable 的 key 无须遵守 NSCopying 协议</h5>
 <p>我们在使用 NSDcitionary 时，可以看到 key 的类型遵守了 NSCopying 协议，因为 value 是根据 key 值来查找的，因此 key 值不可改变，为了保证这个特性所以使用了 NSCopying 协议。总结来说，NSDcitionary 的映射关系是 <code>object : string</code>，而 NSMapTabTable 的映射关系是 <code>object : object </code>。</p>
-<p>可以看个例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="n">NSDictionary</span> <span class="nl">dictionaryWithObject</span><span class="p">:</span><span class="o">&lt;</span><span class="err">#</span><span class="p">(</span><span class="n">nonnull</span> <span class="n">ObjectType</span><span class="p">)</span><span class="err">#</span><span class="o">&gt;</span> <span class="nl">forKey</span><span class="p">:</span><span class="o">&lt;</span><span class="err">#</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">id</span><span class="o">&lt;</span><span class="n">NSCopying</span><span class="o">&gt;</span><span class="p">)</span><span class="err">#</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>可以看个例子：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -480,22 +488,14 @@ count = 0
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">NSObject *a1 = [[NSObject alloc] init];
-    NSObject *a2 = [[NSObject alloc] init];
+<pre class="chroma"><code class="language-objc" data-lang="objc">	<span class="n">NSObject</span> <span class="o">*</span><span class="n">a1</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSObject</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">NSObject</span> <span class="o">*</span><span class="n">a2</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSObject</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
     
-    NSObject *b1 = [[NSObject alloc] init];
-    NSObject *b2 = [[NSObject alloc] init];
+    <span class="n">NSObject</span> <span class="o">*</span><span class="n">b1</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSObject</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">NSObject</span> <span class="o">*</span><span class="n">b2</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSObject</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
 
-    NSDictionary *dict = @{a1:b1,a2:b2};
-    NSLog(@&#34;%@&#34;, dict);
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">NSDictionary dictionaryWithObject:&lt;#(nonnull ObjectType)#&gt; forKey:&lt;#(nonnull id&lt;NSCopying&gt;)#&gt;
+    <span class="n">NSDictionary</span> <span class="o">*</span><span class="n">dict</span> <span class="o">=</span> <span class="l">@{</span><span class="nl">a1</span><span class="p">:</span><span class="n">b1</span><span class="p">,</span><span class="nl">a2</span><span class="p">:</span><span class="n">b2</span><span class="l">}</span><span class="p">;</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;%@&#34;</span><span class="p">,</span> <span class="n">dict</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>上述代码会报错：<code>-[NSObject copyWithZone:]: unrecognized selector sent to instance 0x600000998180</code>，因为它的 key 是
@@ -515,16 +515,16 @@ NSObject 类型，没有遵守 NSCopying 协议；</p>
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">    NSObject *a1 = [[NSObject alloc] init];
-    NSObject *a2 = [[NSObject alloc] init];
+<pre class="chroma"><code class="language-objc" data-lang="objc">    <span class="n">NSObject</span> <span class="o">*</span><span class="n">a1</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSObject</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">NSObject</span> <span class="o">*</span><span class="n">a2</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSObject</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
     
-    NSObject *b1 = [[NSObject alloc] init];
-    NSObject *b2 = [[NSObject alloc] init];
+    <span class="n">NSObject</span> <span class="o">*</span><span class="n">b1</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSObject</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">NSObject</span> <span class="o">*</span><span class="n">b2</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSObject</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
 
-    NSMapTable *table = [[NSMapTable alloc] initWithKeyOptions:NSPointerFunctionsWeakMemory valueOptions:NSPointerFunctionsWeakMemory capacity:2];
-    [table setObject:b1 forKey:a1];
-    [table setObject:b2 forKey:a2];
-    NSLog(@&#34;table:%@&#34;, table);
+    <span class="n">NSMapTable</span> <span class="o">*</span><span class="n">table</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSMapTable</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithKeyOptions</span><span class="p">:</span><span class="n">NSPointerFunctionsWeakMemory</span> <span class="nl">valueOptions</span><span class="p">:</span><span class="n">NSPointerFunctionsWeakMemory</span> <span class="nl">capacity</span><span class="p">:</span><span class="mi">2</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">table</span> <span class="nl">setObject</span><span class="p">:</span><span class="n">b1</span> <span class="nl">forKey</span><span class="p">:</span><span class="n">a1</span><span class="p">];</span>
+    <span class="p">[</span><span class="n">table</span> <span class="nl">setObject</span><span class="p">:</span><span class="n">b2</span> <span class="nl">forKey</span><span class="p">:</span><span class="n">a2</span><span class="p">];</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&#34;table:%@&#34;</span><span class="p">,</span> <span class="n">table</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>打印结果：</p>
@@ -536,10 +536,10 @@ NSObject 类型，没有遵守 NSCopying 协议；</p>
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">table:NSMapTable {
-[10] &lt;NSObject: 0x600001fe4180&gt; -&gt; &lt;NSObject: 0x600001fe41f0&gt;
-[11] &lt;NSObject: 0x600001fe4200&gt; -&gt; &lt;NSObject: 0x600001fe41e0&gt;
-}
+<pre class="chroma"><code class="language-objc" data-lang="objc"><span class="nl">table</span><span class="p">:</span><span class="n">NSMapTable</span> <span class="p">{</span>
+<span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">&lt;</span><span class="nl">NSObject</span><span class="p">:</span> <span class="mh">0x600001fe4180</span><span class="o">&gt;</span> <span class="o">-&gt;</span> <span class="o">&lt;</span><span class="nl">NSObject</span><span class="p">:</span> <span class="mh">0x600001fe41f0</span><span class="o">&gt;</span>
+<span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="o">&lt;</span><span class="nl">NSObject</span><span class="p">:</span> <span class="mh">0x600001fe4200</span><span class="o">&gt;</span> <span class="o">-&gt;</span> <span class="o">&lt;</span><span class="nl">NSObject</span><span class="p">:</span> <span class="mh">0x600001fe41e0</span><span class="o">&gt;</span>
+<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div><h5 id="5nspointerarraynsmaptablenshashtable-在-add-时性能欠佳">5.NSPointerArray、NSMapTable、NSHashTable 在 <code>add..</code> 时性能欠佳</h5>
