@@ -342,9 +342,9 @@
       <h3 id="简介">简介</h3>
 <p>开发中经常使用的集合类型有 NSArray、NSDictionary、NSSet，这三种集合类型可以解决大部分需求场景，但如果涉及到弱引用集合类、NSCopying 相关问题，则对应可以使用 NSPointerArray、NSMapTable、NSHashTable。</p>
 <h3 id="对应关系">对应关系</h3>
-<p>NSPointerArray 对应 NSArray、NSMutebleArray</p>
-<p>NSMapTable 对应 NSDictionary、NSMutebleDictionary</p>
-<p>NSHashTable 对应 NSSet、NSMutebleSet</p>
+<p>NSPointerArray 对应 NSArray、NSMutableArray</p>
+<p>NSMapTable 对应 NSDictionary、NSMutableDictionary</p>
+<p>NSHashTable 对应 NSSet、NSMutableSet</p>
 <h3 id="特点">特点</h3>
 <h5 id="1nspointerarraynsmaptablenshashtable-三者都是可变类型没有不可变的父类">1.NSPointerArray、NSMapTable、NSHashTable 三者都是可变类型，没有不可变的父类</h5>
 <h5 id="2在添加元素时无须判空可以直接添加-nullnil-等空值见下方示例代码">2.在添加元素时，无须判空，可以直接添加 NULL、nil 等空值，见下方示例代码：</h5>
